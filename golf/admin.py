@@ -12,7 +12,7 @@ class GolfClubAdmin(admin.ModelAdmin):
 
 
 class PriceTableAdmin(admin.ModelAdmin):
-    pass
+    list_filter = ('company__title', 'club__title')
 
 
 admin.site.register(models.TravelAgent, TravelAgentAdmin)

@@ -112,10 +112,15 @@ class PriceTable(TimeStampedModel):
     company = models.ForeignKey(
         'golf.TravelAgent',
         verbose_name=_('Travel agent'),
-        null=True,
-        blank=True,
         db_index=True,
-        on_delete=models.SET_NULL,
+        on_delete=models.CASCADE,
+    )
+
+    club = models.ForeignKey(
+        'golf.GolfClub',
+        verbose_name=_('Golf club'),
+        db_index=True,
+        on_delete=models.CASCADE,
     )
 
     season = models.IntegerField(
