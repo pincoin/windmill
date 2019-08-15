@@ -57,6 +57,11 @@ class TravelAgent(TimeStampedModel):
 
 
 class GolfClub(TimeStampedModel):
+    HOLE_CHOICES = Choices(
+        (0, 'eighteen', _('18 Holes')),
+        (1, 'nine', _('9 Holes')),
+    )
+
     title = models.CharField(
         verbose_name=_('Golf club name'),
         max_length=255,
@@ -81,6 +86,33 @@ class GolfClub(TimeStampedModel):
         max_length=255,
         blank=True,
         null=True,
+    )
+
+    hole = models.IntegerField(
+        verbose_name=_('No. of Holes'),
+        choices=HOLE_CHOICES,
+        default=HOLE_CHOICES.eighteen,
+        db_index=True,
+    )
+
+    cart_rental_required = models.BooleanField(
+        verbose_name=_('Cart rental required'),
+        default=False,
+        db_index=True,
+    )
+
+    cart_fee = models.DecimalField(
+        verbose_name=_('Cart fee'),
+        max_digits=11,
+        decimal_places=2,
+        help_text=_('THB'),
+    )
+
+    caddie_fee = models.DecimalField(
+        verbose_name=_('Caddie fee'),
+        max_digits=11,
+        decimal_places=2,
+        help_text=_('THB'),
     )
 
     class Meta:
