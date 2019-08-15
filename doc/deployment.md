@@ -153,7 +153,7 @@ $ sudo chown was:www-data /var/www/windmill/run/
 $ sudo su - was
 $ cd /var/www/windmill/
 $ pyenv shell django
-$ pip install -r requirements.txt
+$ pip install -r repo/requirements.txt
 $ pip install mysqlclient gunicorn
 $ python manage.py makemigrations
 $ python manage.py migrate
