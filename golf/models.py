@@ -167,4 +167,4 @@ class PriceTable(TimeStampedModel):
         verbose_name_plural = _('Price tables')
 
     def __str__(self):
-        return self.company.title, self.fee
+        return '{} {} {}'.format(self.company.title, self.club.title, self.fee)
