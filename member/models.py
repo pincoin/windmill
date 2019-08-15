@@ -7,6 +7,11 @@ from model_utils.models import (
 
 
 class Profile(TimeStampedModel):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
+
     cellphone = models.CharField(
         verbose_name=_('Cellphone number'),
         max_length=16,
