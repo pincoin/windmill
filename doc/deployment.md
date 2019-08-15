@@ -167,3 +167,107 @@ test
 $ python manage.py runserver
 $ gunicorn --bind 0.0.0.0:8000 conf.wsgi:application
 ```
+
+
+## NGINX
+
+### /etc/nginx/sites-available/default
+
+```
+server {
+    listen 80 default_server;
+    server_name _;
+    return 444;
+}
+```
+
+### /etc/nginx/sites-available/com.windmill.www-ssl
+
+```
+upstream app_server {
+    server unix:/var/www/windmill/run/gunicorn.sock;
+}
+
+server {
+    listen 443 ssl;
+    server_name www.windmill.com;
+    charset utf-8;
+    client_max_body_size 16M;
+
+    ssl on;
+    ssl_certificate /var/www/windmill/ssl/windmill_com.pem;
+    ssl_certificate_key /var/www/windmill/ssl/windmill_com.key;
+
+    root /var/www/windmill/repo;
+
+    location = /favicon.ico {
+        access_log off;
+        log_not_found off;
+    }
+
+    location /assets/ {
+        access_log off;
+        log_not_found off;
+    }
+
+    location /media/ {
+        access_log off;
+        log_not_found off;
+    }
+
+    location / {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+        proxy_pass http://app_server;
+    }
+
+    access_log /var/www/windmill/logs/access.log;
+    error_log /var/www/windmill/logs/error.log;
+}
+```
+
+```
+$ sudo ln -s /etc/nginx/sites-available/com.windmill.www /etc/nginx/sites-enabled/
+$ sudo nginx -t
+$ sudo service nginx restart
+```
+
+### Gunicorn
+
+/etc/systemd/system/gunicorn.service
+
+```
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=was
+Group=www-data
+WorkingDirectory=/var/www/windmill/repo
+ExecStart=/home/was/.pyenv/versions/django/bin/gunicorn \
+    --workers 3 \
+    --bind unix:/var/www/windmill/run/gunicorn.sock \
+    --env DJANGO_SETTINGS_MODULE=conf.settings \
+    --log-level info \
+    --access-logfile /var/www/windmill/logs/gunicorn-access.log \
+    --error-logfile /var/www/windmill/logs/gunicorn-errors.log \
+    conf.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```
+$ sudo systemctl enable gunicorn
+$ sudo systemctl start gunicorn
+$ sudo systemctl status gunicorn
+```
+
+### Redis
+
+### Memcached
+
+### RabbitMQ
