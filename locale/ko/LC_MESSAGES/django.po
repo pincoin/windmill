@@ -84,11 +84,11 @@ msgstr "여행사"
 
 #: golf/models.py:61
 msgid "18 Holes"
-msgstr ""
+msgstr "18홀"
 
 #: golf/models.py:62
 msgid "9 Holes"
-msgstr ""
+msgstr "9홀"
 
 #: golf/models.py:66
 msgid "Golf club name"
@@ -96,19 +96,19 @@ msgstr "골프클럽 이름"
 
 #: golf/models.py:92
 msgid "No. of Holes"
-msgstr ""
+msgstr "홀수"
 
 #: golf/models.py:99
 msgid "Cart rental required"
-msgstr ""
+msgstr "카드 대여 필수"
 
 #: golf/models.py:105
 msgid "Cart fee"
-msgstr ""
+msgstr "카트 요금"
 
 #: golf/models.py:112
 msgid "Caddie fee"
-msgstr ""
+msgstr "캐디 요금"
 
 #: golf/models.py:120
 msgid "Golf clubs"
