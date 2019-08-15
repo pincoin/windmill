@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-15 18:34+0000\n"
+"POT-Creation-Date: 2019-08-15 19:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,6 +29,18 @@ msgstr "태국어"
 msgid "English"
 msgstr "영어"
 
+#: golf/admin.py:31 golf/models.py:52 golf/models.py:146 member/models.py:31
+msgid "Travel agent"
+msgstr "여행사"
+
+#: golf/admin.py:37 golf/models.py:119 golf/models.py:153
+msgid "Golf club"
+msgstr "골프클럽"
+
+#: golf/apps.py:7
+msgid "Golf"
+msgstr "골프"
+
 #: golf/models.py:9
 msgid "Travel agent name"
 msgstr "여행사 이름"
@@ -37,15 +49,15 @@ msgstr "여행사 이름"
 msgid "Bank account"
 msgstr "은행계좌"
 
-#: golf/models.py:21 golf/models.py:66
+#: golf/models.py:21 golf/models.py:71
 msgid "Phone number"
 msgstr "전화번호"
 
-#: golf/models.py:26 golf/models.py:73
+#: golf/models.py:26 golf/models.py:78
 msgid "Email address"
 msgstr "이메일주소"
 
-#: golf/models.py:31 golf/models.py:80
+#: golf/models.py:31 golf/models.py:85
 msgid "Website"
 msgstr "웹사이트"
 
@@ -53,7 +65,8 @@ msgstr "웹사이트"
 msgid "Deposit amount"
 msgstr "보증금"
 
-#: golf/models.py:41 golf/models.py:146 golf/models.py:153
+#: golf/models.py:41 golf/models.py:108 golf/models.py:115 golf/models.py:183
+#: golf/models.py:190
 msgid "THB"
 msgstr "THB"
 
@@ -65,83 +78,99 @@ msgstr "비고"
 msgid "A short description"
 msgstr "간단한 설명"
 
-#: golf/models.py:52 golf/models.py:114 member/models.py:31
-msgid "Travel agent"
-msgstr "여행사"
-
 #: golf/models.py:53
 msgid "Travel agents"
 msgstr "여행사"
 
 #: golf/models.py:61
+msgid "18 Holes"
+msgstr ""
+
+#: golf/models.py:62
+msgid "9 Holes"
+msgstr ""
+
+#: golf/models.py:66
 msgid "Golf club name"
 msgstr "골프클럽 이름"
 
-#: golf/models.py:87
-msgid "Golf club"
-msgstr "골프클럽"
+#: golf/models.py:92
+msgid "No. of Holes"
+msgstr ""
 
-#: golf/models.py:88
+#: golf/models.py:99
+msgid "Cart rental required"
+msgstr ""
+
+#: golf/models.py:105
+msgid "Cart fee"
+msgstr ""
+
+#: golf/models.py:112
+msgid "Caddie fee"
+msgstr ""
+
+#: golf/models.py:120
 msgid "Golf clubs"
 msgstr "골프클럽"
 
-#: golf/models.py:96
+#: golf/models.py:128
 msgid "Low season"
 msgstr "비성수기"
 
-#: golf/models.py:97
+#: golf/models.py:129
 msgid "High season"
 msgstr "성수기"
 
-#: golf/models.py:101
+#: golf/models.py:133
 msgid "Weekday"
 msgstr "평일"
 
-#: golf/models.py:102
+#: golf/models.py:134
 msgid "Weekend"
 msgstr "주말"
 
-#: golf/models.py:106
+#: golf/models.py:138
 msgid "Twilight"
 msgstr "새벽"
 
-#: golf/models.py:107
+#: golf/models.py:139
 msgid "Morning"
 msgstr "오전"
 
-#: golf/models.py:108
+#: golf/models.py:140
 msgid "Daytime"
 msgstr "오후"
 
-#: golf/models.py:109
+#: golf/models.py:141
 msgid "Night"
 msgstr "야간"
 
-#: golf/models.py:122
+#: golf/models.py:159
 msgid "High/Low Season"
 msgstr "성수기/비성수기"
 
-#: golf/models.py:129
+#: golf/models.py:166
 msgid "Day of week"
 msgstr "평일/주말"
 
-#: golf/models.py:136
+#: golf/models.py:173
 msgid "Time slot"
 msgstr "시간대"
 
-#: golf/models.py:143
+#: golf/models.py:180
 msgid "Fee amount"
 msgstr "요금"
 
-#: golf/models.py:150
+#: golf/models.py:187
 msgid "Cost amount"
 msgstr "비용"
 
-#: golf/models.py:161
+#: golf/models.py:198
 msgid "Price table"
 msgstr "가격표"
 
-#: golf/models.py:162
+#: golf/models.py:199
 msgid "Price tables"
 msgstr "가격표"
 
@@ -152,6 +181,10 @@ msgstr "계정"
 #: member/admin.py:18 member/models.py:39
 msgid "Profile"
 msgstr "프로필"
+
+#: member/apps.py:7
+msgid "Member"
+msgstr "회원"
 
 #: member/models.py:16
 msgid "Cellphone number"
