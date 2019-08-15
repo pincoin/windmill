@@ -10,7 +10,7 @@ class TravelAgentAdmin(admin.ModelAdmin):
 
 
 class GolfClubAdmin(admin.ModelAdmin):
-    list_display = ('title', 'phone', 'email', 'website')
+    list_display = ('title', 'hole', 'cart_rental_required', 'cart_fee', 'caddie_fee', 'phone', 'email',)
     search_fields = ('title',)
 
 
