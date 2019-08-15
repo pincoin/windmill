@@ -1,10 +1,29 @@
 from django.contrib import admin
+from django.utils.translation import ugettext_lazy as _
 
 from . import models
 
 
 class ProfileAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('user', 'cellphone', 'line_id', 'company')
+    list_filter = ('company__title',)
+    search_fields = ('user__email', 'cellphone',)
+    raw_id_fields = ('user',)
+    ordering = ('-created',)
+
+    fieldsets = (
+        (_('Account'), {
+            'fields': ('user',)
+        }),
+        (_('Profile'), {
+            'fields': ('cellphone', 'line_id', 'company')
+        }),
+    )
+
+    def get_queryset(self, request):
+        return super(ProfileAdmin, self) \
+            .get_queryset(request) \
+            .select_related('user')
 
 
 class LoginLogAdmin(admin.ModelAdmin):
