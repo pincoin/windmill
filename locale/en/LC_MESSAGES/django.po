@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-16 15:38+0000\n"
+"POT-Creation-Date: 2019-08-16 16:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,6 +49,7 @@ msgid "Me"
 msgstr ""
 
 #: conf/templates/conf/base.html:84 member/admin.py:18 member/models.py:39
+#: member/templates/member/account/profile_base.html:16
 msgid "Profile"
 msgstr ""
 
@@ -111,7 +112,7 @@ msgid "Phone number"
 msgstr ""
 
 #: golf/models.py:57 golf/models.py:109 member/models.py:70
-#: member/templates/member/account/email_confirm.html:21
+#: member/templates/member/account/email_confirm.html:22
 msgid "Email address"
 msgstr ""
 
@@ -312,50 +313,42 @@ msgstr ""
 msgid "This account is inactive."
 msgstr ""
 
-#: member/templates/member/account/email.html:29
-msgid "The following e-mail addresses are associated with your account:"
-msgstr ""
-
-#: member/templates/member/account/email.html:60
+#: member/templates/member/account/email.html:49
 msgid "Primary"
 msgstr ""
 
-#: member/templates/member/account/email.html:66
+#: member/templates/member/account/email.html:55
 msgid "Verified"
 msgstr ""
 
-#: member/templates/member/account/email.html:70
+#: member/templates/member/account/email.html:59
 msgid "Unverified"
 msgstr ""
 
-#: member/templates/member/account/email.html:85
+#: member/templates/member/account/email.html:74
 msgid "Make Primary"
 msgstr ""
 
-#: member/templates/member/account/email.html:93
+#: member/templates/member/account/email.html:82
 msgid "Re-send Verification"
 msgstr ""
 
-#: member/templates/member/account/email.html:101
+#: member/templates/member/account/email.html:90
 msgid "Remove"
 msgstr ""
 
-#: member/templates/member/account/email.html:111
+#: member/templates/member/account/email.html:100
 msgid ""
 "Warning: You currently do not have any e-mail address set up. You should "
 "really add an e-mail address so you can receive notifications, reset your "
 "password, etc."
 msgstr ""
 
-#: member/templates/member/account/email.html:124
-msgid "Add E-mail Address"
-msgstr ""
-
-#: member/templates/member/account/email.html:171
+#: member/templates/member/account/email.html:148
 msgid "Add E-mail"
 msgstr ""
 
-#: member/templates/member/account/email.html:187
+#: member/templates/member/account/email.html:164
 msgid "Do you really want to remove the selected e-mail address?"
 msgstr ""
 
@@ -391,23 +384,23 @@ msgstr ""
 msgid "Password Reset E-mail"
 msgstr ""
 
-#: member/templates/member/account/email_confirm.html:22
+#: member/templates/member/account/email_confirm.html:25
 msgid "Username"
 msgstr ""
 
-#: member/templates/member/account/email_confirm.html:23
+#: member/templates/member/account/email_confirm.html:28
 msgid "Please, confirm the email address and username as shown above:"
 msgstr ""
 
-#: member/templates/member/account/email_confirm.html:31
+#: member/templates/member/account/email_confirm.html:37
 msgid "Confirm"
 msgstr ""
 
-#: member/templates/member/account/email_confirm.html:40
+#: member/templates/member/account/email_confirm.html:46
 msgid "This e-mail confirmation link expired or is invalid."
 msgstr ""
 
-#: member/templates/member/account/email_confirm.html:43
+#: member/templates/member/account/email_confirm.html:49
 #, python-format
 msgid ""
 "\n"
@@ -424,6 +417,18 @@ msgstr ""
 
 #: member/templates/member/account/logout.html:17
 msgid "Are you sure you want to sign out?"
+msgstr ""
+
+#: member/templates/member/account/profile_base.html:20
+msgid "Organizations"
+msgstr ""
+
+#: member/templates/member/account/profile_base.html:24
+msgid "Email management"
+msgstr ""
+
+#: member/templates/member/account/profile_base.html:28
+msgid "Change password"
 msgstr ""
 
 #: member/templates/member/account/snippets/already_logged_in.html:5
