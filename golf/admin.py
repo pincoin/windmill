@@ -5,7 +5,9 @@ from . import models
 
 
 class AgencyAdmin(admin.ModelAdmin):
-    list_display = ('title', 'agency_type', 'phone', 'email', 'website', 'deposit', 'bank_account')
+    list_display = ('title', 'agency_type',
+                    'phone', 'email', 'bank_account',
+                    'cancellable_days', 'due_days', 'bookable_days', 'deposit')
     search_fields = ('title',)
 
 
