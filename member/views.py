@@ -46,11 +46,10 @@ class MemberLogoutView(allauth_views.LogoutView):
         return context
 
 
-
 class MemberSignupView(allauth_views.SignupView):
     template_name = 'member/account/signup.html'
 
     def get_context_data(self, **kwargs):
         context = super(MemberSignupView, self).get_context_data(**kwargs)
-        context['page_title'] = _('Sign up')
+        context['page_title'] = _('Sign Up')
         return context

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-16 05:54+0000\n"
+"POT-Creation-Date: 2019-08-16 14:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,24 +17,52 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: conf/settings.py:90
+#: conf/formmixins.py:23
+msgid "Invalid reCAPTCHA. Please try again."
+msgstr "보안문자를 체크해주세요."
+
+#: conf/settings/local.py:10
 msgid "Korean"
 msgstr "한국어"
 
-#: conf/settings.py:91
+#: conf/settings/local.py:11
 msgid "Thai"
 msgstr "태국어"
 
-#: conf/settings.py:92
+#: conf/settings/local.py:12
 msgid "English"
 msgstr "영어"
 
-#: golf/admin.py:31 golf/models.py:83 golf/models.py:177 member/admin.py:31
+#: conf/templates/conf/base.html:68
+#: member/templates/member/account/login.html:73
+msgid "Sign In"
+msgstr "로그인"
+
+#: conf/templates/conf/base.html:72
+#: member/templates/member/account/login.html:97
+#: member/templates/member/account/signup.html:196 member/views.py:54
+msgid "Sign Up"
+msgstr "회원가입"
+
+#: conf/templates/conf/base.html:79
+msgid "Me"
+msgstr "나"
+
+#: conf/templates/conf/base.html:84 member/admin.py:18 member/models.py:39
+msgid "Profile"
+msgstr "프로필"
+
+#: conf/templates/conf/base.html:89
+#: member/templates/member/account/logout.html:31
+msgid "Sign Out"
+msgstr "로그아웃"
+
+#: golf/admin.py:33 golf/models.py:83 golf/models.py:177 member/admin.py:31
 #: member/models.py:17
 msgid "Agency"
 msgstr "에이전시"
 
-#: golf/admin.py:37 golf/models.py:150 golf/models.py:184
+#: golf/admin.py:39 golf/models.py:150 golf/models.py:184
 msgid "Golf club"
 msgstr "골프클럽"
 
@@ -82,7 +110,7 @@ msgstr "예약가능일"
 msgid "Phone number"
 msgstr "전화번호"
 
-#: golf/models.py:57 golf/models.py:109
+#: golf/models.py:57 golf/models.py:109 member/models.py:70
 msgid "Email address"
 msgstr "이메일주소"
 
@@ -203,17 +231,41 @@ msgstr "가격표"
 msgid "Price tables"
 msgstr "가격표"
 
+#: member/adapters.py:30
+msgid "Your email domain is not allowed."
+msgstr "허용되지 않은 이메일 도메인 주소입니다."
+
+#: member/adapters.py:33
+msgid "Your email is banned."
+msgstr "차단된 이메일 주소입니다."
+
 #: member/admin.py:15
 msgid "Account"
 msgstr "계정"
 
-#: member/admin.py:18 member/models.py:39
-msgid "Profile"
-msgstr "프로필"
-
 #: member/apps.py:7
 msgid "Member"
 msgstr "회원"
+
+#: member/forms.py:21
+msgid "You haven't logged for {} days."
+msgstr "{}일 동안 로그인하지 않았습니다."
+
+#: member/forms2.py:9
+msgid "First name"
+msgstr "이름"
+
+#: member/forms2.py:15
+msgid "Last name"
+msgstr "성"
+
+#: member/forms2.py:21
+msgid "I agree to Terms and Conditions."
+msgstr "이용약관에 동의합니다."
+
+#: member/forms2.py:25
+msgid "I agree to Privacy Policy."
+msgstr "개인정보보호처리방침에 동의합니다."
 
 #: member/models.py:25
 msgid "Cellphone number"
@@ -242,3 +294,75 @@ msgstr "로그인 이력"
 #: member/models.py:62
 msgid "Login logs"
 msgstr "로그인 이력"
+
+#: member/models.py:74
+msgid "Banned Email Address"
+msgstr "이메일주소"
+
+#: member/models.py:75
+msgid "Banned Email Addresses"
+msgstr "이메일주소"
+
+#: member/templates/member/account/email/email_confirmation_message.html:3
+#, python-format
+msgid ""
+"\n"
+"    <p>\n"
+"        Hello from NaOne!\n"
+"    </p>\n"
+"\n"
+"    <p>\n"
+"        You're receiving this e-mail because user %(user_display)s has given "
+"yours as an e-mail address to connect\n"
+"        their account.\n"
+"    </p>\n"
+"\n"
+"    <p>\n"
+"        To confirm this is correct, go to %(activate_url)s\n"
+"    </p>\n"
+msgstr ""
+
+#: member/templates/member/account/email/email_confirmation_subject.txt:3
+msgid "Please Confirm Your E-mail Address"
+msgstr "올바른 이메일 주소인지 확인합니다."
+
+#: member/templates/member/account/email/password_reset_key_message.html:3
+msgid ""
+"\n"
+"    <p>Hello from NaOne!</p>\n"
+"    <p>\n"
+"        You're receiving this e-mail because you or someone else has "
+"requested a password for your user account.\n"
+"        It can be safely ignored if you did not request a password reset. "
+"Click the link below to reset your password.\n"
+"    </p>\n"
+msgstr ""
+
+#: member/templates/member/account/email/password_reset_key_subject.txt:3
+msgid "Password Reset E-mail"
+msgstr "비밀번호 초기화 이메일"
+
+#: member/templates/member/account/login.html:90
+msgid "Forgot Password?"
+msgstr "비밀번호 재설정"
+
+#: member/templates/member/account/logout.html:17
+msgid "Are you sure you want to sign out?"
+msgstr "정말로 로그인할까요?"
+
+#: member/templates/member/account/snippets/already_logged_in.html:5
+msgid "Note"
+msgstr "노트"
+
+#: member/templates/member/account/snippets/already_logged_in.html:5
+#, python-format
+msgid "you are already logged in as %(user_display)s."
+msgstr "%(user_display)s로 로그인했습니다."
+
+#: member/views.py:35
+msgid "Login"
+msgstr "로그인"
+
+#: member/views.py:45
+msgid "Logout"
+msgstr "로그아웃"

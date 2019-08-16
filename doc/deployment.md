@@ -281,6 +281,63 @@ $ sudo rabbitmqctl set_permissions was ".*" ".*" ".*"
 $ sudo rabbitmqctl delete_user guest
 ```
 
+/home/was/celery.conf
+
+```
+# 노드, 워커 개수 (보통은 하나):
+CELERYD_NODES="worker1"
+
+# 'celery' 명령어의 절대 경로 위치:
+CELERY_BIN="/home/was/.pyenv/versions/django/bin/celery"
+
+# 앱 인스턴스 (예: Proj)
+CELERY_APP="conf"
+
+# manage.py 호출 방법
+CELERYD_MULTI="multi"
+
+# 워커로 전달할 추가 명령어 옵션
+CELERYD_OPTS="--time-limit=300 --concurrency=8"
+
+# - %n 노드 이름의 첫 부분
+# - %I 현재 자식 프로세스 인덱스
+#   prefork pool을 사용할 때 경쟁상태(race condition)을 피하기 위해 중요
+CELERYD_PID_FILE="/var/www/windmill/run/celery-%n.pid"
+CELERYD_LOG_FILE="/var/www/windmill/logs/celery-%n%I.log"
+CELERYD_LOG_LEVEL="INFO"
+```
+
+/etc/systemd/system/celery.service
+
+```
+[Unit]
+Description=Celery Worker
+After=network.target
+
+[Service]
+Type=forking
+User=was
+Group=devops
+EnvironmentFile=/var/www/windmill/conf/celery.conf
+WorkingDirectory=/var/www/windmill/repo
+ExecStart=/bin/sh -c 'DJANGO_SETTINGS_MODULE='conf.settings.production' ${CELERY_BIN} multi start ${CELERYD_NODES} \
+    -A ${CELERY_APP} --pidfile=${CELERYD_PID_FILE} \
+    --logfile=${CELERYD_LOG_FILE} --loglevel=${CELERYD_LOG_LEVEL} ${CELERYD_OPTS}'
+ExecStop=/bin/sh -c 'DJANGO_SETTINGS_MODULE='conf.settings.production' ${CELERY_BIN} multi stopwait ${CELERYD_NODES} \
+    --pidfile=${CELERYD_PID_FILE}'
+ExecReload=/bin/sh -c 'DJANGO_SETTINGS_MODULE='conf.settings.production' ${CELERY_BIN} multi restart ${CELERYD_NODES} \
+    -A ${CELERY_APP} --pidfile=${CELERYD_PID_FILE} \
+    --logfile=${CELERYD_LOG_FILE} --loglevel=${CELERYD_LOG_LEVEL} ${CELERYD_OPTS}'
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```
+$ sudo systemctl enable celery
+$ sudo systemctl start celery
+```
 ### Redis
 
 ### Memcached
