@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    {% load static %}
+    {% load i18n %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NAONE : {% block title %}{% endblock %}</title>
+    {% block stylesheet %}
+        <link rel="stylesheet"
+              href="{% static "conf/css/sarabun.css" %}">
+        <link rel="stylesheet"
+              href="{% static "conf/css/windmill.css" %}">
+        <link rel="stylesheet"
+              href="{% static "conf/css/base.css" %}">
+        <link rel="stylesheet"
+              href="//use.fontawesome.com/releases/v5.10.1/css/all.css"
+              integrity="sha384-wxqG4glGB3nlqX0bi23nmgwCSjWIW13BdLUEYC4VIMehfbcro/ATkyDsF/AbIOVe"
+              crossorigin="anonymous">
+        <link rel="apple-touch-icon" sizes="180x180"
+              href="{% static 'conf/favicon/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32"
+              href="{% static 'conf/favicon/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16"
+              href="{% static 'conf/favicon/favicon-16x16.png' %}">
+        {{ form.media.css }}
+    {% endblock %}
+</head>
+<body>
+
+<!-- sidenav -->
+<nav class="navbar">
+    <div class="gray-layer"></div>
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="{% url 'home' %}">
+                <img src="https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo4.png"
+                     width="180" height="24.28" alt="NAONE">
+            </a>
+            <a class="navbar-burger">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item">
+                    Archive
+                </a>
+                <a class="navbar-item">
+                    Contest
+                </a>
+                <a class="navbar-item">
+                    Stat
+                </a>
+                <a class="navbar-item">
+                    Ranking
+                </a>
+                <a class="navbar-item">
+                    Job
+                </a>
+                <a class="navbar-item">
+                    Blog
+                </a>
+                <a class="navbar-item">
+                    Help
+                </a>
+                <a class="navbar-item">
+                    Help
+                </a>
+            </div>
+
+            <div class="navbar-end">
+                {% if not user.is_authenticated %}
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a href="#" class="button is-primary">
+                                <span class="icon"><i class="fas fa-sign-in-alt fa-fw"></i></span>
+                                <span>{% trans 'Sign In' %}</span>
+                            </a>
+                            <a href="#" class="button is-light">
+                                <span class="icon"><i class="fas fa-user-plus fa-fw"></i></span>
+                                <span>{% trans 'Register' %}</span>
+                            </a>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            {% trans 'Me' %}
+                        </a>
+                        <div class="navbar-dropdown">
+                            <a href="#" class="navbar-item">
+                                <span class="icon"><i class="fas fa-user-cog fa-fw"></i></span>
+                                <span>{% trans "Profile" %}</span>
+                            </a>
+                            <hr class="navbar-divider">
+                            <a href="#" class="navbar-item">
+                                <span class="icon"><i class="fas fa-sign-out-alt fa-fw"></i></span>
+                                <span>{% trans 'Sign Out' %}</span>
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main>{% block content %}{% endblock %}</main>
+
+<footer class="footer has-background-grey-lighter">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                Copyright &copy; {% now "Y" %} <strong>NAONE</strong>
+                All Rights Reserved.
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% if messages %}
+    <div style="display:none">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+</body>
+
+{% block javascript %}
+    <script type="text/javascript"
+            src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript"
+            src="{% static "conf/js/base.js" %}"></script>
+    {{ form.media.js }}
+{% endblock %}
+</html>
