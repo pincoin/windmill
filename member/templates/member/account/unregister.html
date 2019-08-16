@@ -1,16 +1,22 @@
-{% extends 'conf/base.html' %}
+{% extends 'member/account/profile_base.html' %}
 
 {% load i18n static %}
 
 {% block title %}{{ page_title }}{% endblock %}
 
 {% block content %}
-    <section class="section">
-        <div class="container has-text-centered">
+    {% with sidemenu='unregister' %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock content %}
+
+{% block main_content %}
+    <section>
+        <div class="container">
             <h1 class="title">{{ page_title }}</h1>
 
-            <div class="columns is-centered">
-                <div class="column is-two-fifths">
+            <div class="columns">
+                <div class="column is-four-fifths">
                     <form method="post" action="{% url 'account_unregister' %}">
                         {% csrf_token %}
 

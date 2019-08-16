@@ -31,6 +31,10 @@
                            class="panel-block{% if sidemenu == 'password' %} is-active{% endif %}">
                             {% trans 'Change password' %}
                         </a>
+                        <a href="{% url 'account_unregister' %}"
+                           class="panel-block{% if sidemenu == 'unregister' %} is-active{% endif %}">
+                            {% trans 'Unregister' %}
+                        </a>
                     </nav>
                 </div>
                 <div class="column is-8">
