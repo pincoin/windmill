@@ -5,10 +5,10 @@ from . import models
 
 
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('user', 'cellphone', 'line_id')
-    # list_filter = ('agency__title',)
+    list_display = ('user', 'agency_title', 'cellphone', 'line_id')
+    list_filter = ('agency__title',)
     search_fields = ('user__email', 'cellphone',)
-    raw_id_fields = ('user',)
+    raw_id_fields = ('user', 'agency')
     ordering = ('-created',)
 
     fieldsets = (
@@ -16,14 +16,20 @@ class ProfileAdmin(admin.ModelAdmin):
             'fields': ('user',)
         }),
         (_('Profile'), {
-            'fields': ('cellphone', 'line_id')
+            'fields': ('agency', 'cellphone', 'line_id')
         }),
     )
 
     def get_queryset(self, request):
         return super(ProfileAdmin, self) \
             .get_queryset(request) \
-            .select_related('user')
+            .select_related('user', 'agency')
+
+    def agency_title(self, obj):
+        return obj.agency.title
+
+    agency_title.short_description = _('Agency')
+    agency_title.admin_order_field = 'agency__title'
 
 
 class LoginLogAdmin(admin.ModelAdmin):
