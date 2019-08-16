@@ -266,8 +266,21 @@ $ sudo systemctl start gunicorn
 $ sudo systemctl status gunicorn
 ```
 
+### RabbitMQ
+
+```
+$ sudo apt-get install rabbitmq-server
+$ sudo systemctl enable rabbitmq-server
+$ sudo systemctl start rabbitmq-server
+```
+
+```
+$ sudo rabbitmqctl add_user was PASSWD
+$ sudo rabbitmqctl set_user_tags was administrator
+$ sudo rabbitmqctl set_permissions was ".*" ".*" ".*"
+$ sudo rabbitmqctl delete_user guest
+```
+
 ### Redis
 
 ### Memcached
-
-### RabbitMQ

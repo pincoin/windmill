@@ -9,6 +9,8 @@ secret = json.loads(open(os.path.join(BASE_DIR, 'secret.json')).read())
 SECRET_KEY = secret['SECRET_KEY']
 ALLOWED_HOSTS = secret['ALLOWED_HOSTS']
 DATABASES = secret['DATABASES']
+
+CELERY_BROKER_URL = secret['CELERY_BROKER_URL']
 GOOGLE_RECAPTCHA = secret['GOOGLE_RECAPTCHA']
 
 # Application definition
