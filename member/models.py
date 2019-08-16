@@ -12,6 +12,15 @@ class Profile(TimeStampedModel):
         on_delete=models.CASCADE
     )
 
+    agency = models.ForeignKey(
+        'golf.Agency',
+        verbose_name=_('Agency'),
+        db_index=True,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+    )
+
     cellphone = models.CharField(
         verbose_name=_('Cellphone number'),
         max_length=16,
