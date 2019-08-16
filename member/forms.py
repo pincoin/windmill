@@ -36,3 +36,19 @@ class MemberUnregisterForm(forms.Form):
 
 class MemberAddEmailForm(allauth_forms.AddEmailForm):
     pass
+
+
+class MemberChangePasswordForm(GoogleRecaptchaMixin, allauth_forms.ChangePasswordForm):
+    def clean(self):
+        self.validate_google_recaptcha()
+
+        cleaned_data = super(MemberChangePasswordForm, self).clean()
+        return cleaned_data
+
+
+class MemberSetPasswordForm(GoogleRecaptchaMixin, allauth_forms.SetPasswordForm):
+    def clean(self):
+        self.validate_google_recaptcha()
+
+        cleaned_data = super(MemberSetPasswordForm, self).clean()
+        return cleaned_data

@@ -114,6 +114,28 @@ class MemberUnregisterView(auth_mixins.AccessMixin, generic.FormView):
         return reverse('home')
 
 
+class MemberPasswordChangeView(auth_mixins.LoginRequiredMixin, allauth_views.PasswordChangeView):
+    template_name = 'member/account/password_change.html'
+    form_class = forms.MemberChangePasswordForm
+
+    def get_context_data(self, **kwargs):
+        context = super(MemberPasswordChangeView, self).get_context_data(**kwargs)
+        context['google_recaptcha_site_key'] = settings.GOOGLE_RECAPTCHA['site_key']
+        context['page_title'] = _('Password Change')
+        return context
+
+
+class MemberPasswordSetView(auth_mixins.LoginRequiredMixin, allauth_views.PasswordSetView):
+    template_name = 'member/account/password_set.html'
+    form_class = forms.MemberSetPasswordForm
+
+    def get_context_data(self, **kwargs):
+        context = super(MemberPasswordSetView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Password Set')
+        context['google_recaptcha_site_key'] = settings.GOOGLE_RECAPTCHA['site_key']
+        return context
+
+
 class MemberEmailVerificationSentView(allauth_views.EmailVerificationSentView):
     template_name = 'member/account/verification_sent.html'
 

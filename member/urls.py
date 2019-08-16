@@ -19,7 +19,9 @@ urlpatterns = [
 
     # Password Change
     path('password/change/',
-         views.MemberLoginView.as_view(), name="account_change_password"),
+         views.MemberPasswordChangeView.as_view(), name="account_change_password"),
+    path('password/set/',
+         views.MemberPasswordSetView.as_view(), name="account_set_password"),
 
     # Password Reset
     path('password/reset/',
@@ -37,15 +39,6 @@ urlpatterns = [
 ]
 
 '''
-# Account
-
-
-# Password Change
-path('password/change/',
-     views.MemberPasswordChangeView.as_view(), name="account_change_password"),
-path('password/set/',
-     views.MemberPasswordSetView.as_view(), name="account_set_password"),
-
 # Password Reset
 path('password/reset/',
      views.MemberPasswordReset.as_view(), name="account_reset_password"),

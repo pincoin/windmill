@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-16 16:31+0000\n"
+"POT-Creation-Date: 2019-08-16 16:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -419,16 +419,21 @@ msgstr ""
 msgid "Are you sure you want to sign out?"
 msgstr ""
 
+#: member/templates/member/account/password_change.html:107
+#: member/templates/member/account/profile_base.html:28
+msgid "Change password"
+msgstr ""
+
+#: member/templates/member/account/password_set.html:84
+msgid "Set password"
+msgstr ""
+
 #: member/templates/member/account/profile_base.html:20
 msgid "Organizations"
 msgstr ""
 
 #: member/templates/member/account/profile_base.html:24
 msgid "Email management"
-msgstr ""
-
-#: member/templates/member/account/profile_base.html:28
-msgid "Change password"
 msgstr ""
 
 #: member/templates/member/account/snippets/already_logged_in.html:5
@@ -468,14 +473,22 @@ msgstr ""
 msgid "Account Inactive"
 msgstr ""
 
-#: member/views.py:122
+#: member/views.py:124
+msgid "Password Change"
+msgstr ""
+
+#: member/views.py:134
+msgid "Password Set"
+msgstr ""
+
+#: member/views.py:144
 msgid "Email Verification Sent"
 msgstr ""
 
-#: member/views.py:131
+#: member/views.py:153
 msgid "Confirm Email Request"
 msgstr ""
 
-#: member/views.py:141
+#: member/views.py:163
 msgid "Email Management"
 msgstr ""

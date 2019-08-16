@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-16 16:31+0000\n"
+"POT-Creation-Date: 2019-08-16 16:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -426,6 +426,15 @@ msgstr "비밀번호 재설정"
 msgid "Are you sure you want to sign out?"
 msgstr "정말로 로그인할까요?"
 
+#: member/templates/member/account/password_change.html:107
+#: member/templates/member/account/profile_base.html:28
+msgid "Change password"
+msgstr "비밀번호 변경"
+
+#: member/templates/member/account/password_set.html:84
+msgid "Set password"
+msgstr "비밀번호 변경"
+
 #: member/templates/member/account/profile_base.html:20
 msgid "Organizations"
 msgstr "소속"
@@ -433,10 +442,6 @@ msgstr "소속"
 #: member/templates/member/account/profile_base.html:24
 msgid "Email management"
 msgstr "이메일 연동"
-
-#: member/templates/member/account/profile_base.html:28
-msgid "Change password"
-msgstr "비밀번호 변경"
 
 #: member/templates/member/account/snippets/already_logged_in.html:5
 msgid "Note"
@@ -475,14 +480,22 @@ msgstr "로그아웃"
 msgid "Account Inactive"
 msgstr "이용 불가"
 
-#: member/views.py:122
+#: member/views.py:124
+msgid "Password Change"
+msgstr "비밀번호 변경"
+
+#: member/views.py:134
+msgid "Password Set"
+msgstr "비밀번호 초기화 이메일"
+
+#: member/views.py:144
 msgid "Email Verification Sent"
 msgstr "이메일 인증 발송"
 
-#: member/views.py:131
+#: member/views.py:153
 msgid "Confirm Email Request"
 msgstr "회원 가입 완료 요청"
 
-#: member/views.py:141
+#: member/views.py:163
 msgid "Email Management"
 msgstr "이메일 연동"
