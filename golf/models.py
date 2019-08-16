@@ -12,7 +12,7 @@ class Agency(TimeStampedModel):
     )
 
     title = models.CharField(
-        verbose_name=_('Agent name'),
+        verbose_name=_('Agency name'),
         max_length=255,
     )
 
