@@ -63,3 +63,16 @@ class LoginLog(TimeStampedModel):
 
     def __str__(self):
         return '{} {} {}'.format(self.user.email, self.ip_address, self.created)
+
+
+class EmailBanned(TimeStampedModel):
+    email = models.EmailField(
+        verbose_name=_('Email address'),
+    )
+
+    class Meta:
+        verbose_name = _('Banned Email Address')
+        verbose_name_plural = _('Banned Email Addresses')
+
+    def __str__(self):
+        return '{} {}'.format(self.email, self.created)
