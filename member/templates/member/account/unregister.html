@@ -1,0 +1,48 @@
+{% extends 'conf/base.html' %}
+
+{% load i18n static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+    <section class="section">
+        <div class="container has-text-centered">
+            <h1 class="title">{{ page_title }}</h1>
+
+            <div class="columns is-centered">
+                <div class="column is-two-fifths">
+                    <form method="post" action="{% url 'account_unregister' %}">
+                        {% csrf_token %}
+
+                        {% if form.non_field_errors %}
+                            <div class="deep-orange-text mb-4">
+                                {{ form.non_field_errors }}
+                            </div>
+                        {% endif %}
+
+                        <div class="field">
+                            <div class="control">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="{{ form.agree.name }}"/>
+                                    <span class="control-label">{{ form.agree.label }}</span>
+                                </label>
+                                {% if form.agree.errors %}
+                                    <p class="help is-danger">
+                                        {% for error in form.agree.errors %}
+                                            {{ error|escape }}
+                                        {% endfor %}
+                                    </p>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <button type="submit" class="button is-danger is-fullwidth">
+                            <span class="icon"><i class="fas fa-user-slash fa-sm fa-fw"></i></span>
+                            <span>{% trans 'Unregister' %}</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

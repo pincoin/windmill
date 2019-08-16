@@ -26,3 +26,9 @@ class MemberLoginForm(GoogleRecaptchaMixin, allauth_forms.LoginForm):
 
         cleaned_data = super(MemberLoginForm, self).clean()
         return cleaned_data
+
+
+class MemberUnregisterForm(forms.Form):
+    agree = forms.BooleanField(
+        label=_('I really would like to unregister.'),
+    )

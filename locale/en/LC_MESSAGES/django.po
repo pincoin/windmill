@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-16 14:41+0000\n"
+"POT-Creation-Date: 2019-08-16 15:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgstr ""
 
 #: conf/templates/conf/base.html:72
 #: member/templates/member/account/login.html:97
-#: member/templates/member/account/signup.html:196 member/views.py:54
+#: member/templates/member/account/signup.html:196 member/views.py:63
 msgid "Sign Up"
 msgstr ""
 
@@ -251,6 +251,10 @@ msgstr ""
 msgid "You haven't logged for {} days."
 msgstr ""
 
+#: member/forms.py:33
+msgid "I really would like to unregister."
+msgstr ""
+
 #: member/forms2.py:9
 msgid "First name"
 msgstr ""
@@ -303,6 +307,10 @@ msgstr ""
 msgid "Banned Email Addresses"
 msgstr ""
 
+#: member/templates/member/account/account_inactive.html:18
+msgid "This account is inactive."
+msgstr ""
+
 #: member/templates/member/account/email/email_confirmation_message.html:3
 #, python-format
 msgid ""
@@ -352,10 +360,18 @@ msgstr ""
 msgid "you are already logged in as %(user_display)s."
 msgstr ""
 
-#: member/views.py:35
+#: member/templates/member/account/unregister.html:47 member/views.py:91
+msgid "Unregister"
+msgstr ""
+
+#: member/views.py:44
 msgid "Login"
 msgstr ""
 
-#: member/views.py:45
+#: member/views.py:54
 msgid "Logout"
+msgstr ""
+
+#: member/views.py:72
+msgid "Account Inactive"
 msgstr ""

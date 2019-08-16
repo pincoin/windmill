@@ -12,6 +12,10 @@ urlpatterns = [
          views.MemberLogoutView.as_view(), name="account_logout"),
     path('signup/',
          views.MemberSignupView.as_view(), name="account_signup"),
+    path('inactive/',
+         views.MemberAccountInactiveView.as_view(), name="account_inactive"),
+    path('unregister/',
+         views.MemberUnregisterView.as_view(), name="account_unregister"),
 
     # Password Change
     path('password/change/',
@@ -35,12 +39,6 @@ urlpatterns = [
 '''
 # Account
 
-path('signup/',
-     views.MemberSignupView.as_view(), name="account_signup"),
-path('inactive/',
-     views.MemberAccountInactiveView.as_view(), name="account_inactive"),
-path('unregister/',
-     views.MemberUnregisterView.as_view(), name="account_unregister"),
 
 # Password Change
 path('password/change/',

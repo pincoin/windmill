@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-16 14:41+0000\n"
+"POT-Creation-Date: 2019-08-16 15:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgstr "로그인"
 
 #: conf/templates/conf/base.html:72
 #: member/templates/member/account/login.html:97
-#: member/templates/member/account/signup.html:196 member/views.py:54
+#: member/templates/member/account/signup.html:196 member/views.py:63
 msgid "Sign Up"
 msgstr "회원가입"
 
@@ -251,6 +251,10 @@ msgstr "회원"
 msgid "You haven't logged for {} days."
 msgstr "{}일 동안 로그인하지 않았습니다."
 
+#: member/forms.py:33
+msgid "I really would like to unregister."
+msgstr "회원을 탈퇴합니다."
+
 #: member/forms2.py:9
 msgid "First name"
 msgstr "이름"
@@ -303,7 +307,12 @@ msgstr "이메일주소"
 msgid "Banned Email Addresses"
 msgstr "이메일주소"
 
+#: member/templates/member/account/account_inactive.html:18
+msgid "This account is inactive."
+msgstr "이 계정은 유효하지 않습니다."
+
 #: member/templates/member/account/email/email_confirmation_message.html:3
+#, python-format
 msgid ""
 "\n"
 "    <p>\n"
@@ -358,10 +367,18 @@ msgstr "노트"
 msgid "you are already logged in as %(user_display)s."
 msgstr "%(user_display)s로 로그인했습니다."
 
-#: member/views.py:35
+#: member/templates/member/account/unregister.html:47 member/views.py:91
+msgid "Unregister"
+msgstr "회원탈퇴"
+
+#: member/views.py:44
 msgid "Login"
 msgstr "로그인"
 
-#: member/views.py:45
+#: member/views.py:54
 msgid "Logout"
 msgstr "로그아웃"
+
+#: member/views.py:72
+msgid "Account Inactive"
+msgstr "이용 불가"
