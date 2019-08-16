@@ -6,11 +6,13 @@ from django.conf import settings
 from django.contrib.auth import (
     get_user_model, logout)
 from django.contrib.auth import mixins as auth_mixins
+from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
 from . import forms
+from . import models
 from . import settings as member_settings
 
 
@@ -161,4 +163,19 @@ class MemberEmailView(auth_mixins.LoginRequiredMixin, allauth_views.EmailView):
     def get_context_data(self, **kwargs):
         context = super(MemberEmailView, self).get_context_data(**kwargs)
         context['page_title'] = _('Email Management')
+        return context
+
+
+class MemberProfileView(auth_mixins.LoginRequiredMixin, generic.DetailView):
+    template_name = 'member/account/profile.html'
+    context_object_name = 'member'
+
+    def get_object(self, queryset=None):
+        # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
+        queryset = models.Profile.objects.select_related('user')
+        return get_object_or_404(queryset, user__pk=self.request.user.id)
+
+    def get_context_data(self, **kwargs):
+        context = super(MemberProfileView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Profile')
         return context

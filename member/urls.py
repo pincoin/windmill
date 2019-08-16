@@ -36,6 +36,8 @@ urlpatterns = [
          views.MemberEmailView.as_view(), name="account_email"),
 
     # Profile
+    path('profile/',
+         views.MemberProfileView.as_view(), name="account_profile"),
 ]
 
 '''
@@ -48,11 +50,4 @@ re_path(r'^password/reset/key/(?P<uidb36>[0-9A-Za-z]+)-(?P<key>.+)/$',
         views.MemberPasswordResetFromKeyView.as_view(), name="account_reset_password_from_key"),
 path('password/reset/key/done/',
      views.MemberPasswordResetFromKeyDoneView.as_view(), name="account_reset_password_from_key_done"),
-
-
-# Profile
-path('profile/',
-     views.MemberProfileView.as_view(), name="account_profile"),
-path('change-name/',
-     views.MemberLoginView.as_view(), name="account_change_name"),
      '''

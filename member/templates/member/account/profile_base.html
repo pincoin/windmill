@@ -11,7 +11,7 @@
                         <p class="panel-heading has-text-centered has-text-weight-bold">
                             {{ request.user.username }}
                         </p>
-                        <a href="#"
+                        <a href="{% url 'account_profile' %}"
                            class="panel-block{% if sidemenu == 'profile' %} is-active{% endif %}">
                             {% trans 'Profile' %}
                         </a>
