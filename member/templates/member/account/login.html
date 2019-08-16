@@ -1,0 +1,124 @@
+{% extends 'conf/base.html' %}
+
+{% load i18n static %}
+{% load account %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+    <section class="section">
+        <div class="container has-text-centered">
+            <h1 class="title">{{ page_title }}</h1>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-two-fifths">
+                    <div class="columns">
+                        <div class="column">
+                            {% if form.non_field_errors %}
+                                <ul class="notification is-warning">
+                                    {% for error in form.non_field_errors %}
+                                        <li>{{ error|escape }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                            <form method="POST" action="{% url 'account_login' %}">
+                                {% csrf_token %}
+
+                                <div class="field">
+                                    <label class="label" for="{{ form.login.id_for_label }}">
+                                        {{ form.login.label }}
+                                        <span class="has-text-danger">*</span>
+                                    </label>
+                                    <div class="control has-icons-left">
+                                        <input id="{{ form.login.id_for_label }}"
+                                               name="{{ form.login.name }}"
+                                               type="email"
+                                               class="input"
+                                               {% if form.login.value != None %}value="{{ form.login.value|stringformat:'s' }}"{% endif %}
+                                               {% if form.login.field.required %}required{% endif %}>
+                                        <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label" for="{{ form.password.id_for_label }}">
+                                        {{ form.password.label }}
+                                        <span class="has-text-danger">*</span>
+                                    </label>
+                                    <div class="control has-icons-left">
+                                        <input id="{{ form.password.id_for_label }}"
+                                               name="{{ form.password.name }}"
+                                               type="password"
+                                               class="input"
+                                               {% if form.password.value != None %}value="{{ form.password.value|stringformat:'s' }}"{% endif %}
+                                               {% if form.password.field.required %}required{% endif %}>
+                                        <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="{{ form.remember.name }}"/>
+                                        <span class="control-label">{{ form.remember.label }}</span>
+                                    </label>
+                                </div>
+
+                                {% if form.non_field_errors or form.recaptcha %}
+                                    <div class="field">
+                                        <div class="g-recaptcha"
+                                             data-sitekey="{{ google_recaptcha_site_key }}">
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                                <div class="control">
+                                    <button class="button is-primary is-fullwidth" type="submit">
+                                        <span class="icon"><i class="fas fa-sign-in-alt fa-fw"></i></span>
+                                        <span>{% trans 'Sign In' %}</span>
+                                    </button>
+                                </div>
+
+                                {% if redirect_field_value %}
+                                    <input type="hidden" name="{{ redirect_field_name }}"
+                                           value="{{ redirect_field_value }}"/>
+                                {% endif %}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-two-fifths">
+                    <div class="columns">
+                        <div class="column">
+                            <a class="button is-black is-fullwidth"
+                               href="{% url 'account_reset_password' %}">
+                                {% trans 'Forgot Password?' %}
+                            </a>
+                        </div>
+                        <div class="column">
+                            <a class="button is-success is-fullwidth"
+                               href="{{ signup_url }}">
+                                <span class="icon"><i class="fas fa-user-plus fa-fw"></i></span>
+                                <span>{% trans "Sign Up" %}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block stylesheet %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "member/css/sns.css" %}">
+{% endblock %}

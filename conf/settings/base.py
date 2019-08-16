@@ -9,6 +9,7 @@ secret = json.loads(open(os.path.join(BASE_DIR, 'secret.json')).read())
 SECRET_KEY = secret['SECRET_KEY']
 ALLOWED_HOSTS = secret['ALLOWED_HOSTS']
 DATABASES = secret['DATABASES']
+GOOGLE_RECAPTCHA = secret['GOOGLE_RECAPTCHA']
 
 # Application definition
 
@@ -47,7 +48,10 @@ ROOT_URLCONF = 'conf.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'conf', 'templates'), ],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'conf', 'templates'),
+            os.path.join(BASE_DIR, 'member', 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,12 +83,12 @@ LOGIN_REDIRECT_URL = '/'  # default=/accounts/profile/
 
 # django-allauth
 DEFAULT_FROM_EMAIL = 'noreply@pincoin.info'
-ACCOUNT_ADAPTER = 'member.adapters.MyAccountAdapter'
+# ACCOUNT_ADAPTER = 'member.adapters.MyAccountAdapter'
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 # ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
-ACCOUNT_SIGNUP_FORM_CLASS = 'member.forms2.MemberSignupForm'
+# ACCOUNT_SIGNUP_FORM_CLASS = 'member.forms2.MemberSignupForm'
 ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True  # default=False
 # SOCIALACCOUNT_AUTO_SIGNUP = False

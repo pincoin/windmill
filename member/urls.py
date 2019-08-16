@@ -1,14 +1,32 @@
-app_name = 'member'
+from django.urls import path
+
+from . import views
 
 urlpatterns = [
+    # Account
+    path('login/',
+         views.MemberLoginView.as_view(), name="account_login"),
+    path('logout/',
+         views.MemberLogoutView.as_view(), name="account_logout"),
+    path('signup/',
+         views.MemberLoginView.as_view(), name="account_signup"),
+
+    # Password Change
+    path('password/change/',
+         views.MemberLoginView.as_view(), name="account_change_password"),
+
+    # Password Reset
+    path('password/reset/',
+         views.MemberLoginView.as_view(), name="account_reset_password"),
+
+    # Email Confirmation
+
+    # Profile
 ]
 
 '''
 # Account
-path('login/',
-     views.MemberLoginView.as_view(), name="account_login"),
-path('logout/',
-     views.MemberLogoutView.as_view(), name="account_logout"),
+
 path('signup/',
      views.MemberSignupView.as_view(), name="account_signup"),
 path('inactive/',
