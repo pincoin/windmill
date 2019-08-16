@@ -6955,12 +6955,12 @@ label.panel-block {
   padding: 3rem 1.5rem; }
 
 .section {
-  padding: 1.2rem 1.5rem; }
+  padding: 3rem 1.5rem; }
   @media screen and (min-width: 1024px) {
     .section.is-medium {
-      padding: 2.4rem 1.5rem; }
+      padding: 9rem 1.5rem; }
     .section.is-large {
-      padding: 4.8rem 1.5rem; } }
+      padding: 18rem 1.5rem; } }
 
 .footer {
   background-color: #fafafa;

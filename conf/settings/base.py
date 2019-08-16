@@ -51,6 +51,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'conf', 'templates'),
             os.path.join(BASE_DIR, 'member', 'templates'),
+            os.path.join(BASE_DIR, 'golf', 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
