@@ -138,6 +138,45 @@ class MemberPasswordSetView(auth_mixins.LoginRequiredMixin, allauth_views.Passwo
         return context
 
 
+class MemberPasswordReset(allauth_views.PasswordResetView):
+    template_name = 'member/account/password_reset.html'
+    form_class = forms.MemberResetPasswordForm
+
+    def get_context_data(self, **kwargs):
+        context = super(MemberPasswordReset, self).get_context_data(**kwargs)
+        context['page_title'] = _('Password Reset')
+        context['google_recaptcha_site_key'] = settings.GOOGLE_RECAPTCHA['site_key']
+        return context
+
+
+class MemberPasswordResetDoneView(allauth_views.PasswordResetDoneView):
+    template_name = 'member/account/password_reset_done.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(MemberPasswordResetDoneView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Password Reset Done')
+        return context
+
+
+class MemberPasswordResetFromKeyView(allauth_views.PasswordResetFromKeyView):
+    template_name = 'member/account/password_reset_from_key.html'
+    form_class = forms.MemberResetPasswordKeyForm
+
+    def get_context_data(self, **kwargs):
+        context = super(MemberPasswordResetFromKeyView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Password Reset')
+        return context
+
+
+class MemberPasswordResetFromKeyDoneView(allauth_views.PasswordResetFromKeyDoneView):
+    template_name = 'member/account/password_reset_from_key_done.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(MemberPasswordResetFromKeyDoneView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Password Reset Done')
+        return context
+
+
 class MemberEmailVerificationSentView(allauth_views.EmailVerificationSentView):
     template_name = 'member/account/verification_sent.html'
 

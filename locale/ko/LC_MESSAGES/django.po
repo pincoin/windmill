@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-16 16:36+0000\n"
+"POT-Creation-Date: 2019-08-16 17:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgstr "로그인"
 
 #: conf/templates/conf/base.html:72
 #: member/templates/member/account/login.html:97
-#: member/templates/member/account/signup.html:196 member/views.py:62
+#: member/templates/member/account/signup.html:196 member/views.py:64
 msgid "Sign Up"
 msgstr "회원가입"
 
@@ -49,7 +49,7 @@ msgid "Me"
 msgstr "나"
 
 #: conf/templates/conf/base.html:84 member/admin.py:18 member/models.py:39
-#: member/templates/member/account/profile_base.html:16
+#: member/templates/member/account/profile_base.html:16 member/views.py:219
 msgid "Profile"
 msgstr "프로필"
 
@@ -293,7 +293,7 @@ msgstr "사용자"
 msgid "IP address"
 msgstr "IP 주소"
 
-#: member/models.py:61
+#: member/models.py:61 member/templates/member/account/profile_base.html:24
 msgid "Login log"
 msgstr "로그인 이력"
 
@@ -427,11 +427,51 @@ msgid "Are you sure you want to sign out?"
 msgstr "정말로 로그인할까요?"
 
 #: member/templates/member/account/password_change.html:107
-#: member/templates/member/account/profile_base.html:28
+#: member/templates/member/account/password_reset_from_key.html:89
+#: member/templates/member/account/profile_base.html:32
 msgid "Change password"
 msgstr "비밀번호 변경"
 
-#: member/templates/member/account/password_set.html:84
+#: member/templates/member/account/password_reset.html:25
+msgid ""
+"Enter your e-mail address below, and we will send you an e-mail allowing you "
+"to reset it."
+msgstr "비밀번호 재설정 링크를 이메일로 보내드립니다."
+
+#: member/templates/member/account/password_reset.html:71
+msgid "Reset My Password"
+msgstr "비밀번호 재설정"
+
+#: member/templates/member/account/password_reset.html:77
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr "5분이 지나도 메일을 받지 못하면 저희에게 연락바랍니다."
+
+#: member/templates/member/account/password_reset_done.html:25
+msgid ""
+"We have sent you an e-mail. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr "5분이 지나도 메일을 받지 못하면 저희에게 연락바랍니다."
+
+#: member/templates/member/account/password_reset_from_key.html:11
+msgid "Bad Token"
+msgstr "잘못된 토큰"
+
+#: member/templates/member/account/password_reset_from_key.html:21
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has\n"
+"                                    already been used.\n"
+"                                    Please request a <a href="
+"\"%(passwd_reset_url)s\">new password reset</a>\n"
+"                                    ."
+msgstr ""
+
+#: member/templates/member/account/password_reset_from_key.html:96
+#: member/templates/member/account/password_reset_from_key_done.html:16
+msgid "Your password is now changed."
+msgstr "비밀번호를 변경했습니다."
+
+#: member/templates/member/account/password_set.html:78
 msgid "Set password"
 msgstr "비밀번호 변경"
 
@@ -439,7 +479,7 @@ msgstr "비밀번호 변경"
 msgid "Organizations"
 msgstr "소속"
 
-#: member/templates/member/account/profile_base.html:24
+#: member/templates/member/account/profile_base.html:28
 msgid "Email management"
 msgstr "이메일 연동"
 
@@ -452,7 +492,7 @@ msgstr "노트"
 msgid "you are already logged in as %(user_display)s."
 msgstr "%(user_display)s로 로그인했습니다."
 
-#: member/templates/member/account/unregister.html:41 member/views.py:90
+#: member/templates/member/account/unregister.html:41 member/views.py:92
 msgid "Unregister"
 msgstr "회원탈퇴"
 
@@ -468,34 +508,42 @@ msgstr "회원가입을 완료하기 위해 받으신 이메일에서 링크를 
 msgid "Please contact us if you do not receive it within a few minutes."
 msgstr "5분이 지나도 메일을 받지 못하면 저희에게 연락바랍니다."
 
-#: member/views.py:43
+#: member/views.py:45
 msgid "Login"
 msgstr "로그인"
 
-#: member/views.py:53
+#: member/views.py:55
 msgid "Logout"
 msgstr "로그아웃"
 
-#: member/views.py:71
+#: member/views.py:73
 msgid "Account Inactive"
 msgstr "이용 불가"
 
-#: member/views.py:124
+#: member/views.py:126
 msgid "Password Change"
 msgstr "비밀번호 변경"
 
-#: member/views.py:134
+#: member/views.py:136
 msgid "Password Set"
 msgstr "비밀번호 초기화 이메일"
 
-#: member/views.py:144
+#: member/views.py:147 member/views.py:167
+msgid "Password Reset"
+msgstr "비밀번호 재설정"
+
+#: member/views.py:157 member/views.py:176
+msgid "Password Reset Done"
+msgstr "비밀번호 재설정 완료"
+
+#: member/views.py:185
 msgid "Email Verification Sent"
 msgstr "이메일 인증 발송"
 
-#: member/views.py:153
+#: member/views.py:194
 msgid "Confirm Email Request"
 msgstr "회원 가입 완료 요청"
 
-#: member/views.py:163
+#: member/views.py:204
 msgid "Email Management"
 msgstr "이메일 연동"

@@ -52,3 +52,16 @@ class MemberSetPasswordForm(GoogleRecaptchaMixin, allauth_forms.SetPasswordForm)
 
         cleaned_data = super(MemberSetPasswordForm, self).clean()
         return cleaned_data
+
+
+class MemberResetPasswordForm(GoogleRecaptchaMixin, allauth_forms.ResetPasswordForm):
+    def clean(self):
+        self.validate_google_recaptcha()
+
+        cleaned_data = super(MemberResetPasswordForm, self).clean()
+        return cleaned_data
+
+
+class MemberResetPasswordKeyForm(allauth_forms.ResetPasswordKeyForm):
+    pass
+

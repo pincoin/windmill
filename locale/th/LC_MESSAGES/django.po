@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-16 16:36+0000\n"
+"POT-Creation-Date: 2019-08-16 17:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgstr ""
 
 #: conf/templates/conf/base.html:72
 #: member/templates/member/account/login.html:97
-#: member/templates/member/account/signup.html:196 member/views.py:62
+#: member/templates/member/account/signup.html:196 member/views.py:64
 msgid "Sign Up"
 msgstr ""
 
@@ -49,7 +49,7 @@ msgid "Me"
 msgstr ""
 
 #: conf/templates/conf/base.html:84 member/admin.py:18 member/models.py:39
-#: member/templates/member/account/profile_base.html:16
+#: member/templates/member/account/profile_base.html:16 member/views.py:219
 msgid "Profile"
 msgstr ""
 
@@ -293,7 +293,7 @@ msgstr ""
 msgid "IP address"
 msgstr ""
 
-#: member/models.py:61
+#: member/models.py:61 member/templates/member/account/profile_base.html:24
 msgid "Login log"
 msgstr ""
 
@@ -420,11 +420,51 @@ msgid "Are you sure you want to sign out?"
 msgstr ""
 
 #: member/templates/member/account/password_change.html:107
-#: member/templates/member/account/profile_base.html:28
+#: member/templates/member/account/password_reset_from_key.html:89
+#: member/templates/member/account/profile_base.html:32
 msgid "Change password"
 msgstr ""
 
-#: member/templates/member/account/password_set.html:84
+#: member/templates/member/account/password_reset.html:25
+msgid ""
+"Enter your e-mail address below, and we will send you an e-mail allowing you "
+"to reset it."
+msgstr ""
+
+#: member/templates/member/account/password_reset.html:71
+msgid "Reset My Password"
+msgstr ""
+
+#: member/templates/member/account/password_reset.html:77
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr ""
+
+#: member/templates/member/account/password_reset_done.html:25
+msgid ""
+"We have sent you an e-mail. Please contact us if you do not receive it "
+"within a few minutes."
+msgstr ""
+
+#: member/templates/member/account/password_reset_from_key.html:11
+msgid "Bad Token"
+msgstr ""
+
+#: member/templates/member/account/password_reset_from_key.html:21
+#, python-format
+msgid ""
+"The password reset link was invalid, possibly because it has\n"
+"                                    already been used.\n"
+"                                    Please request a <a href="
+"\"%(passwd_reset_url)s\">new password reset</a>\n"
+"                                    ."
+msgstr ""
+
+#: member/templates/member/account/password_reset_from_key.html:96
+#: member/templates/member/account/password_reset_from_key_done.html:16
+msgid "Your password is now changed."
+msgstr ""
+
+#: member/templates/member/account/password_set.html:78
 msgid "Set password"
 msgstr ""
 
@@ -432,7 +472,7 @@ msgstr ""
 msgid "Organizations"
 msgstr ""
 
-#: member/templates/member/account/profile_base.html:24
+#: member/templates/member/account/profile_base.html:28
 msgid "Email management"
 msgstr ""
 
@@ -445,7 +485,7 @@ msgstr ""
 msgid "you are already logged in as %(user_display)s."
 msgstr ""
 
-#: member/templates/member/account/unregister.html:41 member/views.py:90
+#: member/templates/member/account/unregister.html:41 member/views.py:92
 msgid "Unregister"
 msgstr ""
 
@@ -461,34 +501,42 @@ msgstr ""
 msgid "Please contact us if you do not receive it within a few minutes."
 msgstr ""
 
-#: member/views.py:43
+#: member/views.py:45
 msgid "Login"
 msgstr ""
 
-#: member/views.py:53
+#: member/views.py:55
 msgid "Logout"
 msgstr ""
 
-#: member/views.py:71
+#: member/views.py:73
 msgid "Account Inactive"
 msgstr ""
 
-#: member/views.py:124
+#: member/views.py:126
 msgid "Password Change"
 msgstr ""
 
-#: member/views.py:134
+#: member/views.py:136
 msgid "Password Set"
 msgstr ""
 
-#: member/views.py:144
+#: member/views.py:147 member/views.py:167
+msgid "Password Reset"
+msgstr ""
+
+#: member/views.py:157 member/views.py:176
+msgid "Password Reset Done"
+msgstr ""
+
+#: member/views.py:185
 msgid "Email Verification Sent"
 msgstr ""
 
-#: member/views.py:153
+#: member/views.py:194
 msgid "Confirm Email Request"
 msgstr ""
 
-#: member/views.py:163
+#: member/views.py:204
 msgid "Email Management"
 msgstr ""
