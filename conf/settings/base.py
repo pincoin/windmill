@@ -93,7 +93,7 @@ LOGIN_REDIRECT_URL = '/'  # default=/accounts/profile/
 # LOGOUT_REDIRECT_URL = '/'
 
 # django-allauth
-DEFAULT_FROM_EMAIL = 'noreply@pincoin.info'
+DEFAULT_FROM_EMAIL = EMAIL_NO_REPLY
 ACCOUNT_ADAPTER = 'member.adapters.MyAccountAdapter'
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
