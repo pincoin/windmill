@@ -30,6 +30,24 @@ class Agency(TimeStampedModel):
         null=True,
     )
 
+    cancellable_days = models.IntegerField(
+        verbose_name=_('Cancellable days'),
+        db_index=True,
+        default=3,
+    )
+
+    due_days = models.IntegerField(
+        verbose_name=_('Payment due days'),
+        db_index=True,
+        default=1,
+    )
+
+    bookable_days = models.IntegerField(
+        verbose_name=_('Bookable days'),
+        db_index=True,
+        default=90,
+    )
+
     phone = models.CharField(
         verbose_name=_('Phone number'),
         max_length=16,
