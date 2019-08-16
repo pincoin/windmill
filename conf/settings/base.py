@@ -1,8 +1,6 @@
 import json
 import os
 
-from django.utils.translation import ugettext_lazy as _
-
 from . import BASE_DIR
 
 # Secret settings
@@ -65,19 +63,28 @@ TEMPLATES = [
 WSGI_APPLICATION = 'conf.wsgi.application'
 
 # Password validation
-# https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator', },
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator', },
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator', },
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator', },
 ]
+
+# django.contrib.auth settings for allauth
+PASSWORD_RESET_TIMEOUT_DAYS = 1  # default=3
+LOGIN_URL = '/accounts/login/'  # default=/accounts/login/
+LOGOUT_URL = '/accounts/logout/'  # default=/accounts/logout/
+LOGIN_REDIRECT_URL = '/'  # default=/accounts/profile/
+# LOGOUT_REDIRECT_URL = '/'
+
+# django-allauth
+DEFAULT_FROM_EMAIL = 'noreply@pincoin.info'
+ACCOUNT_ADAPTER = 'member.adapters.MyAccountAdapter'
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
+ACCOUNT_SIGNUP_FORM_CLASS = 'member.forms2.MemberSignupForm'
+ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True  # default=False
+# SOCIALACCOUNT_AUTO_SIGNUP = False
