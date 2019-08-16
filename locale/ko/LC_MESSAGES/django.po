@@ -480,4 +480,4 @@ msgstr "회원 가입 완료 요청"
 
 #: member/views.py:141
 msgid "Email Management"
-msgstr "이메일 관리"
+msgstr "이메일 연동"
