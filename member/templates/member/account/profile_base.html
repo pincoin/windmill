@@ -1,0 +1,48 @@
+{% extends 'conf/base.html' %}
+
+{% block content %}
+    <div class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-4">
+                    <nav class="panel">
+                        <p class="panel-heading has-text-centered">
+                            {{ request.user.username }}
+                        </p>
+                        <a href="{% url 'account_profile' %}"
+                           class="panel-block{% if sidemenu == 'profile' %} is-active{% endif %}">
+                            Profile
+                        </a>
+                        <a href="{% url 'account_resume_list' %}"
+                           class="panel-block{% if sidemenu == 'resume' %} is-active{% endif %}">
+                            Resume
+                        </a>
+                        <a href="#"
+                           class="panel-block{% if sidemenu == 'organizations' %} is-active{% endif %}">
+                            Organizations
+                        </a>
+                        <a href="{% url 'account_email' %}"
+                           class="panel-block{% if sidemenu == 'emails' %} is-active{% endif %}">
+                            Emails
+                        </a>
+                        <a href="#"
+                           class="panel-block{% if sidemenu == 'notifications' %} is-active{% endif %}">
+                            Notifications
+                        </a>
+                        <a href="{% url 'account_change_password' %}"
+                           class="panel-block{% if sidemenu == 'password' %} is-active{% endif %}">
+                            Change password
+                        </a>
+                        <a href="#"
+                           class="panel-block{% if sidemenu == 'billing' %} is-active{% endif %}">
+                            Billing
+                        </a>
+                    </nav>
+                </div>
+                <div class="column is-8">
+                    {% block main_content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

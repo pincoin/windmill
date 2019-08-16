@@ -27,11 +27,11 @@ urlpatterns = [
 
     # Email Confirmation
     path('confirm-email/',
-         views.MemberLoginView.as_view(), name="account_email_verification_sent"),
+         views.MemberEmailVerificationSentView.as_view(), name="account_email_verification_sent"),
     re_path(r'^confirm-email/(?P<key>[-:\w]+)/$',
-            views.MemberLoginView.as_view(), name="account_confirm_email"),
+            views.MemberConfirmEmailView.as_view(), name="account_confirm_email"),
     path('email/',
-         views.MemberLoginView.as_view(), name="account_email"),
+         views.MemberEmailView.as_view(), name="account_email"),
 
     # Profile
 ]
@@ -56,13 +56,6 @@ re_path(r'^password/reset/key/(?P<uidb36>[0-9A-Za-z]+)-(?P<key>.+)/$',
 path('password/reset/key/done/',
      views.MemberPasswordResetFromKeyDoneView.as_view(), name="account_reset_password_from_key_done"),
 
-# Email Confirmation
-path('confirm-email/',
-     views.MemberEmailVerificationSentView.as_view(), name="account_email_verification_sent"),
-re_path(r'^confirm-email/(?P<key>[-:\w]+)/$',
-        views.MemberConfirmEmailView.as_view(), name="account_confirm_email"),
-path('email/',
-     views.MemberEmailView.as_view(), name="account_email"),
 
 # Profile
 path('profile/',

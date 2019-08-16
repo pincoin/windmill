@@ -1,0 +1,35 @@
+{% extends 'conf/base.html' %}
+
+{% load i18n static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <h1 class="title has-text-centered">{{ page_title }}</h1>
+
+            <div class="columns is-centered">
+                <div class="column is-two-fifths">
+                    <div class="columns">
+                        <div class="column">
+                            <article class="message is-info">
+                                <div class="message-body">
+                                    <p>
+                                        {% trans 'We have sent an e-mail to you for verification.' %}
+                                    </p>
+                                    <p>
+                                        {% trans 'Follow the link provided to finalize the signup process.' %}
+                                    </p>
+                                    <p>
+                                        {% trans 'Please contact us if you do not receive it within a few minutes.' %}
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

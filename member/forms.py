@@ -32,3 +32,7 @@ class MemberUnregisterForm(forms.Form):
     agree = forms.BooleanField(
         label=_('I really would like to unregister.'),
     )
+
+
+class MemberAddEmailForm(allauth_forms.AddEmailForm):
+    pass

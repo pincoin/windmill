@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-16 15:01+0000\n"
+"POT-Creation-Date: 2019-08-16 15:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgstr "로그인"
 
 #: conf/templates/conf/base.html:72
 #: member/templates/member/account/login.html:97
-#: member/templates/member/account/signup.html:196 member/views.py:63
+#: member/templates/member/account/signup.html:196 member/views.py:62
 msgid "Sign Up"
 msgstr "회원가입"
 
@@ -111,6 +111,7 @@ msgid "Phone number"
 msgstr "전화번호"
 
 #: golf/models.py:57 golf/models.py:109 member/models.py:70
+#: member/templates/member/account/email_confirm.html:21
 msgid "Email address"
 msgstr "이메일주소"
 
@@ -311,6 +312,53 @@ msgstr "이메일주소"
 msgid "This account is inactive."
 msgstr "이 계정은 유효하지 않습니다."
 
+#: member/templates/member/account/email.html:29
+msgid "The following e-mail addresses are associated with your account:"
+msgstr "아래 이메일 주소로 계정과 연동되어 있습니다."
+
+#: member/templates/member/account/email.html:60
+msgid "Primary"
+msgstr "로그인 이메일"
+
+#: member/templates/member/account/email.html:66
+msgid "Verified"
+msgstr "인증"
+
+#: member/templates/member/account/email.html:70
+msgid "Unverified"
+msgstr "미인증"
+
+#: member/templates/member/account/email.html:85
+msgid "Make Primary"
+msgstr "로그인 이메일 지정"
+
+#: member/templates/member/account/email.html:93
+msgid "Re-send Verification"
+msgstr "인증메일 재발송"
+
+#: member/templates/member/account/email.html:101
+msgid "Remove"
+msgstr "삭제"
+
+#: member/templates/member/account/email.html:111
+msgid ""
+"Warning: You currently do not have any e-mail address set up. You should "
+"really add an e-mail address so you can receive notifications, reset your "
+"password, etc."
+msgstr ""
+
+#: member/templates/member/account/email.html:124
+msgid "Add E-mail Address"
+msgstr "이메일주소 추가"
+
+#: member/templates/member/account/email.html:171
+msgid "Add E-mail"
+msgstr "이메일주소 추가"
+
+#: member/templates/member/account/email.html:187
+msgid "Do you really want to remove the selected e-mail address?"
+msgstr "선택한 이메일 주소를 정말로 삭제할까요?"
+
 #: member/templates/member/account/email/email_confirmation_message.html:3
 #, python-format
 msgid ""
@@ -324,15 +372,15 @@ msgid ""
 msgstr ""
 "\n"
 "    <p>\n"
-"        나원 가입을 환영합니다!\n"
+"        안녕하세요. [NaOne]입니다.\n"
 "    </p>\n"
 "    <p>\n"
-"        회원가입을 완료하시려면 다음 링크를 클릭하세요. %(activate_url)s\n"
+"        회원가입을 완료하시려면 다음 링크를 클릭하세요: %(activate_url)s\n"
 "    </p>\n"
 
 #: member/templates/member/account/email/email_confirmation_subject.txt:3
 msgid "Please Confirm Your E-mail Address"
-msgstr "올바른 이메일 주소인지 확인합니다."
+msgstr "[NaOne] 회원가입 이메일 인증 요청"
 
 #: member/templates/member/account/email/password_reset_key_message.html:3
 msgid ""
@@ -349,6 +397,33 @@ msgstr ""
 #: member/templates/member/account/email/password_reset_key_subject.txt:3
 msgid "Password Reset E-mail"
 msgstr "비밀번호 초기화 이메일"
+
+#: member/templates/member/account/email_confirm.html:22
+msgid "Username"
+msgstr "아이디"
+
+#: member/templates/member/account/email_confirm.html:23
+msgid "Please, confirm the email address and username as shown above:"
+msgstr "아래 버튼을 눌러 회원가입을 완료합니다."
+
+#: member/templates/member/account/email_confirm.html:31
+msgid "Confirm"
+msgstr "확인"
+
+#: member/templates/member/account/email_confirm.html:40
+msgid "This e-mail confirmation link expired or is invalid."
+msgstr "이메일 인증 링크가 만료되었거나 유효하지 않습니다."
+
+#: member/templates/member/account/email_confirm.html:43
+#, python-format
+msgid ""
+"\n"
+"                                        Please\n"
+"                                        <a href=\"%(email_url)s\">issue a "
+"new e-mail confirmation request</a>\n"
+"                                        .\n"
+"                                    "
+msgstr ""
 
 #: member/templates/member/account/login.html:90
 msgid "Forgot Password?"
@@ -367,18 +442,42 @@ msgstr "노트"
 msgid "you are already logged in as %(user_display)s."
 msgstr "%(user_display)s로 로그인했습니다."
 
-#: member/templates/member/account/unregister.html:47 member/views.py:91
+#: member/templates/member/account/unregister.html:41 member/views.py:90
 msgid "Unregister"
 msgstr "회원탈퇴"
 
-#: member/views.py:44
+#: member/templates/member/account/verification_sent.html:19
+msgid "We have sent an e-mail to you for verification."
+msgstr "이메일 주소 인증을 위해 메일을 보냈습니다."
+
+#: member/templates/member/account/verification_sent.html:22
+msgid "Follow the link provided to finalize the signup process."
+msgstr "회원가입을 완료하기 위해 받으신 이메일에서 링크를 클릭하세요."
+
+#: member/templates/member/account/verification_sent.html:25
+msgid "Please contact us if you do not receive it within a few minutes."
+msgstr "5분이 지나도 메일을 받지 못하면 저희에게 연락바랍니다."
+
+#: member/views.py:43
 msgid "Login"
 msgstr "로그인"
 
-#: member/views.py:54
+#: member/views.py:53
 msgid "Logout"
 msgstr "로그아웃"
 
-#: member/views.py:72
+#: member/views.py:71
 msgid "Account Inactive"
 msgstr "이용 불가"
+
+#: member/views.py:122
+msgid "Email Verification Sent"
+msgstr "이메일 인증 발송"
+
+#: member/views.py:131
+msgid "Confirm Email Request"
+msgstr "회원 가입 완료 요청"
+
+#: member/views.py:141
+msgid "Email Management"
+msgstr "이메일 관리"

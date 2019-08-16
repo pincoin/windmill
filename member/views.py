@@ -2,7 +2,6 @@ import uuid
 
 from allauth.account import views as allauth_views
 from allauth.account.models import EmailAddress
-from allauth.socialaccount.models import SocialAccount
 from django.conf import settings
 from django.contrib.auth import (
     get_user_model, logout)
@@ -104,7 +103,8 @@ class MemberUnregisterView(auth_mixins.AccessMixin, generic.FormView):
         self.member.save()
 
         EmailAddress.objects.filter(user__id=self.member.id).delete()
-        SocialAccount.objects.filter(user__id=self.member.id).delete()
+
+        # SocialAccount.objects.filter(user__id=self.member.id).delete()
 
         logout(self.request)
 
@@ -112,3 +112,31 @@ class MemberUnregisterView(auth_mixins.AccessMixin, generic.FormView):
 
     def get_success_url(self):
         return reverse('home')
+
+
+class MemberEmailVerificationSentView(allauth_views.EmailVerificationSentView):
+    template_name = 'member/account/verification_sent.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(MemberEmailVerificationSentView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Email Verification Sent')
+        return context
+
+
+class MemberConfirmEmailView(allauth_views.ConfirmEmailView):
+    template_name = 'member/account/email_confirm.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(MemberConfirmEmailView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Confirm Email Request')
+        return context
+
+
+class MemberEmailView(auth_mixins.LoginRequiredMixin, allauth_views.EmailView):
+    template_name = 'member/account/email.html'
+    form_class = forms.MemberAddEmailForm
+
+    def get_context_data(self, **kwargs):
+        context = super(MemberEmailView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Email Management')
+        return context
