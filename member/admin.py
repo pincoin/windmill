@@ -5,8 +5,8 @@ from . import models
 
 
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('user', 'cellphone', 'line_id', 'company')
-    list_filter = ('company__title',)
+    list_display = ('user', 'cellphone', 'line_id')
+    # list_filter = ('agency__title',)
     search_fields = ('user__email', 'cellphone',)
     raw_id_fields = ('user',)
     ordering = ('-created',)
@@ -16,7 +16,7 @@ class ProfileAdmin(admin.ModelAdmin):
             'fields': ('user',)
         }),
         (_('Profile'), {
-            'fields': ('cellphone', 'line_id', 'company')
+            'fields': ('cellphone', 'line_id')
         }),
     )
 

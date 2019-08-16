@@ -4,10 +4,23 @@ from model_utils import Choices
 from model_utils.models import TimeStampedModel
 
 
-class TravelAgent(TimeStampedModel):
+class Agency(TimeStampedModel):
+    AGENCY_TYPE_CHOICES = Choices(
+        (0, 'travel', _('Travel agency')),
+        (1, 'personal', _('Personal agent')),
+        (2, 'booking', _('Booking agency')),
+    )
+
     title = models.CharField(
-        verbose_name=_('Travel agent name'),
+        verbose_name=_('Agent name'),
         max_length=255,
+    )
+
+    agency_type = models.IntegerField(
+        verbose_name=_('Agency type'),
+        choices=AGENCY_TYPE_CHOICES,
+        default=AGENCY_TYPE_CHOICES.travel,
+        db_index=True,
     )
 
     bank_account = models.CharField(
@@ -49,8 +62,8 @@ class TravelAgent(TimeStampedModel):
     )
 
     class Meta:
-        verbose_name = _('Travel agent')
-        verbose_name_plural = _('Travel agents')
+        verbose_name = _('Agency')
+        verbose_name_plural = _('Agencies')
 
     def __str__(self):
         return '{} {} {}'.format(self.title, self.email, self.phone)
@@ -141,9 +154,9 @@ class PriceTable(TimeStampedModel):
         (3, 'night', _('Night')),
     )
 
-    company = models.ForeignKey(
-        'golf.TravelAgent',
-        verbose_name=_('Travel agent'),
+    agency = models.ForeignKey(
+        'golf.Agency',
+        verbose_name=_('Agency'),
         db_index=True,
         on_delete=models.CASCADE,
     )
@@ -199,4 +212,4 @@ class PriceTable(TimeStampedModel):
         verbose_name_plural = _('Price tables')
 
     def __str__(self):
-        return '{} {} {}'.format(self.company.title, self.club.title, self.fee)
+        return '{} {} {}'.format(self.agency.title, self.club.title, self.fee)

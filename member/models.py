@@ -26,15 +26,6 @@ class Profile(TimeStampedModel):
         null=True,
     )
 
-    company = models.ForeignKey(
-        'golf.TravelAgent',
-        verbose_name=_('Travel agent'),
-        null=True,
-        blank=True,
-        db_index=True,
-        on_delete=models.SET_NULL,
-    )
-
     class Meta:
         verbose_name = _('Profile')
         verbose_name_plural = _('Profiles')
