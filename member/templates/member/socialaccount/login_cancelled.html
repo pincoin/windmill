@@ -1,0 +1,31 @@
+{% extends 'conf/base.html' %}
+
+{% load i18n static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+    <section class="section">
+        <div class="container has-text-centered">
+            <h1 class="title">{{ page_title }}</h1>
+
+            <div class="columns is-centered">
+                <div class="column is-two-fifths">
+                    <article class="message is-danger">
+                        <div class="message-body">
+                            <p>
+                                {% trans 'You decided to cancel logging in to our site using one of your existing accounts.' %}
+                            </p>
+                            <p>
+                                {% blocktrans %}
+                                    If this was a mistake, please proceed to
+                                    <a href="{{ login_url }}">sign in</a>.
+                                {% endblocktrans %}
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

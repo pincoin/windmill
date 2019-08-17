@@ -2,6 +2,7 @@ import uuid
 
 from allauth.account import views as allauth_views
 from allauth.account.models import EmailAddress
+from allauth.socialaccount import views as socialaccount_views
 from django.conf import settings
 from django.contrib.auth import (
     get_user_model, logout)
@@ -202,6 +203,42 @@ class MemberEmailView(auth_mixins.LoginRequiredMixin, allauth_views.EmailView):
     def get_context_data(self, **kwargs):
         context = super(MemberEmailView, self).get_context_data(**kwargs)
         context['page_title'] = _('Email Management')
+        return context
+
+
+class MemberSocialLoginCancelledView(socialaccount_views.LoginCancelledView):
+    template_name = 'member/socialaccount/login_cancelled.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(MemberSocialLoginCancelledView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Login Cancelled')
+        return context
+
+
+class MemberSocialLoginErrorView(socialaccount_views.LoginErrorView):
+    template_name = 'member/socialaccount/authentication_error.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(MemberSocialLoginErrorView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Social Network Login Failure')
+        return context
+
+
+class MemberSocialSignupView(socialaccount_views.SignupView):
+    template_name = 'member/socialaccount/signup.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(MemberSocialSignupView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Sign up')
+        return context
+
+
+class MemberSocialConnectionsView(auth_mixins.LoginRequiredMixin, socialaccount_views.ConnectionsView):
+    template_name = 'member/socialaccount/connections.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(MemberSocialConnectionsView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Connect with SNS accounts')
         return context
 
 

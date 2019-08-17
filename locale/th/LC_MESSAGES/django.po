@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-16 17:04+0000\n"
+"POT-Creation-Date: 2019-08-17 10:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,8 @@ msgstr ""
 
 #: conf/templates/conf/base.html:72
 #: member/templates/member/account/login.html:97
-#: member/templates/member/account/signup.html:196 member/views.py:64
+#: member/templates/member/account/signup.html:196
+#: member/templates/member/socialaccount/signup.html:160 member/views.py:64
 msgid "Sign Up"
 msgstr ""
 
@@ -334,6 +335,7 @@ msgid "Re-send Verification"
 msgstr ""
 
 #: member/templates/member/account/email.html:90
+#: member/templates/member/socialaccount/connections.html:63
 msgid "Remove"
 msgstr ""
 
@@ -476,6 +478,11 @@ msgstr ""
 msgid "Email management"
 msgstr ""
 
+#: member/templates/member/account/profile_base.html:36
+#: member/templates/member/account/unregister.html:47 member/views.py:92
+msgid "Unregister"
+msgstr ""
+
 #: member/templates/member/account/snippets/already_logged_in.html:5
 msgid "Note"
 msgstr ""
@@ -483,10 +490,6 @@ msgstr ""
 #: member/templates/member/account/snippets/already_logged_in.html:5
 #, python-format
 msgid "you are already logged in as %(user_display)s."
-msgstr ""
-
-#: member/templates/member/account/unregister.html:41 member/views.py:92
-msgid "Unregister"
 msgstr ""
 
 #: member/templates/member/account/verification_sent.html:19
@@ -499,6 +502,56 @@ msgstr ""
 
 #: member/templates/member/account/verification_sent.html:25
 msgid "Please contact us if you do not receive it within a few minutes."
+msgstr ""
+
+#: member/templates/member/socialaccount/authentication_error.html:16
+msgid ""
+"An error occurred while attempting to login via your social network account."
+msgstr ""
+
+#: member/templates/member/socialaccount/connections.html:25
+msgid ""
+"You can sign in to your account using any of the following third party "
+"accounts:"
+msgstr ""
+
+#: member/templates/member/socialaccount/connections.html:76
+msgid ""
+"You currently have no social network accounts connected to this account."
+msgstr ""
+
+#: member/templates/member/socialaccount/connections.html:85
+msgid "Add a 3rd Party Account"
+msgstr ""
+
+#: member/templates/member/socialaccount/login_cancelled.html:17
+msgid ""
+"You decided to cancel logging in to our site using one of your existing "
+"accounts."
+msgstr ""
+
+#: member/templates/member/socialaccount/login_cancelled.html:20
+#, python-format
+msgid ""
+"\n"
+"                                    If this was a mistake, please proceed "
+"to\n"
+"                                    <a href=\"%(login_url)s\">sign in</a>.\n"
+"                                "
+msgstr ""
+
+#: member/templates/member/socialaccount/signup.html:16
+#, python-format
+msgid ""
+"\n"
+"                                You are about to use your <strong>"
+"%(provider_name)s</strong> account to login\n"
+"                                to %(site_name)s.\n"
+"                            "
+msgstr ""
+
+#: member/templates/member/socialaccount/signup.html:20
+msgid "As a final step, please complete the following form:"
 msgstr ""
 
 #: member/views.py:45

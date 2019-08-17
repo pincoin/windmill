@@ -1,0 +1,27 @@
+.sns-button-line {
+    color: #ffffff;
+    background: #1ec800;
+    border: 0;
+}
+
+.sns-button-facebook {
+    color: #ffffff;
+    background: #3b5998;
+    border: 0;
+}
+
+.sns-button-google {
+    color: #ffffff;
+    background: #db4a39;
+    border: 0;
+}
+
+.sns-button-github {
+    color: #ffffff;
+    background: #171515;
+    border: 0;
+}
+
+a.sns-button-line:hover, a.sns-button-facebook:hover, a.sns-button-google:hover, a.sns-button-github:hover {
+    color: #dddddd;
+}

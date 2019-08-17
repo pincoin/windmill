@@ -1,0 +1,168 @@
+{% extends 'conf/base.html' %}
+
+{% load i18n static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <h1 class="title has-text-centered">{{ page_title }}</h1>
+
+            <div class="columns is-centered">
+                <div class="column is-two-fifths">
+                    <article class="message is-info">
+                        <div class="message-body">
+                            {% blocktrans with provider_name=account.get_provider.name site_name=site.name %}
+                                You are about to use your <strong>{{ provider_name }}</strong> account to login
+                                to {{ site_name }}.
+                            {% endblocktrans %}
+                            {% trans 'As a final step, please complete the following form:' %}
+                        </div>
+                    </article>
+
+                    {% if form.non_field_errors %}
+                        <ul class="notification is-warning">
+                            {% for error in form.non_field_errors %}
+                                <li>{{ error|escape }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+
+                    <form id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
+                        {% csrf_token %}
+
+                        <div class="field">
+                            <label class="label" for="{{ form.email.id_for_label }}">
+                                {{ form.email.label }}
+                                <span class="has-text-danger">*</span>
+                            </label>
+                            <div class="control has-icons-left">
+                                <input id="{{ form.email.id_for_label }}"
+                                       name="{{ form.email.name }}"
+                                       type="email"
+                                       class="input{% if form.email.errors %} is-danger{% endif %}"
+                                       {% if form.email.value != None %}value="{{ form.email.value|stringformat:'s' }}"{% endif %}
+                                       {% if form.email.field.required %}required{% endif %}>
+                                <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            {% if form.email.errors %}
+                                <p class="help is-danger">
+                                    {% for error in form.email.errors %}
+                                        {{ error|escape }}
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="{{ form.first_name.id_for_label }}">
+                                {{ form.first_name.label }}
+                                <span class="has-text-danger">*</span>
+                            </label>
+                            <div class="control">
+                                <input id="{{ form.first_name.id_for_label }}"
+                                       name="{{ form.first_name.name }}"
+                                       type="text"
+                                       class="input{% if form.first_name.errors %} is-danger{% endif %}"
+                                       {% if form.first_name.value != None %}value="{{ form.first_name.value|stringformat:'s' }}"{% endif %}
+                                       {% if form.first_name.field.required %}required{% endif %}>
+                            </div>
+                            {% if form.first_name.errors %}
+                                <p class="help is-danger">
+                                    {% for error in form.first_name.errors %}
+                                        {{ error|escape }}
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="{{ form.last_name.id_for_label }}">
+                                {{ form.last_name.label }}
+                                <span class="has-text-danger">*</span>
+                            </label>
+                            <div class="control">
+                                <input id="{{ form.last_name.id_for_label }}"
+                                       name="{{ form.last_name.name }}"
+                                       type="text"
+                                       class="input{% if form.last_name.errors %} is-danger{% endif %}"
+                                       {% if form.last_name.value != None %}value="{{ form.last_name.value|stringformat:'s' }}"{% endif %}
+                                       {% if form.last_name.field.required %}required{% endif %}>
+                            </div>
+                            {% if form.last_name.errors %}
+                                <p class="help is-danger">
+                                    {% for error in form.last_name.errors %}
+                                        {{ error|escape }}
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="{{ form.username.id_for_label }}">
+                                {{ form.username.label }}
+                                <span class="has-text-danger">*</span>
+                            </label>
+                            <div class="control">
+                                <input id="{{ form.username.id_for_label }}"
+                                       name="{{ form.username.name }}"
+                                       type="text"
+                                       class="input{% if form.username.errors %} is-danger{% endif %}"
+                                       {% if form.username.value != None %}value="{{ form.username.value|stringformat:'s' }}"{% endif %}
+                                       {% if form.username.field.required %}required{% endif %}>
+                            </div>
+                            {% if form.username.errors %}
+                                <p class="help is-danger">
+                                    {% for error in form.username.errors %}
+                                        {{ error|escape }}
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        </div>
+
+                        <div class="field">
+                            <label class="checkbox">
+                                <input type="checkbox" name="{{ form.terms.name }}"/>
+                                <span class="control-label">{{ form.terms.label }}</span>
+                            </label>
+                            {% if form.terms.errors %}
+                                <p class="help is-danger">
+                                    {% for error in form.terms.errors %}
+                                        {{ error|escape }}
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        </div>
+
+                        <div class="field">
+                            <label class="checkbox">
+                                <input type="checkbox" name="{{ form.privacy.name }}"/>
+                                <span class="control-label">{{ form.privacy.label }}</span>
+                            </label>
+                            {% if form.privacy.errors %}
+                                <p class="help is-danger">
+                                    {% for error in form.privacy.errors %}
+                                        {{ error|escape }}
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        </div>
+
+                        {% if redirect_field_value %}
+                            <input type="hidden" name="{{ redirect_field_name }}"
+                                   value="{{ redirect_field_value }}"/>
+                        {% endif %}
+
+                        <div class="control">
+                            <button class="button is-success is-fullwidth" type="submit">
+                                <span class="icon"><i class="fas fa-user-plus fa-fw"></i></span>
+                                <span>{% trans 'Sign Up' %}</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,6 +1,7 @@
 {% extends 'conf/base.html' %}
 
 {% load i18n static %}
+{% load account socialaccount %}
 
 {% block title %}{{ page_title }}{% endblock %}
 
@@ -8,6 +9,27 @@
     <section class="section">
         <div class="container">
             <h1 class="title has-text-centered">{{ page_title }}</h1>
+
+            <div class="columns is-centered">
+                <div class="column is-two-fifths">
+                    <div class="columns">
+                        <div class="column">
+                            <a href="{% provider_login_url 'line' process='login' scope=scope auth_params=auth_params %}"
+                               class="button is-large is-fullwidth sns-button-line">
+                                <i class="fab fa-line fa-2x"></i>
+                            </a>
+                        </div>
+                        <div class="column">
+                            <a href="{% provider_login_url 'facebook' process='login' scope=scope auth_params=auth_params %}"
+                               class="button is-large is-fullwidth sns-button-facebook">
+                                <i class="fab fa-facebook-square fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% providers_media_js %}
 
             <div class="columns is-centered">
                 <div class="column is-two-fifths">
@@ -102,4 +124,10 @@
             </div>
         </div>
     </section>
+{% endblock %}
+
+
+{% block stylesheet %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "member/css/sns.css" %}">
 {% endblock %}
