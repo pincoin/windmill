@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-17 10:11+0000\n"
+"POT-Creation-Date: 2019-08-17 10:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,14 +34,15 @@ msgid "English"
 msgstr ""
 
 #: conf/templates/conf/base.html:68
-#: member/templates/member/account/login.html:73
+#: member/templates/member/account/login.html:95
 msgid "Sign In"
 msgstr ""
 
 #: conf/templates/conf/base.html:72
-#: member/templates/member/account/login.html:97
+#: member/templates/member/account/login.html:119
 #: member/templates/member/account/signup.html:196
-#: member/templates/member/socialaccount/signup.html:160 member/views.py:64
+#: member/templates/member/socialaccount/signup.html:160 member/views.py:65
+#: member/views.py:232
 msgid "Sign Up"
 msgstr ""
 
@@ -50,7 +51,7 @@ msgid "Me"
 msgstr ""
 
 #: conf/templates/conf/base.html:84 member/admin.py:18 member/models.py:39
-#: member/templates/member/account/profile_base.html:16 member/views.py:219
+#: member/templates/member/account/profile_base.html:16 member/views.py:256
 msgid "Profile"
 msgstr ""
 
@@ -413,7 +414,7 @@ msgid ""
 "                                    "
 msgstr ""
 
-#: member/templates/member/account/login.html:90
+#: member/templates/member/account/login.html:112
 msgid "Forgot Password?"
 msgstr ""
 
@@ -479,7 +480,7 @@ msgid "Email management"
 msgstr ""
 
 #: member/templates/member/account/profile_base.html:36
-#: member/templates/member/account/unregister.html:47 member/views.py:92
+#: member/templates/member/account/unregister.html:47 member/views.py:93
 msgid "Unregister"
 msgstr ""
 
@@ -554,42 +555,54 @@ msgstr ""
 msgid "As a final step, please complete the following form:"
 msgstr ""
 
-#: member/views.py:45
+#: member/views.py:46
 msgid "Login"
 msgstr ""
 
-#: member/views.py:55
+#: member/views.py:56
 msgid "Logout"
 msgstr ""
 
-#: member/views.py:73
+#: member/views.py:74
 msgid "Account Inactive"
 msgstr ""
 
-#: member/views.py:126
+#: member/views.py:127
 msgid "Password Change"
 msgstr ""
 
-#: member/views.py:136
+#: member/views.py:137
 msgid "Password Set"
 msgstr ""
 
-#: member/views.py:147 member/views.py:167
+#: member/views.py:148 member/views.py:168
 msgid "Password Reset"
 msgstr ""
 
-#: member/views.py:157 member/views.py:176
+#: member/views.py:158 member/views.py:177
 msgid "Password Reset Done"
 msgstr ""
 
-#: member/views.py:185
+#: member/views.py:186
 msgid "Email Verification Sent"
 msgstr ""
 
-#: member/views.py:194
+#: member/views.py:195
 msgid "Confirm Email Request"
 msgstr ""
 
-#: member/views.py:204
+#: member/views.py:205
 msgid "Email Management"
+msgstr ""
+
+#: member/views.py:214
+msgid "Login Cancelled"
+msgstr ""
+
+#: member/views.py:223
+msgid "Social Network Login Failure"
+msgstr ""
+
+#: member/views.py:241
+msgid "Connect with SNS accounts"
 msgstr ""

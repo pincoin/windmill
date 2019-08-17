@@ -229,7 +229,7 @@ class MemberSocialSignupView(socialaccount_views.SignupView):
 
     def get_context_data(self, **kwargs):
         context = super(MemberSocialSignupView, self).get_context_data(**kwargs)
-        context['page_title'] = _('Sign up')
+        context['page_title'] = _('Sign Up')
         return context
 
 

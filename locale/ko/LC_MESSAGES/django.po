@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-17 10:11+0000\n"
+"POT-Creation-Date: 2019-08-17 10:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,14 +34,15 @@ msgid "English"
 msgstr "영어"
 
 #: conf/templates/conf/base.html:68
-#: member/templates/member/account/login.html:73
+#: member/templates/member/account/login.html:95
 msgid "Sign In"
 msgstr "로그인"
 
 #: conf/templates/conf/base.html:72
-#: member/templates/member/account/login.html:97
+#: member/templates/member/account/login.html:119
 #: member/templates/member/account/signup.html:196
-#: member/templates/member/socialaccount/signup.html:160 member/views.py:64
+#: member/templates/member/socialaccount/signup.html:160 member/views.py:65
+#: member/views.py:232
 msgid "Sign Up"
 msgstr "회원가입"
 
@@ -50,7 +51,7 @@ msgid "Me"
 msgstr "나"
 
 #: conf/templates/conf/base.html:84 member/admin.py:18 member/models.py:39
-#: member/templates/member/account/profile_base.html:16 member/views.py:219
+#: member/templates/member/account/profile_base.html:16 member/views.py:256
 msgid "Profile"
 msgstr "프로필"
 
@@ -344,7 +345,7 @@ msgid ""
 "Warning: You currently do not have any e-mail address set up. You should "
 "really add an e-mail address so you can receive notifications, reset your "
 "password, etc."
-msgstr ""
+msgstr "경고: 이메일 주소를 등록해야 서비스를 이용하실 수 있습니다."
 
 #: member/templates/member/account/email.html:148
 msgid "Add E-mail"
@@ -420,7 +421,7 @@ msgid ""
 "                                    "
 msgstr ""
 
-#: member/templates/member/account/login.html:90
+#: member/templates/member/account/login.html:112
 msgid "Forgot Password?"
 msgstr "비밀번호 재설정"
 
@@ -486,7 +487,7 @@ msgid "Email management"
 msgstr "이메일 연동"
 
 #: member/templates/member/account/profile_base.html:36
-#: member/templates/member/account/unregister.html:47 member/views.py:92
+#: member/templates/member/account/unregister.html:47 member/views.py:93
 msgid "Unregister"
 msgstr "회원탈퇴"
 
@@ -515,21 +516,24 @@ msgstr "5분이 지나도 메일을 받지 못하면 저희에게 연락바랍�
 msgid ""
 "An error occurred while attempting to login via your social network account."
 msgstr ""
+"SNS 로그인 실패했습니다."
 
 #: member/templates/member/socialaccount/connections.html:25
 msgid ""
 "You can sign in to your account using any of the following third party "
 "accounts:"
 msgstr ""
+"SNS 계정으로 로그인할 수 있습니다."
 
 #: member/templates/member/socialaccount/connections.html:76
 msgid ""
 "You currently have no social network accounts connected to this account."
 msgstr ""
+"계정에 연결된 SNS 계정이 없습니다."
 
 #: member/templates/member/socialaccount/connections.html:85
 msgid "Add a 3rd Party Account"
-msgstr ""
+msgstr "SNS 계정 연결"
 
 #: member/templates/member/socialaccount/login_cancelled.html:17
 msgid ""
@@ -559,44 +563,56 @@ msgstr ""
 
 #: member/templates/member/socialaccount/signup.html:20
 msgid "As a final step, please complete the following form:"
-msgstr ""
+msgstr "회원 가입을 위한 마지막 단계입니다."
 
-#: member/views.py:45
+#: member/views.py:46
 msgid "Login"
 msgstr "로그인"
 
-#: member/views.py:55
+#: member/views.py:56
 msgid "Logout"
 msgstr "로그아웃"
 
-#: member/views.py:73
+#: member/views.py:74
 msgid "Account Inactive"
 msgstr "이용 불가"
 
-#: member/views.py:126
+#: member/views.py:127
 msgid "Password Change"
 msgstr "비밀번호 변경"
 
-#: member/views.py:136
+#: member/views.py:137
 msgid "Password Set"
 msgstr "비밀번호 초기화 이메일"
 
-#: member/views.py:147 member/views.py:167
+#: member/views.py:148 member/views.py:168
 msgid "Password Reset"
 msgstr "비밀번호 재설정"
 
-#: member/views.py:157 member/views.py:176
+#: member/views.py:158 member/views.py:177
 msgid "Password Reset Done"
 msgstr "비밀번호 재설정 완료"
 
-#: member/views.py:185
+#: member/views.py:186
 msgid "Email Verification Sent"
 msgstr "이메일 인증 발송"
 
-#: member/views.py:194
+#: member/views.py:195
 msgid "Confirm Email Request"
 msgstr "회원 가입 완료 요청"
 
-#: member/views.py:204
+#: member/views.py:205
 msgid "Email Management"
 msgstr "이메일 연동"
+
+#: member/views.py:214
+msgid "Login Cancelled"
+msgstr "로그인 취소"
+
+#: member/views.py:223
+msgid "Social Network Login Failure"
+msgstr "SNS 로그인 실패"
+
+#: member/views.py:241
+msgid "Connect with SNS accounts"
+msgstr "SNS 로그인"
