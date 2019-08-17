@@ -36,6 +36,9 @@ INSTALLED_APPS = [
 INSTALLED_APPS += [
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'member.socialaccount.providers.line',
 ]
 
 INSTALLED_APPS += [
@@ -107,4 +110,17 @@ ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
 ACCOUNT_SIGNUP_FORM_CLASS = 'member.forms2.MemberSignupForm'
 ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True  # default=False
-# SOCIALACCOUNT_AUTO_SIGNUP = False
+SOCIALACCOUNT_AUTO_SIGNUP = False
+
+# Social providers for django-allauth
+# Each key has an empty dictionary value that will eventually contain provider specific configuration options by admin
+SOCIALACCOUNT_PROVIDERS = {
+    'facebook': {},
+    'line': {
+        'SCOPE': [
+            'profile',
+            'openid',
+            'email',
+        ],
+    },
+}
