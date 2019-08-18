@@ -6,4 +6,8 @@ $(document).ready(function () {
 
         $('#gray-background').toggleClass('grey-background');
     });
+
+    $('#language-selector').on('change', function (e) {
+        this.form.submit();
+    });
 });
