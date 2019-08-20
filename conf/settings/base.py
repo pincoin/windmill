@@ -125,3 +125,5 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
     },
 }
+
+GEOIP_PATH = os.path.join(BASE_DIR, 'GeoLite2-Country.mmdb')
