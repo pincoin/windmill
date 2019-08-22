@@ -28,17 +28,6 @@ class MemberLoginForm(GoogleRecaptchaMixin, allauth_forms.LoginForm):
         return cleaned_data
 
 
-class MemberUnregisterForm(forms.Form):
-    agree = forms.BooleanField(
-        label=_('I really would like to unregister.'),
-        widget=forms.CheckboxInput(),
-    )
-
-
-class MemberAddEmailForm(allauth_forms.AddEmailForm):
-    pass
-
-
 class MemberChangePasswordForm(GoogleRecaptchaMixin, allauth_forms.ChangePasswordForm):
     def __init__(self, *args, **kwargs):
         super(MemberChangePasswordForm, self).__init__(*args, **kwargs)
@@ -87,3 +76,14 @@ class MemberResetPasswordKeyForm(allauth_forms.ResetPasswordKeyForm):
 
         self.fields['password1'].widget.attrs['class'] = 'input'
         self.fields['password2'].widget.attrs['class'] = 'input'
+
+
+class MemberUnregisterForm(forms.Form):
+    agree = forms.BooleanField(
+        label=_('I really would like to unregister.'),
+        widget=forms.CheckboxInput(),
+    )
+
+
+class MemberAddEmailForm(allauth_forms.AddEmailForm):
+    pass
