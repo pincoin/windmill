@@ -82,4 +82,8 @@ class MemberResetPasswordForm(GoogleRecaptchaMixin, allauth_forms.ResetPasswordF
 
 
 class MemberResetPasswordKeyForm(allauth_forms.ResetPasswordKeyForm):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(MemberResetPasswordKeyForm, self).__init__(*args, **kwargs)
+
+        self.fields['password1'].widget.attrs['class'] = 'input'
+        self.fields['password2'].widget.attrs['class'] = 'input'
