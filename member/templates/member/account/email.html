@@ -45,19 +45,13 @@
                                             <span class="control-label">{{ emailaddress.email }}</span>
                                         </label>
                                         {% if emailaddress.primary %}
-                                            <span class="tag is-link">
-                                                        {% trans "Primary" %}
-                                                    </span>
+                                            <span class="tag is-link">{% trans "Primary" %}</span>
                                         {% endif %}
 
                                         {% if emailaddress.verified %}
-                                            <span class="tag is-success">
-                                                        {% trans "Verified" %}
-                                                    </span>
+                                            <span class="tag is-success">{% trans "Verified" %}</span>
                                         {% else %}
-                                            <span class="tag is-danger">
-                                                        {% trans "Unverified" %}
-                                                    </span>
+                                            <span class="tag is-danger">{% trans "Unverified" %}</span>
                                         {% endif %}
                                     </div>
                                 </div>
