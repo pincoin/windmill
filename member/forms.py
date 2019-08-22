@@ -32,9 +32,8 @@ class MemberChangePasswordForm(GoogleRecaptchaMixin, allauth_forms.ChangePasswor
     def __init__(self, *args, **kwargs):
         super(MemberChangePasswordForm, self).__init__(*args, **kwargs)
 
-        self.fields['oldpassword'].widget.attrs['class'] = 'input'
-        self.fields['password1'].widget.attrs['class'] = 'input'
-        self.fields['password2'].widget.attrs['class'] = 'input'
+        for key, field in self.fields.items():
+            field.widget.attrs['class'] = 'input'
 
     def clean(self):
         self.validate_google_recaptcha()
@@ -47,8 +46,8 @@ class MemberSetPasswordForm(GoogleRecaptchaMixin, allauth_forms.SetPasswordForm)
     def __init__(self, *args, **kwargs):
         super(MemberSetPasswordForm, self).__init__(*args, **kwargs)
 
-        self.fields['password1'].widget.attrs['class'] = 'input'
-        self.fields['password2'].widget.attrs['class'] = 'input'
+        for key, field in self.fields.items():
+            field.widget.attrs['class'] = 'input'
 
     def clean(self):
         self.validate_google_recaptcha()
@@ -61,7 +60,8 @@ class MemberResetPasswordForm(GoogleRecaptchaMixin, allauth_forms.ResetPasswordF
     def __init__(self, *args, **kwargs):
         super(MemberResetPasswordForm, self).__init__(*args, **kwargs)
 
-        self.fields['email'].widget.attrs['class'] = 'input'
+        for key, field in self.fields.items():
+            field.widget.attrs['class'] = 'input'
 
     def clean(self):
         self.validate_google_recaptcha()
@@ -74,8 +74,8 @@ class MemberResetPasswordKeyForm(allauth_forms.ResetPasswordKeyForm):
     def __init__(self, *args, **kwargs):
         super(MemberResetPasswordKeyForm, self).__init__(*args, **kwargs)
 
-        self.fields['password1'].widget.attrs['class'] = 'input'
-        self.fields['password2'].widget.attrs['class'] = 'input'
+        for key, field in self.fields.items():
+            field.widget.attrs['class'] = 'input'
 
 
 class MemberUnregisterForm(forms.Form):
