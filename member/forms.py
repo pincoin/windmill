@@ -86,4 +86,8 @@ class MemberUnregisterForm(forms.Form):
 
 
 class MemberAddEmailForm(allauth_forms.AddEmailForm):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(MemberAddEmailForm, self).__init__(*args, **kwargs)
+
+        for key, field in self.fields.items():
+            field.widget.attrs['class'] = 'input'

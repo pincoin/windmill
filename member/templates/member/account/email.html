@@ -125,12 +125,7 @@
                                         <span class="has-text-danger">*</span>
                                     </label>
                                     <div class="control has-icons-left">
-                                        <input id="{{ form.email.id_for_label }}"
-                                               name="{{ form.email.name }}"
-                                               type="email"
-                                               class="input{% if form.email.errors %} is-danger{% endif %}"
-                                               {% if form.email.value != None %}value="{{ form.email.value|stringformat:'s' }}"{% endif %}
-                                               {% if form.email.field.required %}required{% endif %}>
+                                        {{ form.email }}
                                         <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
                                     </div>
                                     {% if form.email.errors %}
