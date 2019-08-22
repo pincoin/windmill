@@ -34,6 +34,7 @@ INSTALLED_APPS = [
 ]
 
 INSTALLED_APPS += [
+    'mptt',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
