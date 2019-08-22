@@ -121,6 +121,12 @@ class MemberPasswordChangeView(auth_mixins.LoginRequiredMixin, allauth_views.Pas
     template_name = 'member/account/password_change.html'
     form_class = forms.MemberChangePasswordForm
 
+    def form_invalid(self, form):
+        for field in form.errors.keys():
+            if field is not '__all__':
+                form.fields[field].widget.attrs['class'] = 'input is-danger'
+        return super(MemberPasswordChangeView, self).form_invalid(form)
+
     def get_context_data(self, **kwargs):
         context = super(MemberPasswordChangeView, self).get_context_data(**kwargs)
         context['google_recaptcha_site_key'] = settings.GOOGLE_RECAPTCHA['site_key']
@@ -132,6 +138,12 @@ class MemberPasswordSetView(auth_mixins.LoginRequiredMixin, allauth_views.Passwo
     template_name = 'member/account/password_set.html'
     form_class = forms.MemberSetPasswordForm
 
+    def form_invalid(self, form):
+        for field in form.errors.keys():
+            if field is not '__all__':
+                form.fields[field].widget.attrs['class'] = 'input is-danger'
+        return super(MemberPasswordSetView, self).form_invalid(form)
+
     def get_context_data(self, **kwargs):
         context = super(MemberPasswordSetView, self).get_context_data(**kwargs)
         context['page_title'] = _('Password Set')
@@ -142,6 +154,12 @@ class MemberPasswordSetView(auth_mixins.LoginRequiredMixin, allauth_views.Passwo
 class MemberPasswordReset(allauth_views.PasswordResetView):
     template_name = 'member/account/password_reset.html'
     form_class = forms.MemberResetPasswordForm
+
+    def form_invalid(self, form):
+        for field in form.errors.keys():
+            if field is not '__all__':
+                form.fields[field].widget.attrs['class'] = 'input is-danger'
+        return super(MemberPasswordReset, self).form_invalid(form)
 
     def get_context_data(self, **kwargs):
         context = super(MemberPasswordReset, self).get_context_data(**kwargs)
@@ -162,6 +180,12 @@ class MemberPasswordResetDoneView(allauth_views.PasswordResetDoneView):
 class MemberPasswordResetFromKeyView(allauth_views.PasswordResetFromKeyView):
     template_name = 'member/account/password_reset_from_key.html'
     form_class = forms.MemberResetPasswordKeyForm
+
+    def form_invalid(self, form):
+        for field in form.errors.keys():
+            if field is not '__all__':
+                form.fields[field].widget.attrs['class'] = 'input is-danger'
+        return super(MemberPasswordResetFromKeyView, self).form_invalid(form)
 
     def get_context_data(self, **kwargs):
         context = super(MemberPasswordResetFromKeyView, self).get_context_data(**kwargs)
