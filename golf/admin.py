@@ -10,11 +10,19 @@ class ProductInline(admin.TabularInline):
     ordering = ('position',)
 
 
+class DepositInline(admin.StackedInline):
+    model = models.Deposit
+    extra = 1
+    fields = ('amount', 'received')
+    ordering = ['-created']
+
+
 class AgencyAdmin(admin.ModelAdmin):
     list_display = ('title', 'agency_type',
                     'phone', 'email', 'bank_account',
-                    'cancellable_days', 'due_days', 'bookable_days', 'deposit')
+                    'cancellable_days', 'due_days', 'bookable_days')
     search_fields = ('title',)
+    inlines = (DepositInline,)
 
 
 class ClubAdmin(admin.ModelAdmin):

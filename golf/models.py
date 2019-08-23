@@ -3,10 +3,10 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from model_utils import Choices
-from model_utils.models import TimeStampedModel
+from model_utils import models  as model_utils_models
 
 
-class Agency(TimeStampedModel):
+class Agency(model_utils_models.TimeStampedModel):
     AGENCY_TYPE_CHOICES = Choices(
         (0, 'travel', _('Travel agency')),
         (1, 'personal', _('Personal agent')),
@@ -67,13 +67,6 @@ class Agency(TimeStampedModel):
         null=True,
     )
 
-    deposit = models.DecimalField(
-        verbose_name=_('Deposit amount'),
-        max_digits=11,
-        decimal_places=2,
-        help_text=_('THB'),
-    )
-
     memo = models.TextField(
         verbose_name=_('Memo'),
         help_text=_('A short description'),
@@ -89,7 +82,7 @@ class Agency(TimeStampedModel):
         return '{} {} {}'.format(self.title, self.email, self.phone)
 
 
-class ClubProduct(TimeStampedModel):
+class ClubProduct(model_utils_models.TimeStampedModel):
     SEASON_CHOICES = Choices(
         (0, 'low', _('Low season')),
         (1, 'high', _('High season')),
@@ -142,7 +135,7 @@ class ClubProduct(TimeStampedModel):
         )
 
 
-class Club(TimeStampedModel):
+class Club(model_utils_models.TimeStampedModel):
     HOLE_CHOICES = Choices(
         (0, 'eighteen', _('18 Holes')),
         (1, 'nine', _('9 Holes')),
@@ -257,7 +250,7 @@ class ClubProductListMembership(models.Model):
         unique_together = ('club', 'product_list')
 
 
-class AgentProfile(TimeStampedModel):
+class AgentProfile(model_utils_models.TimeStampedModel):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE
@@ -305,6 +298,36 @@ class AgentProfile(TimeStampedModel):
 
     changeform_link.allow_tags = True
     changeform_link.short_description = ''  # omit column header
+
+
+class Deposit(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
+    agency = models.ForeignKey(
+        'golf.Agency',
+        verbose_name=_('Agency'),
+        db_index=True,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+    )
+
+    amount = models.DecimalField(
+        verbose_name=_('Amount'),
+        max_digits=11,
+        decimal_places=2,
+    )
+
+    received = models.DateTimeField(
+        verbose_name=_('Received date'),
+    )
+
+    class Meta:
+        verbose_name = _('Deposit')
+        verbose_name_plural = _('Deposits')
+
+    def __str__(self):
+        return 'agency - {} / payment - {} {}'.format(
+            self.agency.title, self.amount, self.received
+        )
 
 
 '''
