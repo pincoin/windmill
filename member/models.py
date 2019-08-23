@@ -1,59 +1,8 @@
 from django.conf import settings
 from django.db import models
-from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from model_utils import Choices
 from model_utils.models import TimeStampedModel
-
-
-class Profile(TimeStampedModel):
-    user = models.OneToOneField(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE
-    )
-
-    agency = models.ForeignKey(
-        'golf.Agency',
-        verbose_name=_('Agency'),
-        db_index=True,
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-    )
-
-    cellphone = models.CharField(
-        verbose_name=_('Cellphone number'),
-        max_length=16,
-        blank=True,
-        null=True,
-    )
-
-    line_id = models.CharField(
-        verbose_name=_('Line ID'),
-        max_length=32,
-        blank=True,
-        null=True,
-    )
-
-    class Meta:
-        verbose_name = _('Profile')
-        verbose_name_plural = _('Profiles')
-
-    def __str__(self):
-        return '{} {} {}'.format(self.user.email, self.user.username, self.cellphone)
-
-    def changeform_link(self):
-        if self.id:
-            # Replace "myapp" with the name of the app containing
-            # your Certificate model:
-            changeform_url = reverse(
-                'admin:member_profile_change', args=(self.id,)
-            )
-            return u'<a href="%s" target="_blank">Details</a>' % changeform_url
-        return u''
-
-    changeform_link.allow_tags = True
-    changeform_link.short_description = ''  # omit column header
 
 
 class LoginLog(TimeStampedModel):

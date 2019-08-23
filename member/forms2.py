@@ -1,7 +1,7 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
-from .models import Profile
+from golf.models import AgentProfile
 
 
 class MemberSignupForm(forms.Form):
@@ -32,6 +32,6 @@ class MemberSignupForm(forms.Form):
         user.save()
 
         # Required fields for profile model
-        profile = Profile()
+        profile = AgentProfile()
         profile.user = user
         profile.save()
