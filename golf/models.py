@@ -87,7 +87,7 @@ class Agency(TimeStampedModel):
         return '{} {} {}'.format(self.title, self.email, self.phone)
 
 
-class GolfClubProduct(TimeStampedModel):
+class ClubProduct(TimeStampedModel):
     SEASON_CHOICES = Choices(
         (0, 'low', _('Low season')),
         (1, 'high', _('High season')),
@@ -138,7 +138,7 @@ class GolfClubProduct(TimeStampedModel):
         )
 
 
-class GolfClub(TimeStampedModel):
+class Club(TimeStampedModel):
     HOLE_CHOICES = Choices(
         (0, 'eighteen', _('18 Holes')),
         (1, 'nine', _('9 Holes')),
@@ -200,8 +200,9 @@ class GolfClub(TimeStampedModel):
     )
 
     products = models.ManyToManyField(
-        'golf.GolfClubProduct',
-        through='golf.ProductListMembership')
+        'golf.ClubProduct',
+        through='golf.ClubProductListMembership'
+    )
 
     class Meta:
         verbose_name = _('Golf club')
@@ -211,16 +212,16 @@ class GolfClub(TimeStampedModel):
         return '{} {} {}'.format(self.title, self.email, self.phone)
 
 
-class ProductListMembership(models.Model):
+class ClubProductListMembership(models.Model):
     club = models.ForeignKey(
-        'golf.GolfClub',
+        'golf.Club',
         verbose_name=_('Golf club'),
         db_index=True,
         on_delete=models.CASCADE,
     )
 
     product_list = models.ForeignKey(
-        'golf.GolfClubProduct',
+        'golf.ClubProduct',
         verbose_name=_('Product list'),
         db_index=True,
         on_delete=models.CASCADE,
@@ -279,7 +280,7 @@ class PriceTable(TimeStampedModel):
     )
 
     club = models.ForeignKey(
-        'golf.GolfClub',
+        'golf.Club',
         verbose_name=_('Golf club'),
         db_index=True,
         on_delete=models.CASCADE,

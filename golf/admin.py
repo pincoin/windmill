@@ -4,7 +4,7 @@ from . import models
 
 
 class ProductInline(admin.TabularInline):
-    model = models.GolfClub.products.through
+    model = models.Club.products.through
     extra = 1
     ordering = ('position',)
 
@@ -16,15 +16,19 @@ class AgencyAdmin(admin.ModelAdmin):
     search_fields = ('title',)
 
 
-class GolfClubAdmin(admin.ModelAdmin):
+class ClubAdmin(admin.ModelAdmin):
     list_display = ('title', 'hole', 'cart_rental_required', 'cart_fee', 'caddie_fee', 'phone', 'email',)
     search_fields = ('title',)
     inlines = (ProductInline,)
     exclude = ('products',)
 
 
-class GolfClubProductAdmin(admin.ModelAdmin):
+class ClubProductAdmin(admin.ModelAdmin):
     list_display = ('season', 'day_of_week', 'slot')
+
+
+class ClubProductListMembershipAdmin(admin.ModelAdmin):
+    pass
 
 
 '''
@@ -53,5 +57,6 @@ class PriceTableAdmin(admin.ModelAdmin):
 '''
 
 admin.site.register(models.Agency, AgencyAdmin)
-admin.site.register(models.GolfClub, GolfClubAdmin)
-admin.site.register(models.GolfClubProduct, GolfClubProductAdmin)
+admin.site.register(models.Club, ClubAdmin)
+admin.site.register(models.ClubProduct, ClubProductAdmin)
+admin.site.register(models.ClubProductListMembership, ClubProductListMembershipAdmin)
