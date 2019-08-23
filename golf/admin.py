@@ -37,10 +37,6 @@ class ClubProductAdmin(admin.ModelAdmin):
     ordering = ('season', 'day_of_week', 'slot')
 
 
-class ClubProductListMembershipAdmin(admin.ModelAdmin):
-    pass
-
-
 class ProfileSetInline(admin.TabularInline):
     model = models.AgentProfile
     extra = 1
@@ -106,5 +102,4 @@ class PriceTableAdmin(admin.ModelAdmin):
 admin.site.register(models.Agency, AgencyAdmin)
 admin.site.register(models.Club, ClubAdmin)
 admin.site.register(models.ClubProduct, ClubProductAdmin)
-admin.site.register(models.ClubProductListMembership, ClubProductListMembershipAdmin)
 admin.site.register(models.AgentProfile, AgentProfileAdmin)
