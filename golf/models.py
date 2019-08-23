@@ -87,6 +87,57 @@ class Agency(TimeStampedModel):
         return '{} {} {}'.format(self.title, self.email, self.phone)
 
 
+class GolfClubProduct(TimeStampedModel):
+    SEASON_CHOICES = Choices(
+        (0, 'low', _('Low season')),
+        (1, 'high', _('High season')),
+    )
+
+    DAY_CHOICES = Choices(
+        (0, 'weekday', _('Weekday')),
+        (1, 'weekend', _('Weekend')),
+    )
+
+    SLOT_CHOICES = Choices(
+        (0, 'morning', _('Morning')),
+        (1, 'daytime', _('Daytime')),
+        (2, 'twilight', _('Twilight')),
+        (3, 'night', _('Night')),
+    )
+
+    season = models.IntegerField(
+        verbose_name=_('High/Low Season'),
+        choices=SEASON_CHOICES,
+        default=SEASON_CHOICES.high,
+        db_index=True,
+    )
+
+    day_of_week = models.IntegerField(
+        verbose_name=_('Day of week'),
+        choices=DAY_CHOICES,
+        default=DAY_CHOICES.weekday,
+        db_index=True,
+    )
+
+    slot = models.IntegerField(
+        verbose_name=_('Time slot'),
+        choices=SLOT_CHOICES,
+        default=SLOT_CHOICES.morning,
+        db_index=True,
+    )
+
+    class Meta:
+        verbose_name = _('Golf club product')
+        verbose_name_plural = _('Golf club products')
+
+    def __str__(self):
+        return '{} / {} / {}'.format(
+            self.SEASON_CHOICES[self.season],
+            self.DAY_CHOICES[self.day_of_week],
+            self.SLOT_CHOICES[self.slot],
+        )
+
+
 class GolfClub(TimeStampedModel):
     HOLE_CHOICES = Choices(
         (0, 'eighteen', _('18 Holes')),
@@ -280,54 +331,3 @@ class PriceTable(TimeStampedModel):
     def __str__(self):
         return '{} {} {}'.format(self.agency.title, self.club.title, self.fee)    
 '''
-
-
-class GolfClubProduct(TimeStampedModel):
-    SEASON_CHOICES = Choices(
-        (0, 'low', _('Low season')),
-        (1, 'high', _('High season')),
-    )
-
-    DAY_CHOICES = Choices(
-        (0, 'weekday', _('Weekday')),
-        (1, 'weekend', _('Weekend')),
-    )
-
-    SLOT_CHOICES = Choices(
-        (0, 'morning', _('Morning')),
-        (1, 'daytime', _('Daytime')),
-        (2, 'twilight', _('Twilight')),
-        (3, 'night', _('Night')),
-    )
-
-    season = models.IntegerField(
-        verbose_name=_('High/Low Season'),
-        choices=SEASON_CHOICES,
-        default=SEASON_CHOICES.high,
-        db_index=True,
-    )
-
-    day_of_week = models.IntegerField(
-        verbose_name=_('Day of week'),
-        choices=DAY_CHOICES,
-        default=DAY_CHOICES.weekday,
-        db_index=True,
-    )
-
-    slot = models.IntegerField(
-        verbose_name=_('Time slot'),
-        choices=SLOT_CHOICES,
-        default=SLOT_CHOICES.morning,
-        db_index=True,
-    )
-
-    class Meta:
-        verbose_name = _('Golf club product')
-        verbose_name_plural = _('Golf club products')
-
-    def __str__(self):
-        return '{} / {} / {}'.format(
-            self.SEASON_CHOICES[self.season],
-            self.DAY_CHOICES[self.day_of_week],
-            self.SLOT_CHOICES[self.slot],
-        )
