@@ -1,7 +1,15 @@
 from django.contrib import admin
+from django.urls import reverse
+from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 
 from . import models
+
+
+class ProfileSetInline(admin.TabularInline):
+    model = models.Profile
+    extra = 1
+    fields = ('agency', 'cellphone', 'line_id')
 
 
 class ProfileAdmin(admin.ModelAdmin):
@@ -55,6 +63,9 @@ class OrganizationApplicationAdmin(admin.ModelAdmin):
         'user', 'status', 'created'
     )
 
+    fields = ('user', 'get_edit_link', 'message', 'status', 'created')
+    readonly_fields = ('user', 'get_edit_link', 'message', 'created')
+
     raw_id_fields = ('user',)
 
     ordering = ('-created',)
@@ -63,6 +74,17 @@ class OrganizationApplicationAdmin(admin.ModelAdmin):
         return super(OrganizationApplicationAdmin, self).get_queryset(request) \
             .select_related('user', 'user__profile') \
             .filter(user__profile__isnull=False)
+
+    def get_edit_link(self, obj=None):
+        if obj.user.profile:  # if object has already been saved and has a primary key, show link to it
+            # url = reverse('admin:%s_%s_change' % (obj._meta.app_label, obj._meta.model_name), args=(obj.pk,))
+            return mark_safe('<a href="{url}">{text}</a>'.format(
+                url=reverse('admin:member_profile_change', args=(obj.user.profile.pk,)),
+                text='{} {}'.format(obj.user.first_name, obj.user.last_name),
+            ))
+        return _("(save and continue editing to create a link)")
+
+    get_edit_link.short_description = _('Profile')
 
 
 admin.site.register(models.Profile, ProfileAdmin)

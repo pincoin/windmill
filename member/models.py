@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from model_utils import Choices
 from model_utils.models import TimeStampedModel
@@ -40,6 +41,19 @@ class Profile(TimeStampedModel):
 
     def __str__(self):
         return '{} {} {}'.format(self.user.email, self.user.username, self.cellphone)
+
+    def changeform_link(self):
+        if self.id:
+            # Replace "myapp" with the name of the app containing
+            # your Certificate model:
+            changeform_url = reverse(
+                'admin:member_profile_change', args=(self.id,)
+            )
+            return u'<a href="%s" target="_blank">Details</a>' % changeform_url
+        return u''
+
+    changeform_link.allow_tags = True
+    changeform_link.short_description = ''  # omit column header
 
 
 class LoginLog(TimeStampedModel):

@@ -16,6 +16,10 @@ class GolfClubAdmin(admin.ModelAdmin):
     search_fields = ('title',)
 
 
+class GolfClubProductAdmin(admin.ModelAdmin):
+    list_display = ('season', 'day_of_week', 'slot', 'time_start', 'time_end')
+
+
 class PriceTableAdmin(admin.ModelAdmin):
     list_display = ('agency_title', 'club_title', 'season', 'day_of_week', 'slot', 'fee', 'cost', 'profit')
     search_fields = ('agency__title', 'club__title')
@@ -43,3 +47,4 @@ class PriceTableAdmin(admin.ModelAdmin):
 admin.site.register(models.Agency, AgencyAdmin)
 admin.site.register(models.GolfClub, GolfClubAdmin)
 admin.site.register(models.PriceTable, PriceTableAdmin)
+admin.site.register(models.GolfClubProduct, GolfClubProductAdmin)
