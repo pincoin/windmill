@@ -49,5 +49,6 @@ class OrganizationApplicationAdmin(admin.ModelAdmin):
 
     get_edit_link.short_description = _('Profile')
 
+
 admin.site.register(models.LoginLog, LoginLogAdmin)
 admin.site.register(models.OrganizationApplication, OrganizationApplicationAdmin)
