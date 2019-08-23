@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-23 13:56+0000\n"
+"POT-Creation-Date: 2019-08-23 16:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Me"
 msgstr ""
 
-#: conf/templates/conf/base.html:86 golf/admin.py:61 member/admin.py:50
+#: conf/templates/conf/base.html:86 golf/admin.py:63
 #: member/templates/member/account/profile_base.html:16 member/views.py:280
 msgid "Profile"
 msgstr ""
@@ -60,16 +60,16 @@ msgstr ""
 msgid "Sign Out"
 msgstr ""
 
-#: golf/admin.py:58
+#: golf/admin.py:60
 msgid "Account"
 msgstr ""
 
-#: golf/admin.py:75
+#: golf/admin.py:77
 msgid "No organization"
 msgstr ""
 
-#: golf/admin.py:77 golf/models.py:78 golf/models.py:261 golf/models.py:306
-#: member/templates/member/account/profile.html:31
+#: golf/admin.py:79 golf/models.py:83 golf/models.py:264 golf/models.py:307
+#: golf/models.py:352 member/templates/member/account/profile.html:31
 msgid "Agency"
 msgstr ""
 
@@ -113,16 +113,16 @@ msgstr ""
 msgid "Bookable days"
 msgstr ""
 
-#: golf/models.py:54 golf/models.py:152
+#: golf/models.py:54 golf/models.py:157
 msgid "Phone number"
 msgstr ""
 
-#: golf/models.py:59 golf/models.py:159 member/models.py:32
+#: golf/models.py:59 golf/models.py:164 member/models.py:32
 #: member/templates/member/account/email_confirm.html:22
 msgid "Email address"
 msgstr ""
 
-#: golf/models.py:64 golf/models.py:166
+#: golf/models.py:64 golf/models.py:171
 msgid "Website"
 msgstr ""
 
@@ -134,163 +134,172 @@ msgstr ""
 msgid "A short description"
 msgstr ""
 
-#: golf/models.py:79
+#: golf/models.py:84
 msgid "Agencies"
 msgstr ""
 
-#: golf/models.py:87
+#: golf/models.py:92
 msgid "Low season"
 msgstr ""
 
-#: golf/models.py:88
+#: golf/models.py:93
 msgid "High season"
 msgstr ""
 
-#: golf/models.py:92
+#: golf/models.py:97
 msgid "Weekday"
 msgstr ""
 
-#: golf/models.py:93
+#: golf/models.py:98
 msgid "Weekend"
 msgstr ""
 
-#: golf/models.py:97
+#: golf/models.py:102
 msgid "Morning"
 msgstr ""
 
-#: golf/models.py:98
+#: golf/models.py:103
 msgid "Daytime"
 msgstr ""
 
-#: golf/models.py:99
+#: golf/models.py:104
 msgid "Twilight"
 msgstr ""
 
-#: golf/models.py:100
+#: golf/models.py:105
 msgid "Night"
 msgstr ""
 
-#: golf/models.py:104
+#: golf/models.py:109
 msgid "High/Low Season"
 msgstr ""
 
-#: golf/models.py:111
+#: golf/models.py:116
 msgid "Day of week"
 msgstr ""
 
-#: golf/models.py:118
+#: golf/models.py:123
 msgid "Time slot"
 msgstr ""
 
-#: golf/models.py:125
+#: golf/models.py:130
 msgid "Golf club product"
 msgstr ""
 
-#: golf/models.py:126
+#: golf/models.py:131
 msgid "Golf club products"
 msgstr ""
 
-#: golf/models.py:140
+#: golf/models.py:145
 msgid "18 Holes"
 msgstr ""
 
-#: golf/models.py:141
+#: golf/models.py:146
 msgid "9 Holes"
 msgstr ""
 
-#: golf/models.py:142
+#: golf/models.py:147
 msgid "27 Holes"
 msgstr ""
 
-#: golf/models.py:143
+#: golf/models.py:148
 msgid "36 Holes"
 msgstr ""
 
-#: golf/models.py:147
+#: golf/models.py:152
 msgid "Golf club name"
 msgstr ""
 
-#: golf/models.py:173
+#: golf/models.py:178
 msgid "No. of Holes"
 msgstr ""
 
-#: golf/models.py:180
+#: golf/models.py:185
 msgid "Cart rental required"
 msgstr ""
 
-#: golf/models.py:186
+#: golf/models.py:191
 msgid "Cart fee"
 msgstr ""
 
-#: golf/models.py:189 golf/models.py:196 golf/models.py:239
+#: golf/models.py:194 golf/models.py:201 golf/models.py:244 golf/models.py:282
+#: golf/models.py:361
 msgid "THB"
 msgstr ""
 
-#: golf/models.py:193
+#: golf/models.py:198
 msgid "Caddie fee"
 msgstr ""
 
-#: golf/models.py:205 golf/models.py:215
+#: golf/models.py:210 golf/models.py:220
 msgid "Golf club"
 msgstr ""
 
-#: golf/models.py:206
+#: golf/models.py:211
 msgid "Golf clubs"
 msgstr ""
 
-#: golf/models.py:222
+#: golf/models.py:227 golf/models.py:273
 msgid "Product list"
 msgstr ""
 
-#: golf/models.py:228
+#: golf/models.py:233
 msgid "Start time"
 msgstr ""
 
-#: golf/models.py:232
+#: golf/models.py:237
 msgid "End time"
 msgstr ""
 
-#: golf/models.py:236
+#: golf/models.py:241
 msgid "List price"
 msgstr ""
 
-#: golf/models.py:243
+#: golf/models.py:248 golf/models.py:286
 msgid "Position"
 msgstr ""
 
-#: golf/models.py:247 golf/models.py:248
+#: golf/models.py:252 golf/models.py:253
 msgid "Product list membership"
 msgstr ""
 
-#: golf/models.py:269
+#: golf/models.py:279
+msgid "Fee amount"
+msgstr ""
+
+#: golf/models.py:290 golf/models.py:291
+msgid "Agency product list membership"
+msgstr ""
+
+#: golf/models.py:315
 msgid "Cellphone number"
 msgstr ""
 
-#: golf/models.py:276
+#: golf/models.py:322
 msgid "Line ID"
 msgstr ""
 
-#: golf/models.py:283
+#: golf/models.py:329 member/admin.py:50
 msgid "Agent profile"
 msgstr ""
 
-#: golf/models.py:284
+#: golf/models.py:330
 msgid "Agent profiles"
 msgstr ""
 
-#: golf/models.py:314
+#: golf/models.py:360
 msgid "Amount"
 msgstr ""
 
-#: golf/models.py:320
+#: golf/models.py:367
 msgid "Received date"
 msgstr ""
 
-#: golf/models.py:324
+#: golf/models.py:371
 msgid "Deposit"
 msgstr ""
 
-#: golf/models.py:325
+#: golf/models.py:372
 msgid "Deposits"
 msgstr ""
 

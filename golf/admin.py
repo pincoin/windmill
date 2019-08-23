@@ -49,6 +49,12 @@ class ClubProductAdmin(admin.ModelAdmin):
     ordering = ('season', 'day_of_week', 'slot')
 
 
+class AgencyClubProductListMembershipAdmin(admin.ModelAdmin):
+    list_display = ('agency', 'product_list', 'fee')
+    list_filter = ('agency__title',)
+    raw_id_fields = ('agency', 'product_list')
+
+
 class AgentProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'agency_title', 'cellphone', 'line_id')
     list_filter = ('agency__title',)
@@ -84,3 +90,4 @@ admin.site.register(models.Agency, AgencyAdmin)
 admin.site.register(models.Club, ClubAdmin)
 admin.site.register(models.ClubProduct, ClubProductAdmin)
 admin.site.register(models.AgentProfile, AgentProfileAdmin)
+admin.site.register(models.AgencyClubProductListMembership, AgencyClubProductListMembershipAdmin)
