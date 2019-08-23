@@ -132,6 +132,8 @@ class ClubProduct(TimeStampedModel):
         verbose_name = _('Golf club product')
         verbose_name_plural = _('Golf club products')
 
+        unique_together = ('season', 'day_of_week', 'slot')
+
     def __str__(self):
         return '{} / {} / {}'.format(
             self.SEASON_CHOICES[self.season],
@@ -252,7 +254,7 @@ class ClubProductListMembership(models.Model):
         verbose_name = _('Product list membership')
         verbose_name_plural = _('Product list membership')
 
-        unique_together = ('club', 'product_list',)
+        unique_together = ('club', 'product_list')
 
 
 class AgentProfile(TimeStampedModel):

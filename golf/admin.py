@@ -26,6 +26,7 @@ class ClubAdmin(admin.ModelAdmin):
 
 class ClubProductAdmin(admin.ModelAdmin):
     list_display = ('season', 'day_of_week', 'slot')
+    ordering = ('season', 'day_of_week', 'slot')
 
 
 class ClubProductListMembershipAdmin(admin.ModelAdmin):
