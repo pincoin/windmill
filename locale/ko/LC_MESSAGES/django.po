@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-23 12:20+0000\n"
+"POT-Creation-Date: 2019-08-23 13:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,9 +50,8 @@ msgstr "회원가입"
 msgid "Me"
 msgstr "나"
 
-#: conf/templates/conf/base.html:86 member/admin.py:26 member/admin.py:87
-#: member/models.py:39 member/templates/member/account/profile_base.html:16
-#: member/views.py:280
+#: conf/templates/conf/base.html:86 golf/admin.py:52 member/admin.py:50
+#: member/templates/member/account/profile_base.html:16 member/views.py:280
 msgid "Profile"
 msgstr "프로필"
 
@@ -61,203 +60,227 @@ msgstr "프로필"
 msgid "Sign Out"
 msgstr "로그아웃"
 
-#: golf/apps.py:7
-msgid "Golf"
-msgstr "골프"
+#: golf/admin.py:49
+msgid "Account"
+msgstr "계정"
 
-#: golf/models.py:9
-msgid "Travel agency"
-msgstr "여행사"
+#: golf/admin.py:66
+msgid "No organization"
+msgstr "소속없음"
 
-#: golf/models.py:10
-msgid "Personal agent"
-msgstr "개인업자"
-
-#: golf/models.py:11
-msgid "Booking agency"
-msgstr "예약업소"
-
-#: golf/models.py:15
-msgid "Agency name"
-msgstr "에이전시 이름"
-
-#: golf/models.py:20
-msgid "Agency type"
-msgstr "구분"
-
-#: golf/models.py:27
-msgid "Bank account"
-msgstr "은행계좌"
-
-#: golf/models.py:34
-msgid "Cancellable days"
-msgstr "취소가능일"
-
-#: golf/models.py:40
-msgid "Payment due days"
-msgstr "입금기한일"
-
-#: golf/models.py:46
-msgid "Bookable days"
-msgstr "예약가능일"
-
-#: golf/models.py:52 golf/models.py:104
-msgid "Phone number"
-msgstr "전화번호"
-
-#: golf/models.py:57 golf/models.py:111 member/models.py:83
-#: member/templates/member/account/email_confirm.html:22
-msgid "Email address"
-msgstr "이메일주소"
-
-#: golf/models.py:62 golf/models.py:118
-msgid "Website"
-msgstr "웹사이트"
-
-#: golf/models.py:69
-msgid "Deposit amount"
-msgstr "보증금"
-
-#: golf/models.py:72 golf/models.py:141 golf/models.py:148 golf/models.py:190
-msgid "THB"
-msgstr "THB"
-
-#: golf/models.py:76
-msgid "Memo"
-msgstr "비고"
-
-#: golf/models.py:77
-msgid "A short description"
-msgstr "간단한 설명"
-
-#: golf/models.py:83 member/admin.py:42 member/models.py:17
+#: golf/admin.py:68 golf/models.py:85 golf/models.py:266
 #: member/templates/member/account/profile.html:31
 msgid "Agency"
 msgstr "에이전시"
 
-#: golf/models.py:84
+#: golf/apps.py:7
+msgid "Golf"
+msgstr "골프"
+
+#: golf/models.py:11
+msgid "Travel agency"
+msgstr "여행사"
+
+#: golf/models.py:12
+msgid "Personal agent"
+msgstr "개인업자"
+
+#: golf/models.py:13
+msgid "Booking agency"
+msgstr "예약업소"
+
+#: golf/models.py:17
+msgid "Agency name"
+msgstr "에이전시 이름"
+
+#: golf/models.py:22
+msgid "Agency type"
+msgstr "구분"
+
+#: golf/models.py:29
+msgid "Bank account"
+msgstr "은행계좌"
+
+#: golf/models.py:36
+msgid "Cancellable days"
+msgstr "취소가능일"
+
+#: golf/models.py:42
+msgid "Payment due days"
+msgstr "입금기한일"
+
+#: golf/models.py:48
+msgid "Bookable days"
+msgstr "예약가능일"
+
+#: golf/models.py:54 golf/models.py:157
+msgid "Phone number"
+msgstr "전화번호"
+
+#: golf/models.py:59 golf/models.py:164 member/models.py:32
+#: member/templates/member/account/email_confirm.html:22
+msgid "Email address"
+msgstr "이메일주소"
+
+#: golf/models.py:64 golf/models.py:171
+msgid "Website"
+msgstr "웹사이트"
+
+#: golf/models.py:71
+msgid "Deposit amount"
+msgstr "보증금"
+
+#: golf/models.py:74 golf/models.py:194 golf/models.py:201 golf/models.py:244
+msgid "THB"
+msgstr "THB"
+
+#: golf/models.py:78
+msgid "Memo"
+msgstr "비고"
+
+#: golf/models.py:79
+msgid "A short description"
+msgstr "간단한 설명"
+
+#: golf/models.py:86
 msgid "Agencies"
 msgstr "에이전시"
 
-#: golf/models.py:92
-msgid "18 Holes"
-msgstr "18홀"
-
-#: golf/models.py:93
-msgid "9 Holes"
-msgstr "9홀"
-
 #: golf/models.py:94
-msgid "27 Holes"
-msgstr "27홀"
-
-#: golf/models.py:95
-msgid "36 Holes"
-msgstr "36홀"
-
-#: golf/models.py:99
-msgid "Golf club name"
-msgstr "골프클럽 이름"
-
-#: golf/models.py:125
-msgid "No. of Holes"
-msgstr "홀수"
-
-#: golf/models.py:132
-msgid "Cart rental required"
-msgstr "카드 대여 필수"
-
-#: golf/models.py:138
-msgid "Cart fee"
-msgstr "카트 요금"
-
-#: golf/models.py:145
-msgid "Caddie fee"
-msgstr "캐디 요금"
-
-#: golf/models.py:156 golf/models.py:166
-msgid "Golf club"
-msgstr "골프클럽"
-
-#: golf/models.py:157
-msgid "Golf clubs"
-msgstr "골프클럽"
-
-#: golf/models.py:173
-msgid "Product list"
-msgstr "상품목록"
-
-#: golf/models.py:179
-msgid "Start time"
-msgstr "시작시각"
-
-#: golf/models.py:183
-msgid "End time"
-msgstr "종료시각"
-
-#: golf/models.py:187
-msgid "List price"
-msgstr "가격"
-
-#: golf/models.py:194
-msgid "Position"
-msgstr "순서"
-
-#: golf/models.py:198 golf/models.py:199
-msgid "Product list membership"
-msgstr "골프클럽 가격표"
-
-#: golf/models.py:285
 msgid "Low season"
 msgstr "비수기"
 
-#: golf/models.py:286
+#: golf/models.py:95
 msgid "High season"
 msgstr "성수기"
 
-#: golf/models.py:290
+#: golf/models.py:99
 msgid "Weekday"
 msgstr "주중"
 
-#: golf/models.py:291
+#: golf/models.py:100
 msgid "Weekend"
 msgstr "주말"
 
-#: golf/models.py:295
+#: golf/models.py:104
 msgid "Morning"
 msgstr "오전"
 
-#: golf/models.py:296
+#: golf/models.py:105
 msgid "Daytime"
 msgstr "오후"
 
-#: golf/models.py:297
+#: golf/models.py:106
 msgid "Twilight"
 msgstr "일몰"
 
-#: golf/models.py:298
+#: golf/models.py:107
 msgid "Night"
 msgstr "야간"
 
-#: golf/models.py:302
+#: golf/models.py:111
 msgid "High/Low Season"
 msgstr "성수기/비수기"
 
-#: golf/models.py:309
+#: golf/models.py:118
 msgid "Day of week"
 msgstr "주중/주말"
 
-#: golf/models.py:316
+#: golf/models.py:125
 msgid "Time slot"
 msgstr "시간대"
 
-#: golf/models.py:323
+#: golf/models.py:132
 msgid "Golf club product"
 msgstr "골프클럽 상품"
 
-#: golf/models.py:324
+#: golf/models.py:133
 msgid "Golf club products"
 msgstr "골프클럽 상품"
+
+#: golf/models.py:145
+msgid "18 Holes"
+msgstr "18홀"
+
+#: golf/models.py:146
+msgid "9 Holes"
+msgstr "9홀"
+
+#: golf/models.py:147
+msgid "27 Holes"
+msgstr "27홀"
+
+#: golf/models.py:148
+msgid "36 Holes"
+msgstr "36홀"
+
+#: golf/models.py:152
+msgid "Golf club name"
+msgstr "골프클럽 이름"
+
+#: golf/models.py:178
+msgid "No. of Holes"
+msgstr "홀수"
+
+#: golf/models.py:185
+msgid "Cart rental required"
+msgstr "카드 대여 필수"
+
+#: golf/models.py:191
+msgid "Cart fee"
+msgstr "카트 요금"
+
+#: golf/models.py:198
+msgid "Caddie fee"
+msgstr "캐디 요금"
+
+#: golf/models.py:210 golf/models.py:220
+msgid "Golf club"
+msgstr "골프클럽"
+
+#: golf/models.py:211
+msgid "Golf clubs"
+msgstr "골프클럽"
+
+#: golf/models.py:227
+msgid "Product list"
+msgstr "상품목록"
+
+#: golf/models.py:233
+msgid "Start time"
+msgstr "시작시각"
+
+#: golf/models.py:237
+msgid "End time"
+msgstr "종료시각"
+
+#: golf/models.py:241
+msgid "List price"
+msgstr "가격"
+
+#: golf/models.py:248
+msgid "Position"
+msgstr "순서"
+
+#: golf/models.py:252 golf/models.py:253
+msgid "Product list membership"
+msgstr "골프클럽 가격표"
+
+#: golf/models.py:274
+msgid "Cellphone number"
+msgstr "휴대전화번호"
+
+#: golf/models.py:281
+msgid "Line ID"
+msgstr "LINE 아이디"
+
+#: golf/models.py:288
+msgid "Agent profile"
+msgstr "담당자"
+
+#: golf/models.py:289
+msgid "Agent profiles"
+msgstr "담당자"
 
 #: member/adapters.py:30
 msgid "Your email domain is not allowed."
@@ -267,15 +290,7 @@ msgstr "허용되지 않은 이메일 도메인 주소입니다."
 msgid "Your email is banned."
 msgstr "차단된 이메일 주소입니다."
 
-#: member/admin.py:23
-msgid "Account"
-msgstr "계정"
-
-#: member/admin.py:40
-msgid "No organization"
-msgstr "소속없음"
-
-#: member/admin.py:85
+#: member/admin.py:48
 msgid "(save and continue editing to create a link)"
 msgstr ""
 
@@ -291,7 +306,7 @@ msgstr "{}일 동안 로그인하지 않았습니다."
 msgid "I really would like to unregister."
 msgstr "회원을 탈퇴합니다."
 
-#: member/forms.py:99 member/models.py:108
+#: member/forms.py:99 member/models.py:57
 msgid "Message"
 msgstr "소속 등록 요청 메시지"
 
@@ -323,60 +338,48 @@ msgstr "이용약관에 동의합니다."
 msgid "I agree to Privacy Policy."
 msgstr "개인정보보호처리방침에 동의합니다."
 
-#: member/models.py:25
-msgid "Cellphone number"
-msgstr "휴대전화번호"
-
-#: member/models.py:32
-msgid "Line ID"
-msgstr "LINE 아이디"
-
-#: member/models.py:40
-msgid "Profiles"
-msgstr "프로필"
-
-#: member/models.py:62 member/models.py:102
+#: member/models.py:11 member/models.py:51
 msgid "user"
 msgstr "사용자"
 
-#: member/models.py:70
+#: member/models.py:19
 msgid "IP address"
 msgstr "IP 주소"
 
-#: member/models.py:74 member/templates/member/account/profile_base.html:24
+#: member/models.py:23 member/templates/member/account/profile_base.html:24
 msgid "Login log"
 msgstr "로그인 이력"
 
-#: member/models.py:75
+#: member/models.py:24
 msgid "Login logs"
 msgstr "로그인 이력"
 
-#: member/models.py:87
+#: member/models.py:36
 msgid "Banned Email Address"
 msgstr "이메일주소"
 
-#: member/models.py:88
+#: member/models.py:37
 msgid "Banned Email Addresses"
 msgstr "이메일주소"
 
-#: member/models.py:96
+#: member/models.py:45
 msgid "Pending"
 msgstr "확인중"
 
-#: member/models.py:97
+#: member/models.py:46
 msgid "Complete"
 msgstr "완료"
 
-#: member/models.py:112
+#: member/models.py:61
 msgid "Status"
 msgstr "상태"
 
-#: member/models.py:119 member/templates/member/account/profile_base.html:20
+#: member/models.py:68 member/templates/member/account/profile_base.html:20
 #: member/views.py:295
 msgid "Organization application"
 msgstr "소속 등록 요청"
 
-#: member/models.py:120
+#: member/models.py:69
 msgid "Organization applications"
 msgstr "소속 등록 요청"
 
@@ -698,21 +701,3 @@ msgstr "SNS 로그인 실패"
 #: member/views.py:265
 msgid "Connect with SNS accounts"
 msgstr "SNS 로그인"
-
-#~ msgid "Fee amount"
-#~ msgstr "요금"
-
-#~ msgid "Cost amount"
-#~ msgstr "비용"
-
-#~ msgid "Price table"
-#~ msgstr "가격표"
-
-#~ msgid "Price tables"
-#~ msgstr "가격표"
-
-#~ msgid "Organizations"
-#~ msgstr "소속"
-
-#~ msgid "Organization"
-#~ msgstr "소속"
