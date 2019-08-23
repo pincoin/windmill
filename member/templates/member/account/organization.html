@@ -1,0 +1,28 @@
+{% extends 'member/account/profile_base.html' %}
+
+{% load i18n static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+    {% with sidemenu='organizations' %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock content %}
+
+{% block main_content %}
+    <section>
+        <div class="container">
+            <h1 class="title">{{ page_title }}</h1>
+
+            <div class="columns">
+                <div class="column is-four-fifths">
+                    <div class="columns">
+                        <div class="column">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

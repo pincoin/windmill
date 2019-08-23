@@ -6,6 +6,7 @@ from django.utils.timezone import (
 from django.utils.translation import ugettext_lazy as _
 
 from conf.formmixins import GoogleRecaptchaMixin
+from . import models
 from . import settings as member_settings
 
 
@@ -91,3 +92,19 @@ class MemberAddEmailForm(allauth_forms.AddEmailForm):
 
         for key, field in self.fields.items():
             field.widget.attrs['class'] = 'input'
+
+
+class OrganizationForm(forms.ModelForm):
+    message = forms.CharField(
+        label=_('Message'),
+        help_text=_('Please, tell us your organization.'),
+        max_length=255,
+        widget=forms.TextInput(attrs={
+            'placeholder': _('Your organization'),
+            'class': 'input',
+        }),
+    )
+
+    class Meta:
+        model = models.OrganizationApplication
+        fields = ['message', ]

@@ -15,7 +15,7 @@
                            class="panel-block{% if sidemenu == 'profile' %} is-active{% endif %}">
                             {% trans 'Profile' %}
                         </a>
-                        <a href="#"
+                        <a href="{% url 'account_organization' %}"
                            class="panel-block{% if sidemenu == 'organizations' %} is-active{% endif %}">
                             {% trans 'Organizations' %}
                         </a>

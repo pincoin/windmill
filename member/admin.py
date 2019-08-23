@@ -26,7 +26,10 @@ class ProfileAdmin(admin.ModelAdmin):
             .select_related('user', 'agency')
 
     def agency_title(self, obj):
-        return obj.agency.title
+        if obj.agency:
+            return obj.agency.title
+        else:
+            return _('No organization')
 
     agency_title.short_description = _('Agency')
     agency_title.admin_order_field = 'agency__title'
@@ -47,5 +50,21 @@ class LoginLogAdmin(admin.ModelAdmin):
             .filter(user__profile__isnull=False)
 
 
+class OrganizationApplicationAdmin(admin.ModelAdmin):
+    list_display = (
+        'user', 'status', 'created'
+    )
+
+    raw_id_fields = ('user',)
+
+    ordering = ('-created',)
+
+    def get_queryset(self, request):
+        return super(OrganizationApplicationAdmin, self).get_queryset(request) \
+            .select_related('user', 'user__profile') \
+            .filter(user__profile__isnull=False)
+
+
 admin.site.register(models.Profile, ProfileAdmin)
 admin.site.register(models.LoginLog, LoginLogAdmin)
+admin.site.register(models.OrganizationApplication, OrganizationApplicationAdmin)

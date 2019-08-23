@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-17 10:52+0000\n"
+"POT-Creation-Date: 2019-08-23 06:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,35 +33,35 @@ msgstr "태국어"
 msgid "English"
 msgstr "영어"
 
-#: conf/templates/conf/base.html:68
+#: conf/templates/conf/base.html:70
 #: member/templates/member/account/login.html:95
 msgid "Sign In"
 msgstr "로그인"
 
-#: conf/templates/conf/base.html:72
+#: conf/templates/conf/base.html:74
 #: member/templates/member/account/login.html:119
 #: member/templates/member/account/signup.html:196
 #: member/templates/member/socialaccount/signup.html:160 member/views.py:65
-#: member/views.py:232
+#: member/views.py:256
 msgid "Sign Up"
 msgstr "회원가입"
 
-#: conf/templates/conf/base.html:79
+#: conf/templates/conf/base.html:81
 msgid "Me"
 msgstr "나"
 
-#: conf/templates/conf/base.html:84 member/admin.py:18 member/models.py:39
-#: member/templates/member/account/profile_base.html:16 member/views.py:256
+#: conf/templates/conf/base.html:86 member/admin.py:18 member/models.py:38
+#: member/templates/member/account/profile_base.html:16 member/views.py:280
 msgid "Profile"
 msgstr "프로필"
 
-#: conf/templates/conf/base.html:89
+#: conf/templates/conf/base.html:91
 #: member/templates/member/account/logout.html:31
 msgid "Sign Out"
 msgstr "로그아웃"
 
-#: golf/admin.py:33 golf/models.py:83 golf/models.py:177 member/admin.py:31
-#: member/models.py:17
+#: golf/admin.py:33 golf/models.py:83 golf/models.py:177 member/admin.py:34
+#: member/models.py:16
 msgid "Agency"
 msgstr "에이전시"
 
@@ -113,7 +113,7 @@ msgstr "예약가능일"
 msgid "Phone number"
 msgstr "전화번호"
 
-#: golf/models.py:57 golf/models.py:109 member/models.py:70
+#: golf/models.py:57 golf/models.py:109 member/models.py:69
 #: member/templates/member/account/email_confirm.html:22
 msgid "Email address"
 msgstr "이메일주소"
@@ -247,17 +247,33 @@ msgstr "차단된 이메일 주소입니다."
 msgid "Account"
 msgstr "계정"
 
+#: member/admin.py:32
+msgid "No organization"
+msgstr "소속없음"
+
 #: member/apps.py:7
 msgid "Member"
 msgstr "회원"
 
-#: member/forms.py:21
+#: member/forms.py:22
 msgid "You haven't logged for {} days."
 msgstr "{}일 동안 로그인하지 않았습니다."
 
-#: member/forms.py:33
+#: member/forms.py:84
 msgid "I really would like to unregister."
 msgstr "회원을 탈퇴합니다."
+
+#: member/forms.py:99 member/models.py:94
+msgid "Message"
+msgstr "요청 메시지"
+
+#: member/forms.py:100
+msgid "Please, tell us your organization."
+msgstr "소속을 남겨주세요. 확인 후 등록처리해드립니다."
+
+#: member/forms.py:103
+msgid "Your organization"
+msgstr "소속"
 
 #: member/forms2.py:9
 msgid "First name"
@@ -275,83 +291,103 @@ msgstr "이용약관에 동의합니다."
 msgid "I agree to Privacy Policy."
 msgstr "개인정보보호처리방침에 동의합니다."
 
-#: member/models.py:25
+#: member/models.py:24
 msgid "Cellphone number"
 msgstr "휴대전화번호"
 
-#: member/models.py:32
+#: member/models.py:31
 msgid "Line ID"
 msgstr "LINE 아이디"
 
-#: member/models.py:40
+#: member/models.py:39
 msgid "Profiles"
 msgstr "프로필"
 
-#: member/models.py:49
+#: member/models.py:48 member/models.py:88
 msgid "user"
 msgstr "사용자"
 
-#: member/models.py:57
+#: member/models.py:56
 msgid "IP address"
 msgstr "IP 주소"
 
-#: member/models.py:61 member/templates/member/account/profile_base.html:24
+#: member/models.py:60 member/templates/member/account/profile_base.html:24
 msgid "Login log"
 msgstr "로그인 이력"
 
-#: member/models.py:62
+#: member/models.py:61
 msgid "Login logs"
 msgstr "로그인 이력"
 
-#: member/models.py:74
+#: member/models.py:73
 msgid "Banned Email Address"
 msgstr "이메일주소"
 
-#: member/models.py:75
+#: member/models.py:74
 msgid "Banned Email Addresses"
 msgstr "이메일주소"
+
+#: member/models.py:82
+msgid "Pending"
+msgstr "확인중"
+
+#: member/models.py:83
+msgid "Complete"
+msgstr "완료"
+
+#: member/models.py:98
+msgid "Status"
+msgstr "상태"
+
+#: member/models.py:105
+msgid "Organization application"
+msgstr "소속 등록 요청"
+
+#: member/models.py:106
+msgid "Organization applications"
+msgstr "소속 등록 요청"
 
 #: member/templates/member/account/account_inactive.html:18
 msgid "This account is inactive."
 msgstr "이 계정은 유효하지 않습니다."
 
-#: member/templates/member/account/email.html:49
+#: member/templates/member/account/email.html:48
 msgid "Primary"
 msgstr "로그인 이메일"
 
-#: member/templates/member/account/email.html:55
+#: member/templates/member/account/email.html:52
 msgid "Verified"
 msgstr "인증"
 
-#: member/templates/member/account/email.html:59
+#: member/templates/member/account/email.html:54
 msgid "Unverified"
 msgstr "미인증"
 
-#: member/templates/member/account/email.html:74
+#: member/templates/member/account/email.html:68
 msgid "Make Primary"
 msgstr "로그인 이메일 지정"
 
-#: member/templates/member/account/email.html:82
+#: member/templates/member/account/email.html:76
 msgid "Re-send Verification"
 msgstr "인증메일 재발송"
 
-#: member/templates/member/account/email.html:90
-#: member/templates/member/socialaccount/connections.html:63
+#: member/templates/member/account/email.html:84
+#: member/templates/member/socialaccount/connections.html:61
 msgid "Remove"
 msgstr "삭제"
 
-#: member/templates/member/account/email.html:100
+#: member/templates/member/account/email.html:94
 msgid ""
 "Warning: You currently do not have any e-mail address set up. You should "
 "really add an e-mail address so you can receive notifications, reset your "
 "password, etc."
 msgstr "경고: 이메일 주소를 등록해야 서비스를 이용하실 수 있습니다."
 
-#: member/templates/member/account/email.html:148
+#: member/templates/member/account/email.html:137
 msgid "Add E-mail"
 msgstr "이메일주소 추가"
 
-#: member/templates/member/account/email.html:164
+#: member/templates/member/account/email.html:153
 msgid "Do you really want to remove the selected e-mail address?"
 msgstr "선택한 이메일 주소를 정말로 삭제할까요?"
 
@@ -429,9 +465,9 @@ msgstr "비밀번호 재설정"
 msgid "Are you sure you want to sign out?"
 msgstr "정말로 로그인할까요?"
 
-#: member/templates/member/account/password_change.html:107
-#: member/templates/member/account/password_reset_from_key.html:89
-#: member/templates/member/account/profile_base.html:32
+#: member/templates/member/account/password_change.html:92
+#: member/templates/member/account/password_reset_from_key.html:79
+#: member/templates/member/account/profile_base.html:36
 msgid "Change password"
 msgstr "비밀번호 변경"
 
@@ -441,11 +477,11 @@ msgid ""
 "to reset it."
 msgstr "비밀번호 재설정 링크를 이메일로 보내드립니다."
 
-#: member/templates/member/account/password_reset.html:71
+#: member/templates/member/account/password_reset.html:66
 msgid "Reset My Password"
 msgstr "비밀번호 재설정"
 
-#: member/templates/member/account/password_reset.html:77
+#: member/templates/member/account/password_reset.html:72
 msgid "Please contact us if you have any trouble resetting your password."
 msgstr "5분이 지나도 메일을 받지 못하면 저희에게 연락바랍니다."
 
@@ -469,12 +505,12 @@ msgid ""
 "                                    ."
 msgstr ""
 
-#: member/templates/member/account/password_reset_from_key.html:96
+#: member/templates/member/account/password_reset_from_key.html:86
 #: member/templates/member/account/password_reset_from_key_done.html:16
 msgid "Your password is now changed."
 msgstr "비밀번호를 변경했습니다."
 
-#: member/templates/member/account/password_set.html:78
+#: member/templates/member/account/password_set.html:68
 msgid "Set password"
 msgstr "비밀번호 변경"
 
@@ -483,10 +519,14 @@ msgid "Organizations"
 msgstr "소속"
 
 #: member/templates/member/account/profile_base.html:28
+msgid "SNS"
+msgstr ""
+
+#: member/templates/member/account/profile_base.html:32
 msgid "Email management"
 msgstr "이메일 연동"
 
-#: member/templates/member/account/profile_base.html:36
+#: member/templates/member/account/profile_base.html:40
 #: member/templates/member/account/unregister.html:47 member/views.py:93
 msgid "Unregister"
 msgstr "회원탈퇴"
@@ -515,23 +555,20 @@ msgstr "5분이 지나도 메일을 받지 못하면 저희에게 연락바랍�
 #: member/templates/member/socialaccount/authentication_error.html:16
 msgid ""
 "An error occurred while attempting to login via your social network account."
-msgstr ""
-"SNS 로그인 실패했습니다."
+msgstr "SNS 로그인 실패했습니다."
 
 #: member/templates/member/socialaccount/connections.html:25
 msgid ""
 "You can sign in to your account using any of the following third party "
 "accounts:"
-msgstr ""
-"SNS 계정으로 로그인할 수 있습니다."
+msgstr "SNS 계정으로 로그인할 수 있습니다."
 
-#: member/templates/member/socialaccount/connections.html:76
+#: member/templates/member/socialaccount/connections.html:74
 msgid ""
 "You currently have no social network accounts connected to this account."
-msgstr ""
-"계정에 연결된 SNS 계정이 없습니다."
+msgstr "계정에 연결된 SNS 계정이 없습니다."
 
-#: member/templates/member/socialaccount/connections.html:85
+#: member/templates/member/socialaccount/connections.html:83
 msgid "Add a 3rd Party Account"
 msgstr "SNS 계정 연결"
 
@@ -577,42 +614,46 @@ msgstr "로그아웃"
 msgid "Account Inactive"
 msgstr "이용 불가"
 
-#: member/views.py:127
+#: member/views.py:133
 msgid "Password Change"
 msgstr "비밀번호 변경"
 
-#: member/views.py:137
+#: member/views.py:149
 msgid "Password Set"
 msgstr "비밀번호 초기화 이메일"
 
-#: member/views.py:148 member/views.py:168
+#: member/views.py:166 member/views.py:192
 msgid "Password Reset"
 msgstr "비밀번호 재설정"
 
-#: member/views.py:158 member/views.py:177
+#: member/views.py:176 member/views.py:201
 msgid "Password Reset Done"
 msgstr "비밀번호 재설정 완료"
 
-#: member/views.py:186
+#: member/views.py:210
 msgid "Email Verification Sent"
 msgstr "이메일 인증 발송"
 
-#: member/views.py:195
+#: member/views.py:219
 msgid "Confirm Email Request"
 msgstr "회원 가입 완료 요청"
 
-#: member/views.py:205
+#: member/views.py:229
 msgid "Email Management"
 msgstr "이메일 연동"
 
-#: member/views.py:214
+#: member/views.py:238
 msgid "Login Cancelled"
 msgstr "로그인 취소"
 
-#: member/views.py:223
+#: member/views.py:247
 msgid "Social Network Login Failure"
 msgstr "SNS 로그인 실패"
 
-#: member/views.py:241
+#: member/views.py:265
 msgid "Connect with SNS accounts"
 msgstr "SNS 로그인"
+
+#: member/views.py:290
+msgid "Organization"
+msgstr "소속"

@@ -57,6 +57,9 @@ urlpatterns = [
     # Profile
     path('profile/',
          views.MemberProfileView.as_view(), name="account_profile"),
+    path('profile/organization/',
+         views.MemberOrganizationCreateView.as_view(), name="account_organization"),
+
 ]
 
 # URL patterns for social providers

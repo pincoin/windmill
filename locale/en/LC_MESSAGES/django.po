@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-17 10:52+0000\n"
+"POT-Creation-Date: 2019-08-23 06:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,35 +33,35 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: conf/templates/conf/base.html:68
+#: conf/templates/conf/base.html:70
 #: member/templates/member/account/login.html:95
 msgid "Sign In"
 msgstr ""
 
-#: conf/templates/conf/base.html:72
+#: conf/templates/conf/base.html:74
 #: member/templates/member/account/login.html:119
 #: member/templates/member/account/signup.html:196
 #: member/templates/member/socialaccount/signup.html:160 member/views.py:65
-#: member/views.py:232
+#: member/views.py:256
 msgid "Sign Up"
 msgstr ""
 
-#: conf/templates/conf/base.html:79
+#: conf/templates/conf/base.html:81
 msgid "Me"
 msgstr ""
 
-#: conf/templates/conf/base.html:84 member/admin.py:18 member/models.py:39
-#: member/templates/member/account/profile_base.html:16 member/views.py:256
+#: conf/templates/conf/base.html:86 member/admin.py:18 member/models.py:38
+#: member/templates/member/account/profile_base.html:16 member/views.py:280
 msgid "Profile"
 msgstr ""
 
-#: conf/templates/conf/base.html:89
+#: conf/templates/conf/base.html:91
 #: member/templates/member/account/logout.html:31
 msgid "Sign Out"
 msgstr ""
 
-#: golf/admin.py:33 golf/models.py:83 golf/models.py:177 member/admin.py:31
-#: member/models.py:17
+#: golf/admin.py:33 golf/models.py:83 golf/models.py:177 member/admin.py:34
+#: member/models.py:16
 msgid "Agency"
 msgstr ""
 
@@ -113,7 +113,7 @@ msgstr ""
 msgid "Phone number"
 msgstr ""
 
-#: golf/models.py:57 golf/models.py:109 member/models.py:70
+#: golf/models.py:57 golf/models.py:109 member/models.py:69
 #: member/templates/member/account/email_confirm.html:22
 msgid "Email address"
 msgstr ""
@@ -247,16 +247,32 @@ msgstr ""
 msgid "Account"
 msgstr ""
 
+#: member/admin.py:32
+msgid "No organization"
+msgstr ""
+
 #: member/apps.py:7
 msgid "Member"
 msgstr ""
 
-#: member/forms.py:21
+#: member/forms.py:22
 msgid "You haven't logged for {} days."
 msgstr ""
 
-#: member/forms.py:33
+#: member/forms.py:84
 msgid "I really would like to unregister."
+msgstr ""
+
+#: member/forms.py:99 member/models.py:94
+msgid "Message"
+msgstr ""
+
+#: member/forms.py:100
+msgid "Please, tell us your organization."
+msgstr ""
+
+#: member/forms.py:103
+msgid "Your organization"
 msgstr ""
 
 #: member/forms2.py:9
@@ -275,83 +291,103 @@ msgstr ""
 msgid "I agree to Privacy Policy."
 msgstr ""
 
-#: member/models.py:25
+#: member/models.py:24
 msgid "Cellphone number"
 msgstr ""
 
-#: member/models.py:32
+#: member/models.py:31
 msgid "Line ID"
 msgstr ""
 
-#: member/models.py:40
+#: member/models.py:39
 msgid "Profiles"
 msgstr ""
 
-#: member/models.py:49
+#: member/models.py:48 member/models.py:88
 msgid "user"
 msgstr ""
 
-#: member/models.py:57
+#: member/models.py:56
 msgid "IP address"
 msgstr ""
 
-#: member/models.py:61 member/templates/member/account/profile_base.html:24
+#: member/models.py:60 member/templates/member/account/profile_base.html:24
 msgid "Login log"
 msgstr ""
 
-#: member/models.py:62
+#: member/models.py:61
 msgid "Login logs"
 msgstr ""
 
-#: member/models.py:74
+#: member/models.py:73
 msgid "Banned Email Address"
 msgstr ""
 
-#: member/models.py:75
+#: member/models.py:74
 msgid "Banned Email Addresses"
+msgstr ""
+
+#: member/models.py:82
+msgid "Pending"
+msgstr ""
+
+#: member/models.py:83
+msgid "Complete"
+msgstr ""
+
+#: member/models.py:98
+msgid "Status"
+msgstr ""
+
+#: member/models.py:105
+msgid "Organization application"
+msgstr ""
+
+#: member/models.py:106
+msgid "Organization applications"
 msgstr ""
 
 #: member/templates/member/account/account_inactive.html:18
 msgid "This account is inactive."
 msgstr ""
 
-#: member/templates/member/account/email.html:49
+#: member/templates/member/account/email.html:48
 msgid "Primary"
 msgstr ""
 
-#: member/templates/member/account/email.html:55
+#: member/templates/member/account/email.html:52
 msgid "Verified"
 msgstr ""
 
-#: member/templates/member/account/email.html:59
+#: member/templates/member/account/email.html:54
 msgid "Unverified"
 msgstr ""
 
-#: member/templates/member/account/email.html:74
+#: member/templates/member/account/email.html:68
 msgid "Make Primary"
 msgstr ""
 
-#: member/templates/member/account/email.html:82
+#: member/templates/member/account/email.html:76
 msgid "Re-send Verification"
 msgstr ""
 
-#: member/templates/member/account/email.html:90
-#: member/templates/member/socialaccount/connections.html:63
+#: member/templates/member/account/email.html:84
+#: member/templates/member/socialaccount/connections.html:61
 msgid "Remove"
 msgstr ""
 
-#: member/templates/member/account/email.html:100
+#: member/templates/member/account/email.html:94
 msgid ""
 "Warning: You currently do not have any e-mail address set up. You should "
 "really add an e-mail address so you can receive notifications, reset your "
 "password, etc."
 msgstr ""
 
-#: member/templates/member/account/email.html:148
+#: member/templates/member/account/email.html:137
 msgid "Add E-mail"
 msgstr ""
 
-#: member/templates/member/account/email.html:164
+#: member/templates/member/account/email.html:153
 msgid "Do you really want to remove the selected e-mail address?"
 msgstr ""
 
@@ -422,9 +458,9 @@ msgstr ""
 msgid "Are you sure you want to sign out?"
 msgstr ""
 
-#: member/templates/member/account/password_change.html:107
-#: member/templates/member/account/password_reset_from_key.html:89
-#: member/templates/member/account/profile_base.html:32
+#: member/templates/member/account/password_change.html:92
+#: member/templates/member/account/password_reset_from_key.html:79
+#: member/templates/member/account/profile_base.html:36
 msgid "Change password"
 msgstr ""
 
@@ -434,11 +470,11 @@ msgid ""
 "to reset it."
 msgstr ""
 
-#: member/templates/member/account/password_reset.html:71
+#: member/templates/member/account/password_reset.html:66
 msgid "Reset My Password"
 msgstr ""
 
-#: member/templates/member/account/password_reset.html:77
+#: member/templates/member/account/password_reset.html:72
 msgid "Please contact us if you have any trouble resetting your password."
 msgstr ""
 
@@ -462,12 +498,12 @@ msgid ""
 "                                    ."
 msgstr ""
 
-#: member/templates/member/account/password_reset_from_key.html:96
+#: member/templates/member/account/password_reset_from_key.html:86
 #: member/templates/member/account/password_reset_from_key_done.html:16
 msgid "Your password is now changed."
 msgstr ""
 
-#: member/templates/member/account/password_set.html:78
+#: member/templates/member/account/password_set.html:68
 msgid "Set password"
 msgstr ""
 
@@ -476,10 +512,14 @@ msgid "Organizations"
 msgstr ""
 
 #: member/templates/member/account/profile_base.html:28
+msgid "SNS"
+msgstr ""
+
+#: member/templates/member/account/profile_base.html:32
 msgid "Email management"
 msgstr ""
 
-#: member/templates/member/account/profile_base.html:36
+#: member/templates/member/account/profile_base.html:40
 #: member/templates/member/account/unregister.html:47 member/views.py:93
 msgid "Unregister"
 msgstr ""
@@ -516,12 +556,12 @@ msgid ""
 "accounts:"
 msgstr ""
 
-#: member/templates/member/socialaccount/connections.html:76
+#: member/templates/member/socialaccount/connections.html:74
 msgid ""
 "You currently have no social network accounts connected to this account."
 msgstr ""
 
-#: member/templates/member/socialaccount/connections.html:85
+#: member/templates/member/socialaccount/connections.html:83
 msgid "Add a 3rd Party Account"
 msgstr ""
 
@@ -567,42 +607,46 @@ msgstr ""
 msgid "Account Inactive"
 msgstr ""
 
-#: member/views.py:127
+#: member/views.py:133
 msgid "Password Change"
 msgstr ""
 
-#: member/views.py:137
+#: member/views.py:149
 msgid "Password Set"
 msgstr ""
 
-#: member/views.py:148 member/views.py:168
+#: member/views.py:166 member/views.py:192
 msgid "Password Reset"
 msgstr ""
 
-#: member/views.py:158 member/views.py:177
+#: member/views.py:176 member/views.py:201
 msgid "Password Reset Done"
 msgstr ""
 
-#: member/views.py:186
+#: member/views.py:210
 msgid "Email Verification Sent"
 msgstr ""
 
-#: member/views.py:195
+#: member/views.py:219
 msgid "Confirm Email Request"
 msgstr ""
 
-#: member/views.py:205
+#: member/views.py:229
 msgid "Email Management"
 msgstr ""
 
-#: member/views.py:214
+#: member/views.py:238
 msgid "Login Cancelled"
 msgstr ""
 
-#: member/views.py:223
+#: member/views.py:247
 msgid "Social Network Login Failure"
 msgstr ""
 
-#: member/views.py:241
+#: member/views.py:265
 msgid "Connect with SNS accounts"
+msgstr ""
+
+#: member/views.py:290
+msgid "Organization"
 msgstr ""

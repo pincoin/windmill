@@ -279,3 +279,19 @@ class MemberProfileView(auth_mixins.LoginRequiredMixin, generic.DetailView):
         context = super(MemberProfileView, self).get_context_data(**kwargs)
         context['page_title'] = _('Profile')
         return context
+
+
+class MemberOrganizationCreateView(generic.CreateView):
+    template_name = 'member/account/organization.html'
+    form_class = forms.OrganizationForm
+
+    def get_context_data(self, **kwargs):
+        context = super(MemberOrganizationCreateView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Organization')
+        return context
+
+    def form_valid(self, form):
+        return super(MemberOrganizationCreateView, self).form_valid(form)
+
+    def get_success_url(self):
+        return reverse('account_organization')
