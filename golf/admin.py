@@ -13,14 +13,14 @@ class ProductInline(admin.TabularInline):
 class ClubProductInline(admin.TabularInline):
     model = models.Agency.products.through
     extra = 1
-    ordering = ('position',)
+    ordering = ('agency', 'position',)
 
 
-class DepositInline(admin.StackedInline):
+class DepositInline(admin.TabularInline):
     model = models.Deposit
     extra = 1
     fields = ('amount', 'received')
-    ordering = ['-created']
+    ordering = ('-created',)
 
 
 class ProfileSetInline(admin.TabularInline):

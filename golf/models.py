@@ -255,7 +255,7 @@ class ClubProductListMembership(models.Model):
         unique_together = ('club', 'product_list')
 
     def __str__(self):
-        return '{} {}'.format(self.club.title, self.product_list)
+        return '{} - {}'.format(self.club.title, self.product_list)
 
 
 class AgencyClubProductListMembership(models.Model):
