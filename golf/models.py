@@ -156,6 +156,7 @@ class GolfClub(TimeStampedModel):
         return '{} {} {}'.format(self.title, self.email, self.phone)
 
 
+'''
 class PriceTable(TimeStampedModel):
     SEASON_CHOICES = Choices(
         (0, 'low', _('Low season')),
@@ -232,7 +233,8 @@ class PriceTable(TimeStampedModel):
         verbose_name_plural = _('Price tables')
 
     def __str__(self):
-        return '{} {} {}'.format(self.agency.title, self.club.title, self.fee)
+        return '{} {} {}'.format(self.agency.title, self.club.title, self.fee)    
+'''
 
 
 class GolfClubProduct(TimeStampedModel):
