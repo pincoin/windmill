@@ -10,15 +10,15 @@ class LoginLogAdmin(admin.ModelAdmin):
     list_display = (
         'user', 'ip_address', 'created'
     )
-    list_select_related = ('user', 'user__profile')
+    list_select_related = ('user', 'user__agentprofile')
     readonly_fields = ('user', 'ip_address')
     search_fields = ('user__email', 'ip_address')
     ordering = ('-created',)
 
     def get_queryset(self, request):
         return super(LoginLogAdmin, self).get_queryset(request) \
-            .select_related('user', 'user__profile') \
-            .filter(user__profile__isnull=False)
+            .select_related('user', 'user__agentprofile') \
+            .filter(user__agentprofile__isnull=False)
 
 
 class OrganizationApplicationAdmin(admin.ModelAdmin):
@@ -35,19 +35,19 @@ class OrganizationApplicationAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         return super(OrganizationApplicationAdmin, self).get_queryset(request) \
-            .select_related('user', 'user__profile') \
-            .filter(user__profile__isnull=False)
+            .select_related('user', 'user__agentprofile') \
+            .filter(user__agentprofile__isnull=False)
 
     def get_edit_link(self, obj=None):
-        if obj.user.profile:  # if object has already been saved and has a primary key, show link to it
+        if obj.user.agentprofile:  # if object has already been saved and has a primary key, show link to it
             # url = reverse('admin:%s_%s_change' % (obj._meta.app_label, obj._meta.model_name), args=(obj.pk,))
             return mark_safe('<a href="{url}">{text}</a>'.format(
-                url=reverse('admin:member_profile_change', args=(obj.user.profile.pk,)),
+                url=reverse('admin:golf_agentprofile_change', args=(obj.user.agentprofile.pk,)),
                 text='{} {}'.format(obj.user.first_name, obj.user.last_name),
             ))
         return _("(save and continue editing to create a link)")
 
-    get_edit_link.short_description = _('Profile')
+    get_edit_link.short_description = _('Agent profile')
 
 
 admin.site.register(models.LoginLog, LoginLogAdmin)
