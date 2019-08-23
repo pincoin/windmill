@@ -1,6 +1,7 @@
 {% extends 'member/account/profile_base.html' %}
 
 {% load i18n static %}
+{% load member_tags %}
 
 {% block title %}{{ page_title }}{% endblock %}
 
@@ -19,11 +20,17 @@
                 <div class="column is-four-fifths">
                     <div class="columns">
                         <div class="column">
-                            {{ member.user.email }} /
-                            {{ member.user.username }} /
-                            {{ member.user.first_name }} {{ member.user.last_name }} /
-                            {{ member.status_memo }} /
-                            {{ member.organization }}
+                            <ul>
+                                <li>
+                                    {% trans 'Email' %}: {{ member.user.email }}
+                                </li>
+                                <li>
+                                    {% trans 'Fullname' %}: {{ member.user.first_name }} {{ member.user.last_name }}
+                                </li>
+                                <li>
+                                    {% trans 'Agency' %}: {{ member.agency.title }}
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

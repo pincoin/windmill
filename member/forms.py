@@ -105,6 +105,15 @@ class OrganizationForm(forms.ModelForm):
         }),
     )
 
+    def __init__(self, *args, **kwargs):
+        self.request = kwargs.pop('request', None)
+
+        super(OrganizationForm, self).__init__(*args, **kwargs)
+
     class Meta:
         model = models.OrganizationApplication
         fields = ['message', ]
+
+    def clean(self):
+        if models.OrganizationApplication.objects.filter(user=self.request.user).count() > 1:
+            raise forms.ValidationError(_('You already requested organization application.'))

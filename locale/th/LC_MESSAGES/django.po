@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-23 06:50+0000\n"
+"POT-Creation-Date: 2019-08-23 08:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,7 +61,7 @@ msgid "Sign Out"
 msgstr "ออกจากระบบ"
 
 #: golf/admin.py:33 golf/models.py:83 golf/models.py:177 member/admin.py:34
-#: member/models.py:16
+#: member/models.py:16 member/templates/member/account/profile.html:31
 msgid "Agency"
 msgstr ""
 
@@ -275,6 +275,10 @@ msgstr ""
 msgid "Your organization"
 msgstr ""
 
+#: member/forms.py:119
+msgid "You already requested organization application."
+msgstr ""
+
 #: member/forms2.py:9
 msgid "First name"
 msgstr ""
@@ -339,7 +343,8 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: member/models.py:105
+#: member/models.py:105 member/templates/member/account/profile_base.html:20
+#: member/views.py:295
 msgid "Organization application"
 msgstr ""
 
@@ -458,6 +463,14 @@ msgstr "ลืมรหัสผ่าน"
 msgid "Are you sure you want to sign out?"
 msgstr ""
 
+#: member/templates/member/account/organization.html:22
+msgid "You are already a member of organizations."
+msgstr ""
+
+#: member/templates/member/account/organization.html:76
+msgid "Send organization application"
+msgstr ""
+
 #: member/templates/member/account/password_change.html:92
 #: member/templates/member/account/password_reset_from_key.html:79
 #: member/templates/member/account/profile_base.html:36
@@ -507,8 +520,12 @@ msgstr ""
 msgid "Set password"
 msgstr ""
 
-#: member/templates/member/account/profile_base.html:20
-msgid "Organizations"
+#: member/templates/member/account/profile.html:25
+msgid "Email"
+msgstr ""
+
+#: member/templates/member/account/profile.html:28
+msgid "Fullname"
 msgstr ""
 
 #: member/templates/member/account/profile_base.html:28
@@ -645,8 +662,4 @@ msgstr ""
 
 #: member/views.py:265
 msgid "Connect with SNS accounts"
-msgstr ""
-
-#: member/views.py:290
-msgid "Organization"
 msgstr ""

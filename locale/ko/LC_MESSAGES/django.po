@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-23 06:50+0000\n"
+"POT-Creation-Date: 2019-08-23 08:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,7 +61,7 @@ msgid "Sign Out"
 msgstr "로그아웃"
 
 #: golf/admin.py:33 golf/models.py:83 golf/models.py:177 member/admin.py:34
-#: member/models.py:16
+#: member/models.py:16 member/templates/member/account/profile.html:31
 msgid "Agency"
 msgstr "에이전시"
 
@@ -265,7 +265,7 @@ msgstr "회원을 탈퇴합니다."
 
 #: member/forms.py:99 member/models.py:94
 msgid "Message"
-msgstr "요청 메시지"
+msgstr "소속 등록 요청 메시지"
 
 #: member/forms.py:100
 msgid "Please, tell us your organization."
@@ -274,6 +274,10 @@ msgstr "소속을 남겨주세요. 확인 후 등록처리해드립니다."
 #: member/forms.py:103
 msgid "Your organization"
 msgstr "소속"
+
+#: member/forms.py:119
+msgid "You already requested organization application."
+msgstr "이미 소속 등록 요청하셨습니다. 처리 후 통보해드리겠습니다."
 
 #: member/forms2.py:9
 msgid "First name"
@@ -339,7 +343,8 @@ msgstr "완료"
 msgid "Status"
 msgstr "상태"
 
-#: member/models.py:105
+#: member/models.py:105 member/templates/member/account/profile_base.html:20
+#: member/views.py:295
 msgid "Organization application"
 msgstr "소속 등록 요청"
 
@@ -465,6 +470,14 @@ msgstr "비밀번호 재설정"
 msgid "Are you sure you want to sign out?"
 msgstr "정말로 로그인할까요?"
 
+#: member/templates/member/account/organization.html:22
+msgid "You are already a member of organizations."
+msgstr "이미 소속이 있습니다."
+
+#: member/templates/member/account/organization.html:76
+msgid "Send organization application"
+msgstr "소속 등록 요청"
+
 #: member/templates/member/account/password_change.html:92
 #: member/templates/member/account/password_reset_from_key.html:79
 #: member/templates/member/account/profile_base.html:36
@@ -514,13 +527,17 @@ msgstr "비밀번호를 변경했습니다."
 msgid "Set password"
 msgstr "비밀번호 변경"
 
-#: member/templates/member/account/profile_base.html:20
-msgid "Organizations"
-msgstr "소속"
+#: member/templates/member/account/profile.html:25
+msgid "Email"
+msgstr "이메일"
+
+#: member/templates/member/account/profile.html:28
+msgid "Fullname"
+msgstr "Fullname"
 
 #: member/templates/member/account/profile_base.html:28
 msgid "SNS"
-msgstr ""
+msgstr "SNS"
 
 #: member/templates/member/account/profile_base.html:32
 msgid "Email management"
@@ -654,6 +671,8 @@ msgstr "SNS 로그인 실패"
 msgid "Connect with SNS accounts"
 msgstr "SNS 로그인"
 
-#: member/views.py:290
-msgid "Organization"
-msgstr "소속"
+#~ msgid "Organizations"
+#~ msgstr "소속"
+
+#~ msgid "Organization"
+#~ msgstr "소속"

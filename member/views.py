@@ -272,7 +272,7 @@ class MemberProfileView(auth_mixins.LoginRequiredMixin, generic.DetailView):
 
     def get_object(self, queryset=None):
         # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
-        queryset = models.Profile.objects.select_related('user')
+        queryset = models.Profile.objects.select_related('user', 'agency')
         return get_object_or_404(queryset, user__pk=self.request.user.id)
 
     def get_context_data(self, **kwargs):
@@ -285,12 +285,19 @@ class MemberOrganizationCreateView(generic.CreateView):
     template_name = 'member/account/organization.html'
     form_class = forms.OrganizationForm
 
+    def get_form_kwargs(self):
+        kwargs = super(MemberOrganizationCreateView, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
+
     def get_context_data(self, **kwargs):
         context = super(MemberOrganizationCreateView, self).get_context_data(**kwargs)
-        context['page_title'] = _('Organization')
+        context['page_title'] = _('Organization application')
         return context
 
     def form_valid(self, form):
+        form.instance.user = self.request.user
+
         return super(MemberOrganizationCreateView, self).form_valid(form)
 
     def get_success_url(self):
