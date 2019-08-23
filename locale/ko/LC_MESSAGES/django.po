@@ -269,7 +269,7 @@ msgstr "요금"
 
 #: golf/models.py:290 golf/models.py:291
 msgid "Agency product list membership"
-msgstr "골프클럽 에이전시별 요금표"
+msgstr "에이전시 요금표"
 
 #: golf/models.py:315
 msgid "Cellphone number"
