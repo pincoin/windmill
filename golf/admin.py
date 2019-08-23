@@ -3,6 +3,12 @@ from django.contrib import admin
 from . import models
 
 
+class ProductInline(admin.TabularInline):
+    model = models.GolfClub.products.through
+    extra = 1
+    ordering = ('position',)
+
+
 class AgencyAdmin(admin.ModelAdmin):
     list_display = ('title', 'agency_type',
                     'phone', 'email', 'bank_account',
@@ -13,10 +19,12 @@ class AgencyAdmin(admin.ModelAdmin):
 class GolfClubAdmin(admin.ModelAdmin):
     list_display = ('title', 'hole', 'cart_rental_required', 'cart_fee', 'caddie_fee', 'phone', 'email',)
     search_fields = ('title',)
+    inlines = (ProductInline,)
+    exclude = ('products',)
 
 
 class GolfClubProductAdmin(admin.ModelAdmin):
-    list_display = ('season', 'day_of_week', 'slot', 'time_start', 'time_end')
+    list_display = ('season', 'day_of_week', 'slot')
 
 
 '''

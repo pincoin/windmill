@@ -148,12 +148,57 @@ class GolfClub(TimeStampedModel):
         help_text=_('THB'),
     )
 
+    products = models.ManyToManyField(
+        'golf.GolfClubProduct',
+        through='golf.ProductListMembership')
+
     class Meta:
         verbose_name = _('Golf club')
         verbose_name_plural = _('Golf clubs')
 
     def __str__(self):
         return '{} {} {}'.format(self.title, self.email, self.phone)
+
+
+class ProductListMembership(models.Model):
+    club = models.ForeignKey(
+        'golf.GolfClub',
+        verbose_name=_('Golf club'),
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    product_list = models.ForeignKey(
+        'golf.GolfClubProduct',
+        verbose_name=_('Product list'),
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    start_time = models.TimeField(
+        verbose_name=_('Start time'),
+    )
+
+    end_time = models.TimeField(
+        verbose_name=_('End time'),
+    )
+
+    list_price = models.DecimalField(
+        verbose_name=_('List price'),
+        max_digits=11,
+        decimal_places=2,
+        help_text=_('THB'),
+    )
+
+    position = models.IntegerField(
+        verbose_name=_('Position'),
+    )
+
+    class Meta:
+        verbose_name = _('Product list membership')
+        verbose_name_plural = _('Product list membership')
+
+        unique_together = ('club', 'product_list',)
 
 
 '''
@@ -276,17 +321,13 @@ class GolfClubProduct(TimeStampedModel):
         db_index=True,
     )
 
-    time_start = models.TimeField(
-        verbose_name=_('Start time'),
-    )
-
-    time_end = models.TimeField(
-        verbose_name=_('End time'),
-    )
-
     class Meta:
         verbose_name = _('Golf club product')
         verbose_name_plural = _('Golf club products')
 
     def __str__(self):
-        return '{} {} {}'.format(self.season, self.day_of_week, self.slot)
+        return '{} / {} / {}'.format(
+            self.SEASON_CHOICES[self.season],
+            self.DAY_CHOICES[self.day_of_week],
+            self.SLOT_CHOICES[self.slot],
+        )
