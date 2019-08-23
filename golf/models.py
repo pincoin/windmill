@@ -74,6 +74,11 @@ class Agency(model_utils_models.TimeStampedModel):
         null=True,
     )
 
+    products = models.ManyToManyField(
+        'golf.ClubProductListMembership',
+        through='golf.AgencyClubProductListMembership'
+    )
+
     class Meta:
         verbose_name = _('Agency')
         verbose_name_plural = _('Agencies')
@@ -249,6 +254,47 @@ class ClubProductListMembership(models.Model):
 
         unique_together = ('club', 'product_list')
 
+    def __str__(self):
+        return '{} {}'.format(self.club.title, self.product_list)
+
+
+class AgencyClubProductListMembership(models.Model):
+    agency = models.ForeignKey(
+        'golf.Agency',
+        verbose_name=_('Agency'),
+        db_index=True,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+    )
+
+    product_list = models.ForeignKey(
+        'golf.ClubProductListMembership',
+        verbose_name=_('Product list'),
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    fee = models.DecimalField(
+        verbose_name=_('Fee amount'),
+        max_digits=11,
+        decimal_places=2,
+        help_text=_('THB'),
+    )
+
+    position = models.IntegerField(
+        verbose_name=_('Position'),
+    )
+
+    class Meta:
+        verbose_name = _('Agency product list membership')
+        verbose_name_plural = _('Agency product list membership')
+
+        unique_together = ('agency', 'product_list')
+
+    def __str__(self):
+        return '{} {}'.format(self.agency.title, self.product_list)
+
 
 class AgentProfile(model_utils_models.TimeStampedModel):
     user = models.OneToOneField(
@@ -312,6 +358,7 @@ class Deposit(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
 
     amount = models.DecimalField(
         verbose_name=_('Amount'),
+        help_text=_('THB'),
         max_digits=11,
         decimal_places=2,
     )
@@ -332,58 +379,6 @@ class Deposit(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
 
 '''
 class PriceTable(TimeStampedModel):
-    SEASON_CHOICES = Choices(
-        (0, 'low', _('Low season')),
-        (1, 'high', _('High season')),
-    )
-
-    DAY_CHOICES = Choices(
-        (0, 'weekday', _('Weekday')),
-        (1, 'weekend', _('Weekend')),
-    )
-
-    SLOT_CHOICES = Choices(
-        (0, 'twilight', _('Twilight')),
-        (1, 'morning', _('Morning')),
-        (2, 'daytime', _('Daytime')),
-        (3, 'night', _('Night')),
-    )
-
-    agency = models.ForeignKey(
-        'golf.Agency',
-        verbose_name=_('Agency'),
-        db_index=True,
-        on_delete=models.CASCADE,
-    )
-
-    club = models.ForeignKey(
-        'golf.Club',
-        verbose_name=_('Golf club'),
-        db_index=True,
-        on_delete=models.CASCADE,
-    )
-
-    season = models.IntegerField(
-        verbose_name=_('High/Low Season'),
-        choices=SEASON_CHOICES,
-        default=SEASON_CHOICES.high,
-        db_index=True,
-    )
-
-    day_of_week = models.IntegerField(
-        verbose_name=_('Day of week'),
-        choices=DAY_CHOICES,
-        default=DAY_CHOICES.weekday,
-        db_index=True,
-    )
-
-    slot = models.IntegerField(
-        verbose_name=_('Time slot'),
-        choices=SLOT_CHOICES,
-        default=SLOT_CHOICES.twilight,
-        db_index=True,
-    )
-
     fee = models.DecimalField(
         verbose_name=_('Fee amount'),
         max_digits=11,
@@ -401,11 +396,4 @@ class PriceTable(TimeStampedModel):
     @property
     def profit(self):
         return self.fee - self.cost
-
-    class Meta:
-        verbose_name = _('Price table')
-        verbose_name_plural = _('Price tables')
-
-    def __str__(self):
-        return '{} {} {}'.format(self.agency.title, self.club.title, self.fee)    
 '''

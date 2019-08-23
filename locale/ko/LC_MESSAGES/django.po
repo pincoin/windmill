@@ -272,11 +272,11 @@ msgstr "LINE 아이디"
 
 #: golf/models.py:283
 msgid "Agent profile"
-msgstr "담당자"
+msgstr "에이전시 담당자"
 
 #: golf/models.py:284
 msgid "Agent profiles"
-msgstr "담당자"
+msgstr "에이전시 담당자"
 
 #: golf/models.py:314
 msgid "Amount"

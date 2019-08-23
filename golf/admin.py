@@ -10,6 +10,12 @@ class ProductInline(admin.TabularInline):
     ordering = ('position',)
 
 
+class ClubProductInline(admin.TabularInline):
+    model = models.Agency.products.through
+    extra = 1
+    ordering = ('position',)
+
+
 class DepositInline(admin.StackedInline):
     model = models.Deposit
     extra = 1
@@ -17,12 +23,18 @@ class DepositInline(admin.StackedInline):
     ordering = ['-created']
 
 
+class ProfileSetInline(admin.TabularInline):
+    model = models.AgentProfile
+    extra = 1
+    fields = ('agency', 'cellphone', 'line_id')
+
+
 class AgencyAdmin(admin.ModelAdmin):
     list_display = ('title', 'agency_type',
                     'phone', 'email', 'bank_account',
                     'cancellable_days', 'due_days', 'bookable_days')
     search_fields = ('title',)
-    inlines = (DepositInline,)
+    inlines = (ClubProductInline, DepositInline,)
 
 
 class ClubAdmin(admin.ModelAdmin):
@@ -35,12 +47,6 @@ class ClubAdmin(admin.ModelAdmin):
 class ClubProductAdmin(admin.ModelAdmin):
     list_display = ('season', 'day_of_week', 'slot')
     ordering = ('season', 'day_of_week', 'slot')
-
-
-class ProfileSetInline(admin.TabularInline):
-    model = models.AgentProfile
-    extra = 1
-    fields = ('agency', 'cellphone', 'line_id')
 
 
 class AgentProfileAdmin(admin.ModelAdmin):
@@ -73,31 +79,6 @@ class AgentProfileAdmin(admin.ModelAdmin):
     agency_title.short_description = _('Agency')
     agency_title.admin_order_field = 'agency__title'
 
-
-'''
-class PriceTableAdmin(admin.ModelAdmin):
-    list_display = ('agency_title', 'club_title', 'season', 'day_of_week', 'slot', 'fee', 'cost', 'profit')
-    search_fields = ('agency__title', 'club__title')
-    list_filter = ('agency__title', 'club__title')
-    raw_id_fields = ('agency', 'club')
-
-    def get_queryset(self, request):
-        return super(PriceTableAdmin, self) \
-            .get_queryset(request) \
-            .select_related('agency', 'club')
-
-    def agency_title(self, obj):
-        return obj.agency.title
-
-    agency_title.short_description = _('Agency')
-    agency_title.admin_order_field = 'agency__title'
-
-    def club_title(self, obj):
-        return obj.club.title
-
-    club_title.short_description = _('Golf club')
-    club_title.admin_order_field = 'club__title'
-'''
 
 admin.site.register(models.Agency, AgencyAdmin)
 admin.site.register(models.Club, ClubAdmin)
