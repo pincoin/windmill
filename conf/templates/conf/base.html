@@ -3,6 +3,7 @@
 <head>
     {% load static %}
     {% load i18n %}
+    {% load member_tags %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>NaOne : {% block title %}{% endblock %}</title>
@@ -27,6 +28,8 @@
     {% endblock %}
 </head>
 <body>
+
+{% groups request.user as user_groups %}
 
 <div id="gray-background"></div>
 

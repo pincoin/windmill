@@ -1,6 +1,7 @@
 {% extends 'member/account/profile_base.html' %}
 
 {% load i18n static %}
+{% load member_filters %}
 {% load member_tags %}
 
 {% block title %}{{ page_title }}{% endblock %}
@@ -16,7 +17,7 @@
         <div class="container">
             <h1 class="title">{{ page_title }}</h1>
 
-            {% if request.user|has_group:"agency" and request.user.profile.agency %}
+            {% if 'agency' in user_groups and request.user.profile.agency %}
                 <div class="columns">
                     <div class="column is-four-fifths">
                         <div class="notification is-warning">
