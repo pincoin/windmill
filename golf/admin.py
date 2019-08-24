@@ -104,9 +104,14 @@ class AgentProfileAdmin(admin.ModelAdmin):
     agency_title.admin_order_field = 'agency__title'
 
 
+class BookingAdmin(admin.ModelAdmin):
+    pass
+
+
 admin.site.register(models.Holiday, HolidayAdmin)
 admin.site.register(models.Agency, AgencyAdmin)
 admin.site.register(models.Club, ClubAdmin)
 admin.site.register(models.ClubProduct, ClubProductAdmin)
 admin.site.register(models.AgentProfile, AgentProfileAdmin)
 admin.site.register(models.AgencyClubProductListMembership, AgencyClubProductListMembershipAdmin)
+admin.site.register(models.Booking, BookingAdmin)

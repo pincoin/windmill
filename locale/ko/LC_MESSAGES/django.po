@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-24 12:59+0000\n"
+"POT-Creation-Date: 2019-08-24 15:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,14 +41,14 @@ msgstr "로그인"
 #: conf/templates/conf/base.html:77
 #: member/templates/member/account/login.html:119
 #: member/templates/member/account/signup.html:196
-#: member/templates/member/socialaccount/signup.html:160 member/views.py:65
-#: member/views.py:256
+#: member/templates/member/socialaccount/signup.html:160 member/views.py:63
+#: member/views.py:254
 msgid "Sign Up"
 msgstr "회원가입"
 
 #: conf/templates/conf/base.html:85 golf/admin.py:71 golf/admin.py:103
-#: golf/models.py:118 golf/models.py:318 golf/models.py:361 golf/models.py:406
-#: member/templates/member/account/profile.html:31
+#: golf/models.py:118 golf/models.py:318 golf/models.py:362 golf/models.py:407
+#: golf/models.py:455 member/templates/member/account/profile.html:31
 msgid "Agency"
 msgstr "에이전시"
 
@@ -69,7 +69,7 @@ msgid "Me"
 msgstr "나"
 
 #: conf/templates/conf/base.html:120 golf/admin.py:87
-#: member/templates/member/account/profile_base.html:16 member/views.py:280
+#: member/templates/member/account/profile_base.html:16 member/views.py:279
 msgid "Profile"
 msgstr "프로필"
 
@@ -175,7 +175,7 @@ msgstr "이메일주소"
 msgid "Website"
 msgstr "웹사이트"
 
-#: golf/models.py:106
+#: golf/models.py:106 golf/models.py:497
 msgid "Memo"
 msgstr "비고"
 
@@ -187,47 +187,47 @@ msgstr "간단한 설명"
 msgid "Agencies"
 msgstr "에이전시"
 
-#: golf/models.py:127
+#: golf/models.py:127 golf/models.py:437
 msgid "Low season"
 msgstr "비수기"
 
-#: golf/models.py:128 golf/models.py:247
+#: golf/models.py:128 golf/models.py:247 golf/models.py:438
 msgid "High season"
 msgstr "성수기"
 
-#: golf/models.py:132
+#: golf/models.py:132 golf/models.py:442
 msgid "Weekday"
 msgstr "주중"
 
-#: golf/models.py:133
+#: golf/models.py:133 golf/models.py:443
 msgid "Weekend"
 msgstr "주말"
 
-#: golf/models.py:137
+#: golf/models.py:137 golf/models.py:447
 msgid "Morning"
 msgstr "오전"
 
-#: golf/models.py:138
+#: golf/models.py:138 golf/models.py:448
 msgid "Daytime"
 msgstr "오후"
 
-#: golf/models.py:139
+#: golf/models.py:139 golf/models.py:449
 msgid "Twilight"
 msgstr "일몰"
 
-#: golf/models.py:140
+#: golf/models.py:140 golf/models.py:450
 msgid "Night"
 msgstr "야간"
 
-#: golf/models.py:144
+#: golf/models.py:144 golf/models.py:503
 msgid "High/Low Season"
 msgstr "성수기/비수기"
 
-#: golf/models.py:151
+#: golf/models.py:151 golf/models.py:510
 msgid "Day of week"
 msgstr "주중/주말"
 
-#: golf/models.py:158
+#: golf/models.py:158 golf/models.py:517
 msgid "Time slot"
 msgstr "시간대"
 
@@ -272,7 +272,7 @@ msgid "Cart fee"
 msgstr "카트 요금"
 
 #: golf/models.py:236 golf/models.py:243 golf/models.py:298 golf/models.py:336
-#: golf/models.py:415
+#: golf/models.py:416 golf/models.py:488
 msgid "THB"
 msgstr "THB"
 
@@ -312,7 +312,7 @@ msgstr "순서"
 msgid "Product list membership"
 msgstr "골프클럽 요금표"
 
-#: golf/models.py:333
+#: golf/models.py:333 golf/models.py:485
 msgid "Fee amount"
 msgstr "요금"
 
@@ -320,37 +320,61 @@ msgstr "요금"
 msgid "Agency product list membership"
 msgstr "에이전시 요금표"
 
-#: golf/models.py:369
+#: golf/models.py:370
 msgid "Cellphone number"
 msgstr "휴대전화번호"
 
-#: golf/models.py:376
+#: golf/models.py:377
 msgid "Line ID"
 msgstr "LINE 아이디"
 
-#: golf/models.py:383 member/admin.py:50
+#: golf/models.py:384 member/admin.py:50
 msgid "Agent profile"
 msgstr "에이전시 담당자"
 
-#: golf/models.py:384
+#: golf/models.py:385
 msgid "Agent profiles"
 msgstr "에이전시 담당자"
 
-#: golf/models.py:414
+#: golf/models.py:415
 msgid "Amount"
 msgstr "금액"
 
-#: golf/models.py:421
+#: golf/models.py:422
 msgid "Received date"
 msgstr "입금일자"
 
-#: golf/models.py:425
+#: golf/models.py:426
 msgid "Deposit"
 msgstr "보증금"
 
-#: golf/models.py:426
+#: golf/models.py:427
 msgid "Deposits"
 msgstr "보증금"
+
+#: golf/models.py:464
+msgid "Agent"
+msgstr "담당자"
+
+#: golf/models.py:472
+msgid "Round day"
+msgstr "라운딩 일자"
+
+#: golf/models.py:477
+msgid "Round time"
+msgstr "라운딩 시각"
+
+#: golf/models.py:481
+msgid "Number of people"
+msgstr "인원수"
+
+#: golf/models.py:492
+msgid "Booking person"
+msgstr "예약자"
+
+#: golf/models.py:524 golf/models.py:525
+msgid "Booking"
+msgstr "예약"
 
 #: member/adapters.py:30
 msgid "Your email domain is not allowed."
@@ -445,7 +469,7 @@ msgid "Status"
 msgstr "상태"
 
 #: member/models.py:68 member/templates/member/account/profile_base.html:20
-#: member/views.py:295
+#: member/views.py:294
 msgid "Organization application"
 msgstr "소속 등록 요청"
 
@@ -645,7 +669,7 @@ msgid "Email management"
 msgstr "이메일 연동"
 
 #: member/templates/member/account/profile_base.html:40
-#: member/templates/member/account/unregister.html:47 member/views.py:93
+#: member/templates/member/account/unregister.html:47 member/views.py:91
 msgid "Unregister"
 msgstr "회원탈퇴"
 
@@ -720,55 +744,55 @@ msgstr ""
 msgid "As a final step, please complete the following form:"
 msgstr "회원 가입을 위한 마지막 단계입니다."
 
-#: member/views.py:46
+#: member/views.py:44
 msgid "Login"
 msgstr "로그인"
 
-#: member/views.py:56
+#: member/views.py:54
 msgid "Logout"
 msgstr "로그아웃"
 
-#: member/views.py:74
+#: member/views.py:72
 msgid "Account Inactive"
 msgstr "이용 불가"
 
-#: member/views.py:133
+#: member/views.py:131
 msgid "Password Change"
 msgstr "비밀번호 변경"
 
-#: member/views.py:149
+#: member/views.py:147
 msgid "Password Set"
 msgstr "비밀번호 초기화 이메일"
 
-#: member/views.py:166 member/views.py:192
+#: member/views.py:164 member/views.py:190
 msgid "Password Reset"
 msgstr "비밀번호 재설정"
 
-#: member/views.py:176 member/views.py:201
+#: member/views.py:174 member/views.py:199
 msgid "Password Reset Done"
 msgstr "비밀번호 재설정 완료"
 
-#: member/views.py:210
+#: member/views.py:208
 msgid "Email Verification Sent"
 msgstr "이메일 인증 발송"
 
-#: member/views.py:219
+#: member/views.py:217
 msgid "Confirm Email Request"
 msgstr "회원 가입 완료 요청"
 
-#: member/views.py:229
+#: member/views.py:227
 msgid "Email Management"
 msgstr "이메일 연동"
 
-#: member/views.py:238
+#: member/views.py:236
 msgid "Login Cancelled"
 msgstr "로그인 취소"
 
-#: member/views.py:247
+#: member/views.py:245
 msgid "Social Network Login Failure"
 msgstr "SNS 로그인 실패"
 
-#: member/views.py:265
+#: member/views.py:263
 msgid "Connect with SNS accounts"
 msgstr "SNS 로그인"
 

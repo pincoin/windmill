@@ -353,7 +353,8 @@ class AgencyClubProductListMembership(models.Model):
 class AgentProfile(model_utils_models.TimeStampedModel):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE
+        db_index=True,
+        on_delete=models.CASCADE,
     )
 
     agency = models.ForeignKey(
@@ -429,6 +430,99 @@ class Deposit(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
         return 'agency - {} / payment - {} {}'.format(
             self.agency.title, self.amount, self.received
         )
+
+
+class Booking(model_utils_models.TimeStampedModel):
+    SEASON_CHOICES = Choices(
+        (0, 'low', _('Low season')),
+        (1, 'high', _('High season')),
+    )
+
+    DAY_CHOICES = Choices(
+        (0, 'weekday', _('Weekday')),
+        (1, 'weekend', _('Weekend')),
+    )
+
+    SLOT_CHOICES = Choices(
+        (0, 'morning', _('Morning')),
+        (1, 'daytime', _('Daytime')),
+        (2, 'twilight', _('Twilight')),
+        (3, 'night', _('Night')),
+    )
+
+    agency = models.ForeignKey(
+        'golf.Agency',
+        verbose_name=_('Agency'),
+        db_index=True,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+    )
+
+    agent = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        verbose_name=_('Agent'),
+        db_index=True,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+    )
+
+    round_date = models.DateField(
+        verbose_name=_('Round day'),
+        db_index=True,
+    )
+
+    round_time = models.TimeField(
+        verbose_name=_('Round time'),
+    )
+
+    people = models.IntegerField(
+        verbose_name=_('Number of people'),
+    )
+
+    fee = models.DecimalField(
+        verbose_name=_('Fee amount'),
+        max_digits=11,
+        decimal_places=2,
+        help_text=_('THB'),
+    )
+
+    booking_person = models.CharField(
+        verbose_name=_('Booking person'),
+        max_length=255,
+    )
+
+    memo = models.TextField(
+        verbose_name=_('Memo'),
+        blank=True,
+        null=True,
+    )
+
+    season = models.IntegerField(
+        verbose_name=_('High/Low Season'),
+        choices=SEASON_CHOICES,
+        default=SEASON_CHOICES.high,
+        db_index=True,
+    )
+
+    day_of_week = models.IntegerField(
+        verbose_name=_('Day of week'),
+        choices=DAY_CHOICES,
+        default=DAY_CHOICES.weekday,
+        db_index=True,
+    )
+
+    slot = models.IntegerField(
+        verbose_name=_('Time slot'),
+        choices=SLOT_CHOICES,
+        default=SLOT_CHOICES.morning,
+        db_index=True,
+    )
+
+    class Meta:
+        verbose_name = _('Booking')
+        verbose_name_plural = _('Booking')
 
 
 '''
