@@ -79,6 +79,37 @@
                         </div>
                     </div>
                 {% else %}
+                    {% if 'agency' in user_groups %}
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">
+                                {% trans 'Agency' %}
+                            </a>
+                            <div class="navbar-dropdown">
+                                <a href="#" class="navbar-item">
+                                    <span class="icon"><i class="fas fa-user-cog fa-fw"></i></span>
+                                    <span>{% trans 'Booking management' %}</span>
+                                </a>
+                            </div>
+                        </div>
+                    {% elif 'staff' in user_groups %}
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">
+                                {% trans 'Staff' %}
+                            </a>
+                            <div class="navbar-dropdown">
+                                <a href="#" class="navbar-item">
+                                    <span class="icon"><i class="fas fa-user-cog fa-fw"></i></span>
+                                    <span>{% trans 'Booking management' %}</span>
+                                </a>
+                            </div>
+                            <div class="navbar-dropdown">
+                                <a href="#" class="navbar-item">
+                                    <span class="icon"><i class="fas fa-user-cog fa-fw"></i></span>
+                                    <span>{% trans 'Agents management' %}</span>
+                                </a>
+                            </div>
+                        </div>
+                    {% endif %}
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">
                             {% trans 'Me' %}
