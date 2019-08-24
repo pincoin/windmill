@@ -201,6 +201,11 @@ class Club(model_utils_models.TimeStampedModel):
         help_text=_('THB'),
     )
 
+    high_season = models.IntegerField(
+        verbose_name=_('High season'),
+        default=0x0C03,  # b'110000000011'
+    )
+
     products = models.ManyToManyField(
         'golf.ClubProduct',
         through='golf.ClubProductListMembership'
