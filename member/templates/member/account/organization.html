@@ -17,12 +17,12 @@
         <div class="container">
             <h1 class="title">{{ page_title }}</h1>
 
-            {% if 'agency' in user_groups and request.user.profile.agency %}
+            {% if 'agency' in user_groups and request.user.agentprofile.agency %}
                 <div class="columns">
                     <div class="column is-four-fifths">
                         <div class="notification is-warning">
                             {% trans 'You are already a member of organizations.' %} -
-                            <strong>{{ request.user.profile.agency.title }}</strong>
+                            <strong>{{ request.user.agentprofile.agency.title }}</strong>
                         </div>
                     </div>
                 </div>
