@@ -22,13 +22,13 @@
                         <div class="column">
                             <ul>
                                 <li>
-                                    {% trans 'Email' %}: {{ member.user.email }}
+                                    {% trans 'Email' %}: {{ member.email }}
                                 </li>
                                 <li>
-                                    {% trans 'Fullname' %}: {{ member.user.first_name }} {{ member.user.last_name }}
+                                    {% trans 'Fullname' %}: {{ member.first_name }} {{ member.last_name }}
                                 </li>
                                 <li>
-                                    {% trans 'Agency' %}: {{ member.agency.title }}
+                                    {% trans 'Agency' %}: {{ member.agentprofile.agency.title }}
                                 </li>
                             </ul>
                         </div>
