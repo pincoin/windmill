@@ -175,7 +175,7 @@ msgstr "개인업자"
 
 #: golf/models.py:68
 msgid "Booking agency"
-msgstr "예약업소"
+msgstr "예약대행"
 
 #: golf/models.py:72
 msgid "Agency name"
