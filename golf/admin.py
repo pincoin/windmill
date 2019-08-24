@@ -58,14 +58,24 @@ class ClubProductAdmin(admin.ModelAdmin):
 
 
 class AgencyClubProductListMembershipAdmin(admin.ModelAdmin):
-    list_display = ('agency', 'product_list', 'fee')
+    list_display = ('agency_title', 'product_list', 'fee')
     list_filter = ('agency__title',)
     raw_id_fields = ('agency', 'product_list')
+
+    def agency_title(self, obj):
+        if obj.agency:
+            return obj.agency.title
+        else:
+            return _('No organization')
+
+    agency_title.short_description = _('Agency')
+    agency_title.admin_order_field = 'agency__title'
 
 
 class AgentProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'agency_title', 'cellphone', 'line_id')
     list_filter = ('agency__title',)
+    list_select_related = ('agency',)
     search_fields = ('user__email', 'cellphone',)
     raw_id_fields = ('user', 'agency')
     ordering = ('-created',)
