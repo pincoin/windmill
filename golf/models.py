@@ -6,6 +6,41 @@ from model_utils import Choices
 from model_utils import models  as model_utils_models
 
 
+class Holiday(model_utils_models.TimeStampedModel):
+    COUNTRY_CHOICES = Choices(
+        (1, 'thailand', _('Thailand')),
+        (2, 'south_korea', _('South Korea')),
+        (3, 'japan', _('Japan')),
+        (4, 'china', _('China')),
+    )
+
+    title = models.CharField(
+        verbose_name=_('Holiday name'),
+        max_length=255,
+    )
+
+    holiday = models.DateField(
+        verbose_name=_('Holiday day'),
+        db_index=True,
+    )
+
+    country = models.IntegerField(
+        verbose_name=_('Country code'),
+        choices=COUNTRY_CHOICES,
+        default=COUNTRY_CHOICES.thailand,
+        db_index=True,
+    )
+
+    class Meta:
+        verbose_name = _('Holiday')
+        verbose_name_plural = _('Holidays')
+
+        unique_together = ('holiday', 'country')
+
+    def __str__(self):
+        return '{} {} {}'.format(self.title, self.holiday, self.country)
+
+
 class Agency(model_utils_models.TimeStampedModel):
     AGENCY_TYPE_CHOICES = Choices(
         (0, 'travel', _('Travel agency')),
@@ -148,6 +183,13 @@ class Club(model_utils_models.TimeStampedModel):
         (3, 'thirtysix', _('36 Holes')),
     )
 
+    COUNTRY_CHOICES = Choices(
+        (1, 'thailand', _('Thailand')),
+        (2, 'south_korea', _('South Korea')),
+        (3, 'japan', _('Japan')),
+        (4, 'china', _('China')),
+    )
+
     title = models.CharField(
         verbose_name=_('Golf club name'),
         max_length=255,
@@ -204,6 +246,13 @@ class Club(model_utils_models.TimeStampedModel):
     high_season = models.IntegerField(
         verbose_name=_('High season'),
         default=0x0C03,  # b'110000000011'
+    )
+
+    country = models.IntegerField(
+        verbose_name=_('Country code'),
+        choices=COUNTRY_CHOICES,
+        default=COUNTRY_CHOICES.thailand,
+        db_index=True,
     )
 
     products = models.ManyToManyField(

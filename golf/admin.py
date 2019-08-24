@@ -29,6 +29,14 @@ class ProfileSetInline(admin.TabularInline):
     fields = ('agency', 'cellphone', 'line_id')
 
 
+class HolidayAdmin(admin.ModelAdmin):
+    list_display = ('holiday', 'country', 'title')
+    list_filter = ('holiday', 'country')
+    search_fields = ('title',)
+    ordering = ('-holiday',)
+    date_hierarchy = 'holiday'
+
+
 class AgencyAdmin(admin.ModelAdmin):
     list_display = ('title', 'agency_type',
                     'phone', 'email', 'bank_account',
@@ -86,6 +94,7 @@ class AgentProfileAdmin(admin.ModelAdmin):
     agency_title.admin_order_field = 'agency__title'
 
 
+admin.site.register(models.Holiday, HolidayAdmin)
 admin.site.register(models.Agency, AgencyAdmin)
 admin.site.register(models.Club, ClubAdmin)
 admin.site.register(models.ClubProduct, ClubProductAdmin)
