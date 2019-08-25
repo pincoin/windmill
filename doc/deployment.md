@@ -341,3 +341,13 @@ $ sudo systemctl start celery
 ### Redis
 
 ### Memcached
+
+```
+$ sudo apt-get install memcached
+```
+
+```
+$ sudo su - was
+$ pyenv shell django
+$ pip install python-memcached
+```
