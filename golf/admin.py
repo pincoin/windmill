@@ -105,7 +105,8 @@ class AgentProfileAdmin(admin.ModelAdmin):
 
 
 class BookingAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('club', 'round_date', 'round_time', 'people', 'fee', 'agency', 'agent')
+    list_filter = ('agency__title', 'club__title')
 
 
 admin.site.register(models.Holiday, HolidayAdmin)

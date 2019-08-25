@@ -456,6 +456,13 @@ class Booking(model_utils_models.TimeStampedModel):
         (2, 'shipped', _('Shipped')),
     )
 
+    club = models.ForeignKey(
+        'golf.Club',
+        verbose_name=_('Golf club'),
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
     agency = models.ForeignKey(
         'golf.Agency',
         verbose_name=_('Agency'),
