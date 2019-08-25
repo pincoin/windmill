@@ -119,6 +119,12 @@
                                 <span class="icon"><i class="fas fa-user-cog fa-fw"></i></span>
                                 <span>{% trans "Profile" %}</span>
                             </a>
+                            {% if not user_groups %}
+                                <a href="{% url 'account_organization' %}" class="navbar-item">
+                                    <span class="icon"><i class="fas fa-building fa-fw"></i></span>
+                                    <span>{% trans 'Organization application' %}</span>
+                                </a>
+                            {% endif %}
                             <hr class="navbar-divider">
                             <a href="{% url 'account_logout' %}" class="navbar-item">
                                 <span class="icon"><i class="fas fa-sign-out-alt fa-fw"></i></span>
