@@ -11,93 +11,88 @@
 
             <div class="columns">
                 <div class="column">
-                    <div class="field has-addons">
-                        <p class="control">
+                    <form action="#" method="get">
+                        <div class="field has-addons">
+                            <p class="control">
                             <span class="select">
-                                <select>
-                                    <option>예약자</option>
-                                    <option>메모</option>
-                                    <option>담당자</option>
-                                </select>
+                                {{ booking_search_form.category }}
                             </span>
-                        </p>
-                        <p class="control is-expanded">
-                            <input class="input" type="text" placeholder="검색">
-                        </p>
-                        <p class="control">
-                            <a class="button is-success">
-                                <i class="fas fa-search"></i>
-                            </a>
-                        </p>
-                    </div>
+                            </p>
+                            <p class="control is-expanded">
+                                {{ booking_search_form.keyword }}
+                            </p>
+                            <p class="control">
+                                <a class="button is-success">
+                                    <i class="fas fa-search"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="columns">
                 <div class="column">
-                    <div class="field has-addons">
-                        <p class="control">
-                            <a class="button is-success">
-                                예약상태
-                            </a>
-                        </p>
-                        <p class="control is-expanded">
+                    <form action="#" method="get">
+                        <div class="field has-addons">
+                            <p class="control">
+                                <a href="#" class="button is-success">
+                                    {% trans 'Booking status' %}
+                                </a>
+                            </p>
+                            <p class="control is-expanded">
                             <span class="select is-fullwidth">
-                                <select>
-                                    <option>확인중</option>
-                                    <option>확정</option>
-                                    <option>발송</option>
-                                </select>
+                                {{ booking_status_search_form.status }}
                             </span>
-                        </p>
-                        <p class="control">
-                            <a class="button is-success">
-                                <i class="fas fa-filter"></i>
-                            </a>
-                        </p>
-                    </div>
+                            </p>
+                            <p class="control">
+                                <a class="button is-success">
+                                    <i class="fas fa-filter"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </form>
                 </div>
                 <div class="column">
-                    <div class="field has-addons">
-                        <p class="control">
-                            <a class="button is-success">
-                                에이전시
-                            </a>
-                        </p>
-                        <p class="control is-expanded">
+                    <form action="#" method="get">
+                        <div class="field has-addons">
+                            <p class="control">
+                                <a href="#" class="button is-success">
+                                    {% trans 'Agency' %}
+                                </a>
+                            </p>
+                            <p class="control is-expanded">
                             <span class="select is-fullwidth">
-                                <select>
-                                    <option>몽키트래블</option>
-                                    <option>AZ 여행사</option>
-                                </select>
+                                {{ booking_agency_search_form.agency }}
                             </span>
-                        </p>
-                        <p class="control">
-                            <a class="button is-success">
-                                <i class="fas fa-filter"></i>
-                            </a>
-                        </p>
-                    </div>
+                            </p>
+                            <p class="control">
+                                <a class="button is-success">
+                                    <i class="fas fa-filter"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </form>
                 </div>
                 <div class="column">
-                    <div class="field has-addons">
-                        <p class="control">
-                            <a class="button is-success">
-                                골프장
-                            </a>
-                        </p>
-                        <p class="control is-expanded">
+                    <form action="#" method="get">
+                        <div class="field has-addons">
+                            <p class="control">
+                                <a href="#" class="button is-success">
+                                    {% trans 'Golf club' %}
+                                </a>
+                            </p>
+                            <p class="control is-expanded">
                             <span class="select is-fullwidth">
-                                <select>
-                                    <option>윈드밀</option>
-                                </select>
+                                {{ booking_club_search_form.club }}
                             </span>
-                        </p>
-                        <p class="control">
-                            <a class="button is-success">
-                                <i class="fas fa-filter"></i>
-                            </a>
-                        </p>
-                    </div>
+                            </p>
+                            <p class="control">
+                                <a class="button is-success">
+                                    <i class="fas fa-filter"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </form>
                 </div>
             </div>
 
