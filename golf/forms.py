@@ -1,4 +1,6 @@
 from django import forms
+from django.conf import settings
+from django.core.cache import cache
 from django.utils.translation import gettext_lazy as _
 
 from . import models
@@ -71,8 +73,17 @@ class BookingGolfClubSearchForm(forms.Form):
 
         super(BookingGolfClubSearchForm, self).__init__(*args, **kwargs)
 
+        cache_key = 'golf.all_clubs'
+        cache_time = settings.CACHES['default']['TIMEOUT']
+
+        clubs = cache.get(cache_key)
+
+        if not clubs:
+            clubs = models.Club.objects.all()
+            cache.set(cache_key, clubs, cache_time)
+
         self.fields['club'].initial = club
-        self.fields['club'].choices = [(c.id, str(c.title)) for c in models.Club.objects.all()]
+        self.fields['club'].choices = [(c.id, str(c.title)) for c in clubs]
 
 
 class BookingAgencySearchForm(forms.Form):
@@ -89,5 +100,14 @@ class BookingAgencySearchForm(forms.Form):
 
         super(BookingAgencySearchForm, self).__init__(*args, **kwargs)
 
+        cache_key = 'golf.all_agencies'
+        cache_time = settings.CACHES['default']['TIMEOUT']
+
+        agencies = cache.get(cache_key)
+
+        if not agencies:
+            agencies = models.Agency.objects.all()
+            cache.set(cache_key, agencies, cache_time)
+
         self.fields['agency'].initial = agency
-        self.fields['agency'].choices = [(a.id, str(a.title)) for a in models.Agency.objects.all()]
+        self.fields['agency'].choices = [(a.id, str(a.title)) for a in agencies]

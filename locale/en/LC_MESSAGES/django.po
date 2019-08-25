@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-25 15:13+0000\n"
+"POT-Creation-Date: 2019-08-25 16:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,12 +49,13 @@ msgstr ""
 #: conf/templates/conf/base.html:85 golf/admin.py:71 golf/admin.py:103
 #: golf/admin.py:134 golf/models.py:120 golf/models.py:320 golf/models.py:364
 #: golf/models.py:409 golf/models.py:483
+#: golf/templates/golf/staff_booking_list.html:60
 #: member/templates/member/account/profile.html:31
 msgid "Agency"
 msgstr ""
 
 #: conf/templates/conf/base.html:90 conf/templates/conf/base.html:102
-#: golf/views.py:24 golf/views.py:64
+#: golf/views.py:26 golf/views.py:76
 msgid "Booking management"
 msgstr ""
 
@@ -97,8 +98,10 @@ msgid "No golf club"
 msgstr ""
 
 #: golf/admin.py:125 golf/models.py:266 golf/models.py:276 golf/models.py:476
-#: golf/templates/golf/agency_booking_list.html:88
-#: golf/templates/golf/staff_booking_list.html:111
+#: golf/templates/golf/agency_booking_list.html:60
+#: golf/templates/golf/agency_booking_list.html:83
+#: golf/templates/golf/staff_booking_list.html:81
+#: golf/templates/golf/staff_booking_list.html:104
 msgid "Golf club"
 msgstr ""
 
@@ -107,8 +110,8 @@ msgid "Golf"
 msgstr ""
 
 #: golf/forms.py:10 golf/models.py:520
-#: golf/templates/golf/agency_booking_list.html:103
-#: golf/templates/golf/staff_booking_list.html:126
+#: golf/templates/golf/agency_booking_list.html:98
+#: golf/templates/golf/staff_booking_list.html:119
 msgid "Booking person"
 msgstr ""
 
@@ -422,13 +425,15 @@ msgstr ""
 msgid "Round time"
 msgstr ""
 
-#: golf/models.py:509 golf/templates/golf/agency_booking_list.html:94
-#: golf/templates/golf/staff_booking_list.html:117
+#: golf/models.py:509 golf/templates/golf/agency_booking_list.html:89
+#: golf/templates/golf/staff_booking_list.html:110
 msgid "No. of people"
 msgstr ""
 
-#: golf/models.py:552 golf/templates/golf/agency_booking_list.html:85
-#: golf/templates/golf/staff_booking_list.html:108
+#: golf/models.py:552 golf/templates/golf/agency_booking_list.html:39
+#: golf/templates/golf/agency_booking_list.html:80
+#: golf/templates/golf/staff_booking_list.html:39
+#: golf/templates/golf/staff_booking_list.html:101
 msgid "Booking status"
 msgstr ""
 
@@ -436,19 +441,23 @@ msgstr ""
 msgid "Booking"
 msgstr ""
 
-#: golf/templates/golf/agency_booking_list.html:91
-#: golf/templates/golf/staff_booking_list.html:114
+#: golf/templates/golf/agency_booking_list.html:86
+#: golf/templates/golf/staff_booking_list.html:107
 msgid "Round date/time"
 msgstr ""
 
-#: golf/templates/golf/agency_booking_list.html:97
-#: golf/templates/golf/staff_booking_list.html:120
+#: golf/templates/golf/agency_booking_list.html:92
+#: golf/templates/golf/staff_booking_list.html:113
 msgid "Fee"
 msgstr ""
 
-#: golf/templates/golf/agency_booking_list.html:100
-#: golf/templates/golf/staff_booking_list.html:123
+#: golf/templates/golf/agency_booking_list.html:95
+#: golf/templates/golf/staff_booking_list.html:116
 msgid "Season / Day of week / Slot"
+msgstr ""
+
+#: golf/templates/golf/agency_booking_list.html:143
+msgid "Make an order"
 msgstr ""
 
 #: member/adapters.py:30
