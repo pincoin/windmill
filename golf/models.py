@@ -1,3 +1,5 @@
+import uuid
+
 from django.conf import settings
 from django.db import models
 from django.urls import reverse
@@ -456,6 +458,13 @@ class Booking(model_utils_models.TimeStampedModel):
         (2, 'shipped', _('Shipped')),
     )
 
+    booking_uuid = models.UUIDField(
+        verbose_name=_('UUID'),
+        unique=True,
+        default=uuid.uuid4,
+        editable=False
+    )
+
     club = models.ForeignKey(
         'golf.Club',
         verbose_name=_('Golf club'),
@@ -472,7 +481,7 @@ class Booking(model_utils_models.TimeStampedModel):
         on_delete=models.SET_NULL,
     )
 
-    agent = models.OneToOneField(
+    agent = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         verbose_name=_('Agent'),
         db_index=True,
@@ -491,7 +500,7 @@ class Booking(model_utils_models.TimeStampedModel):
     )
 
     people = models.IntegerField(
-        verbose_name=_('Number of people'),
+        verbose_name=_('No. of people'),
     )
 
     fee = models.DecimalField(

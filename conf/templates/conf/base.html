@@ -85,7 +85,7 @@
                                 {% trans 'Agency' %}
                             </a>
                             <div class="navbar-dropdown">
-                                <a href="#" class="navbar-item">
+                                <a href="{% url 'golf:agency-booking-list' %}" class="navbar-item">
                                     <span class="icon"><i class="fas fa-user-cog fa-fw"></i></span>
                                     <span>{% trans 'Booking management' %}</span>
                                 </a>
@@ -97,7 +97,7 @@
                                 {% trans 'Staff' %}
                             </a>
                             <div class="navbar-dropdown">
-                                <a href="#" class="navbar-item">
+                                <a href="{% url 'golf:staff-booking-list' %}" class="navbar-item">
                                     <span class="icon"><i class="fas fa-user-cog fa-fw"></i></span>
                                     <span>{% trans 'Booking management' %}</span>
                                 </a>

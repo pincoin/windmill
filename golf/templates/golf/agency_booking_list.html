@@ -1,0 +1,92 @@
+{% extends 'conf/base.html' %}
+
+{% load i18n static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <h1 class="title has-text-centered">{{ page_title }}</h1>
+
+            <div class="columns is-hidden-touch">
+                <div class="column">
+                    {% trans 'Booking status' %}
+                </div>
+                <div class="column">
+                    {% trans 'Golf club' %}
+                </div>
+                <div class="column">
+                    {% trans 'Round date/time' %}
+                </div>
+                <div class="column">
+                    {% trans 'No. of people' %}
+                </div>
+                <div class="column">
+                    {% trans 'Fee' %}
+                </div>
+                <div class="column">
+                    {% trans 'Season / Day of week / Slot' %}
+                </div>
+                <div class="column">
+                    {% trans 'Booking person' %}
+                </div>
+
+                <!--
+                <div class="column">
+                    {{ booking.agency.title }}
+                </div>
+                <div class="column">
+                    {{ booking.agent.title }}
+                </div>
+                -->
+            </div>
+
+            {% for booking in booking_list %}
+                <div class="columns">
+                    <div class="column">
+                        {% if booking.status == booking.STATUS_CHOICES.pending %}
+                            <span class="tag is-warning">
+                        {% elif booking.status == booking.STATUS_CHOICES.confirmed %}
+                            <span class="tag is-success">
+                        {% elif booking.status == booking.STATUS_CHOICES.shipped %}
+                            <span class="tag is-link">
+                        {% else %}
+                            <span class="tag is-dark">
+                        {% endif %}
+                        {{ booking.get_status_display }}
+                        </span>
+                    </div>
+                    <div class="column">
+                        {{ booking.club.title }}
+                    </div>
+                    <div class="column">
+                        {{ booking.round_date|date:'Y-m-d' }} {{ booking.round_time|date:'H:i' }}
+                    </div>
+                    <div class="column">
+                        {{ booking.people }}
+                    </div>
+                    <div class="column">
+                        {{ booking.fee }}
+                    </div>
+                    <div class="column">
+                        {{ booking.get_season_display }}
+                        {{ booking.get_day_of_week_display }}
+                        {{ booking.get_slot_display }}
+                    </div>
+                    <div class="column">
+                        {{ booking.booking_person }}
+                    </div>
+                    <!--
+                    <div class="column">
+                        {{ booking.agency.title }}
+                    </div>
+                    <div class="column">
+                        {{ booking.agent.title }}
+                    </div>
+                    -->
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
