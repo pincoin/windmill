@@ -450,6 +450,12 @@ class Booking(model_utils_models.TimeStampedModel):
         (3, 'night', _('Night')),
     )
 
+    STATUS_CHOICES = Choices(
+        (0, 'pending', _('Pending')),
+        (1, 'confirmed', _('Confirmed')),
+        (2, 'shipped', _('Shipped')),
+    )
+
     agency = models.ForeignKey(
         'golf.Agency',
         verbose_name=_('Agency'),
@@ -517,6 +523,13 @@ class Booking(model_utils_models.TimeStampedModel):
         verbose_name=_('Time slot'),
         choices=SLOT_CHOICES,
         default=SLOT_CHOICES.morning,
+        db_index=True,
+    )
+
+    status = models.IntegerField(
+        verbose_name=_('Booking status'),
+        choices=STATUS_CHOICES,
+        default=STATUS_CHOICES.pending,
         db_index=True,
     )
 

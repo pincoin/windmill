@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-24 15:09+0000\n"
+"POT-Creation-Date: 2019-08-25 04:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,7 +48,7 @@ msgstr "สมัครสมาชิก"
 
 #: conf/templates/conf/base.html:85 golf/admin.py:71 golf/admin.py:103
 #: golf/models.py:118 golf/models.py:318 golf/models.py:362 golf/models.py:407
-#: golf/models.py:455 member/templates/member/account/profile.html:31
+#: golf/models.py:461 member/templates/member/account/profile.html:31
 msgid "Agency"
 msgstr ""
 
@@ -177,7 +177,7 @@ msgstr ""
 msgid "Website"
 msgstr ""
 
-#: golf/models.py:106 golf/models.py:497
+#: golf/models.py:106 golf/models.py:503
 msgid "Memo"
 msgstr ""
 
@@ -221,15 +221,15 @@ msgstr ""
 msgid "Night"
 msgstr ""
 
-#: golf/models.py:144 golf/models.py:503
+#: golf/models.py:144 golf/models.py:509
 msgid "High/Low Season"
 msgstr ""
 
-#: golf/models.py:151 golf/models.py:510
+#: golf/models.py:151 golf/models.py:516
 msgid "Day of week"
 msgstr ""
 
-#: golf/models.py:158 golf/models.py:517
+#: golf/models.py:158 golf/models.py:523
 msgid "Time slot"
 msgstr ""
 
@@ -274,7 +274,7 @@ msgid "Cart fee"
 msgstr ""
 
 #: golf/models.py:236 golf/models.py:243 golf/models.py:298 golf/models.py:336
-#: golf/models.py:416 golf/models.py:488
+#: golf/models.py:416 golf/models.py:494
 msgid "THB"
 msgstr ""
 
@@ -314,7 +314,7 @@ msgstr ""
 msgid "Product list membership"
 msgstr ""
 
-#: golf/models.py:333 golf/models.py:485
+#: golf/models.py:333 golf/models.py:491
 msgid "Fee amount"
 msgstr ""
 
@@ -354,27 +354,43 @@ msgstr ""
 msgid "Deposits"
 msgstr ""
 
-#: golf/models.py:464
+#: golf/models.py:454 member/models.py:45
+msgid "Pending"
+msgstr ""
+
+#: golf/models.py:455
+msgid "Confirmed"
+msgstr ""
+
+#: golf/models.py:456
+msgid "Shipped"
+msgstr ""
+
+#: golf/models.py:470
 msgid "Agent"
 msgstr ""
 
-#: golf/models.py:472
+#: golf/models.py:478
 msgid "Round day"
 msgstr ""
 
-#: golf/models.py:477
+#: golf/models.py:483
 msgid "Round time"
 msgstr ""
 
-#: golf/models.py:481
+#: golf/models.py:487
 msgid "Number of people"
 msgstr ""
 
-#: golf/models.py:492
+#: golf/models.py:498
 msgid "Booking person"
 msgstr ""
 
-#: golf/models.py:524 golf/models.py:525
+#: golf/models.py:530
+msgid "Booking status"
+msgstr ""
+
+#: golf/models.py:537 golf/models.py:538
 msgid "Booking"
 msgstr ""
 
@@ -456,10 +472,6 @@ msgstr ""
 
 #: member/models.py:37
 msgid "Banned Email Addresses"
-msgstr ""
-
-#: member/models.py:45
-msgid "Pending"
 msgstr ""
 
 #: member/models.py:46
