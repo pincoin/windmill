@@ -1,0 +1,43 @@
+{% extends 'member/account/profile_base.html' %}
+
+{% load i18n static %}
+{% load member_tags %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+    {% with sidemenu='logs' %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock content %}
+
+{% block main_content %}
+    <section>
+        <div class="container">
+            <h1 class="title">{{ page_title }}</h1>
+
+            <div class="columns">
+                <div class="column is-four-fifths">
+                    {% for log in logs %}
+                        <div class="columns">
+                            <div class="column">
+                                <ul>
+                                    <li>
+                                        {{ log.created|date:'Y-m-d H:i' }}
+                                    </li>
+                                    <li>
+                                        {{ log.ip_address }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <div class="notification is-warning">
+                            {% trans 'You never logged in.' %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

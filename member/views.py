@@ -13,6 +13,7 @@ from django.views import generic
 
 from . import forms
 from . import settings as member_settings
+from .models import LoginLog
 
 
 class MemberLoginView(allauth_views.LoginView):
@@ -277,6 +278,19 @@ class MemberProfileView(auth_mixins.LoginRequiredMixin, generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(MemberProfileView, self).get_context_data(**kwargs)
         context['page_title'] = _('Profile')
+        return context
+
+
+class MemberLoginLogView(auth_mixins.LoginRequiredMixin, generic.ListView):
+    template_name = 'member/account/login_log.html'
+    context_object_name = 'logs'
+
+    def get_queryset(self):
+        return LoginLog.objects.filter(user=self.request.user.id).order_by('-created')[:10]
+
+    def get_context_data(self, **kwargs):
+        context = super(MemberLoginLogView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Login log')
         return context
 
 

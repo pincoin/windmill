@@ -57,6 +57,8 @@ urlpatterns = [
     # Profile
     path('profile/',
          views.MemberProfileView.as_view(), name="account_profile"),
+    path('profile/logs/',
+         views.MemberLoginLogView.as_view(), name="account_login_log"),
     path('profile/organization/',
          views.MemberOrganizationCreateView.as_view(), name="account_organization"),
 
