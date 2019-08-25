@@ -33,6 +33,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # django.contrib.sites settings for allauth
 SITE_ID = 1
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        'LOCATION': '127.0.0.1:11211',
+        'TIMEOUT': 300,
+    }
+}
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
