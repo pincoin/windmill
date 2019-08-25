@@ -105,8 +105,34 @@ class AgentProfileAdmin(admin.ModelAdmin):
 
 
 class BookingAdmin(admin.ModelAdmin):
-    list_display = ('club', 'round_date', 'round_time', 'people', 'fee', 'agency', 'agent')
-    list_filter = ('agency__title', 'club__title')
+    list_display = ('club_title',
+                    'round_date', 'round_time', 'people', 'fee', 'status', 'season', 'day_of_week', 'slot',
+                    'agency_title', 'agent')
+    list_filter = ('status', 'agency__title', 'club__title')
+    search_fields = ('agency__email', 'memo', 'booking_person')
+    list_select_related = ('club', 'agency', 'agent')
+    raw_id_fields = ('club', 'agency', 'agent')
+    ordering = ('-created',)
+
+    date_hierarchy = 'round_date'
+
+    def club_title(self, obj):
+        if obj.club:
+            return obj.club.title
+        else:
+            return _('No golf club')
+
+    club_title.short_description = _('Golf club')
+    club_title.admin_order_field = 'club__title'
+
+    def agency_title(self, obj):
+        if obj.agency:
+            return obj.agency.title
+        else:
+            return _('No organization')
+
+    agency_title.short_description = _('Agency')
+    agency_title.admin_order_field = 'agency__title'
 
 
 admin.site.register(models.Holiday, HolidayAdmin)
