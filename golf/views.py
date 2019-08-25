@@ -1,4 +1,5 @@
 from django.contrib.auth import mixins as auth_mixins
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
@@ -46,7 +47,26 @@ class AgencyBookingList(auth_mixins.LoginRequiredMixin, generic.ListView):
 
 
 class AgencyBookingCreate(auth_mixins.LoginRequiredMixin, generic.CreateView):
-    pass
+    template_name = 'golf/agency_booking_create.html'
+    form_class = forms.BookingForm
+
+    def get_form_kwargs(self):
+        kwargs = super(AgencyBookingCreate, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
+
+    def get_context_data(self, **kwargs):
+        context = super(AgencyBookingCreate, self).get_context_data(**kwargs)
+        context['page_title'] = _('Make an order')
+        return context
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+
+        return super(AgencyBookingCreate, self).form_valid(form)
+
+    def get_success_url(self):
+        return reverse('golf:agency-booking-list')
 
 
 class AgencyBookingDetail(auth_mixins.LoginRequiredMixin, generic.DetailView):

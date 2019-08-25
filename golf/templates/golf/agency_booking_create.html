@@ -1,0 +1,174 @@
+{% extends 'conf/base.html' %}
+
+{% load i18n static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <h1 class="title has-text-centered">{{ page_title }}</h1>
+
+            <div class="columns">
+                <div class="column">
+
+                    {% if form.non_field_errors %}
+                        <ul class="notification is-warning">
+                            {% for error in form.non_field_errors %}
+                                <li>{{ error|escape }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <form id="signup_form" method="post" action="{% url 'account_signup' %}">
+                        {% csrf_token %}
+
+                        <div class="field">
+                            <label class="label" for="{{ form.club.id_for_label }}">
+                                {{ form.club.label }}
+                                <span class="has-text-danger">*</span>
+                            </label>
+                            <div class="control has-icons-left">
+                                <input id="{{ form.club.id_for_label }}"
+                                       name="{{ form.club.name }}"
+                                       type="text"
+                                       class="input{% if form.club.errors %} is-danger{% endif %}"
+                                       {% if form.club.value != None %}value="{{ form.club.value|stringformat:'s' }}"{% endif %}
+                                       {% if form.club.field.required %}required{% endif %}>
+                                <span class="icon is-small is-left"><i class="fas fa-golf-ball fa-fw"></i></span>
+                            </div>
+                            {% if form.club.errors %}
+                                <p class="help is-danger">
+                                    {% for error in form.club.errors %}
+                                        {{ error|escape }}
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="{{ form.round_date.id_for_label }}">
+                                {{ form.round_date.label }}
+                                <span class="has-text-danger">*</span>
+                            </label>
+                            <div class="control has-icons-left">
+                                <input id="{{ form.round_date.id_for_label }}"
+                                       name="{{ form.round_date.name }}"
+                                       type="text"
+                                       class="input{% if form.round_date.errors %} is-danger{% endif %}"
+                                       {% if form.round_date.value != None %}value="{{ form.round_date.value|stringformat:'s' }}"{% endif %}
+                                       {% if form.round_date.field.required %}required{% endif %}>
+                                <span class="icon is-small is-left"><i class="fas fa-calendar-alt fa-fw"></i></span>
+                            </div>
+                            {% if form.round_date.errors %}
+                                <p class="help is-danger">
+                                    {% for error in form.round_date.errors %}
+                                        {{ error|escape }}
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="{{ form.round_time.id_for_label }}">
+                                {{ form.round_time.label }}
+                                <span class="has-text-danger">*</span>
+                            </label>
+                            <div class="control has-icons-left">
+                                <input id="{{ form.round_time.id_for_label }}"
+                                       name="{{ form.round_time.name }}"
+                                       type="text"
+                                       class="input{% if form.round_time.errors %} is-danger{% endif %}"
+                                       {% if form.round_time.value != None %}value="{{ form.round_time.value|stringformat:'s' }}"{% endif %}
+                                       {% if form.round_time.field.required %}required{% endif %}>
+                                <span class="icon is-small is-left"><i class="fas fa-clock fa-fw"></i></span>
+                            </div>
+                            {% if form.round_time.errors %}
+                                <p class="help is-danger">
+                                    {% for error in form.round_time.errors %}
+                                        {{ error|escape }}
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="{{ form.people.id_for_label }}">
+                                {{ form.people.label }}
+                                <span class="has-text-danger">*</span>
+                            </label>
+                            <div class="control has-icons-left">
+                                <input id="{{ form.people.id_for_label }}"
+                                       name="{{ form.people.name }}"
+                                       type="text"
+                                       class="input{% if form.people.errors %} is-danger{% endif %}"
+                                       {% if form.people.value != None %}value="{{ form.people.value|stringformat:'s' }}"{% endif %}
+                                       {% if form.people.field.required %}required{% endif %}>
+                                <span class="icon is-small is-left"><i class="fas fa-users fa-fw"></i></span>
+                            </div>
+                            {% if form.people.errors %}
+                                <p class="help is-danger">
+                                    {% for error in form.people.errors %}
+                                        {{ error|escape }}
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="{{ form.booking_person.id_for_label }}">
+                                {{ form.booking_person.label }}
+                                <span class="has-text-danger">*</span>
+                            </label>
+                            <div class="control has-icons-left">
+                                <input id="{{ form.booking_person.id_for_label }}"
+                                       name="{{ form.booking_person.name }}"
+                                       type="text"
+                                       class="input{% if form.booking_person.errors %} is-danger{% endif %}"
+                                       {% if form.booking_person.value != None %}value="{{ form.booking_person.value|stringformat:'s' }}"{% endif %}
+                                       {% if form.booking_person.field.required %}required{% endif %}>
+                                <span class="icon is-small is-left"><i class="fas fa-id-card fa-fw"></i></span>
+                            </div>
+                            {% if form.booking_person.errors %}
+                                <p class="help is-danger">
+                                    {% for error in form.booking_person.errors %}
+                                        {{ error|escape }}
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="{{ form.memo.id_for_label }}">
+                                {{ form.memo.label }}
+                                <span class="has-text-danger">*</span>
+                            </label>
+                            <div class="control has-icons-left">
+                                <input id="{{ form.memo.id_for_label }}"
+                                       name="{{ form.memo.name }}"
+                                       type="text"
+                                       class="input{% if form.memo.errors %} is-danger{% endif %}"
+                                       {% if form.memo.value != None %}value="{{ form.memo.value|stringformat:'s' }}"{% endif %}
+                                       {% if form.memo.field.required %}required{% endif %}>
+                                <span class="icon is-small is-left"><i class="fas fa-sticky-note fa-fw"></i></span>
+                            </div>
+                            {% if form.memo.errors %}
+                                <p class="help is-danger">
+                                    {% for error in form.memo.errors %}
+                                        {{ error|escape }}
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        </div>
+
+                        <div class="control">
+                            <button class="button is-link is-fullwidth" type="submit">
+                                <span class="icon"><i class="fas fa-clipboard-list"></i></span>
+                                <span>{% trans 'Make an order' %}</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -111,3 +111,14 @@ class BookingAgencySearchForm(forms.Form):
 
         self.fields['agency'].initial = agency
         self.fields['agency'].choices = [(a.id, str(a.title)) for a in agencies]
+
+
+class BookingForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        self.request = kwargs.pop('request', None)
+
+        super(BookingForm, self).__init__(*args, **kwargs)
+
+    class Meta:
+        model = models.Booking
+        fields = ['club', 'round_date', 'round_time', 'people', 'booking_person', 'memo']
