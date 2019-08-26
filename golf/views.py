@@ -50,11 +50,6 @@ class AgencyBookingCreate(auth_mixins.LoginRequiredMixin, generic.CreateView):
     template_name = 'golf/agency_booking_create.html'
     form_class = forms.BookingForm
 
-    def get_form_kwargs(self):
-        kwargs = super(AgencyBookingCreate, self).get_form_kwargs()
-        kwargs['request'] = self.request
-        return kwargs
-
     def get_context_data(self, **kwargs):
         context = super(AgencyBookingCreate, self).get_context_data(**kwargs)
         context['page_title'] = _('Make an order')
