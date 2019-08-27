@@ -1,5 +1,6 @@
 from django.contrib.auth import mixins as auth_mixins
 from django.urls import reverse
+from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
@@ -56,9 +57,21 @@ class AgencyBookingCreate(auth_mixins.LoginRequiredMixin, generic.CreateView):
         return context
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
+        print(form.cleaned_data)
+
+        form.instance.agency = models.AgentProfile.objects \
+            .select_related('agency') \
+            .get(user__id=self.request.user.id) \
+            .agency
+        form.instance.agent = self.request.user
+        form.instance.round_time = now()
+        form.instance.fee = 3000
 
         return super(AgencyBookingCreate, self).form_valid(form)
+
+    def form_invalid(self, form):
+        print(form.errors)
+        return super(AgencyBookingCreate, self).form_invalid(form)
 
     def get_success_url(self):
         return reverse('golf:agency-booking-list')

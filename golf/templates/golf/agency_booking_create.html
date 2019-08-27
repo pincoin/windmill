@@ -19,7 +19,7 @@
                             {% endfor %}
                         </ul>
                     {% endif %}
-                    <form id="signup_form" method="post" action="{% url 'account_signup' %}">
+                    <form method="post">
                         {% csrf_token %}
 
                         <div class="field is-horizontal">
@@ -71,16 +71,57 @@
                                         </p>
                                     {% endif %}
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label" for="{{ form.slot.id_for_label }}">
+                                    {{ form.slot.label }}
+                                    <span class="has-text-danger">*</span>
+                                </label>
+                            </div>
+                            <div class="field-body">
                                 <div class="field">
                                     <div class="control has-icons-left">
-                                        {{ form.round_time }}
+                                        {{ form.slot }}
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-cloud-sun fa-fw"></i>
+                                        </span>
+                                    </div>
+                                    {% if forms.slot.errors %}
+                                        <p class="help is-danger">
+                                            {% for error in form.slot.errors %}
+                                                {{ error|escape }}
+                                            {% endfor %}
+                                        </p>
+                                    {% endif %}
+                                </div>
+                                <div class="field">
+                                    <div class="control has-icons-left">
+                                        {{ form.round_time_hour }}
                                         <span class="icon is-small is-left">
                                             <i class="fas fa-clock fa-fw"></i>
                                         </span>
                                     </div>
-                                    {% if form.round_time.errors %}
+                                    {% if form.round_time_hour.errors %}
                                         <p class="help is-danger">
-                                            {% for error in form.round_time.errors %}
+                                            {% for error in form.round_time_hour.errors %}
+                                                {{ error|escape }}
+                                            {% endfor %}
+                                        </p>
+                                    {% endif %}
+                                </div>
+                                <div class="field">
+                                    <div class="control has-icons-left">
+                                        {{ form.round_time_minute }}
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-clock fa-fw"></i>
+                                        </span>
+                                    </div>
+                                    {% if form.round_time_hour.errors %}
+                                        <p class="help is-danger">
+                                            {% for error in form.round_time_minute.errors %}
                                                 {{ error|escape }}
                                             {% endfor %}
                                         </p>
@@ -88,6 +129,7 @@
                                 </div>
                             </div>
                         </div>
+
 
                         <div class="field is-horizontal">
                             <div class="field-label is-normal">
