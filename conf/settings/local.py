@@ -25,6 +25,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets/')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'conf', 'static'),
     os.path.join(BASE_DIR, 'golf', 'static'),
+    os.path.join(BASE_DIR, 'member', 'static'),
 ]
 
 # Media files (Uploaded files)
