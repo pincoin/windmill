@@ -36,3 +36,6 @@ class MyAccountAdapter(DefaultAccountAdapter):
 
     def get_login_redirect_url(self, request):
         return reverse('home')
+
+    def is_open_for_signup(self, request):
+        return False
