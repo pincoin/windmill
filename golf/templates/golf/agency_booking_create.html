@@ -130,7 +130,6 @@
                             </div>
                         </div>
 
-
                         <div class="field is-horizontal">
                             <div class="field-label is-normal">
                                 <label class="label" for="{{ form.people.id_for_label }}">
@@ -188,6 +187,24 @@
 
                         <div class="field is-horizontal">
                             <div class="field-label is-normal">
+                                <label class="label">
+                                    {% trans 'Fee' %}
+                                </label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control has-icons-left">
+                                        <input class="input is-danger" type="text" value="5000" disabled>
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-credit-card fa-fw"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
                                 <label class="label" for="{{ form.memo.id_for_label }}">
                                     {{ form.memo.label }}
                                 </label>
@@ -207,6 +224,9 @@
                                 </div>
                             </div>
                         </div>
+
+                        <input type="hidden" id="id_agency" name="agency"
+                               value="{{ request.user.agentprofile.agency.id }}">
 
                         <div class="field is-horizontal">
                             <div class="field-label is-normal">
@@ -244,6 +264,8 @@
         <script type="text/javascript"
                 src="{% static "golf/js/datepicker-ko.js" %}"></script>
     {% endif %}
+    <script type="text/javascript"
+            src="{% static "conf/js/csrf-cookie.js" %}"></script>
     <script type="text/javascript"
             src="{% static "golf/js/booking.js" %}"></script>
 {% endblock %}

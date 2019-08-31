@@ -1,6 +1,7 @@
 from django import forms
 from django.conf import settings
 from django.core.cache import cache
+from django.core.validators import RegexValidator
 from django.utils.timezone import (
     make_aware, localtime
 )
@@ -242,6 +243,24 @@ class BookingForm(forms.ModelForm):
     class Meta:
         model = models.Booking
         fields = ('club', 'slot', 'round_date', 'people', 'booking_person', 'memo')
+
+    def clean(self):
+        pass
+
+
+class FeeForm(forms.Form):
+    club_id = forms.IntegerField()
+
+    agency_id = forms.IntegerField()
+
+    round_date = forms.CharField(
+        max_length=255,
+        validators=[RegexValidator(r'\d{4}-\d{2}-\d{2}', _('YYYY-MM-DD'))],
+    )
+
+    slot = forms.ChoiceField(
+        choices=models.Booking.SLOT_CHOICES,
+    )
 
     def clean(self):
         pass

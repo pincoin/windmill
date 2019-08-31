@@ -1,4 +1,5 @@
 from django.contrib.auth import mixins as auth_mixins
+from django.http import JsonResponse
 from django.urls import reverse
 from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
@@ -129,3 +130,19 @@ class StaffBookingDetail(auth_mixins.LoginRequiredMixin, generic.DetailView):
 
 class StaffBookingDelete(auth_mixins.LoginRequiredMixin, generic.DeleteView):
     pass
+
+
+class APIFeeView(generic.FormView):
+    form_class = forms.FeeForm
+
+    def form_valid(self, form):
+        data = form.cleaned_data
+        print(data)
+        return JsonResponse(data)
+
+    def form_invalid(self, form):
+        print(form.errors)
+        return JsonResponse({
+            'status': 'false',
+            'message': 'Bad Request'
+        }, status=400)

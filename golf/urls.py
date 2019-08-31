@@ -27,4 +27,8 @@ urlpatterns = [
 
     path('staff/booking/<uuid:uuid>/delete/',
          views.StaffBookingDelete.as_view(), name='staff-booking-delete'),
+
+    # AJAX APIs
+    path('api/fee/',
+         views.APIFeeView.as_view(), name='api-fee'),
 ]
