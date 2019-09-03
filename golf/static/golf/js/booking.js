@@ -4,6 +4,7 @@ $(document).ready(function () {
     var slot = $('#id_slot');
     var round_date = $('#id_round_date');
     var round_time_hour = $('#id_round_time_hour');
+    var people = $('#id_people');
 
     function get_fee() {
         if (club.val() && round_date.val() && round_time_hour.val()) {
@@ -28,6 +29,15 @@ $(document).ready(function () {
             });
         }
     }
+
+    round_time_hour.empty();
+    round_time_hour.append('<option value="6">06</option>'
+        + '<option value="7">07</option>'
+        + '<option value="8">08</option>'
+        + '<option value="9">09</option>'
+        + '<option value="10">10</option>'
+        + '<option value="11">11</option>');
+
 
     round_date.datepicker({
         showAnim: '', // turn off animation
@@ -78,6 +88,10 @@ $(document).ready(function () {
                 break;
         }
 
+        get_fee();
+    });
+
+    people.on('change', function (e) {
         get_fee();
     });
 });

@@ -160,6 +160,15 @@ class BookingForm(forms.ModelForm):
             ('9', '09',),
             ('10', '10',),
             ('11', '11',),
+            ('12', '12',),
+            ('13', '13',),
+            ('14', '14',),
+            ('15', '15',),
+            ('16', '16',),
+            ('17', '17',),
+            ('18', '18',),
+            ('19', '19',),
+            ('20', '20',),
         ),
         widget=forms.Select(
             attrs={
@@ -245,6 +254,7 @@ class BookingForm(forms.ModelForm):
         fields = ('club', 'slot', 'round_date', 'people', 'booking_person', 'memo')
 
     def clean(self):
+        # slot round_time check
         pass
 
 
