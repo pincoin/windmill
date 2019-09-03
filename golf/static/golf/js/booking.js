@@ -6,6 +6,8 @@ $(document).ready(function () {
     var round_time_hour = $('#id_round_time_hour');
     var people = $('#id_people');
 
+    var fee = $('#id_fee');
+
     function get_fee() {
         if (club.val() && round_date.val() && round_time_hour.val()) {
             $.ajax({
@@ -25,6 +27,7 @@ $(document).ready(function () {
                 }
             }).done(function (data, textStatus, jqXHR) {
                 console.log(data);
+                fee.val(data.fee * people.val());
             }).fail(function (jqXHR, textStatus, errorThrown) {
             });
         }

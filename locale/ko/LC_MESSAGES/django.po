@@ -245,11 +245,11 @@ msgstr "성수기"
 
 #: golf/models.py:134 golf/models.py:444
 msgid "Weekday"
-msgstr "주중"
+msgstr "평일"
 
 #: golf/models.py:135 golf/models.py:445
 msgid "Weekend"
-msgstr "주말"
+msgstr "휴일"
 
 #: golf/models.py:139 golf/models.py:449
 msgid "Morning"
@@ -273,7 +273,7 @@ msgstr "성수기/비수기"
 
 #: golf/models.py:153 golf/models.py:538
 msgid "Day of week"
-msgstr "주중/주말"
+msgstr "평일/주말(공휴일)"
 
 #: golf/models.py:160 golf/models.py:545
 msgid "Time slot"

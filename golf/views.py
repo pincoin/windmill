@@ -1,7 +1,7 @@
 from django.contrib.auth import mixins as auth_mixins
 from django.http import JsonResponse
 from django.urls import reverse
-from django.utils.timezone import now
+from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
@@ -65,7 +65,7 @@ class AgencyBookingCreate(auth_mixins.LoginRequiredMixin, generic.CreateView):
             .get(user__id=self.request.user.id) \
             .agency
         form.instance.agent = self.request.user
-        form.instance.round_time = now()
+        form.instance.round_time = timezone.now()
         form.instance.fee = 3000
 
         return super(AgencyBookingCreate, self).form_valid(form)
@@ -137,7 +137,38 @@ class APIFeeView(generic.FormView):
 
     def form_valid(self, form):
         data = form.cleaned_data
-        print(data)
+
+        club = models.Club.objects.get(pk=data['club_id'])
+
+        round_date = timezone.make_aware(timezone.datetime.strptime(data['round_date'], '%Y-%m-%d'))
+
+        if round_date.weekday() in [5, 6]:
+            day_of_week = models.Booking.DAY_CHOICES.weekend
+        else:
+            day_of_week = models.Booking.DAY_CHOICES.weekday
+
+        if models.Holiday.objects \
+                .filter(holiday=round_date.date(), country=models.Holiday.COUNTRY_CHOICES.thailand) \
+                .exists():
+            day_of_week = models.Booking.DAY_CHOICES.weekend
+
+        if 1 << round_date.month - 1 & club.high_season:
+            season = models.Booking.SEASON_CHOICES.high
+        else:
+            season = models.Booking.SEASON_CHOICES.low
+
+        queryset = models.AgencyClubProductListMembership.objects \
+            .select_related('product_list__product_list', 'product_list__club', 'agency') \
+            .filter(agency=data['agency_id'],
+                    product_list__club=data['club_id'],
+                    product_list__product_list__season=season,
+                    product_list__product_list__day_of_week=day_of_week,
+                    product_list__product_list__slot=data['slot'])
+
+        data['season'] = season
+        data['day_of_week'] = day_of_week
+        data['fee'] = queryset[0].fee
+
         return JsonResponse(data)
 
     def form_invalid(self, form):

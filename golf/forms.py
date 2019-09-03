@@ -271,8 +271,6 @@ class FeeForm(forms.Form):
     )
 
     def clean(self):
-        if timezone.make_aware(timezone.datetime(int(self.cleaned_data['round_date'][0:4]),
-                                                 int(self.cleaned_data['round_date'][5:7]),
-                                                 int(self.cleaned_data['round_date'][-2:]))) \
+        if timezone.make_aware(timezone.datetime.strptime(self.cleaned_data['round_date'], '%Y-%m-%d')) \
                 <= timezone.make_aware(timezone.localtime().now()):
             raise forms.ValidationError(_('Invalid round date'))
