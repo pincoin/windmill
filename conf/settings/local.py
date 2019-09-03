@@ -17,7 +17,7 @@ LOCALE_PATHS = (
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Bangkok'
 
 # Static files (CSS, Javascript, Images)
 STATIC_URL = '/assets/'

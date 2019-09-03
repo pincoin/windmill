@@ -2,9 +2,7 @@ from django import forms
 from django.conf import settings
 from django.core.cache import cache
 from django.core.validators import RegexValidator
-from django.utils.timezone import (
-    make_aware, localtime
-)
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from . import fields
@@ -148,7 +146,7 @@ class BookingForm(forms.ModelForm):
             attrs={
                 'class': 'input',
                 'required': 'True',
-                'placeholder': make_aware(localtime().now()).strftime('%Y-%m-%d')
+                'placeholder': timezone.make_aware(timezone.localtime().now()).strftime('%Y-%m-%d')
             }),
     )
 
@@ -273,4 +271,8 @@ class FeeForm(forms.Form):
     )
 
     def clean(self):
-        pass
+        if timezone.make_aware(timezone.datetime(int(self.cleaned_data['round_date'][0:4]),
+                                                 int(self.cleaned_data['round_date'][5:7]),
+                                                 int(self.cleaned_data['round_date'][-2:]))) \
+                <= timezone.make_aware(timezone.localtime().now()):
+            raise forms.ValidationError(_('Invalid round date'))
