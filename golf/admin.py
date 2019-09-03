@@ -47,6 +47,7 @@ class AgencyAdmin(admin.ModelAdmin):
 
 class ClubAdmin(admin.ModelAdmin):
     list_display = ('title', 'hole', 'cart_rental_required', 'cart_fee', 'caddie_fee', 'phone', 'email',)
+    list_filter = ('clubproductlistmembership__agency', )
     search_fields = ('title',)
     inlines = (ProductInline,)
     exclude = ('products',)
