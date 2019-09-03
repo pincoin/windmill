@@ -60,7 +60,7 @@ class ClubProductAdmin(admin.ModelAdmin):
 
 class AgencyClubProductListMembershipAdmin(admin.ModelAdmin):
     list_display = ('agency_title', 'product_list', 'fee')
-    list_filter = ('agency__title',)
+    list_filter = ('agency__title', 'product_list__club__title')
     raw_id_fields = ('agency', 'product_list')
 
     def agency_title(self, obj):
