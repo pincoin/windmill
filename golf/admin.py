@@ -26,7 +26,7 @@ class DepositInline(admin.TabularInline):
 class ProfileSetInline(admin.TabularInline):
     model = models.AgentProfile
     extra = 1
-    fields = ('agency', 'cellphone', 'line_id')
+    raw_id_fields = ('user',)
 
 
 class HolidayAdmin(admin.ModelAdmin):
@@ -42,12 +42,12 @@ class AgencyAdmin(admin.ModelAdmin):
                     'phone', 'email', 'bank_account',
                     'cancellable_days', 'due_days', 'bookable_days')
     search_fields = ('title',)
-    inlines = (ClubProductInline, DepositInline,)
+    inlines = (ClubProductInline, DepositInline, ProfileSetInline)
 
 
 class ClubAdmin(admin.ModelAdmin):
     list_display = ('title', 'hole', 'cart_rental_required', 'cart_fee', 'caddie_fee', 'phone', 'email',)
-    list_filter = ('clubproductlistmembership__agency', )
+    list_filter = ('clubproductlistmembership__agency',)
     search_fields = ('title',)
     inlines = (ProductInline,)
     exclude = ('products',)
