@@ -172,8 +172,4 @@ class APIFeeView(generic.FormView):
         return JsonResponse(data)
 
     def form_invalid(self, form):
-        print(form.errors)
-        return JsonResponse({
-            'status': 'false',
-            'message': 'Bad Request'
-        }, status=400)
+        return JsonResponse(form.errors.as_json(), status=400)

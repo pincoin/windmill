@@ -28,7 +28,8 @@ $(document).ready(function () {
             }).done(function (data, textStatus, jqXHR) {
                 console.log(data);
                 fee.val(data.fee * people.val());
-            }).fail(function (jqXHR, textStatus, errorThrown) {
+            }).fail(function (data, textStatus, errorThrown) {
+                console.log(data);
             });
         }
     }
