@@ -1,4 +1,3 @@
-from django.contrib.auth import mixins as auth_mixins
 from django.http import (
     JsonResponse, HttpResponse
 )
@@ -9,13 +8,14 @@ from django.views import generic
 
 from . import forms
 from . import models
+from . import viewmixins
 from .utils import get_fee
-from .viewmixins import PageableMixin
 
 
-class AgencyBookingList(PageableMixin, auth_mixins.LoginRequiredMixin, generic.ListView):
+class AgencyBookingList(viewmixins.PageableMixin, viewmixins.GroupRequiredMixin, generic.ListView):
     template_name = 'golf/agency_booking_list.html'
     context_object_name = 'booking_list'
+    group_required = ['agency', ]
 
     booking_search_form_class = forms.BookingSearchForm
     booking_status_search_form_class = forms.BookingStatusSearchForm
@@ -25,7 +25,8 @@ class AgencyBookingList(PageableMixin, auth_mixins.LoginRequiredMixin, generic.L
     def get_queryset(self):
         queryset = models.Booking.objects \
             .select_related('club', 'agency', 'agent') \
-            .filter(agent__id=self.request.user.id)
+            .filter(agent__id=self.request.user.id) \
+            .order_by('-created')
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -52,9 +53,10 @@ class AgencyBookingList(PageableMixin, auth_mixins.LoginRequiredMixin, generic.L
         return context
 
 
-class AgencyBookingCreate(auth_mixins.LoginRequiredMixin, generic.CreateView):
+class AgencyBookingCreate(viewmixins.GroupRequiredMixin, generic.CreateView):
     template_name = 'golf/agency_booking_create.html'
     form_class = forms.BookingForm
+    group_required = ['agency', ]
 
     def get_context_data(self, **kwargs):
         context = super(AgencyBookingCreate, self).get_context_data(**kwargs)
@@ -90,17 +92,18 @@ class AgencyBookingCreate(auth_mixins.LoginRequiredMixin, generic.CreateView):
         return reverse('golf:agency-booking-list')
 
 
-class AgencyBookingDetail(auth_mixins.LoginRequiredMixin, generic.DetailView):
-    pass
+class AgencyBookingDetail(viewmixins.GroupRequiredMixin, generic.DetailView):
+    group_required = ['agency', ]
 
 
-class AgencyBookingDelete(auth_mixins.LoginRequiredMixin, generic.DeleteView):
-    pass
+class AgencyBookingDelete(viewmixins.GroupRequiredMixin, generic.DeleteView):
+    group_required = ['agency', ]
 
 
-class StaffBookingList(auth_mixins.LoginRequiredMixin, generic.ListView):
+class StaffBookingList(viewmixins.PageableMixin, viewmixins.GroupRequiredMixin, generic.ListView):
     template_name = 'golf/staff_booking_list.html'
     context_object_name = 'booking_list'
+    group_required = ['staff', ]
 
     booking_search_form_class = forms.BookingSearchForm
     booking_status_search_form_class = forms.BookingStatusSearchForm
@@ -109,7 +112,8 @@ class StaffBookingList(auth_mixins.LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         queryset = models.Booking.objects \
-            .select_related('club', 'agency', 'agent')
+            .select_related('club', 'agency', 'agent') \
+            .order_by('-created')
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -136,12 +140,12 @@ class StaffBookingList(auth_mixins.LoginRequiredMixin, generic.ListView):
         return context
 
 
-class StaffBookingDetail(auth_mixins.LoginRequiredMixin, generic.DetailView):
-    pass
+class StaffBookingDetail(viewmixins.GroupRequiredMixin, generic.DetailView):
+    group_required = ['staff', ]
 
 
-class StaffBookingDelete(auth_mixins.LoginRequiredMixin, generic.DeleteView):
-    pass
+class StaffBookingDelete(viewmixins.GroupRequiredMixin, generic.DeleteView):
+    group_required = ['staff', ]
 
 
 class APIFeeView(generic.FormView):

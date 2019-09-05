@@ -111,16 +111,13 @@
                     {% trans 'Fee' %}
                 </div>
                 <div class="column">
-                    {% trans 'Season / Day of week / Slot' %}
-                </div>
-                <div class="column">
                     {% trans 'Booking person' %}
                 </div>
                 <div class="column">
-                    {{ booking.agency.title }}
+                    {% trans 'Agency' %}
                 </div>
                 <div class="column">
-                    {{ booking.agent.title }}
+                    {% trans 'Agent' %}
                 </div>
             </div>
 
@@ -141,12 +138,10 @@
                         {{ booking.people }}
                     </div>
                     <div class="column">
-                        {{ booking.fee }}
-                    </div>
-                    <div class="column">
-                        {{ booking.get_season_display }}
-                        {{ booking.get_day_of_week_display }}
-                        {{ booking.get_slot_display }}
+                        {{ booking.fee }}<br>
+                        ({{ booking.get_season_display }}
+                        / {{ booking.get_day_of_week_display }}
+                        / {{ booking.get_slot_display }})
                     </div>
                     <div class="column">
                         {{ booking.booking_person }}
