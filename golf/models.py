@@ -560,6 +560,75 @@ class Booking(model_utils_models.TimeStampedModel):
         verbose_name_plural = _('Booking')
 
 
+class BookingPayment(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
+    ACCOUNT_CHOICES = Choices(
+        (0, 'kasikorn', _('Kasikorn Bank')),
+        (1, 'bangkok', _('Bangkok Bank')),
+        (2, 'scb', _('Siam Commercial Bank')),
+        (3, 'ayudhya', _('Ayudhya Bank')),
+        (4, 'krungthai', _('Krungthai Bank')),
+    )
+
+    booking = models.ForeignKey(
+        'golf.Booking',
+        verbose_name=_('Booking'),
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    account = models.IntegerField(
+        verbose_name=_('Bank account'),
+        choices=ACCOUNT_CHOICES,
+        default=ACCOUNT_CHOICES.kasikorn,
+        db_index=True,
+    )
+
+    amount = models.DecimalField(
+        verbose_name=_('Paid amount'),
+        max_digits=11,
+        decimal_places=2,
+    )
+
+    received = models.DateTimeField(
+        verbose_name=_('Received date'),
+    )
+
+    class Meta:
+        verbose_name = _('Booking payment')
+        verbose_name_plural = _('Booking payments')
+
+    def __str__(self):
+        return 'booking - {} / payment - {} {} {}'.format(
+            self.booking.booking_uuid, self.account, self.amount, self.received
+        )
+
+
+class BookingChangeLog(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
+    booking = models.ForeignKey(
+        'golf.Booking',
+        verbose_name=_('Booking'),
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    log = models.TextField(
+        verbose_name=_('Changelog'),
+    )
+
+    memo = models.TextField(
+        verbose_name=_('Memo'),
+        blank=True,
+        null=True,
+    )
+
+    class Meta:
+        verbose_name = _('Booking change log')
+        verbose_name_plural = _('Booking change logs')
+
+    def __str__(self):
+        return 'booking - {} / log - {} '.format(self.booking.booking_uuid, self.log)
+
+
 '''
 class PriceTable(TimeStampedModel):
     fee = models.DecimalField(
