@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-05 18:02+0700\n"
+"POT-Creation-Date: 2019-09-05 23:58+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,12 +50,13 @@ msgstr "회원가입"
 #: golf/admin.py:135 golf/models.py:120 golf/models.py:320 golf/models.py:364
 #: golf/models.py:409 golf/models.py:483
 #: golf/templates/golf/staff_booking_list.html:58
+#: golf/templates/golf/staff_booking_list.html:117
 #: member/templates/member/account/profile.html:31
 msgid "Agency"
 msgstr "에이전시"
 
 #: conf/templates/conf/base.html:94 conf/templates/conf/base.html:106
-#: golf/views.py:31 golf/views.py:107
+#: golf/views.py:34 golf/views.py:121
 msgid "Booking management"
 msgstr "예약관리"
 
@@ -118,12 +119,13 @@ msgid "Golf"
 msgstr "골프"
 
 #: golf/forms.py:16 golf/forms.py:213 golf/forms.py:218 golf/models.py:520
-#: golf/templates/golf/agency_booking_list.html:96
-#: golf/templates/golf/staff_booking_list.html:117
+#: golf/templates/golf/agency_booking_list.html:93
+#: golf/templates/golf/staff_booking_list.html:114
 msgid "Booking person"
 msgstr "예약자"
 
 #: golf/forms.py:17 golf/forms.py:224 golf/models.py:108 golf/models.py:525
+#: golf/models.py:641
 msgid "Memo"
 msgstr "메모"
 
@@ -222,7 +224,7 @@ msgstr "에이전시 이름"
 msgid "Agency type"
 msgstr "구분"
 
-#: golf/models.py:66
+#: golf/models.py:66 golf/models.py:580
 msgid "Bank account"
 msgstr "은행계좌"
 
@@ -404,7 +406,7 @@ msgstr "에이전시 담당자"
 msgid "Amount"
 msgstr "금액"
 
-#: golf/models.py:424
+#: golf/models.py:424 golf/models.py:593
 msgid "Received date"
 msgstr "입금일자"
 
@@ -456,7 +458,7 @@ msgstr "예약무효"
 msgid "UUID"
 msgstr "UUID"
 
-#: golf/models.py:492
+#: golf/models.py:492 golf/templates/golf/staff_booking_list.html:120
 msgid "Agent"
 msgstr "담당자"
 
@@ -475,9 +477,76 @@ msgstr "라운딩 시각"
 msgid "Booking status"
 msgstr "예약상태"
 
-#: golf/models.py:559 golf/models.py:560
+#: golf/models.py:559 golf/models.py:560 golf/models.py:574 golf/models.py:609
+#: golf/models.py:631
 msgid "Booking"
 msgstr "예약"
+
+#: golf/models.py:565
+msgid "Kasikorn Bank"
+msgstr "까씨껀 은행"
+
+#: golf/models.py:566
+msgid "Bangkok Bank"
+msgstr "방콕 은행"
+
+#: golf/models.py:567
+msgid "Siam Commercial Bank"
+msgstr "SCB"
+
+#: golf/models.py:568
+msgid "Ayudhya Bank"
+msgstr "아유타야 은행"
+
+#: golf/models.py:569
+msgid "Krungthai Bank"
+msgstr "끄룽타이 은행"
+
+#: golf/models.py:587
+msgid "Paid amount"
+msgstr "입금액"
+
+#: golf/models.py:597
+msgid "Booking payment"
+msgstr "입금내역"
+
+#: golf/models.py:598
+msgid "Booking payments"
+msgstr "입금내역"
+
+#: golf/models.py:615
+msgid "Unpaid mount"
+msgstr "미수수익"
+
+#: golf/models.py:621
+msgid "Booking account receivable"
+msgstr "예약 매출채권"
+
+#: golf/models.py:622
+msgid "Booking accounts receivable"
+msgstr "예약 매출채권"
+
+#: golf/models.py:637
+msgid "Changelog"
+msgstr "변경사항"
+
+#: golf/models.py:647
+msgid "Booking change log"
+msgstr "예약 변경사항"
+
+#: golf/models.py:648
+msgid "Booking change logs"
+msgstr "예약 변경사항"
+
+#: golf/templates/golf/_pagination_booking_list.html:9
+#: golf/templates/golf/_pagination_booking_list.html:15
+msgid "Previous"
+msgstr "이전"
+
+#: golf/templates/golf/_pagination_booking_list.html:23
+#: golf/templates/golf/_pagination_booking_list.html:29
+msgid "Next"
+msgstr "다음"
 
 #: golf/templates/golf/agency_booking_create.html:195
 #: golf/templates/golf/agency_booking_list.html:90
@@ -486,18 +555,13 @@ msgid "Fee"
 msgstr "요금"
 
 #: golf/templates/golf/agency_booking_create.html:258
-#: golf/templates/golf/agency_booking_list.html:133 golf/views.py:59
+#: golf/templates/golf/agency_booking_list.html:128 golf/views.py:63
 msgid "Make an order"
 msgstr "예약발주"
 
 #: golf/templates/golf/agency_booking_create.html:265
 msgid "Order list"
 msgstr "예약목록"
-
-#: golf/templates/golf/agency_booking_list.html:93
-#: golf/templates/golf/staff_booking_list.html:114
-msgid "Season / Day of week / Slot"
-msgstr "요금구분"
 
 #: member/adapters.py:30
 msgid "Your email domain is not allowed."

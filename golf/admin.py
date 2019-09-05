@@ -136,6 +136,18 @@ class BookingAdmin(admin.ModelAdmin):
     agency_title.admin_order_field = 'agency__title'
 
 
+class BookingChangeLogAdmin(admin.ModelAdmin):
+    pass
+
+
+class BookingPaymentAdmin(admin.ModelAdmin):
+    pass
+
+
+class BookingAccountReceivableAdmin(admin.ModelAdmin):
+    pass
+
+
 admin.site.site_header = _('NAONE admin')
 admin.site.site_title = _('NAONE admin')
 admin.site.index_title = _('NAONE administration')
@@ -147,3 +159,6 @@ admin.site.register(models.ClubProduct, ClubProductAdmin)
 admin.site.register(models.AgentProfile, AgentProfileAdmin)
 admin.site.register(models.AgencyClubProductListMembership, AgencyClubProductListMembershipAdmin)
 admin.site.register(models.Booking, BookingAdmin)
+admin.site.register(models.BookingChangeLog, BookingChangeLogAdmin)
+admin.site.register(models.BookingPayment, BookingPaymentAdmin)
+admin.site.register(models.BookingAccountReceivable, BookingAccountReceivableAdmin)
