@@ -247,11 +247,19 @@
                             <div class="field-label is-normal">
                             </div>
                             <div class="field-body">
-                                <div class="control">
-                                    <button class="button is-link is-fullwidth" type="submit">
-                                        <span class="icon"><i class="fas fa-clipboard-list"></i></span>
-                                        <span>{% trans 'Make an order' %}</span>
-                                    </button>
+                                <div class="columns is-multiline">
+                                    <div class="column">
+                                        <button class="button is-link is-fullwidth" type="submit">
+                                            <span class="icon"><i class="fas fa-clipboard-list"></i></span>
+                                            <span>{% trans 'Make an order' %}</span>
+                                        </button>
+                                    </div>
+                                    <div class="column">
+                                        <a href="{% url 'golf:agency-booking-list' %}" class="button is-dark is-fullwidth">
+                                            <span class="icon"><i class="far fa-list-alt"></i></span>
+                                            <span>{% trans 'Order list' %}</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

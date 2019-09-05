@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-05 11:17+0700\n"
+"POT-Creation-Date: 2019-09-05 13:06+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,7 @@ msgid "Agency"
 msgstr "에이전시"
 
 #: conf/templates/conf/base.html:94 conf/templates/conf/base.html:106
-#: golf/views.py:29 golf/views.py:105
+#: golf/views.py:31 golf/views.py:107
 msgid "Booking management"
 msgstr "예약관리"
 
@@ -150,7 +150,7 @@ msgstr "비고"
 msgid "YYYY-MM-DD"
 msgstr "YYYY-MM-DD"
 
-#: golf/forms.py:279
+#: golf/forms.py:278
 msgid "Invalid round date"
 msgstr "잘못된 라운딩 일자 형식"
 
@@ -428,9 +428,13 @@ msgstr "환불요청"
 msgid "refund pending"
 msgstr "환불대기"
 
-#: golf/models.py:462 golf/models.py:463
-msgid "order refunded"
-msgstr "환불완료"
+#: golf/models.py:462
+msgid "order refunded(original)"
+msgstr "환불완료(원주문)"
+
+#: golf/models.py:463
+msgid "order refunded(reverse)"
+msgstr "환불완료(역주문)"
 
 #: golf/models.py:464
 msgid "order voided"
@@ -469,10 +473,14 @@ msgstr "예약"
 msgid "Fee"
 msgstr "요금"
 
-#: golf/templates/golf/agency_booking_create.html:253
-#: golf/templates/golf/agency_booking_list.html:143 golf/views.py:57
+#: golf/templates/golf/agency_booking_create.html:254
+#: golf/templates/golf/agency_booking_list.html:143 golf/views.py:59
 msgid "Make an order"
 msgstr "예약발주"
+
+#: golf/templates/golf/agency_booking_create.html:260
+msgid "Order list"
+msgstr "예약목록"
 
 #: golf/templates/golf/agency_booking_list.html:95
 #: golf/templates/golf/staff_booking_list.html:116

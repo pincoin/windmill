@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-05 11:17+0700\n"
+"POT-Creation-Date: 2019-09-05 13:06+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,7 @@ msgid "Agency"
 msgstr ""
 
 #: conf/templates/conf/base.html:94 conf/templates/conf/base.html:106
-#: golf/views.py:29 golf/views.py:105
+#: golf/views.py:31 golf/views.py:107
 msgid "Booking management"
 msgstr ""
 
@@ -150,7 +150,7 @@ msgstr ""
 msgid "YYYY-MM-DD"
 msgstr ""
 
-#: golf/forms.py:279
+#: golf/forms.py:278
 msgid "Invalid round date"
 msgstr ""
 
@@ -428,8 +428,12 @@ msgstr ""
 msgid "refund pending"
 msgstr ""
 
-#: golf/models.py:462 golf/models.py:463
-msgid "order refunded"
+#: golf/models.py:462
+msgid "order refunded(original)"
+msgstr ""
+
+#: golf/models.py:463
+msgid "order refunded(reverse)"
 msgstr ""
 
 #: golf/models.py:464
@@ -469,9 +473,13 @@ msgstr ""
 msgid "Fee"
 msgstr ""
 
-#: golf/templates/golf/agency_booking_create.html:253
-#: golf/templates/golf/agency_booking_list.html:143 golf/views.py:57
+#: golf/templates/golf/agency_booking_create.html:254
+#: golf/templates/golf/agency_booking_list.html:143 golf/views.py:59
 msgid "Make an order"
+msgstr ""
+
+#: golf/templates/golf/agency_booking_create.html:260
+msgid "Order list"
 msgstr ""
 
 #: golf/templates/golf/agency_booking_list.html:95

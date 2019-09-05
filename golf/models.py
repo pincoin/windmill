@@ -459,8 +459,8 @@ class Booking(model_utils_models.TimeStampedModel):
         (3, 'revoked', _('order revoked')),
         (4, 'refund_requested', _('refund requested')),
         (5, 'refund_pending', _('refund pending')),
-        (6, 'refunded1', _('order refunded')),  # original order
-        (7, 'refunded2', _('order refunded')),  # refund order
+        (6, 'refunded1', _('order refunded(original)')),  # original order
+        (7, 'refunded2', _('order refunded(reverse)')),  # refund order
         (8, 'voided', _('order voided')),
     )
 
