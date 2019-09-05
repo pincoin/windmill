@@ -603,6 +603,28 @@ class BookingPayment(model_utils_models.SoftDeletableModel, model_utils_models.T
         )
 
 
+class BookingAccountReceivable(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
+    booking = models.ForeignKey(
+        'golf.Booking',
+        verbose_name=_('Booking'),
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    amount = models.DecimalField(
+        verbose_name=_('Unpaid mount'),
+        max_digits=11,
+        decimal_places=2,
+    )
+
+    class Meta:
+        verbose_name = _('Booking account receivable')
+        verbose_name_plural = _('Booking accounts receivable')
+
+    def __str__(self):
+        return 'booking - {} / account receivable - {}'.format(self.booking.booking_uuid, self.amount)
+
+
 class BookingChangeLog(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
     booking = models.ForeignKey(
         'golf.Booking',
