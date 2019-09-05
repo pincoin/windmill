@@ -1,0 +1,52 @@
+{% load static %}
+{% load i18n %}
+
+<nav class="pagination is-centered" role="navigation" aria-label="pagination">
+    {% if page_obj.has_previous %}
+        <a class="pagination-previous"
+           href="?page={{ page_obj.previous_page_number }}{% if q %}&q={{ q }}{% endif %}"
+           aria-label="Previous">
+            {% trans 'Previous' %}
+        </a>
+    {% else %}
+        <a disabled class="pagination-previous"
+           href="#"
+           aria-label="Previous">
+            {% trans 'Previous' %}
+        </a>
+    {% endif %}
+
+    {% if page_obj.has_next %}
+        <a class="pagination-next"
+           href="?page={{ page_obj.next_page_number }}{% if q %}&q={{ q }}{% endif %}"
+           aria-label="Next">
+            {% trans 'Next' %}
+        </a>
+    {% else %}
+        <a disabled class="pagination-next"
+           href="#"
+           aria-label="Next">
+            {% trans 'Next' %}
+        </a>
+    {% endif %}
+
+    <ul class="pagination-list">
+        {% for i in page_range %}
+            {% if page_obj.number == i %}
+                <li>
+                    <a class="pagination-link is-current"
+                       href="#">
+                        {{ i }} <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a class="pagination-link"
+                       href="?page={{ i }}">
+                        {{ i }}
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</nav>

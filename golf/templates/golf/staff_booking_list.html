@@ -159,6 +159,7 @@
                     </div>
                 </div>
             {% endfor %}
+            {% include './_pagination_booking_list.html' with page_obj=page_obj page_range=page_range %}
         </div>
     </section>
 {% endblock %}

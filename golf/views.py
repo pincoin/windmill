@@ -10,9 +10,10 @@ from django.views import generic
 from . import forms
 from . import models
 from .utils import get_fee
+from .viewmixins import PageableMixin
 
 
-class AgencyBookingList(auth_mixins.LoginRequiredMixin, generic.ListView):
+class AgencyBookingList(PageableMixin, auth_mixins.LoginRequiredMixin, generic.ListView):
     template_name = 'golf/agency_booking_list.html'
     context_object_name = 'booking_list'
 
