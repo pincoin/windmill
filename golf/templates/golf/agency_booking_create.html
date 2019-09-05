@@ -11,16 +11,20 @@
 
             <div class="columns is-centered">
                 <div class="column is-four-fifths">
-
-                    {% if form.non_field_errors %}
-                        <ul class="notification is-warning">
-                            {% for error in form.non_field_errors %}
-                                <li>{{ error|escape }}</li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
                     <form method="post">
                         {% csrf_token %}
+
+                        {% if form.non_field_errors %}
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                </div>
+                                <ul class="field-body notification is-danger">
+                                    {% for error in form.non_field_errors %}
+                                        <li>{{ error|escape }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
 
                         <div class="field is-horizontal">
                             <div class="field-label is-normal">
@@ -255,7 +259,8 @@
                                         </button>
                                     </div>
                                     <div class="column">
-                                        <a href="{% url 'golf:agency-booking-list' %}" class="button is-dark is-fullwidth">
+                                        <a href="{% url 'golf:agency-booking-list' %}"
+                                           class="button is-dark is-fullwidth">
                                             <span class="icon"><i class="far fa-list-alt"></i></span>
                                             <span>{% trans 'Order list' %}</span>
                                         </a>

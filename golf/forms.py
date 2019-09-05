@@ -252,9 +252,24 @@ class BookingForm(forms.ModelForm):
         model = models.Booking
         fields = ('club', 'slot', 'round_date', 'people', 'booking_person', 'memo')
 
+    def clean_round_date(self):
+        return self.cleaned_data['round_date'][0:10]
+
     def clean(self):
-        # slot round_time check
-        pass
+        if not (timezone.make_aware(timezone.localtime().now())
+                < timezone.make_aware(timezone.datetime.strptime(self.cleaned_data['round_date'], '%Y-%m-%d'))
+                < timezone.make_aware(timezone.localtime().now()) + timezone.timedelta(days=365)):
+            raise forms.ValidationError(_('Invalid round date'))
+
+        if int(self.cleaned_data['slot']) == models.Booking.SLOT_CHOICES.morning \
+                and int(self.cleaned_data['round_time_hour']) not in [6, 7, 8, 9, 10, 11] \
+                or int(self.cleaned_data['slot']) == models.Booking.SLOT_CHOICES.daytime \
+                and int(self.cleaned_data['round_time_hour']) not in [11, 12, 13, 14] \
+                or int(self.cleaned_data['slot']) == models.Booking.SLOT_CHOICES.twilight \
+                and int(self.cleaned_data['round_time_hour']) not in [15, ] \
+                or int(self.cleaned_data['slot']) == models.Booking.SLOT_CHOICES.night \
+                and int(self.cleaned_data['round_time_hour']) not in [16, 17, 18, 19]:
+            raise forms.ValidationError(_('Invalid round time'))
 
 
 class FeeForm(forms.Form):
