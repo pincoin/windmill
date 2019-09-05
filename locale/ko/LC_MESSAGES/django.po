@@ -420,7 +420,7 @@ msgstr "보증금"
 
 #: golf/models.py:456
 msgid "order pending"
-msgstr "확정대기"
+msgstr "예약대기"
 
 #: golf/models.py:457
 msgid "payment_pending"
