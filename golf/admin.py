@@ -136,6 +136,10 @@ class BookingAdmin(admin.ModelAdmin):
     agency_title.admin_order_field = 'agency__title'
 
 
+admin.site.site_header = _('NAONE admin')
+admin.site.site_title = _('NAONE admin')
+admin.site.index_title = _('NAONE administration')
+
 admin.site.register(models.Holiday, HolidayAdmin)
 admin.site.register(models.Agency, AgencyAdmin)
 admin.site.register(models.Club, ClubAdmin)

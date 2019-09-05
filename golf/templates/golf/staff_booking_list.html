@@ -33,7 +33,7 @@
                     <form action="#" method="get">
                         <div class="field has-addons">
                             <p class="control">
-                                <a href="#" class="button is-success">
+                                <a href="#" class="button is-success has-text-dark">
                                     {% trans 'Booking status' %}
                                 </a>
                             </p>
@@ -54,7 +54,7 @@
                     <form action="#" method="get">
                         <div class="field has-addons">
                             <p class="control">
-                                <a href="#" class="button is-success">
+                                <a href="#" class="button is-success has-text-dark">
                                     {% trans 'Agency' %}
                                 </a>
                             </p>
@@ -75,7 +75,7 @@
                     <form action="#" method="get">
                         <div class="field has-addons">
                             <p class="control">
-                                <a href="#" class="button is-success">
+                                <a href="#" class="button is-success has-text-dark">
                                     {% trans 'Golf club' %}
                                 </a>
                             </p>
@@ -127,15 +127,7 @@
             {% for booking in booking_list %}
                 <div class="columns">
                     <div class="column">
-                        {% if booking.status == booking.STATUS_CHOICES.pending %}
-                            <span class="tag is-warning">
-                        {% elif booking.status == booking.STATUS_CHOICES.confirmed %}
-                            <span class="tag is-success">
-                        {% elif booking.status == booking.STATUS_CHOICES.shipped %}
-                            <span class="tag is-link">
-                        {% else %}
-                            <span class="tag is-success">
-                        {% endif %}
+                        <span>
                         {{ booking.get_status_display }}
                         </span>
                     </div>
