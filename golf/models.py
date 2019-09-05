@@ -453,15 +453,15 @@ class Booking(model_utils_models.TimeStampedModel):
     )
 
     STATUS_CHOICES = Choices(
-        (0, 'payment_pending', _('payment pending')),
-        (1, 'payment_completed', _('payment completed')),
-        (2, 'payment_verified', _('payment verified')),
-        (3, 'shipped', _('shipped')),
+        (0, 'order_pending', _('order pending')),
+        (1, 'payment_pending', _('payment_pending')),
+        (2, 'issued', _('voucher issued')),
+        (3, 'revoked', _('order revoked')),
         (4, 'refund_requested', _('refund requested')),
         (5, 'refund_pending', _('refund pending')),
-        (6, 'refunded1', _('refunded')),  # original order
-        (7, 'refunded2', _('refunded')),  # refund order
-        (8, 'voided', _('voided')),
+        (6, 'refunded1', _('order refunded')),  # original order
+        (7, 'refunded2', _('order refunded')),  # refund order
+        (8, 'voided', _('order voided')),
     )
 
     booking_uuid = models.UUIDField(

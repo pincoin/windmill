@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-26 03:03+0000\n"
+"POT-Creation-Date: 2019-09-05 11:17+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,12 +33,12 @@ msgstr "ภาษาไทย"
 msgid "English"
 msgstr "ภาษาอังกฤษ"
 
-#: conf/templates/conf/base.html:73
+#: conf/templates/conf/base.html:77
 #: member/templates/member/account/login.html:95
 msgid "Sign In"
 msgstr "เช้าสู่ระบบ"
 
-#: conf/templates/conf/base.html:77
+#: conf/templates/conf/base.html:81
 #: member/templates/member/account/login.html:119
 #: member/templates/member/account/signup.html:196
 #: member/templates/member/socialaccount/signup.html:160 member/views.py:64
@@ -46,58 +46,58 @@ msgstr "เช้าสู่ระบบ"
 msgid "Sign Up"
 msgstr "สมัครสมาชิก"
 
-#: conf/templates/conf/base.html:85 golf/admin.py:71 golf/admin.py:103
-#: golf/admin.py:134 golf/models.py:120 golf/models.py:320 golf/models.py:364
+#: conf/templates/conf/base.html:89 golf/admin.py:72 golf/admin.py:104
+#: golf/admin.py:135 golf/models.py:120 golf/models.py:320 golf/models.py:364
 #: golf/models.py:409 golf/models.py:483
 #: golf/templates/golf/staff_booking_list.html:60
 #: member/templates/member/account/profile.html:31
 msgid "Agency"
 msgstr ""
 
-#: conf/templates/conf/base.html:90 conf/templates/conf/base.html:102
-#: golf/views.py:27 golf/views.py:91
+#: conf/templates/conf/base.html:94 conf/templates/conf/base.html:106
+#: golf/views.py:29 golf/views.py:105
 msgid "Booking management"
 msgstr ""
 
-#: conf/templates/conf/base.html:97
+#: conf/templates/conf/base.html:101
 msgid "Staff"
 msgstr ""
 
-#: conf/templates/conf/base.html:106
+#: conf/templates/conf/base.html:110
 msgid "Agents management"
 msgstr ""
 
-#: conf/templates/conf/base.html:113
+#: conf/templates/conf/base.html:117
 msgid "Me"
 msgstr "ฉัน"
 
-#: conf/templates/conf/base.html:118 golf/admin.py:87
+#: conf/templates/conf/base.html:122 golf/admin.py:88
 #: member/templates/member/account/profile_base.html:16 member/views.py:280
 msgid "Profile"
 msgstr ""
 
-#: conf/templates/conf/base.html:123 member/models.py:68 member/views.py:308
+#: conf/templates/conf/base.html:127 member/models.py:68 member/views.py:308
 msgid "Organization application"
 msgstr ""
 
-#: conf/templates/conf/base.html:129
+#: conf/templates/conf/base.html:133
 #: member/templates/member/account/logout.html:31
 msgid "Sign Out"
 msgstr "ออกจากระบบ"
 
-#: golf/admin.py:69 golf/admin.py:101 golf/admin.py:132
+#: golf/admin.py:70 golf/admin.py:102 golf/admin.py:133
 msgid "No organization"
 msgstr ""
 
-#: golf/admin.py:84
+#: golf/admin.py:85
 msgid "Account"
 msgstr ""
 
-#: golf/admin.py:123
+#: golf/admin.py:124
 msgid "No golf club"
 msgstr ""
 
-#: golf/admin.py:125 golf/forms.py:121 golf/models.py:266 golf/models.py:276
+#: golf/admin.py:126 golf/forms.py:123 golf/models.py:266 golf/models.py:276
 #: golf/models.py:476 golf/templates/golf/agency_booking_list.html:60
 #: golf/templates/golf/agency_booking_list.html:83
 #: golf/templates/golf/staff_booking_list.html:81
@@ -109,37 +109,49 @@ msgstr ""
 msgid "Golf"
 msgstr ""
 
-#: golf/forms.py:15 golf/forms.py:167 golf/forms.py:171 golf/models.py:520
+#: golf/forms.py:16 golf/forms.py:213 golf/forms.py:218 golf/models.py:520
 #: golf/templates/golf/agency_booking_list.html:98
 #: golf/templates/golf/staff_booking_list.html:119
 msgid "Booking person"
 msgstr ""
 
-#: golf/forms.py:16 golf/forms.py:177 golf/models.py:108 golf/models.py:525
+#: golf/forms.py:17 golf/forms.py:224 golf/models.py:108 golf/models.py:525
 msgid "Memo"
 msgstr ""
 
-#: golf/forms.py:27 golf/forms.py:31
+#: golf/forms.py:28 golf/forms.py:32
 msgid "Search word"
 msgstr ""
 
-#: golf/forms.py:131 golf/templates/golf/agency_booking_list.html:86
+#: golf/forms.py:133 golf/models.py:160 golf/models.py:545
+msgid "Time slot"
+msgstr ""
+
+#: golf/forms.py:144 golf/templates/golf/agency_booking_list.html:86
 #: golf/templates/golf/staff_booking_list.html:107
 msgid "Round date/time"
 msgstr ""
 
-#: golf/forms.py:150 golf/models.py:509
+#: golf/forms.py:196 golf/models.py:509
 #: golf/templates/golf/agency_booking_list.html:89
 #: golf/templates/golf/staff_booking_list.html:110
 msgid "No. of people"
 msgstr ""
 
-#: golf/forms.py:168
+#: golf/forms.py:214
 msgid "Passport name"
 msgstr ""
 
-#: golf/forms.py:180
+#: golf/forms.py:229
 msgid "Remarks"
+msgstr ""
+
+#: golf/forms.py:267
+msgid "YYYY-MM-DD"
+msgstr ""
+
+#: golf/forms.py:279
+msgid "Invalid round date"
 msgstr ""
 
 #: golf/models.py:13 golf/models.py:189
@@ -277,10 +289,6 @@ msgstr ""
 msgid "Day of week"
 msgstr ""
 
-#: golf/models.py:160 golf/models.py:545
-msgid "Time slot"
-msgstr ""
-
 #: golf/models.py:167
 msgid "Golf club product"
 msgstr ""
@@ -399,19 +407,19 @@ msgid "Deposits"
 msgstr ""
 
 #: golf/models.py:456
-msgid "payment pending"
+msgid "order pending"
 msgstr ""
 
 #: golf/models.py:457
-msgid "payment completed"
+msgid "payment_pending"
 msgstr ""
 
 #: golf/models.py:458
-msgid "payment verified"
+msgid "voucher issued"
 msgstr ""
 
 #: golf/models.py:459
-msgid "shipped"
+msgid "order revoked"
 msgstr ""
 
 #: golf/models.py:460
@@ -423,11 +431,11 @@ msgid "refund pending"
 msgstr ""
 
 #: golf/models.py:462 golf/models.py:463
-msgid "refunded"
+msgid "order refunded"
 msgstr ""
 
 #: golf/models.py:464
-msgid "voided"
+msgid "order voided"
 msgstr ""
 
 #: golf/models.py:468
@@ -457,14 +465,15 @@ msgstr ""
 msgid "Booking"
 msgstr ""
 
-#: golf/templates/golf/agency_booking_create.html:173
-#: golf/templates/golf/agency_booking_list.html:143 golf/views.py:55
-msgid "Make an order"
-msgstr ""
-
+#: golf/templates/golf/agency_booking_create.html:191
 #: golf/templates/golf/agency_booking_list.html:92
 #: golf/templates/golf/staff_booking_list.html:113
 msgid "Fee"
+msgstr ""
+
+#: golf/templates/golf/agency_booking_create.html:253
+#: golf/templates/golf/agency_booking_list.html:143 golf/views.py:57
+msgid "Make an order"
 msgstr ""
 
 #: golf/templates/golf/agency_booking_list.html:95

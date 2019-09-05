@@ -232,7 +232,7 @@ class BookingForm(forms.ModelForm):
     )
 
     def __init__(self, *args, **kwargs):
-        club = kwargs.pop('club', '0')
+        club = kwargs.pop('club', '1')
 
         super(BookingForm, self).__init__(*args, **kwargs)
 
