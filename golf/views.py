@@ -1,5 +1,7 @@
 from django.contrib.auth import mixins as auth_mixins
-from django.http import JsonResponse
+from django.http import (
+    JsonResponse, HttpResponse
+)
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
@@ -172,4 +174,4 @@ class APIFeeView(generic.FormView):
         return JsonResponse(data)
 
     def form_invalid(self, form):
-        return JsonResponse(form.errors.as_json(), status=400)
+        return HttpResponse(form.errors.as_json(), status=400, content_type='application/json')

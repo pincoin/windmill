@@ -30,7 +30,7 @@ $(document).ready(function () {
                 fee.val(data.fee * people.val());
                 round_date_info.val(data.season + '/' + data.day_of_week);
             }).fail(function (data, textStatus, errorThrown) {
-                console.log(data);
+                round_date_info.val(data.responseJSON['__all__'][0]['message']);
             });
         }
     }
