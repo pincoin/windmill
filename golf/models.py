@@ -551,7 +551,7 @@ class Booking(model_utils_models.TimeStampedModel):
     status = models.IntegerField(
         verbose_name=_('Booking status'),
         choices=STATUS_CHOICES,
-        default=STATUS_CHOICES.payment_pending,
+        default=STATUS_CHOICES.order_pending,
         db_index=True,
     )
 
