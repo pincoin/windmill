@@ -61,8 +61,6 @@ class AgencyBookingCreate(auth_mixins.LoginRequiredMixin, generic.CreateView):
         return context
 
     def form_valid(self, form):
-        print(form.cleaned_data)
-
         form.instance.agency = models.AgentProfile.objects \
             .select_related('agency') \
             .get(user__id=self.request.user.id) \
