@@ -165,8 +165,8 @@ class APIFeeView(generic.FormView):
                     product_list__product_list__day_of_week=day_of_week,
                     product_list__product_list__slot=data['slot'])
 
-        data['season'] = season
-        data['day_of_week'] = day_of_week
+        data['season'] = models.Booking.SEASON_CHOICES[season]
+        data['day_of_week'] = models.Booking.DAY_CHOICES[day_of_week]
         data['fee'] = queryset[0].fee
 
         return JsonResponse(data)

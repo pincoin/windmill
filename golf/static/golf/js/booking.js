@@ -5,6 +5,7 @@ $(document).ready(function () {
     var round_date = $('#id_round_date');
     var round_time_hour = $('#id_round_time_hour');
     var people = $('#id_people');
+    var round_date_info = $('#id_round_date_info');
 
     var fee = $('#id_fee');
 
@@ -17,7 +18,7 @@ $(document).ready(function () {
                 data: {
                     'club_id': parseInt(club.val()),
                     'agency_id': parseInt(agency.val()),
-                    'round_date': round_date.val(),
+                    'round_date': round_date.val().substring(0, 10),
                     'slot': parseInt(slot.val())
                 },
                 beforeSend: function (xhr, settings) {
@@ -27,6 +28,7 @@ $(document).ready(function () {
                 }
             }).done(function (data, textStatus, jqXHR) {
                 fee.val(data.fee * people.val());
+                round_date_info.val(data.season + '/' + data.day_of_week);
             }).fail(function (data, textStatus, errorThrown) {
                 console.log(data);
             });
@@ -44,7 +46,7 @@ $(document).ready(function () {
 
     round_date.datepicker({
         showAnim: '', // turn off animation
-        dateFormat: 'yy-mm-dd',
+        dateFormat: 'yy-mm-dd (DD)',
         minDate: +1,
         maxDate: '+1Y',
         beforeShow: function () {

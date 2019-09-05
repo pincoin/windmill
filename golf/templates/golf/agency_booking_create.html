@@ -34,7 +34,7 @@
                                     <div class="control has-icons-left">
                                         {{ form.club }}
                                         <span class="icon is-small is-left">
-                                            <i class="fas fa-golf-ball fa-fw"></i>
+                                            <i class="fas fa-golf-ball fa-fw has-text-grey"></i>
                                         </span>
                                     </div>
                                     {% if form.club.errors %}
@@ -60,7 +60,7 @@
                                     <div class="control has-icons-left">
                                         {{ form.round_date }}
                                         <span class="icon is-small is-left">
-                                            <i class="fas fa-calendar-alt fa-fw"></i>
+                                            <i class="fas fa-calendar-alt fa-fw has-text-grey"></i>
                                         </span>
                                     </div>
                                     {% if form.round_date.errors %}
@@ -86,7 +86,7 @@
                                     <div class="control has-icons-left">
                                         {{ form.slot }}
                                         <span class="icon is-small is-left">
-                                            <i class="fas fa-cloud-sun fa-fw"></i>
+                                            <i class="fas fa-cloud-sun fa-fw has-text-grey"></i>
                                         </span>
                                     </div>
                                     {% if forms.slot.errors %}
@@ -101,7 +101,7 @@
                                     <div class="control has-icons-left">
                                         {{ form.round_time_hour }}
                                         <span class="icon is-small is-left">
-                                            <i class="fas fa-clock fa-fw"></i>
+                                            <i class="fas fa-clock fa-fw has-text-grey"></i>
                                         </span>
                                     </div>
                                     {% if form.round_time_hour.errors %}
@@ -116,7 +116,7 @@
                                     <div class="control has-icons-left">
                                         {{ form.round_time_minute }}
                                         <span class="icon is-small is-left">
-                                            <i class="fas fa-clock fa-fw"></i>
+                                            <i class="fas fa-clock fa-fw has-text-grey"></i>
                                         </span>
                                     </div>
                                     {% if form.round_time_hour.errors %}
@@ -142,7 +142,7 @@
                                     <div class="control has-icons-left">
                                         {{ form.people }}
                                         <span class="icon is-small is-left">
-                                            <i class="fas fa-users fa-fw"></i>
+                                            <i class="fas fa-users fa-fw has-text-grey"></i>
                                         </span>
                                     </div>
                                     {% if form.people.errors %}
@@ -168,7 +168,7 @@
                                     <div class="control has-icons-left">
                                         {{ form.booking_person }}
                                         <span class="icon is-small is-left">
-                                            <i class="fas fa-id-card fa-fw"></i>
+                                            <i class="fas fa-id-card fa-fw has-text-grey"></i>
                                         </span>
                                     </div>
                                     <p class="help is-dark">
@@ -194,9 +194,24 @@
                             <div class="field-body">
                                 <div class="field">
                                     <div class="control has-icons-left">
-                                        <input class="input is-danger" type="text" value="0" id="id_fee" disabled>
+                                        <input type="text"
+                                               class="input has-text-dark has-background-warning"
+                                               id="id_fee"
+                                               value="0"
+                                               disabled>
                                         <span class="icon is-small is-left">
-                                            <i class="fas fa-credit-card fa-fw"></i>
+                                            <i class="fas fa-credit-card fa-fw has-text-grey"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="control has-icons-left">
+                                        <input type="text"
+                                               class="input has-text-dark has-background-warning"
+                                               id="id_round_date_info"
+                                               disabled>
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-tasks fa-fw has-text-grey"></i>
                                         </span>
                                     </div>
                                 </div>
@@ -232,8 +247,8 @@
                             <div class="field-label is-normal">
                             </div>
                             <div class="field-body">
-                                <div class="control is-expanded">
-                                    <button class="button is-link" type="submit">
+                                <div class="control">
+                                    <button class="button is-link is-fullwidth" type="submit">
                                         <span class="icon"><i class="fas fa-clipboard-list"></i></span>
                                         <span>{% trans 'Make an order' %}</span>
                                     </button>

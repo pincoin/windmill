@@ -4,6 +4,7 @@ from django.core.cache import cache
 from django.core.validators import RegexValidator
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from django.template.defaultfilters import date as _date
 
 from . import fields
 from . import models
@@ -146,7 +147,7 @@ class BookingForm(forms.ModelForm):
             attrs={
                 'class': 'input',
                 'required': 'True',
-                'placeholder': timezone.make_aware(timezone.localtime().now()).strftime('%Y-%m-%d')
+                'placeholder': _date(timezone.make_aware(timezone.localtime().now()), 'Y-m-d (l)')
             }),
     )
 
