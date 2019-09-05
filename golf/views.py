@@ -9,6 +9,7 @@ from django.views import generic
 
 from . import forms
 from . import models
+from .utils import get_fee
 
 
 class AgencyBookingList(auth_mixins.LoginRequiredMixin, generic.ListView):
@@ -66,9 +67,19 @@ class AgencyBookingCreate(auth_mixins.LoginRequiredMixin, generic.CreateView):
             .select_related('agency') \
             .get(user__id=self.request.user.id) \
             .agency
+
         form.instance.agent = self.request.user
-        form.instance.round_time = timezone.now()
-        form.instance.fee = 3000
+
+        form.instance.round_time = timezone.datetime.strptime('{}:{}:00'.format(
+            form.cleaned_data['round_time_hour'],
+            form.cleaned_data['round_time_minute']), '%H:%M:%S').time()
+
+        fee = get_fee(form.cleaned_data['club'].id,
+                      form.instance.agency.id,
+                      form.cleaned_data['round_date'],
+                      form.cleaned_data['slot'])
+
+        form.instance.fee = fee['fee'] * int(form.cleaned_data['people'])
 
         return super(AgencyBookingCreate, self).form_valid(form)
 
@@ -140,36 +151,10 @@ class APIFeeView(generic.FormView):
     def form_valid(self, form):
         data = form.cleaned_data
 
-        club = models.Club.objects.get(pk=data['club_id'])
-
-        round_date = timezone.make_aware(timezone.datetime.strptime(data['round_date'], '%Y-%m-%d'))
-
-        if round_date.weekday() in [5, 6]:
-            day_of_week = models.Booking.DAY_CHOICES.weekend
-        else:
-            day_of_week = models.Booking.DAY_CHOICES.weekday
-
-        if models.Holiday.objects \
-                .filter(holiday=round_date.date(), country=models.Holiday.COUNTRY_CHOICES.thailand) \
-                .exists():
-            day_of_week = models.Booking.DAY_CHOICES.weekend
-
-        if 1 << round_date.month - 1 & club.high_season:
-            season = models.Booking.SEASON_CHOICES.high
-        else:
-            season = models.Booking.SEASON_CHOICES.low
-
-        queryset = models.AgencyClubProductListMembership.objects \
-            .select_related('product_list__product_list', 'product_list__club', 'agency') \
-            .filter(agency=data['agency_id'],
-                    product_list__club=data['club_id'],
-                    product_list__product_list__season=season,
-                    product_list__product_list__day_of_week=day_of_week,
-                    product_list__product_list__slot=data['slot'])
-
-        data['season'] = models.Booking.SEASON_CHOICES[season]
-        data['day_of_week'] = models.Booking.DAY_CHOICES[day_of_week]
-        data['fee'] = queryset[0].fee
+        data.update(get_fee(form.cleaned_data['club_id'],
+                            form.cleaned_data['agency_id'],
+                            form.cleaned_data['round_date'],
+                            form.cleaned_data['slot']))
 
         return JsonResponse(data)
 
