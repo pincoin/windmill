@@ -212,6 +212,7 @@ class BookingForm(forms.ModelForm):
     first_name = forms.CharField(
         label=_('Full name (Passport)'),
         max_length=255,
+        validators=[RegexValidator(r'^[a-zA-Z]+$', _('Only alphabets are allowed.'))],
         widget=forms.TextInput(
             attrs={
                 'placeholder': _('First name'),
@@ -221,6 +222,7 @@ class BookingForm(forms.ModelForm):
 
     last_name = forms.CharField(
         max_length=255,
+        validators=[RegexValidator(r'^[a-zA-Z]+$', _('Only alphabets are allowed.'))],
         widget=forms.TextInput(
             attrs={
                 'placeholder': _('Last name'),

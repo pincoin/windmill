@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-06 18:49+0700\n"
+"POT-Creation-Date: 2019-09-06 19:00+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -126,7 +126,7 @@ msgstr "골프"
 msgid "Booking person"
 msgstr "예약자"
 
-#: golf/forms.py:17 golf/forms.py:232 golf/models.py:108 golf/models.py:530
+#: golf/forms.py:17 golf/forms.py:234 golf/models.py:108 golf/models.py:530
 #: golf/models.py:646 golf/templates/golf/agency_booking_detail.html:91
 msgid "Memo"
 msgstr "메모"
@@ -156,27 +156,31 @@ msgstr "인원수"
 msgid "Full name (Passport)"
 msgstr "성명 (여권영문이름)"
 
-#: golf/forms.py:217 golf/models.py:520 member/forms2.py:9
+#: golf/forms.py:215 golf/forms.py:225
+msgid "Only alphabets are allowed."
+msgstr "영문 알파벳만 입력할 수 있습니다."
+
+#: golf/forms.py:218 golf/models.py:520 member/forms2.py:9
 msgid "First name"
 msgstr "이름 (GILDONG)"
 
-#: golf/forms.py:226 golf/models.py:525 member/forms2.py:15
+#: golf/forms.py:228 golf/models.py:525 member/forms2.py:15
 msgid "Last name"
 msgstr "성 (HONG)"
 
-#: golf/forms.py:237
+#: golf/forms.py:239
 msgid "Remarks"
 msgstr "비고"
 
-#: golf/forms.py:270 golf/forms.py:301
+#: golf/forms.py:272 golf/forms.py:303
 msgid "Invalid round date"
 msgstr "잘못된 라운딩 일자 형식"
 
-#: golf/forms.py:280
+#: golf/forms.py:282
 msgid "Invalid round time"
 msgstr "잘못된 라운딩 시각"
 
-#: golf/forms.py:290
+#: golf/forms.py:292
 msgid "YYYY-MM-DD"
 msgstr "YYYY-MM-DD"
 

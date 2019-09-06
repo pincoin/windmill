@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-06 18:49+0700\n"
+"POT-Creation-Date: 2019-09-06 19:00+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -126,7 +126,7 @@ msgstr ""
 msgid "Booking person"
 msgstr ""
 
-#: golf/forms.py:17 golf/forms.py:232 golf/models.py:108 golf/models.py:530
+#: golf/forms.py:17 golf/forms.py:234 golf/models.py:108 golf/models.py:530
 #: golf/models.py:646 golf/templates/golf/agency_booking_detail.html:91
 msgid "Memo"
 msgstr ""
@@ -156,27 +156,31 @@ msgstr ""
 msgid "Full name (Passport)"
 msgstr ""
 
-#: golf/forms.py:217 golf/models.py:520 member/forms2.py:9
+#: golf/forms.py:215 golf/forms.py:225
+msgid "Only alphabets are allowed."
+msgstr ""
+
+#: golf/forms.py:218 golf/models.py:520 member/forms2.py:9
 msgid "First name"
 msgstr ""
 
-#: golf/forms.py:226 golf/models.py:525 member/forms2.py:15
+#: golf/forms.py:228 golf/models.py:525 member/forms2.py:15
 msgid "Last name"
 msgstr ""
 
-#: golf/forms.py:237
+#: golf/forms.py:239
 msgid "Remarks"
 msgstr ""
 
-#: golf/forms.py:270 golf/forms.py:301
+#: golf/forms.py:272 golf/forms.py:303
 msgid "Invalid round date"
 msgstr ""
 
-#: golf/forms.py:280
+#: golf/forms.py:282
 msgid "Invalid round time"
 msgstr ""
 
-#: golf/forms.py:290
+#: golf/forms.py:292
 msgid "YYYY-MM-DD"
 msgstr ""
 
