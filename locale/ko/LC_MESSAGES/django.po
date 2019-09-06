@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-05 23:58+0700\n"
+"POT-Creation-Date: 2019-09-06 09:56+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -106,11 +106,11 @@ msgstr "골프클럽 없음"
 msgid "Golf club"
 msgstr "골프클럽"
 
-#: golf/admin.py:139 golf/admin.py:140
+#: golf/admin.py:151 golf/admin.py:152
 msgid "NAONE admin"
 msgstr "NaOne 관리자"
 
-#: golf/admin.py:141
+#: golf/admin.py:153
 msgid "NAONE administration"
 msgstr "NaOne 관리자"
 
@@ -119,7 +119,7 @@ msgid "Golf"
 msgstr "골프"
 
 #: golf/forms.py:16 golf/forms.py:213 golf/forms.py:218 golf/models.py:520
-#: golf/templates/golf/agency_booking_list.html:93
+#: golf/templates/golf/agency_booking_list.html:96
 #: golf/templates/golf/staff_booking_list.html:114
 msgid "Booking person"
 msgstr "예약자"
@@ -508,11 +508,11 @@ msgstr "입금액"
 
 #: golf/models.py:597
 msgid "Booking payment"
-msgstr "입금내역"
+msgstr "예약 매출"
 
 #: golf/models.py:598
 msgid "Booking payments"
-msgstr "입금내역"
+msgstr "예약 매출"
 
 #: golf/models.py:615
 msgid "Unpaid mount"
@@ -549,19 +549,23 @@ msgid "Next"
 msgstr "다음"
 
 #: golf/templates/golf/agency_booking_create.html:195
-#: golf/templates/golf/agency_booking_list.html:90
+#: golf/templates/golf/agency_booking_list.html:93
 #: golf/templates/golf/staff_booking_list.html:111
 msgid "Fee"
 msgstr "요금"
 
 #: golf/templates/golf/agency_booking_create.html:258
-#: golf/templates/golf/agency_booking_list.html:128 golf/views.py:63
+#: golf/templates/golf/agency_booking_list.html:133 golf/views.py:63
 msgid "Make an order"
 msgstr "예약발주"
 
 #: golf/templates/golf/agency_booking_create.html:265
 msgid "Order list"
 msgstr "예약목록"
+
+#: golf/templates/golf/agency_booking_list.html:90
+msgid "Season / Day of week / Slot"
+msgstr "구분"
 
 #: member/adapters.py:30
 msgid "Your email domain is not allowed."

@@ -74,49 +74,54 @@
             </div>
 
             <div class="columns is-hidden-touch">
-                <div class="column">
+                <div class="column is-1">
                     {% trans 'Booking status' %}
                 </div>
-                <div class="column">
+                <div class="column is-1">
                     {% trans 'Golf club' %}
                 </div>
-                <div class="column">
+                <div class="column is-2">
                     {% trans 'Round date/time' %}
                 </div>
-                <div class="column">
+                <div class="column is-1">
                     {% trans 'No. of people' %}
                 </div>
-                <div class="column">
+                <div class="column is-2">
+                    {% trans 'Season / Day of week / Slot' %}
+                </div>
+                <div class="column is-1">
                     {% trans 'Fee' %}
                 </div>
-                <div class="column">
+                <div class="column is-2">
                     {% trans 'Booking person' %}
                 </div>
             </div>
 
             {% for booking in booking_list %}
                 <div class="columns">
-                    <div class="column">
+                    <div class="column is-1">
                         <span>
                         {{ booking.get_status_display }}
                         </span>
                     </div>
-                    <div class="column">
+                    <div class="column is-1">
                         {{ booking.club.title }}
                     </div>
-                    <div class="column">
+                    <div class="column is-2">
                         {{ booking.round_date|date:'Y-m-d' }} {{ booking.round_time|date:'H:i' }}
                     </div>
-                    <div class="column">
+                    <div class="column is-1">
                         {{ booking.people }}
                     </div>
-                    <div class="column">
-                        {{ booking.fee }}<br>
-                        ({{ booking.get_season_display }}
+                    <div class="column is-2">
+                        {{ booking.get_season_display }}
                         / {{ booking.get_day_of_week_display }}
-                        / {{ booking.get_slot_display }})
+                        / {{ booking.get_slot_display }}
                     </div>
-                    <div class="column">
+                    <div class="column is-1">
+                        {{ booking.fee }}
+                    </div>
+                    <div class="column is-2">
                         {{ booking.booking_person }}
                     </div>
                 </div>

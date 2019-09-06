@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-05 23:58+0700\n"
+"POT-Creation-Date: 2019-09-06 09:56+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -106,11 +106,11 @@ msgstr ""
 msgid "Golf club"
 msgstr ""
 
-#: golf/admin.py:139 golf/admin.py:140
+#: golf/admin.py:151 golf/admin.py:152
 msgid "NAONE admin"
 msgstr ""
 
-#: golf/admin.py:141
+#: golf/admin.py:153
 msgid "NAONE administration"
 msgstr ""
 
@@ -119,7 +119,7 @@ msgid "Golf"
 msgstr ""
 
 #: golf/forms.py:16 golf/forms.py:213 golf/forms.py:218 golf/models.py:520
-#: golf/templates/golf/agency_booking_list.html:93
+#: golf/templates/golf/agency_booking_list.html:96
 #: golf/templates/golf/staff_booking_list.html:114
 msgid "Booking person"
 msgstr ""
@@ -549,18 +549,22 @@ msgid "Next"
 msgstr ""
 
 #: golf/templates/golf/agency_booking_create.html:195
-#: golf/templates/golf/agency_booking_list.html:90
+#: golf/templates/golf/agency_booking_list.html:93
 #: golf/templates/golf/staff_booking_list.html:111
 msgid "Fee"
 msgstr ""
 
 #: golf/templates/golf/agency_booking_create.html:258
-#: golf/templates/golf/agency_booking_list.html:128 golf/views.py:63
+#: golf/templates/golf/agency_booking_list.html:133 golf/views.py:63
 msgid "Make an order"
 msgstr ""
 
 #: golf/templates/golf/agency_booking_create.html:265
 msgid "Order list"
+msgstr ""
+
+#: golf/templates/golf/agency_booking_list.html:90
+msgid "Season / Day of week / Slot"
 msgstr ""
 
 #: member/adapters.py:30
