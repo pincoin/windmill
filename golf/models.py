@@ -516,8 +516,13 @@ class Booking(model_utils_models.TimeStampedModel):
         help_text=_('THB'),
     )
 
-    booking_person = models.CharField(
-        verbose_name=_('Booking person'),
+    first_name = models.CharField(
+        verbose_name=_('First name'),
+        max_length=255,
+    )
+
+    last_name = models.CharField(
+        verbose_name=_('Last name'),
         max_length=255,
     )
 
