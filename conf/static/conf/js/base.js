@@ -10,4 +10,8 @@ $(document).ready(function () {
     $('#language-selector').on('change', function (e) {
         this.form.submit();
     });
+
+    $('#id_status, #id_club').on('change', function (e) {
+        this.form.submit();
+    });
 });

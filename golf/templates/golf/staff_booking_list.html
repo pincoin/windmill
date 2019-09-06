@@ -159,7 +159,7 @@
                     </div>
                 </div>
             {% endfor %}
-            {% include './_pagination_booking_list.html' with page_obj=page_obj page_range=page_range %}
+            {% include './_pagination_booking_list.html' with page_obj=page_obj page_range=page_range category=request.GET.category keyword=request.GET.keyword status=request.GET.status club=request.GET.club %}
         </div>
     </section>
 {% endblock %}

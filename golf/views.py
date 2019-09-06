@@ -26,9 +26,23 @@ class AgencyBookingList(viewmixins.PageableMixin, viewmixins.GroupRequiredMixin,
     def get_queryset(self):
         queryset = models.Booking.objects \
             .select_related('club', 'agency', 'agent') \
-            .filter(agent__id=self.request.user.id) \
-            .order_by('-created')
-        return queryset
+            .filter(agent__id=self.request.user.id)
+
+        if 'status' in self.request.GET and self.request.GET['status']:
+            queryset = queryset.filter(status=int(self.request.GET['status'].strip()))
+
+        if 'club' in self.request.GET and self.request.GET['club']:
+            queryset = queryset.filter(status=int(self.request.GET['club'].strip()))
+
+        if 'category' in self.request.GET \
+                and 'keyword' in self.request.GET \
+                and self.request.GET['keyword']:
+            if self.request.GET['category'] == '1':
+                queryset = queryset.filter(booking_person=self.request.GET['keyword'].strip())
+            elif self.request.GET['category'] == '2':
+                queryset = queryset.filter(memo__contains=self.request.GET['keyword'].strip())
+
+        return queryset.order_by('-created')
 
     def get_context_data(self, **kwargs):
         context = super(AgencyBookingList, self).get_context_data(**kwargs)
