@@ -37,9 +37,7 @@ class AgencyBookingList(viewmixins.PageableMixin, viewmixins.GroupRequiredMixin,
         if 'category' in self.request.GET \
                 and 'keyword' in self.request.GET \
                 and self.request.GET['keyword']:
-            if self.request.GET['category'] == '1':
-                queryset = queryset.filter(booking_person=self.request.GET['keyword'].strip())
-            elif self.request.GET['category'] == '2':
+            if self.request.GET['category'] == '2':
                 queryset = queryset.filter(memo__contains=self.request.GET['keyword'].strip())
 
         return queryset.order_by('-created')

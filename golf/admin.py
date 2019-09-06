@@ -110,7 +110,7 @@ class BookingAdmin(admin.ModelAdmin):
                     'round_date', 'round_time', 'people', 'fee', 'status', 'season', 'day_of_week', 'slot',
                     'agency_title', 'agent')
     list_filter = ('status', 'agency__title', 'club__title')
-    search_fields = ('agency__email', 'memo', 'booking_person')
+    search_fields = ('agency__email', 'memo', 'first_name')
     list_select_related = ('club', 'agency', 'agent')
     raw_id_fields = ('club', 'agency', 'agent')
     ordering = ('-created',)

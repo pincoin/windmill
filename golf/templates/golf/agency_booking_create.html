@@ -162,25 +162,43 @@
 
                         <div class="field is-horizontal">
                             <div class="field-label is-normal">
-                                <label class="label" for="{{ form.booking_person.id_for_label }}">
-                                    {{ form.booking_person.label }}
+                                <label class="label" for="{{ form.first_name.id_for_label }}">
+                                    {{ form.first_name.label }}
                                     <span class="has-text-danger">*</span>
                                 </label>
                             </div>
                             <div class="field-body">
                                 <div class="field">
                                     <div class="control has-icons-left">
-                                        {{ form.booking_person }}
+                                        {{ form.first_name }}
                                         <span class="icon is-small is-left">
                                             <i class="fas fa-id-card fa-fw has-text-grey"></i>
                                         </span>
                                     </div>
                                     <p class="help is-dark">
-                                        {{ form.booking_person.help_text }}
+                                        {{ form.first_name.help_text }}
                                     </p>
-                                    {% if form.booking_person.errors %}
+                                    {% if form.first_name.errors %}
                                         <p class="help is-danger">
-                                            {% for error in form.booking_person.errors %}
+                                            {% for error in form.first_name.errors %}
+                                                {{ error|escape }}
+                                            {% endfor %}
+                                        </p>
+                                    {% endif %}
+                                </div>
+                                <div class="field">
+                                    <div class="control has-icons-left">
+                                        {{ form.last_name }}
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-id-card fa-fw has-text-grey"></i>
+                                        </span>
+                                    </div>
+                                    <p class="help is-dark">
+                                        {{ form.last_name.help_text }}
+                                    </p>
+                                    {% if form.last_name.errors %}
+                                        <p class="help is-danger">
+                                            {% for error in form.last_name.errors %}
                                                 {{ error|escape }}
                                             {% endfor %}
                                         </p>

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-06 13:07+0700\n"
+"POT-Creation-Date: 2019-09-06 18:49+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,7 +57,7 @@ msgid "Agency"
 msgstr ""
 
 #: conf/templates/conf/base.html:94 conf/templates/conf/base.html:106
-#: golf/views.py:35 golf/views.py:136
+#: golf/views.py:47 golf/views.py:148
 msgid "Booking management"
 msgstr ""
 
@@ -120,15 +120,14 @@ msgstr ""
 msgid "Golf"
 msgstr ""
 
-#: golf/forms.py:16 golf/forms.py:213 golf/forms.py:218 golf/models.py:520
-#: golf/templates/golf/agency_booking_detail.html:83
+#: golf/forms.py:16 golf/templates/golf/agency_booking_detail.html:83
 #: golf/templates/golf/agency_booking_list.html:96
 #: golf/templates/golf/staff_booking_list.html:117
 msgid "Booking person"
 msgstr ""
 
-#: golf/forms.py:17 golf/forms.py:224 golf/models.py:108 golf/models.py:525
-#: golf/models.py:641 golf/templates/golf/agency_booking_detail.html:91
+#: golf/forms.py:17 golf/forms.py:232 golf/models.py:108 golf/models.py:530
+#: golf/models.py:646 golf/templates/golf/agency_booking_detail.html:91
 msgid "Memo"
 msgstr ""
 
@@ -136,7 +135,7 @@ msgstr ""
 msgid "Search word"
 msgstr ""
 
-#: golf/forms.py:133 golf/models.py:160 golf/models.py:545
+#: golf/forms.py:133 golf/models.py:160 golf/models.py:550
 msgid "Time slot"
 msgstr ""
 
@@ -153,23 +152,31 @@ msgstr ""
 msgid "No. of people"
 msgstr ""
 
-#: golf/forms.py:214
-msgid "Passport name"
+#: golf/forms.py:213
+msgid "Full name (Passport)"
 msgstr ""
 
-#: golf/forms.py:229
+#: golf/forms.py:217 golf/models.py:520 member/forms2.py:9
+msgid "First name"
+msgstr ""
+
+#: golf/forms.py:226 golf/models.py:525 member/forms2.py:15
+msgid "Last name"
+msgstr ""
+
+#: golf/forms.py:237
 msgid "Remarks"
 msgstr ""
 
-#: golf/forms.py:262 golf/forms.py:293
+#: golf/forms.py:270 golf/forms.py:301
 msgid "Invalid round date"
 msgstr ""
 
-#: golf/forms.py:272
+#: golf/forms.py:280
 msgid "Invalid round time"
 msgstr ""
 
-#: golf/forms.py:282
+#: golf/forms.py:290
 msgid "YYYY-MM-DD"
 msgstr ""
 
@@ -229,7 +236,7 @@ msgstr ""
 msgid "Agency type"
 msgstr ""
 
-#: golf/models.py:66 golf/models.py:580
+#: golf/models.py:66 golf/models.py:585
 msgid "Bank account"
 msgstr ""
 
@@ -298,11 +305,11 @@ msgstr ""
 msgid "Night"
 msgstr ""
 
-#: golf/models.py:146 golf/models.py:531
+#: golf/models.py:146 golf/models.py:536
 msgid "High/Low Season"
 msgstr ""
 
-#: golf/models.py:153 golf/models.py:538
+#: golf/models.py:153 golf/models.py:543
 msgid "Day of week"
 msgstr ""
 
@@ -411,7 +418,7 @@ msgstr ""
 msgid "Amount"
 msgstr ""
 
-#: golf/models.py:424 golf/models.py:593
+#: golf/models.py:424 golf/models.py:598
 msgid "Received date"
 msgstr ""
 
@@ -476,7 +483,7 @@ msgstr ""
 msgid "Round time"
 msgstr ""
 
-#: golf/models.py:552 golf/templates/golf/agency_booking_detail.html:33
+#: golf/models.py:557 golf/templates/golf/agency_booking_detail.html:33
 #: golf/templates/golf/agency_booking_list.html:37
 #: golf/templates/golf/agency_booking_list.html:78
 #: golf/templates/golf/staff_booking_list.html:37
@@ -484,64 +491,64 @@ msgstr ""
 msgid "Booking status"
 msgstr ""
 
-#: golf/models.py:559 golf/models.py:560 golf/models.py:574 golf/models.py:609
-#: golf/models.py:631
+#: golf/models.py:564 golf/models.py:565 golf/models.py:579 golf/models.py:614
+#: golf/models.py:636
 msgid "Booking"
 msgstr ""
 
-#: golf/models.py:565
+#: golf/models.py:570
 msgid "Kasikorn Bank"
 msgstr ""
 
-#: golf/models.py:566
+#: golf/models.py:571
 msgid "Bangkok Bank"
 msgstr ""
 
-#: golf/models.py:567
+#: golf/models.py:572
 msgid "Siam Commercial Bank"
 msgstr ""
 
-#: golf/models.py:568
+#: golf/models.py:573
 msgid "Ayudhya Bank"
 msgstr ""
 
-#: golf/models.py:569
+#: golf/models.py:574
 msgid "Krungthai Bank"
 msgstr ""
 
-#: golf/models.py:587
+#: golf/models.py:592
 msgid "Paid amount"
 msgstr ""
 
-#: golf/models.py:597
+#: golf/models.py:602
 msgid "Booking payment"
 msgstr ""
 
-#: golf/models.py:598
+#: golf/models.py:603
 msgid "Booking payments"
 msgstr ""
 
-#: golf/models.py:615
+#: golf/models.py:620
 msgid "Unpaid mount"
 msgstr ""
 
-#: golf/models.py:621
+#: golf/models.py:626
 msgid "Booking account receivable"
 msgstr ""
 
-#: golf/models.py:622
+#: golf/models.py:627
 msgid "Booking accounts receivable"
 msgstr ""
 
-#: golf/models.py:637
+#: golf/models.py:642
 msgid "Changelog"
 msgstr ""
 
-#: golf/models.py:647
+#: golf/models.py:652
 msgid "Booking change log"
 msgstr ""
 
-#: golf/models.py:648
+#: golf/models.py:653
 msgid "Booking change logs"
 msgstr ""
 
@@ -555,20 +562,20 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: golf/templates/golf/agency_booking_create.html:195
+#: golf/templates/golf/agency_booking_create.html:213
 #: golf/templates/golf/agency_booking_detail.html:75
 #: golf/templates/golf/agency_booking_list.html:93
 #: golf/templates/golf/staff_booking_list.html:114
 msgid "Fee"
 msgstr ""
 
-#: golf/templates/golf/agency_booking_create.html:258
-#: golf/templates/golf/agency_booking_list.html:133 golf/views.py:64
+#: golf/templates/golf/agency_booking_create.html:276
+#: golf/templates/golf/agency_booking_list.html:133 golf/views.py:76
 msgid "Make an order"
 msgstr ""
 
-#: golf/templates/golf/agency_booking_create.html:265
-#: golf/templates/golf/agency_booking_detail.html:111
+#: golf/templates/golf/agency_booking_create.html:283
+#: golf/templates/golf/agency_booking_detail.html:104
 msgid "Order list"
 msgstr ""
 
@@ -578,15 +585,11 @@ msgstr ""
 msgid "Season / Day of week / Slot"
 msgstr ""
 
-#: golf/templates/golf/agency_booking_detail.html:104
-msgid "Edit an order"
-msgstr ""
-
-#: golf/templates/golf/agency_booking_detail.html:118
+#: golf/templates/golf/agency_booking_detail.html:111
 msgid "Delete an order"
 msgstr ""
 
-#: golf/views.py:110
+#: golf/views.py:122
 msgid "Booking Details"
 msgstr ""
 
@@ -628,14 +631,6 @@ msgstr ""
 
 #: member/forms.py:119
 msgid "You already requested organization application."
-msgstr ""
-
-#: member/forms2.py:9
-msgid "First name"
-msgstr ""
-
-#: member/forms2.py:15
-msgid "Last name"
 msgstr ""
 
 #: member/forms2.py:21

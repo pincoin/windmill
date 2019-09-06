@@ -209,13 +209,21 @@ class BookingForm(forms.ModelForm):
         )
     )
 
-    booking_person = forms.CharField(
-        label=_('Booking person'),
-        help_text=_('Passport name'),
+    first_name = forms.CharField(
+        label=_('Full name (Passport)'),
         max_length=255,
         widget=forms.TextInput(
             attrs={
-                'placeholder': _('Booking person'),
+                'placeholder': _('First name'),
+                'class': 'input',
+            }),
+    )
+
+    last_name = forms.CharField(
+        max_length=255,
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': _('Last name'),
                 'class': 'input',
             }),
     )
@@ -250,7 +258,7 @@ class BookingForm(forms.ModelForm):
 
     class Meta:
         model = models.Booking
-        fields = ('club', 'slot', 'round_date', 'people', 'booking_person', 'memo')
+        fields = ('club', 'slot', 'round_date', 'people', 'first_name', 'last_name', 'memo')
 
     def clean_round_date(self):
         return self.cleaned_data['round_date'][0:10]
