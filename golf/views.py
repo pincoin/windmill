@@ -1,6 +1,7 @@
 from django.http import (
     JsonResponse, HttpResponse
 )
+from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
@@ -13,9 +14,9 @@ from .utils import get_fee
 
 
 class AgencyBookingList(viewmixins.PageableMixin, viewmixins.GroupRequiredMixin, generic.ListView):
+    group_required = ['agency', ]
     template_name = 'golf/agency_booking_list.html'
     context_object_name = 'booking_list'
-    group_required = ['agency', ]
 
     booking_search_form_class = forms.BookingSearchForm
     booking_status_search_form_class = forms.BookingStatusSearchForm
@@ -54,9 +55,9 @@ class AgencyBookingList(viewmixins.PageableMixin, viewmixins.GroupRequiredMixin,
 
 
 class AgencyBookingCreate(viewmixins.GroupRequiredMixin, generic.CreateView):
+    group_required = ['agency', ]
     template_name = 'golf/agency_booking_create.html'
     form_class = forms.BookingForm
-    group_required = ['agency', ]
 
     def get_context_data(self, **kwargs):
         context = super(AgencyBookingCreate, self).get_context_data(**kwargs)
@@ -94,6 +95,20 @@ class AgencyBookingCreate(viewmixins.GroupRequiredMixin, generic.CreateView):
 
 class AgencyBookingDetail(viewmixins.GroupRequiredMixin, generic.DetailView):
     group_required = ['agency', ]
+    context_object_name = 'booking'
+    template_name = 'golf/agency_booking_detail.html'
+
+    def get_object(self, queryset=None):
+        # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
+        queryset = models.Booking.objects \
+            .filter(agent=self.request.user) \
+            .select_related('club', 'agency', 'agent')
+        return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
+
+    def get_context_data(self, **kwargs):
+        context = super(AgencyBookingDetail, self).get_context_data(**kwargs)
+        context['page_title'] = _('Booking Details')
+        return context
 
 
 class AgencyBookingDelete(viewmixins.GroupRequiredMixin, generic.DeleteView):
@@ -101,9 +116,9 @@ class AgencyBookingDelete(viewmixins.GroupRequiredMixin, generic.DeleteView):
 
 
 class StaffBookingList(viewmixins.PageableMixin, viewmixins.GroupRequiredMixin, generic.ListView):
+    group_required = ['staff', ]
     template_name = 'golf/staff_booking_list.html'
     context_object_name = 'booking_list'
-    group_required = ['staff', ]
 
     booking_search_form_class = forms.BookingSearchForm
     booking_status_search_form_class = forms.BookingStatusSearchForm

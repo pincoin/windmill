@@ -100,9 +100,9 @@
             {% for booking in booking_list %}
                 <div class="columns">
                     <div class="column is-1">
-                        <span>
+                        <a href="{% url 'golf:agency-booking-detail' booking.booking_uuid %}">
                         {{ booking.get_status_display }}
-                        </span>
+                        </a>
                     </div>
                     <div class="column is-1">
                         {{ booking.club.title }}

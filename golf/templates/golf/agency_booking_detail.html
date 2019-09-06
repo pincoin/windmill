@@ -1,0 +1,144 @@
+{% extends 'conf/base.html' %}
+
+{% load i18n static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <h1 class="title has-text-centered">{{ page_title }}</h1>
+
+            <div class="columns is-centered">
+                <div class="column is-four-fifths">
+                    <div class="columns">
+                        <div class="column is-3 is-hidden-touch has-text-right-desktop">
+                            {% trans 'Agency' %}
+                        </div>
+                        <div class="column is-9">
+                            {{ booking.agency.title }}
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-3 is-hidden-touch has-text-right-desktop">
+                            {% trans 'Agent' %}
+                        </div>
+                        <div class="column is-9">
+                            {{ booking.agent.first_name }}
+                            {{ booking.agent.last_name }}
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-3 is-hidden-touch has-text-right-desktop">
+                            {% trans 'Booking status' %}
+                        </div>
+                        <div class="column is-9">
+                            {{ booking.get_status_display }}
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-3 is-hidden-touch has-text-right-desktop">
+                            {% trans 'Golf club' %}
+                        </div>
+                        <div class="column is-9">
+                            {{ booking.club.title }}
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-3 is-hidden-touch has-text-right-desktop">
+                            {% trans 'Round date/time' %}
+                        </div>
+                        <div class="column is-9">
+                            {{ booking.round_date|date:'Y-m-d' }} {{ booking.round_time|date:'H:i' }}
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-3 is-hidden-touch has-text-right-desktop">
+                            {% trans 'No. of people' %}
+                        </div>
+                        <div class="column is-9">
+                            {{ booking.people }}
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-3 is-hidden-touch has-text-right-desktop">
+                            {% trans 'Season / Day of week / Slot' %}
+                        </div>
+                        <div class="column is-9">
+                            {{ booking.get_season_display }}
+                            / {{ booking.get_day_of_week_display }}
+                            / {{ booking.get_slot_display }}
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-3 is-hidden-touch has-text-right-desktop">
+                            {% trans 'Fee' %}
+                        </div>
+                        <div class="column is-9">
+                            {{ booking.fee }}
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-3 is-hidden-touch has-text-right-desktop">
+                            {% trans 'Booking person' %}
+                        </div>
+                        <div class="column is-9">
+                            {{ booking.booking_person }}
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-3 is-hidden-touch has-text-right-desktop">
+                            {% trans 'Memo' %}
+                        </div>
+                        <div class="column is-9">
+                            {{ booking.memo }}
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-9 is-offset-3">
+                            <div class="columns is-multiline">
+                                <div class="column">
+                                    <a href="{% url 'golf:agency-booking-list' %}"
+                                       class="button is-dark is-fullwidth">
+                                        <span class="icon"><i class="far fa-list-alt"></i></span>
+                                        <span>{% trans 'Order list' %}</span>
+                                    </a>
+                                </div>
+                                <div class="column">
+                                    <a href="#"
+                                       class="button is-danger is-fullwidth">
+                                        <span class="icon"><i class="far fa-times-circle"></i></span>
+                                        <span>{% trans 'Delete an order' %}</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block stylesheet %}
+    {{ block.super }}
+    <link rel="stylesheet"
+          href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+{% endblock %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script type="text/javascript"
+            src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    {% if LANGUAGE_CODE == 'th' %}
+        <script type="text/javascript"
+                src="{% static "golf/js/datepicker-th.js" %}"></script>
+    {% elif LANGUAGE_CODE == 'ko' %}
+        <script type="text/javascript"
+                src="{% static "golf/js/datepicker-ko.js" %}"></script>
+    {% endif %}
+    <script type="text/javascript"
+            src="{% static "conf/js/csrf-cookie.js" %}"></script>
+    <script type="text/javascript"
+            src="{% static "golf/js/booking.js" %}"></script>
+{% endblock %}
