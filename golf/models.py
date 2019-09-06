@@ -564,6 +564,9 @@ class Booking(model_utils_models.TimeStampedModel):
         verbose_name = _('Booking')
         verbose_name_plural = _('Booking')
 
+    def __str__(self):
+        return '{}-{} {}-{}'.format(self.booking_uuid, self.first_name, self.last_name, self.agency.title)
+
 
 class BookingPayment(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
     ACCOUNT_CHOICES = Choices(
