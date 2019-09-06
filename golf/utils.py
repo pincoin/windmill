@@ -34,5 +34,5 @@ def get_fee(club_id, agency_id, round_date, slot):
     return {
         'season': models.Booking.SEASON_CHOICES[season],
         'day_of_week': models.Booking.DAY_CHOICES[day_of_week],
-        'fee': queryset[0].fee,
+        'fee': queryset[0].fee + club.caddie_fee,
     }
