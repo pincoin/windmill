@@ -15,7 +15,7 @@ from . import viewmixins
 from .utils import get_fee
 
 
-class AgencyBookingList(viewmixins.PageableMixin, viewmixins.GroupRequiredMixin, generic.ListView):
+class AgencyBookingListView(viewmixins.PageableMixin, viewmixins.GroupRequiredMixin, generic.ListView):
     group_required = ['agency', ]
     template_name = 'golf/agency_booking_list.html'
     context_object_name = 'booking_list'
@@ -50,7 +50,7 @@ class AgencyBookingList(viewmixins.PageableMixin, viewmixins.GroupRequiredMixin,
         return queryset.order_by('-created')
 
     def get_context_data(self, **kwargs):
-        context = super(AgencyBookingList, self).get_context_data(**kwargs)
+        context = super(AgencyBookingListView, self).get_context_data(**kwargs)
         context['page_title'] = _('Booking management')
 
         context['booking_search_form'] = self.booking_search_form_class(
@@ -73,13 +73,13 @@ class AgencyBookingList(viewmixins.PageableMixin, viewmixins.GroupRequiredMixin,
         return context
 
 
-class AgencyBookingCreate(viewmixins.GroupRequiredMixin, generic.CreateView):
+class AgencyBookingCreateView(viewmixins.GroupRequiredMixin, generic.CreateView):
     group_required = ['agency', ]
     template_name = 'golf/agency_booking_create.html'
     form_class = forms.BookingForm
 
     def get_context_data(self, **kwargs):
-        context = super(AgencyBookingCreate, self).get_context_data(**kwargs)
+        context = super(AgencyBookingCreateView, self).get_context_data(**kwargs)
         context['page_title'] = _('Make an order')
         return context
 
@@ -109,17 +109,17 @@ class AgencyBookingCreate(viewmixins.GroupRequiredMixin, generic.CreateView):
         else:
             form.instance.fullname = '{} {}'.format(form.cleaned_data['first_name'], form.cleaned_data['last_name'])
 
-        return super(AgencyBookingCreate, self).form_valid(form)
+        return super(AgencyBookingCreateView, self).form_valid(form)
 
     def form_invalid(self, form):
         print(form.errors)
-        return super(AgencyBookingCreate, self).form_invalid(form)
+        return super(AgencyBookingCreateView, self).form_invalid(form)
 
     def get_success_url(self):
         return reverse('golf:agency-booking-list')
 
 
-class AgencyBookingDetail(viewmixins.GroupRequiredMixin, generic.DetailView):
+class AgencyBookingDetailView(viewmixins.GroupRequiredMixin, generic.DetailView):
     group_required = ['agency', ]
     context_object_name = 'booking'
     template_name = 'golf/agency_booking_detail.html'
@@ -132,16 +132,71 @@ class AgencyBookingDetail(viewmixins.GroupRequiredMixin, generic.DetailView):
         return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
 
     def get_context_data(self, **kwargs):
-        context = super(AgencyBookingDetail, self).get_context_data(**kwargs)
+        context = super(AgencyBookingDetailView, self).get_context_data(**kwargs)
         context['page_title'] = _('Booking Details')
         return context
 
 
-class AgencyBookingDelete(viewmixins.GroupRequiredMixin, generic.DeleteView):
+class AgencyBookingUpdateView(viewmixins.GroupRequiredMixin, generic.UpdateView):
+    group_required = ['agency', ]
+    model = models.Booking
+    context_object_name = 'post'
+    template_name = 'golf/agency_booking_create.html'
+    form_class = forms.BookingForm
+
+    def get_object(self, queryset=None):
+        # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
+        queryset = models.Booking.objects \
+            .filter(agent=self.request.user) \
+            .select_related('club', 'agency', 'agent')
+        return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
+
+    def get_context_data(self, **kwargs):
+        context = super(AgencyBookingUpdateView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Edit order')
+        return context
+
+    def form_valid(self, form):
+        form.instance.agency = models.AgentProfile.objects \
+            .select_related('agency') \
+            .get(user__id=self.request.user.id) \
+            .agency
+
+        form.instance.agent = self.request.user
+
+        form.instance.round_time = timezone.datetime.strptime('{}:{}:00'.format(
+            form.cleaned_data['round_time_hour'],
+            form.cleaned_data['round_time_minute']), '%H:%M:%S').time()
+
+        fee = get_fee(form.cleaned_data['club'].id,
+                      form.instance.agency.id,
+                      form.cleaned_data['round_date'],
+                      form.cleaned_data['slot'])
+
+        form.instance.fee = fee['fee'] * int(form.cleaned_data['people'])
+
+        pattern = re.compile(r'^[가-힣]+$')  # Only Hangul
+
+        if pattern.match(form.cleaned_data['last_name']) and pattern.match(form.cleaned_data['first_name']):
+            form.instance.fullname = '{}{}'.format(form.cleaned_data['last_name'], form.cleaned_data['first_name'])
+        else:
+            form.instance.fullname = '{} {}'.format(form.cleaned_data['first_name'], form.cleaned_data['last_name'])
+
+        return super(AgencyBookingUpdateView, self).form_valid(form)
+
+    def form_invalid(self, form):
+        print(form.errors)
+        return super(AgencyBookingUpdateView, self).form_invalid(form)
+
+    def get_success_url(self):
+        return reverse('golf:agency-booking-detail', args=(self.object.booking_uuid,))
+
+
+class AgencyBookingDeleteView(viewmixins.GroupRequiredMixin, generic.DeleteView):
     group_required = ['agency', ]
 
 
-class StaffBookingList(viewmixins.PageableMixin, viewmixins.GroupRequiredMixin, generic.ListView):
+class StaffBookingListView(viewmixins.PageableMixin, viewmixins.GroupRequiredMixin, generic.ListView):
     group_required = ['staff', ]
     template_name = 'golf/staff_booking_list.html'
     context_object_name = 'booking_list'
@@ -158,7 +213,7 @@ class StaffBookingList(viewmixins.PageableMixin, viewmixins.GroupRequiredMixin, 
         return queryset
 
     def get_context_data(self, **kwargs):
-        context = super(StaffBookingList, self).get_context_data(**kwargs)
+        context = super(StaffBookingListView, self).get_context_data(**kwargs)
         context['page_title'] = _('Booking management')
 
         context['booking_search_form'] = self.booking_search_form_class(
@@ -181,11 +236,11 @@ class StaffBookingList(viewmixins.PageableMixin, viewmixins.GroupRequiredMixin, 
         return context
 
 
-class StaffBookingDetail(viewmixins.GroupRequiredMixin, generic.DetailView):
+class StaffBookingDetailView(viewmixins.GroupRequiredMixin, generic.DetailView):
     group_required = ['staff', ]
 
 
-class StaffBookingDelete(viewmixins.GroupRequiredMixin, generic.DeleteView):
+class StaffBookingDeleteView(viewmixins.GroupRequiredMixin, generic.DeleteView):
     group_required = ['staff', ]
 
 
