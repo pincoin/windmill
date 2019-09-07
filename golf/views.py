@@ -1,3 +1,5 @@
+import re
+
 from django.http import (
     JsonResponse, HttpResponse
 )
@@ -37,7 +39,12 @@ class AgencyBookingList(viewmixins.PageableMixin, viewmixins.GroupRequiredMixin,
         if 'category' in self.request.GET \
                 and 'keyword' in self.request.GET \
                 and self.request.GET['keyword']:
-            if self.request.GET['category'] == '2':
+
+            print(self.request.GET['category'])
+            print(self.request.GET['keyword'])
+            if self.request.GET['category'] == '1':
+                queryset = queryset.filter(fullname__contains=self.request.GET['keyword'].strip())
+            elif self.request.GET['category'] == '2':
                 queryset = queryset.filter(memo__contains=self.request.GET['keyword'].strip())
 
         return queryset.order_by('-created')
@@ -94,6 +101,13 @@ class AgencyBookingCreate(viewmixins.GroupRequiredMixin, generic.CreateView):
                       form.cleaned_data['slot'])
 
         form.instance.fee = fee['fee'] * int(form.cleaned_data['people'])
+
+        pattern = re.compile(r'^[가-힣]+$')  # Only Hangul
+
+        if pattern.match(form.cleaned_data['last_name']) and pattern.match(form.cleaned_data['first_name']):
+            form.instance.fullname = '{}{}'.format(form.cleaned_data['last_name'], form.cleaned_data['first_name'])
+        else:
+            form.instance.fullname = '{} {}'.format(form.cleaned_data['first_name'], form.cleaned_data['last_name'])
 
         return super(AgencyBookingCreate, self).form_valid(form)
 

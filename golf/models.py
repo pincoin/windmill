@@ -526,6 +526,11 @@ class Booking(model_utils_models.TimeStampedModel):
         max_length=255,
     )
 
+    fullname = models.CharField(
+        verbose_name=_('Full name'),
+        max_length=255,
+    )
+
     memo = models.TextField(
         verbose_name=_('Memo'),
         blank=True,
