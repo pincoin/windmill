@@ -463,15 +463,16 @@ class Booking(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
     )
 
     STATUS_CHOICES = Choices(
-        (0, 'order_pending', _('order pending')),
-        (1, 'payment_pending', _('payment_pending')),
-        (2, 'issued', _('voucher issued')),
-        (3, 'revoked', _('order revoked')),
-        (4, 'refund_requested', _('refund requested')),
-        (5, 'refund_pending', _('refund pending')),
-        (6, 'refunded1', _('order refunded(original)')),  # original order
-        (7, 'refunded2', _('order refunded(reverse)')),  # refund order
-        (8, 'voided', _('order voided')),
+        (0, 'order_made', _('order made')),
+        (1, 'order_pending', _('order pending')),
+        (2, 'payment_pending', _('payment_pending')),
+        (3, 'issued', _('voucher issued')),
+        (4, 'revoked', _('order revoked')),
+        (5, 'refund_requested', _('refund requested')),
+        (6, 'refund_pending', _('refund pending')),
+        (7, 'refunded1', _('order refunded(original)')),  # original order
+        (8, 'refunded2', _('order refunded(reverse)')),  # refund order
+        (9, 'voided', _('order voided')),
     )
 
     booking_uuid = models.UUIDField(
@@ -577,7 +578,7 @@ class Booking(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
     status = models.IntegerField(
         verbose_name=_('Booking status'),
         choices=STATUS_CHOICES,
-        default=STATUS_CHOICES.order_pending,
+        default=STATUS_CHOICES.order_made,
         db_index=True,
     )
 

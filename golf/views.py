@@ -206,7 +206,7 @@ class AgencyBookingDeleteView(viewmixins.GroupRequiredMixin, generic.DeleteView)
     def get_object(self, queryset=None):
         # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
         queryset = models.Booking.objects \
-            .filter(agent=self.request.user, status=models.Booking.STATUS_CHOICES.order_pending) \
+            .filter(agent=self.request.user, status=models.Booking.STATUS_CHOICES.order_made) \
             .select_related('club', 'agency', 'agent__agentprofile')
         return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-08 13:53+0700\n"
+"POT-Creation-Date: 2019-09-08 16:22+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,9 +48,8 @@ msgstr "회원가입"
 
 #: conf/templates/conf/base.html:89 golf/admin.py:72 golf/admin.py:104
 #: golf/admin.py:135 golf/models.py:121 golf/models.py:321 golf/models.py:365
-#: golf/models.py:419 golf/models.py:493
+#: golf/models.py:419 golf/models.py:494
 #: golf/templates/golf/staff_booking_list.html:58
-#: golf/templates/golf/staff_booking_list.html:120
 #: member/templates/member/account/profile.html:31
 msgid "Agency"
 msgstr "에이전시"
@@ -98,8 +97,8 @@ msgstr "계정"
 msgid "No golf club"
 msgstr "골프클럽 없음"
 
-#: golf/admin.py:126 golf/forms.py:123 golf/models.py:267 golf/models.py:277
-#: golf/models.py:486 golf/templates/golf/agency_booking_confirm_delete.html:62
+#: golf/admin.py:126 golf/forms.py:127 golf/models.py:267 golf/models.py:277
+#: golf/models.py:487 golf/templates/golf/agency_booking_confirm_delete.html:62
 #: golf/templates/golf/agency_booking_detail.html:60
 #: golf/templates/golf/agency_booking_list.html:58
 #: golf/templates/golf/agency_booking_list.html:81
@@ -120,36 +119,36 @@ msgstr "NaOne 관리자"
 msgid "Golf"
 msgstr "골프"
 
-#: golf/forms.py:16 golf/templates/golf/agency_booking_list.html:96
+#: golf/forms.py:20 golf/templates/golf/agency_booking_list.html:96
 #: golf/templates/golf/staff_booking_list.html:117
 msgid "Booking person"
 msgstr "예약자"
 
-#: golf/forms.py:17 golf/forms.py:234 golf/models.py:109 golf/models.py:551
-#: golf/models.py:670
+#: golf/forms.py:21 golf/forms.py:238 golf/models.py:109 golf/models.py:552
+#: golf/models.py:671
 #: golf/templates/golf/agency_booking_confirm_delete.html:201
 #: golf/templates/golf/agency_booking_detail.html:199
 msgid "Memo"
 msgstr "메모"
 
-#: golf/forms.py:28 golf/forms.py:32
+#: golf/forms.py:32 golf/forms.py:36
 msgid "Search word"
 msgstr "검색어"
 
-#: golf/forms.py:133 golf/models.py:161 golf/models.py:571
+#: golf/forms.py:137 golf/models.py:161 golf/models.py:572
 #: golf/templates/golf/agency_booking_confirm_delete.html:104
 #: golf/templates/golf/agency_booking_detail.html:102
 msgid "Time slot"
 msgstr "시간대"
 
-#: golf/forms.py:144 golf/templates/golf/agency_booking_confirm_delete.html:83
+#: golf/forms.py:148 golf/templates/golf/agency_booking_confirm_delete.html:83
 #: golf/templates/golf/agency_booking_detail.html:81
 #: golf/templates/golf/agency_booking_list.html:84
 #: golf/templates/golf/staff_booking_list.html:105
 msgid "Round date/time"
 msgstr "라운딩 일시"
 
-#: golf/forms.py:196 golf/models.py:525
+#: golf/forms.py:200 golf/models.py:526
 #: golf/templates/golf/agency_booking_confirm_delete.html:125
 #: golf/templates/golf/agency_booking_detail.html:123
 #: golf/templates/golf/agency_booking_list.html:87
@@ -157,37 +156,37 @@ msgstr "라운딩 일시"
 msgid "No. of people"
 msgstr "인원수"
 
-#: golf/forms.py:213 golf/templates/golf/agency_booking_confirm_delete.html:146
+#: golf/forms.py:217 golf/templates/golf/agency_booking_confirm_delete.html:146
 #: golf/templates/golf/agency_booking_detail.html:144
 msgid "Full name (Passport)"
 msgstr "성명 (여권영문이름)"
 
-#: golf/forms.py:215 golf/forms.py:225
+#: golf/forms.py:219 golf/forms.py:229
 msgid "Only alphabets are allowed."
 msgstr "영문 알파벳만 입력할 수 있습니다."
 
-#: golf/forms.py:218 golf/models.py:536 member/forms2.py:9
+#: golf/forms.py:222 golf/models.py:537 member/forms2.py:9
 msgid "First name"
 msgstr "이름 (GILDONG)"
 
-#: golf/forms.py:228 golf/models.py:541 member/forms2.py:15
+#: golf/forms.py:232 golf/models.py:542 member/forms2.py:15
 msgid "Last name"
 msgstr "성 (HONG)"
 
-#: golf/forms.py:239 golf/templates/golf/agency_booking_confirm_delete.html:209
+#: golf/forms.py:243 golf/templates/golf/agency_booking_confirm_delete.html:209
 #: golf/templates/golf/agency_booking_detail.html:208
 msgid "Remarks"
 msgstr "비고"
 
-#: golf/forms.py:272 golf/forms.py:303
+#: golf/forms.py:276 golf/forms.py:307
 msgid "Invalid round date"
 msgstr "잘못된 라운딩 일자 형식"
 
-#: golf/forms.py:282
+#: golf/forms.py:286
 msgid "Invalid round time"
 msgstr "잘못된 라운딩 시각"
 
-#: golf/forms.py:292
+#: golf/forms.py:296
 msgid "YYYY-MM-DD"
 msgstr "YYYY-MM-DD"
 
@@ -247,7 +246,7 @@ msgstr "에이전시 이름"
 msgid "Agency type"
 msgstr "구분"
 
-#: golf/models.py:67 golf/models.py:609
+#: golf/models.py:67 golf/models.py:610
 msgid "Bank account"
 msgstr "은행계좌"
 
@@ -316,11 +315,11 @@ msgstr "일몰"
 msgid "Night"
 msgstr "야간"
 
-#: golf/models.py:147 golf/models.py:557
+#: golf/models.py:147 golf/models.py:558
 msgid "High/Low Season"
 msgstr "성수기/비수기"
 
-#: golf/models.py:154 golf/models.py:564
+#: golf/models.py:154 golf/models.py:565
 msgid "Day of week"
 msgstr "평일/주말(공휴일)"
 
@@ -365,7 +364,7 @@ msgid "Cart fee"
 msgstr "카트 요금"
 
 #: golf/models.py:239 golf/models.py:246 golf/models.py:301 golf/models.py:339
-#: golf/models.py:428 golf/models.py:532
+#: golf/models.py:428 golf/models.py:533
 msgid "THB"
 msgstr "THB"
 
@@ -401,7 +400,7 @@ msgstr "순서"
 msgid "Product list membership"
 msgstr "골프클럽 요금표"
 
-#: golf/models.py:336 golf/models.py:529
+#: golf/models.py:336 golf/models.py:530
 msgid "Fee amount"
 msgstr "요금"
 
@@ -429,7 +428,7 @@ msgstr "에이전시 담당자"
 msgid "Amount"
 msgstr "금액"
 
-#: golf/models.py:434 golf/models.py:622
+#: golf/models.py:434 golf/models.py:623
 msgid "Received date"
 msgstr "입금일자"
 
@@ -442,130 +441,134 @@ msgid "Deposits"
 msgstr "보증금"
 
 #: golf/models.py:466
+msgid "order made"
+msgstr "예약접수"
+
+#: golf/models.py:467
 msgid "order pending"
 msgstr "예약대기"
 
-#: golf/models.py:467
+#: golf/models.py:468
 msgid "payment_pending"
 msgstr "입금대기"
 
-#: golf/models.py:468
+#: golf/models.py:469
 msgid "voucher issued"
 msgstr "발권완료"
 
-#: golf/models.py:469
+#: golf/models.py:470
 msgid "order revoked"
 msgstr "취소완료"
 
-#: golf/models.py:470
+#: golf/models.py:471
 msgid "refund requested"
 msgstr "환불요청"
 
-#: golf/models.py:471
+#: golf/models.py:472
 msgid "refund pending"
 msgstr "환불대기"
 
-#: golf/models.py:472
+#: golf/models.py:473
 msgid "order refunded(original)"
 msgstr "환불완료(원주문)"
 
-#: golf/models.py:473
+#: golf/models.py:474
 msgid "order refunded(reverse)"
 msgstr "환불완료(역주문)"
 
-#: golf/models.py:474
+#: golf/models.py:475
 msgid "order voided"
 msgstr "예약무효"
 
-#: golf/models.py:478
+#: golf/models.py:479
 msgid "UUID"
 msgstr "UUID"
 
-#: golf/models.py:502 golf/templates/golf/staff_booking_list.html:123
+#: golf/models.py:503
 msgid "Agent"
 msgstr "담당자"
 
-#: golf/models.py:510
+#: golf/models.py:511
 msgid "Round day"
 msgstr "라운딩 일자"
 
-#: golf/models.py:515
+#: golf/models.py:516
 msgid "Round time"
 msgstr "라운딩 시각"
 
-#: golf/models.py:519
+#: golf/models.py:520
 msgid "Tee off time"
 msgstr "티오프 시각"
 
-#: golf/models.py:546
+#: golf/models.py:547
 msgid "Full name"
 msgstr "성명"
 
-#: golf/models.py:578 golf/templates/golf/agency_booking_list.html:37
+#: golf/models.py:579 golf/templates/golf/agency_booking_list.html:37
 #: golf/templates/golf/agency_booking_list.html:78
 #: golf/templates/golf/staff_booking_list.html:37
 #: golf/templates/golf/staff_booking_list.html:99
 msgid "Booking status"
 msgstr "예약상태"
 
-#: golf/models.py:585 golf/models.py:586 golf/models.py:603 golf/models.py:638
-#: golf/models.py:660
+#: golf/models.py:586 golf/models.py:587 golf/models.py:604 golf/models.py:639
+#: golf/models.py:661
 msgid "Booking"
 msgstr "예약"
 
-#: golf/models.py:594
+#: golf/models.py:595
 msgid "Kasikorn Bank"
 msgstr "까씨껀 은행"
 
-#: golf/models.py:595
+#: golf/models.py:596
 msgid "Bangkok Bank"
 msgstr "방콕 은행"
 
-#: golf/models.py:596
+#: golf/models.py:597
 msgid "Siam Commercial Bank"
 msgstr "SCB"
 
-#: golf/models.py:597
+#: golf/models.py:598
 msgid "Ayudhya Bank"
 msgstr "아유타야 은행"
 
-#: golf/models.py:598
+#: golf/models.py:599
 msgid "Krungthai Bank"
 msgstr "끄룽타이 은행"
 
-#: golf/models.py:616
+#: golf/models.py:617
 msgid "Paid amount"
 msgstr "입금액"
 
-#: golf/models.py:626
+#: golf/models.py:627
 msgid "Booking payment"
 msgstr "예약 매출"
 
-#: golf/models.py:627
+#: golf/models.py:628
 msgid "Booking payments"
 msgstr "예약 매출"
 
-#: golf/models.py:644
+#: golf/models.py:645
 msgid "Unpaid mount"
 msgstr "미수수익"
 
-#: golf/models.py:650
+#: golf/models.py:651
 msgid "Booking account receivable"
 msgstr "예약 매출채권"
 
-#: golf/models.py:651
+#: golf/models.py:652
 msgid "Booking accounts receivable"
 msgstr "예약 매출채권"
 
-#: golf/models.py:666
+#: golf/models.py:667
 msgid "Changelog"
 msgstr "변경사항"
 
-#: golf/models.py:676
+#: golf/models.py:677
 msgid "Booking change log"
 msgstr "예약 변경사항"
 
-#: golf/models.py:677
+#: golf/models.py:678
 msgid "Booking change logs"
 msgstr "예약 변경사항"
 
@@ -588,6 +591,7 @@ msgstr "예약상태 / 발주일시"
 #: golf/templates/golf/agency_booking_confirm_delete.html:41
 #: golf/templates/golf/agency_booking_detail.html:39
 #: golf/templates/golf/agency_booking_update.html:53
+#: golf/templates/golf/staff_booking_list.html:120
 msgid "Agency / Agent"
 msgstr "에이전시 / 담당자"
 
@@ -601,13 +605,13 @@ msgid "Fee"
 msgstr "요금"
 
 #: golf/templates/golf/agency_booking_confirm_delete.html:225
-#: golf/templates/golf/agency_booking_detail.html:225
+#: golf/templates/golf/agency_booking_detail.html:226
 msgid "Delete order"
 msgstr "예약삭제"
 
 #: golf/templates/golf/agency_booking_confirm_delete.html:234
 #: golf/templates/golf/agency_booking_create.html:285
-#: golf/templates/golf/agency_booking_detail.html:234
+#: golf/templates/golf/agency_booking_detail.html:236
 #: golf/templates/golf/agency_booking_update.html:328
 msgid "Order list"
 msgstr "예약목록"
@@ -1046,9 +1050,3 @@ msgstr "SNS 로그인 실패"
 #: member/views.py:264
 msgid "Connect with SNS accounts"
 msgstr "SNS 로그인"
-
-#~ msgid "Do you really want to delete order?"
-#~ msgstr "예약을 삭제할까요?"
-
-#~ msgid "Passport name"
-#~ msgstr "여권 영문 이름"

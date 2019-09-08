@@ -10,6 +10,10 @@ from . import fields
 from . import models
 
 
+class DummyForm(forms.Form):
+    pass
+
+
 class BookingSearchForm(forms.Form):
     category = forms.ChoiceField(
         choices=(
