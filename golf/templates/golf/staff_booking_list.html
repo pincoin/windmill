@@ -126,6 +126,8 @@
                     <div class="column is-1">
                         {% if booking.status == booking.STATUS_CHOICES.order_made %}
                             <a href="{% url 'golf:staff-booking-accept' booking.booking_uuid %}">
+                        {% elif booking.status == booking.STATUS_CHOICES.order_pending %}
+                            <a href="{% url 'golf:staff-booking-confirm' booking.booking_uuid %}">
                         {% else %}
                             <a href="{% url 'golf:staff-booking-detail' booking.booking_uuid %}">
                         {% endif %}

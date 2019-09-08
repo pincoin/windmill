@@ -317,8 +317,45 @@ class AgencyBookingAcceptUpdateView(viewmixins.GroupRequiredMixin, generic.Updat
         form.instance.status = models.Booking.STATUS_CHOICES.order_pending
         return super(AgencyBookingAcceptUpdateView, self).form_valid(form)
 
+    def get_success_url(self):
+        return reverse('golf:staff-booking-detail', args=(self.object.booking_uuid,))
+
+
+class AgencyBookingConfirmUpdateView(viewmixins.GroupRequiredMixin, generic.UpdateView):
+    group_required = ['staff', ]
+    model = models.Booking
+    context_object_name = 'booking'
+    template_name = 'golf/staff_booking_confirm_update.html'
+    form_class = forms.BookingConfirmForm
+
+    def get_object(self, queryset=None):
+        # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
+        queryset = models.Booking.objects \
+            .filter(status=models.Booking.STATUS_CHOICES.order_pending) \
+            .select_related('club', 'agency', 'agent__agentprofile')
+        return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
+
+    def get_context_data(self, **kwargs):
+        context = super(AgencyBookingConfirmUpdateView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Confirm order')
+        return context
+
+    def get_form_kwargs(self):
+        kwargs = super(AgencyBookingConfirmUpdateView, self).get_form_kwargs()
+        kwargs['booking'] = self.object
+        return kwargs
+
+    def form_valid(self, form):
+        form.instance.status = models.Booking.STATUS_CHOICES.payment_pending
+
+        form.instance.tee_off_time = timezone.datetime.strptime('{}:{}:00'.format(
+            form.cleaned_data['tee_off_time_hour'],
+            form.cleaned_data['tee_off_time_minute']), '%H:%M:%S').time()
+
+        return super(AgencyBookingConfirmUpdateView, self).form_valid(form)
+
     def form_invalid(self, form):
-        return super(AgencyBookingAcceptUpdateView, self).form_invalid(form)
+        return super(AgencyBookingConfirmUpdateView, self).form_invalid(form)
 
     def get_success_url(self):
         return reverse('golf:staff-booking-detail', args=(self.object.booking_uuid,))

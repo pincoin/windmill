@@ -152,23 +152,7 @@ class BookingForm(forms.ModelForm):
     )
 
     round_time_hour = forms.ChoiceField(
-        choices=(
-            ('6', '06',),
-            ('7', '07',),
-            ('8', '08',),
-            ('9', '09',),
-            ('10', '10',),
-            ('11', '11',),
-            ('12', '12',),
-            ('13', '13',),
-            ('14', '14',),
-            ('15', '15',),
-            ('16', '16',),
-            ('17', '17',),
-            ('18', '18',),
-            ('19', '19',),
-            ('20', '20',),
-        ),
+        choices=((str(x), str(x).zfill(2)) for x in range(6, 21)),
         widget=forms.Select(
             attrs={
                 'class': 'input',
@@ -177,14 +161,7 @@ class BookingForm(forms.ModelForm):
     )
 
     round_time_minute = forms.ChoiceField(
-        choices=(
-            ('0', '00',),
-            ('10', '10',),
-            ('20', '20',),
-            ('30', '30',),
-            ('40', '40',),
-            ('50', '50',),
-        ),
+        choices=((str(x), str(x).zfill(2)) for x in range(0, 60, 10)),
         widget=forms.Select(
             attrs={
                 'class': 'input',
@@ -194,13 +171,7 @@ class BookingForm(forms.ModelForm):
 
     people = forms.ChoiceField(
         label=_('No. of people'),
-        choices=(
-            ('1', '1',),
-            ('2', '2',),
-            ('3', '3',),
-            ('4', '4',),
-            ('5', '5',),
-        ),
+        choices=((str(x), str(x)) for x in range(1, 6)),
         widget=forms.Select(
             attrs={
                 'class': 'input',
@@ -286,6 +257,48 @@ class BookingDummyForm(forms.ModelForm):
     class Meta:
         model = models.Booking
         fields = ()
+
+
+class BookingConfirmForm(forms.ModelForm):
+    tee_off_time_hour = forms.ChoiceField(
+        label=_('Tee-off time'),
+        choices=((str(x), str(x).zfill(2)) for x in range(6, 21)),
+        widget=forms.Select(
+            attrs={
+                'class': 'input',
+                'required': 'True',
+            }),
+    )
+
+    tee_off_time_minute = forms.ChoiceField(
+        choices=((str(x), str(x).zfill(2)) for x in range(0, 60)),
+        widget=forms.Select(
+            attrs={
+                'class': 'input',
+                'required': 'True',
+            }),
+    )
+
+    def __init__(self, *args, **kwargs):
+        booking = kwargs.pop('booking', None)
+
+        super(BookingConfirmForm, self).__init__(*args, **kwargs)
+
+        if booking.slot == 0:
+            self.fields['tee_off_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(6, 12))
+        elif booking.slot == 1:
+            self.fields['tee_off_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(11, 15))
+        elif booking.slot == 2:
+            self.fields['tee_off_time_hour'].choices = (('15', '15',),)
+        elif booking.slot == 3:
+            self.fields['tee_off_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(16, 21))
+
+    class Meta:
+        model = models.Booking
+        fields = ()
+
+    def clean(self):
+        print(self.cleaned_data)
 
 
 class FeeForm(forms.Form):
