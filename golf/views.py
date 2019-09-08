@@ -27,7 +27,7 @@ class AgencyBookingListView(viewmixins.PageableMixin, viewmixins.GroupRequiredMi
 
     def get_queryset(self):
         queryset = models.Booking.objects \
-            .select_related('club', 'agency', 'agent') \
+            .select_related('club', 'agency', 'agent__agentprofile') \
             .filter(agent__id=self.request.user.id)
 
         if 'status' in self.request.GET and self.request.GET['status']:
@@ -206,7 +206,7 @@ class AgencyBookingDeleteView(viewmixins.GroupRequiredMixin, generic.DeleteView)
     def get_object(self, queryset=None):
         # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
         queryset = models.Booking.objects \
-            .filter(agent=self.request.user) \
+            .filter(agent=self.request.user, status=models.Booking.STATUS_CHOICES.order_pending) \
             .select_related('club', 'agency', 'agent__agentprofile')
         return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
 
@@ -231,7 +231,7 @@ class StaffBookingListView(viewmixins.PageableMixin, viewmixins.GroupRequiredMix
 
     def get_queryset(self):
         queryset = models.Booking.objects \
-            .select_related('club', 'agency', 'agent') \
+            .select_related('club', 'agency', 'agent__agentprofile') \
             .order_by('-created')
         return queryset
 
