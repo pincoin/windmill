@@ -10,10 +10,6 @@ from . import fields
 from . import models
 
 
-class DummyForm(forms.Form):
-    pass
-
-
 class BookingSearchForm(forms.Form):
     category = forms.ChoiceField(
         choices=(
@@ -284,6 +280,12 @@ class BookingForm(forms.ModelForm):
                 or int(self.cleaned_data['slot']) == models.Booking.SLOT_CHOICES.night \
                 and int(self.cleaned_data['round_time_hour']) not in [16, 17, 18, 19]:
             raise forms.ValidationError(_('Invalid round time'))
+
+
+class BookingDummyForm(forms.ModelForm):
+    class Meta:
+        model = models.Booking
+        fields = ()
 
 
 class FeeForm(forms.Form):

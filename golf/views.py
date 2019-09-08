@@ -277,6 +277,34 @@ class StaffBookingDetailView(viewmixins.GroupRequiredMixin, generic.DetailView):
         return context
 
 
+class AgencyBookingAcceptUpdateView(viewmixins.GroupRequiredMixin, generic.UpdateView):
+    group_required = ['staff', ]
+    model = models.Booking
+    context_object_name = 'booking'
+    template_name = 'golf/staff_booking_accept_update.html'
+    form_class = forms.BookingDummyForm
+
+    def get_object(self, queryset=None):
+        # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
+        queryset = models.Booking.objects \
+            .filter(status=models.Booking.STATUS_CHOICES.order_made) \
+            .select_related('club', 'agency', 'agent__agentprofile')
+        return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
+
+    def get_context_data(self, **kwargs):
+        context = super(AgencyBookingAcceptUpdateView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Accept order')
+        return context
+
+    def form_valid(self, form):
+        form.instance.status = models.Booking.STATUS_CHOICES.order_pending
+        return super(AgencyBookingAcceptUpdateView, self).form_valid(form)
+
+    def form_invalid(self, form):
+        return super(AgencyBookingAcceptUpdateView, self).form_invalid(form)
+
+    def get_success_url(self):
+        return reverse('golf:staff-booking-detail', args=(self.object.booking_uuid,))
 
 
 class APIFeeView(generic.FormView):

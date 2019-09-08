@@ -449,7 +449,7 @@ msgstr "보증금"
 
 #: golf/models.py:466
 msgid "order made"
-msgstr "예약접수"
+msgstr "접수대기"
 
 #: golf/models.py:467
 msgid "order pending"
