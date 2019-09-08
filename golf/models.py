@@ -444,7 +444,7 @@ class Deposit(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
         )
 
 
-class Booking(model_utils_models.TimeStampedModel):
+class Booking(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
     SEASON_CHOICES = Choices(
         (0, 'low', _('Low season')),
         (1, 'high', _('High season')),
