@@ -11,7 +11,7 @@
 
             <div class="columns is-centered">
                 <div class="column is-four-fifths">
-                    <form action="{% url 'golf:agency-booking-delete' booking.booking_uuid %}"  method="post">
+                    <form action="{% url 'golf:agency-booking-delete' booking.booking_uuid %}" method="post">
                         {% csrf_token %}
 
                         <div class="field is-horizontal">
@@ -217,29 +217,17 @@
                         <div class="field is-horizontal">
                             <div class="field-label is-normal">
                             </div>
-                            <div class="field-body is-fullwidth">
-                                <article class="message is-danger">
-                                    <div class="message-body">
-                                        <p>
-                                            {% trans 'Do you really want to delete order?' %}
-                                        </p>
-                                    </div>
-                                </article>
-                            </div>
-                        </div>
-
-                        <div class="field is-horizontal">
-                            <div class="field-label is-normal">
-                            </div>
                             <div class="field-body">
-                                <div class="columns is-multiline">
-                                    <div class="column">
+                                <div class="field">
+                                    <div class="control is-expanded">
                                         <button class="button is-danger is-fullwidth">
                                             <span class="icon"><i class="fas fa-trash-alt"></i></span>
                                             <span>{% trans 'Delete order' %}</span>
                                         </button>
                                     </div>
-                                    <div class="column">
+                                </div>
+                                <div class="field">
+                                    <div class="control is-expanded">
                                         <a href="{% url 'golf:agency-booking-list' %}"
                                            class="button is-dark is-fullwidth">
                                             <span class="icon"><i class="far fa-list-alt"></i></span>

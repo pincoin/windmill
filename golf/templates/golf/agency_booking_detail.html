@@ -217,15 +217,17 @@
                             <div class="field-label is-normal">
                             </div>
                             <div class="field-body">
-                                <div class="columns is-multiline">
-                                    <div class="column">
+                                <div class="field">
+                                    <div class="control is-expanded">
                                         <a href="{% url 'golf:agency-booking-delete' booking.booking_uuid %}"
                                            class="button is-danger is-fullwidth">
                                             <span class="icon"><i class="fas fa-trash-alt"></i></span>
                                             <span>{% trans 'Delete order' %}</span>
                                         </a>
                                     </div>
-                                    <div class="column">
+                                </div>
+                                <div class="field">
+                                    <div class="control is-expanded">
                                         <a href="{% url 'golf:agency-booking-list' %}"
                                            class="button is-dark is-fullwidth">
                                             <span class="icon"><i class="far fa-list-alt"></i></span>
