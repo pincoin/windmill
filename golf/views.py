@@ -128,7 +128,7 @@ class AgencyBookingDetailView(viewmixins.GroupRequiredMixin, generic.DetailView)
         # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
         queryset = models.Booking.objects \
             .filter(agent=self.request.user) \
-            .select_related('club', 'agency', 'agent')
+            .select_related('club', 'agency', 'agent__agentprofile')
         return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
 
     def get_context_data(self, **kwargs):
@@ -140,15 +140,15 @@ class AgencyBookingDetailView(viewmixins.GroupRequiredMixin, generic.DetailView)
 class AgencyBookingUpdateView(viewmixins.GroupRequiredMixin, generic.UpdateView):
     group_required = ['agency', ]
     model = models.Booking
-    context_object_name = 'post'
-    template_name = 'golf/agency_booking_create.html'
+    context_object_name = 'booking'
+    template_name = 'golf/agency_booking_update.html'
     form_class = forms.BookingForm
 
     def get_object(self, queryset=None):
         # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
         queryset = models.Booking.objects \
             .filter(agent=self.request.user) \
-            .select_related('club', 'agency', 'agent')
+            .select_related('club', 'agency', 'agent__agentprofile')
         return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
 
     def get_context_data(self, **kwargs):

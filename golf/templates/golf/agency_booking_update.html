@@ -28,6 +28,47 @@
 
                         <div class="field is-horizontal">
                             <div class="field-label is-normal">
+                                <label class="label" for="id_first_name">
+                                    {% trans 'Status / Created' %}
+                                </label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control has-icons-left">
+                                        <input type="text" value="{{ booking.get_status_display }} / {{ booking.created|date:'Y-m-d H:i' }}"
+                                               class="input disabled"
+                                               id="id_first_name" disabled>
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-splotch fa-fw has-text-grey"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label" for="id_first_name">
+                                    {% trans 'Agency' %}
+                                </label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control has-icons-left">
+                                        <input type="text"
+                                               value="{{ booking.agency.title }} - {{ booking.agent.agentprofile.fullname }}"
+                                               class="input disabled"
+                                               id="id_first_name" disabled>
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-building fa-fw has-text-grey"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
                                 <label class="label" for="{{ form.club.id_for_label }}">
                                     {{ form.club.label }}
                                     <span class="has-text-danger">*</span>
@@ -219,7 +260,7 @@
                                         <input type="text"
                                                class="input has-text-dark has-background-warning"
                                                id="id_fee"
-                                               value="0"
+                                               value="{{ booking.fee }}"
                                                disabled>
                                         <span class="icon is-small is-left">
                                             <i class="fas fa-credit-card fa-fw has-text-grey"></i>

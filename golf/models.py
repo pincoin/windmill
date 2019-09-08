@@ -1,3 +1,4 @@
+import re
 import uuid
 
 from django.conf import settings
@@ -401,6 +402,15 @@ class AgentProfile(model_utils_models.TimeStampedModel):
 
     changeform_link.allow_tags = True
     changeform_link.short_description = ''  # omit column header
+
+    @property
+    def fullname(self):
+        pattern = re.compile(r'^[가-힣]+$')  # Only Hangul
+
+        if pattern.match(self.user.last_name) and pattern.match(self.user.first_name):
+            return '{}{}'.format(self.user.last_name, self.user.first_name)
+        else:
+            return '{} {}'.format(self.user.first_name, self.user.last_name)
 
 
 class Deposit(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):

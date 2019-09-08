@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-07 21:04+0700\n"
+"POT-Creation-Date: 2019-09-08 10:31+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,9 +47,10 @@ msgid "Sign Up"
 msgstr "สมัครสมาชิก"
 
 #: conf/templates/conf/base.html:89 golf/admin.py:72 golf/admin.py:104
-#: golf/admin.py:135 golf/models.py:120 golf/models.py:320 golf/models.py:364
-#: golf/models.py:409 golf/models.py:483
+#: golf/admin.py:135 golf/models.py:121 golf/models.py:321 golf/models.py:365
+#: golf/models.py:419 golf/models.py:493
 #: golf/templates/golf/agency_booking_detail.html:16
+#: golf/templates/golf/agency_booking_update.html:52
 #: golf/templates/golf/staff_booking_list.html:58
 #: golf/templates/golf/staff_booking_list.html:120
 #: member/templates/member/account/profile.html:31
@@ -99,8 +100,8 @@ msgstr ""
 msgid "No golf club"
 msgstr ""
 
-#: golf/admin.py:126 golf/forms.py:123 golf/models.py:266 golf/models.py:276
-#: golf/models.py:476 golf/templates/golf/agency_booking_detail.html:41
+#: golf/admin.py:126 golf/forms.py:123 golf/models.py:267 golf/models.py:277
+#: golf/models.py:486 golf/templates/golf/agency_booking_detail.html:41
 #: golf/templates/golf/agency_booking_list.html:58
 #: golf/templates/golf/agency_booking_list.html:81
 #: golf/templates/golf/staff_booking_list.html:79
@@ -126,8 +127,8 @@ msgstr ""
 msgid "Booking person"
 msgstr ""
 
-#: golf/forms.py:17 golf/forms.py:234 golf/models.py:108 golf/models.py:535
-#: golf/models.py:654 golf/templates/golf/agency_booking_detail.html:91
+#: golf/forms.py:17 golf/forms.py:234 golf/models.py:109 golf/models.py:545
+#: golf/models.py:664 golf/templates/golf/agency_booking_detail.html:91
 msgid "Memo"
 msgstr ""
 
@@ -135,7 +136,7 @@ msgstr ""
 msgid "Search word"
 msgstr ""
 
-#: golf/forms.py:133 golf/models.py:160 golf/models.py:555
+#: golf/forms.py:133 golf/models.py:161 golf/models.py:565
 msgid "Time slot"
 msgstr ""
 
@@ -145,7 +146,7 @@ msgstr ""
 msgid "Round date/time"
 msgstr ""
 
-#: golf/forms.py:196 golf/models.py:509
+#: golf/forms.py:196 golf/models.py:519
 #: golf/templates/golf/agency_booking_detail.html:57
 #: golf/templates/golf/agency_booking_list.html:87
 #: golf/templates/golf/staff_booking_list.html:108
@@ -160,11 +161,11 @@ msgstr ""
 msgid "Only alphabets are allowed."
 msgstr ""
 
-#: golf/forms.py:218 golf/models.py:520 member/forms2.py:9
+#: golf/forms.py:218 golf/models.py:530 member/forms2.py:9
 msgid "First name"
 msgstr ""
 
-#: golf/forms.py:228 golf/models.py:525 member/forms2.py:15
+#: golf/forms.py:228 golf/models.py:535 member/forms2.py:15
 msgid "Last name"
 msgstr ""
 
@@ -184,316 +185,316 @@ msgstr ""
 msgid "YYYY-MM-DD"
 msgstr ""
 
-#: golf/models.py:13 golf/models.py:189
+#: golf/models.py:14 golf/models.py:190
 #, fuzzy
 #| msgid "Thai"
 msgid "Thailand"
 msgstr "ภาษาไทย"
 
-#: golf/models.py:14 golf/models.py:190
+#: golf/models.py:15 golf/models.py:191
 msgid "South Korea"
 msgstr ""
 
-#: golf/models.py:15 golf/models.py:191
+#: golf/models.py:16 golf/models.py:192
 msgid "Japan"
 msgstr ""
 
-#: golf/models.py:16 golf/models.py:192
+#: golf/models.py:17 golf/models.py:193
 msgid "China"
 msgstr ""
 
-#: golf/models.py:20
+#: golf/models.py:21
 msgid "Holiday name"
 msgstr ""
 
-#: golf/models.py:25
+#: golf/models.py:26
 msgid "Holiday day"
 msgstr ""
 
-#: golf/models.py:30 golf/models.py:254
+#: golf/models.py:31 golf/models.py:255
 msgid "Country code"
 msgstr ""
 
-#: golf/models.py:37
+#: golf/models.py:38
 msgid "Holiday"
 msgstr ""
 
-#: golf/models.py:38
+#: golf/models.py:39
 msgid "Holidays"
 msgstr ""
 
-#: golf/models.py:48
+#: golf/models.py:49
 msgid "Travel agency"
 msgstr ""
 
-#: golf/models.py:49
+#: golf/models.py:50
 msgid "Personal agent"
 msgstr ""
 
-#: golf/models.py:50
+#: golf/models.py:51
 msgid "Booking agency"
 msgstr ""
 
-#: golf/models.py:54
+#: golf/models.py:55
 msgid "Agency name"
 msgstr ""
 
-#: golf/models.py:59
+#: golf/models.py:60
 msgid "Agency type"
 msgstr ""
 
-#: golf/models.py:66 golf/models.py:593
+#: golf/models.py:67 golf/models.py:603
 msgid "Bank account"
 msgstr ""
 
-#: golf/models.py:73
+#: golf/models.py:74
 msgid "Cancellable days"
 msgstr ""
 
-#: golf/models.py:79
+#: golf/models.py:80
 msgid "Payment due days"
 msgstr ""
 
-#: golf/models.py:85
+#: golf/models.py:86
 msgid "Bookable days"
 msgstr ""
 
-#: golf/models.py:91 golf/models.py:201
+#: golf/models.py:92 golf/models.py:202
 msgid "Phone number"
 msgstr ""
 
-#: golf/models.py:96 golf/models.py:208 member/models.py:32
+#: golf/models.py:97 golf/models.py:209 member/models.py:32
 #: member/templates/member/account/email_confirm.html:22
 msgid "Email address"
 msgstr ""
 
-#: golf/models.py:101 golf/models.py:215
+#: golf/models.py:102 golf/models.py:216
 msgid "Website"
 msgstr ""
 
-#: golf/models.py:109
+#: golf/models.py:110
 msgid "A short description"
 msgstr ""
 
-#: golf/models.py:121
+#: golf/models.py:122
 msgid "Agencies"
 msgstr ""
 
-#: golf/models.py:129 golf/models.py:439
+#: golf/models.py:130 golf/models.py:449
 msgid "Low season"
 msgstr ""
 
-#: golf/models.py:130 golf/models.py:249 golf/models.py:440
+#: golf/models.py:131 golf/models.py:250 golf/models.py:450
 msgid "High season"
 msgstr ""
 
-#: golf/models.py:134 golf/models.py:444
+#: golf/models.py:135 golf/models.py:454
 msgid "Weekday"
 msgstr ""
 
-#: golf/models.py:135 golf/models.py:445
+#: golf/models.py:136 golf/models.py:455
 msgid "Weekend"
 msgstr ""
 
-#: golf/models.py:139 golf/models.py:449
+#: golf/models.py:140 golf/models.py:459
 msgid "Morning"
 msgstr ""
 
-#: golf/models.py:140 golf/models.py:450
+#: golf/models.py:141 golf/models.py:460
 msgid "Daytime"
 msgstr ""
 
-#: golf/models.py:141 golf/models.py:451
+#: golf/models.py:142 golf/models.py:461
 msgid "Twilight"
 msgstr ""
 
-#: golf/models.py:142 golf/models.py:452
+#: golf/models.py:143 golf/models.py:462
 msgid "Night"
 msgstr ""
 
-#: golf/models.py:146 golf/models.py:541
+#: golf/models.py:147 golf/models.py:551
 msgid "High/Low Season"
 msgstr ""
 
-#: golf/models.py:153 golf/models.py:548
+#: golf/models.py:154 golf/models.py:558
 msgid "Day of week"
 msgstr ""
 
-#: golf/models.py:167
+#: golf/models.py:168
 msgid "Golf club product"
 msgstr ""
 
-#: golf/models.py:168
+#: golf/models.py:169
 msgid "Golf club products"
 msgstr ""
 
-#: golf/models.py:182
+#: golf/models.py:183
 msgid "18 Holes"
 msgstr ""
 
-#: golf/models.py:183
+#: golf/models.py:184
 msgid "9 Holes"
 msgstr ""
 
-#: golf/models.py:184
+#: golf/models.py:185
 msgid "27 Holes"
 msgstr ""
 
-#: golf/models.py:185
+#: golf/models.py:186
 msgid "36 Holes"
 msgstr ""
 
-#: golf/models.py:196
+#: golf/models.py:197
 msgid "Golf club name"
 msgstr ""
 
-#: golf/models.py:222
+#: golf/models.py:223
 msgid "No. of Holes"
 msgstr ""
 
-#: golf/models.py:229
+#: golf/models.py:230
 msgid "Cart rental required"
 msgstr ""
 
-#: golf/models.py:235
+#: golf/models.py:236
 msgid "Cart fee"
 msgstr ""
 
-#: golf/models.py:238 golf/models.py:245 golf/models.py:300 golf/models.py:338
-#: golf/models.py:418 golf/models.py:516
+#: golf/models.py:239 golf/models.py:246 golf/models.py:301 golf/models.py:339
+#: golf/models.py:428 golf/models.py:526
 msgid "THB"
 msgstr ""
 
-#: golf/models.py:242
+#: golf/models.py:243
 msgid "Caddie fee"
 msgstr ""
 
-#: golf/models.py:267
+#: golf/models.py:268
 msgid "Golf clubs"
 msgstr ""
 
-#: golf/models.py:283 golf/models.py:329
+#: golf/models.py:284 golf/models.py:330
 msgid "Product list"
 msgstr ""
 
-#: golf/models.py:289
+#: golf/models.py:290
 msgid "Start time"
 msgstr ""
 
-#: golf/models.py:293
+#: golf/models.py:294
 msgid "End time"
 msgstr ""
 
-#: golf/models.py:297
+#: golf/models.py:298
 msgid "List price"
 msgstr ""
 
-#: golf/models.py:304 golf/models.py:342
+#: golf/models.py:305 golf/models.py:343
 msgid "Position"
 msgstr ""
 
-#: golf/models.py:308 golf/models.py:309
+#: golf/models.py:309 golf/models.py:310
 msgid "Product list membership"
 msgstr ""
 
-#: golf/models.py:335 golf/models.py:513
+#: golf/models.py:336 golf/models.py:523
 msgid "Fee amount"
 msgstr ""
 
-#: golf/models.py:346 golf/models.py:347
+#: golf/models.py:347 golf/models.py:348
 msgid "Agency product list membership"
 msgstr ""
 
-#: golf/models.py:372
+#: golf/models.py:373
 msgid "Cellphone number"
 msgstr ""
 
-#: golf/models.py:379
+#: golf/models.py:380
 msgid "Line ID"
 msgstr ""
 
-#: golf/models.py:386 member/admin.py:50
+#: golf/models.py:387 member/admin.py:50
 msgid "Agent profile"
 msgstr ""
 
-#: golf/models.py:387
+#: golf/models.py:388
 msgid "Agent profiles"
 msgstr ""
 
-#: golf/models.py:417
+#: golf/models.py:427
 msgid "Amount"
 msgstr ""
 
-#: golf/models.py:424 golf/models.py:606
+#: golf/models.py:434 golf/models.py:616
 msgid "Received date"
 msgstr ""
 
-#: golf/models.py:428
+#: golf/models.py:438
 msgid "Deposit"
 msgstr ""
 
-#: golf/models.py:429
+#: golf/models.py:439
 msgid "Deposits"
 msgstr ""
 
-#: golf/models.py:456
+#: golf/models.py:466
 msgid "order pending"
 msgstr ""
 
-#: golf/models.py:457
+#: golf/models.py:467
 msgid "payment_pending"
 msgstr ""
 
-#: golf/models.py:458
+#: golf/models.py:468
 msgid "voucher issued"
 msgstr ""
 
-#: golf/models.py:459
+#: golf/models.py:469
 msgid "order revoked"
 msgstr ""
 
-#: golf/models.py:460
+#: golf/models.py:470
 msgid "refund requested"
 msgstr ""
 
-#: golf/models.py:461
+#: golf/models.py:471
 msgid "refund pending"
 msgstr ""
 
-#: golf/models.py:462
+#: golf/models.py:472
 msgid "order refunded(original)"
 msgstr ""
 
-#: golf/models.py:463
+#: golf/models.py:473
 msgid "order refunded(reverse)"
 msgstr ""
 
-#: golf/models.py:464
+#: golf/models.py:474
 msgid "order voided"
 msgstr ""
 
-#: golf/models.py:468
+#: golf/models.py:478
 msgid "UUID"
 msgstr ""
 
-#: golf/models.py:492 golf/templates/golf/agency_booking_detail.html:24
+#: golf/models.py:502 golf/templates/golf/agency_booking_detail.html:24
 #: golf/templates/golf/staff_booking_list.html:123
 msgid "Agent"
 msgstr ""
 
-#: golf/models.py:500
+#: golf/models.py:510
 msgid "Round day"
 msgstr ""
 
-#: golf/models.py:505
+#: golf/models.py:515
 msgid "Round time"
 msgstr ""
 
-#: golf/models.py:530
+#: golf/models.py:540
 msgid "Full name"
 msgstr ""
 
-#: golf/models.py:562 golf/templates/golf/agency_booking_detail.html:33
+#: golf/models.py:572 golf/templates/golf/agency_booking_detail.html:33
 #: golf/templates/golf/agency_booking_list.html:37
 #: golf/templates/golf/agency_booking_list.html:78
 #: golf/templates/golf/staff_booking_list.html:37
@@ -501,64 +502,64 @@ msgstr ""
 msgid "Booking status"
 msgstr ""
 
-#: golf/models.py:569 golf/models.py:570 golf/models.py:587 golf/models.py:622
-#: golf/models.py:644
+#: golf/models.py:579 golf/models.py:580 golf/models.py:597 golf/models.py:632
+#: golf/models.py:654
 msgid "Booking"
 msgstr ""
 
-#: golf/models.py:578
+#: golf/models.py:588
 msgid "Kasikorn Bank"
 msgstr ""
 
-#: golf/models.py:579
+#: golf/models.py:589
 msgid "Bangkok Bank"
 msgstr ""
 
-#: golf/models.py:580
+#: golf/models.py:590
 msgid "Siam Commercial Bank"
 msgstr ""
 
-#: golf/models.py:581
+#: golf/models.py:591
 msgid "Ayudhya Bank"
 msgstr ""
 
-#: golf/models.py:582
+#: golf/models.py:592
 msgid "Krungthai Bank"
 msgstr ""
 
-#: golf/models.py:600
+#: golf/models.py:610
 msgid "Paid amount"
 msgstr ""
 
-#: golf/models.py:610
+#: golf/models.py:620
 msgid "Booking payment"
 msgstr ""
 
-#: golf/models.py:611
+#: golf/models.py:621
 msgid "Booking payments"
 msgstr ""
 
-#: golf/models.py:628
+#: golf/models.py:638
 msgid "Unpaid mount"
 msgstr ""
 
-#: golf/models.py:634
+#: golf/models.py:644
 msgid "Booking account receivable"
 msgstr ""
 
-#: golf/models.py:635
+#: golf/models.py:645
 msgid "Booking accounts receivable"
 msgstr ""
 
-#: golf/models.py:650
+#: golf/models.py:660
 msgid "Changelog"
 msgstr ""
 
-#: golf/models.py:660
+#: golf/models.py:670
 msgid "Booking change log"
 msgstr ""
 
-#: golf/models.py:661
+#: golf/models.py:671
 msgid "Booking change logs"
 msgstr ""
 
@@ -575,20 +576,20 @@ msgstr ""
 #: golf/templates/golf/agency_booking_create.html:213
 #: golf/templates/golf/agency_booking_detail.html:75
 #: golf/templates/golf/agency_booking_list.html:93
-#: golf/templates/golf/agency_booking_update.html:213
+#: golf/templates/golf/agency_booking_update.html:254
 #: golf/templates/golf/staff_booking_list.html:114
 msgid "Fee"
 msgstr ""
 
 #: golf/templates/golf/agency_booking_create.html:276
 #: golf/templates/golf/agency_booking_list.html:133
-#: golf/templates/golf/agency_booking_update.html:276 golf/views.py:83
+#: golf/templates/golf/agency_booking_update.html:317 golf/views.py:83
 msgid "Make an order"
 msgstr ""
 
 #: golf/templates/golf/agency_booking_create.html:283
 #: golf/templates/golf/agency_booking_detail.html:104
-#: golf/templates/golf/agency_booking_update.html:283
+#: golf/templates/golf/agency_booking_update.html:324
 msgid "Order list"
 msgstr ""
 
@@ -600,6 +601,10 @@ msgstr ""
 
 #: golf/templates/golf/agency_booking_detail.html:111
 msgid "Delete an order"
+msgstr ""
+
+#: golf/templates/golf/agency_booking_update.html:32
+msgid "Status / Created"
 msgstr ""
 
 #: golf/views.py:136
