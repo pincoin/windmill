@@ -29,10 +29,13 @@ urlpatterns = [
          views.StaffBookingDetailView.as_view(), name='staff-booking-detail'),
 
     path('staff/booking/<uuid:uuid>/accept',
-         views.AgencyBookingAcceptUpdateView.as_view(), name='staff-booking-accept'),
+         views.StaffBookingAcceptUpdateView.as_view(), name='staff-booking-accept'),
 
     path('staff/booking/<uuid:uuid>/confirm',
-         views.AgencyBookingConfirmUpdateView.as_view(), name='staff-booking-confirm'),
+         views.StaffBookingConfirmUpdateView.as_view(), name='staff-booking-confirm'),
+
+    path('staff/booking/<uuid:uuid>/void',
+         views.StaffBookingVoidUpdateView.as_view(), name='staff-booking-void'),
 
     path('staff/booking/<uuid:uuid>/update/',
          views.StaffBookingDetailView.as_view(), name='staff-booking-update'),

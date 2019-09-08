@@ -206,7 +206,11 @@ class AgencyBookingDeleteView(viewmixins.GroupRequiredMixin, generic.DeleteView)
     def get_object(self, queryset=None):
         # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
         queryset = models.Booking.objects \
-            .filter(agent=self.request.user, status=models.Booking.STATUS_CHOICES.order_made) \
+            .filter(agent=self.request.user,
+                    status__in=[
+                        models.Booking.STATUS_CHOICES.order_made,
+                        models.Booking.STATUS_CHOICES.voided,
+                    ]) \
             .select_related('club', 'agency', 'agent__agentprofile')
         return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
 
@@ -294,7 +298,7 @@ class StaffBookingDetailView(viewmixins.GroupRequiredMixin, generic.DetailView):
         return context
 
 
-class AgencyBookingAcceptUpdateView(viewmixins.GroupRequiredMixin, generic.UpdateView):
+class StaffBookingAcceptUpdateView(viewmixins.GroupRequiredMixin, generic.UpdateView):
     group_required = ['staff', ]
     model = models.Booking
     context_object_name = 'booking'
@@ -309,19 +313,19 @@ class AgencyBookingAcceptUpdateView(viewmixins.GroupRequiredMixin, generic.Updat
         return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
 
     def get_context_data(self, **kwargs):
-        context = super(AgencyBookingAcceptUpdateView, self).get_context_data(**kwargs)
+        context = super(StaffBookingAcceptUpdateView, self).get_context_data(**kwargs)
         context['page_title'] = _('Accept order')
         return context
 
     def form_valid(self, form):
         form.instance.status = models.Booking.STATUS_CHOICES.order_pending
-        return super(AgencyBookingAcceptUpdateView, self).form_valid(form)
+        return super(StaffBookingAcceptUpdateView, self).form_valid(form)
 
     def get_success_url(self):
-        return reverse('golf:staff-booking-detail', args=(self.object.booking_uuid,))
+        return reverse('golf:staff-booking-confirm', args=(self.object.booking_uuid,))
 
 
-class AgencyBookingConfirmUpdateView(viewmixins.GroupRequiredMixin, generic.UpdateView):
+class StaffBookingConfirmUpdateView(viewmixins.GroupRequiredMixin, generic.UpdateView):
     group_required = ['staff', ]
     model = models.Booking
     context_object_name = 'booking'
@@ -336,12 +340,12 @@ class AgencyBookingConfirmUpdateView(viewmixins.GroupRequiredMixin, generic.Upda
         return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
 
     def get_context_data(self, **kwargs):
-        context = super(AgencyBookingConfirmUpdateView, self).get_context_data(**kwargs)
+        context = super(StaffBookingConfirmUpdateView, self).get_context_data(**kwargs)
         context['page_title'] = _('Confirm order')
         return context
 
     def get_form_kwargs(self):
-        kwargs = super(AgencyBookingConfirmUpdateView, self).get_form_kwargs()
+        kwargs = super(StaffBookingConfirmUpdateView, self).get_form_kwargs()
         kwargs['booking'] = self.object
         return kwargs
 
@@ -352,13 +356,37 @@ class AgencyBookingConfirmUpdateView(viewmixins.GroupRequiredMixin, generic.Upda
             form.cleaned_data['tee_off_time_hour'],
             form.cleaned_data['tee_off_time_minute']), '%H:%M:%S').time()
 
-        return super(AgencyBookingConfirmUpdateView, self).form_valid(form)
-
-    def form_invalid(self, form):
-        return super(AgencyBookingConfirmUpdateView, self).form_invalid(form)
+        return super(StaffBookingConfirmUpdateView, self).form_valid(form)
 
     def get_success_url(self):
         return reverse('golf:staff-booking-detail', args=(self.object.booking_uuid,))
+
+
+class StaffBookingVoidUpdateView(viewmixins.GroupRequiredMixin, generic.UpdateView):
+    group_required = ['staff', ]
+    model = models.Booking
+    context_object_name = 'booking'
+    template_name = 'golf/staff_booking_void_update.html'
+    form_class = forms.BookingDummyForm
+
+    def get_object(self, queryset=None):
+        # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
+        queryset = models.Booking.objects \
+            .filter(status=models.Booking.STATUS_CHOICES.order_pending) \
+            .select_related('club', 'agency', 'agent__agentprofile')
+        return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
+
+    def get_context_data(self, **kwargs):
+        context = super(StaffBookingVoidUpdateView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Void order')
+        return context
+
+    def form_valid(self, form):
+        form.instance.status = models.Booking.STATUS_CHOICES.voided
+        return super(StaffBookingVoidUpdateView, self).form_valid(form)
+
+    def get_success_url(self):
+        return reverse('golf:staff-booking-list')
 
 
 class APIFeeView(generic.FormView):

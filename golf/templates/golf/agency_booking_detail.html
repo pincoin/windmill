@@ -129,7 +129,7 @@
                                         <div class="control has-icons-left">
                                             <input type="text"
                                                    value="{{ booking.tee_off_time|date:'H:i' }}"
-                                                   class="input disabled"
+                                                   class="input has-text-dark has-background-warning"
                                                    id="id_slot" disabled>
                                             <span class="icon is-small is-left">
                                            <i class="fas fa-clock fa-fw has-text-grey"></i>
@@ -238,7 +238,7 @@
                             <div class="field-label is-normal">
                             </div>
                             <div class="field-body">
-                                {% if booking.status == booking.STATUS_CHOICES.order_made %}
+                                {% if booking.status == booking.STATUS_CHOICES.order_made or booking.status == booking.STATUS_CHOICES.voided %}
                                     <div class="field">
                                         <div class="control is-expanded">
                                             <a href="{% url 'golf:agency-booking-delete' booking.booking_uuid %}"
