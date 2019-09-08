@@ -231,9 +231,26 @@ class StaffBookingListView(viewmixins.PageableMixin, viewmixins.GroupRequiredMix
 
     def get_queryset(self):
         queryset = models.Booking.objects \
-            .select_related('club', 'agency', 'agent__agentprofile') \
-            .order_by('-created')
-        return queryset
+            .select_related('club', 'agency', 'agent__agentprofile')
+
+        if 'status' in self.request.GET and self.request.GET['status']:
+            queryset = queryset.filter(status=int(self.request.GET['status'].strip()))
+
+        if 'club' in self.request.GET and self.request.GET['club']:
+            queryset = queryset.filter(status=int(self.request.GET['club'].strip()))
+
+        if 'category' in self.request.GET \
+                and 'keyword' in self.request.GET \
+                and self.request.GET['keyword']:
+
+            print(self.request.GET['category'])
+            print(self.request.GET['keyword'])
+            if self.request.GET['category'] == '1':
+                queryset = queryset.filter(fullname__contains=self.request.GET['keyword'].strip())
+            elif self.request.GET['category'] == '2':
+                queryset = queryset.filter(memo__contains=self.request.GET['keyword'].strip())
+
+        return queryset.order_by('-created')
 
     def get_context_data(self, **kwargs):
         context = super(StaffBookingListView, self).get_context_data(**kwargs)
