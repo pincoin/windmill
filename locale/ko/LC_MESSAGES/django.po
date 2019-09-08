@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-08 10:31+0700\n"
+"POT-Creation-Date: 2019-09-08 10:42+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,6 @@ msgstr "회원가입"
 #: golf/admin.py:135 golf/models.py:121 golf/models.py:321 golf/models.py:365
 #: golf/models.py:419 golf/models.py:493
 #: golf/templates/golf/agency_booking_detail.html:16
-#: golf/templates/golf/agency_booking_update.html:52
 #: golf/templates/golf/staff_booking_list.html:58
 #: golf/templates/golf/staff_booking_list.html:120
 #: member/templates/member/account/profile.html:31
@@ -603,7 +602,11 @@ msgstr "예약취소"
 
 #: golf/templates/golf/agency_booking_update.html:32
 msgid "Status / Created"
-msgstr "상태 / 발주일시"
+msgstr "예약상태 / 발주일시"
+
+#: golf/templates/golf/agency_booking_update.html:52
+msgid "Agency / Agent"
+msgstr "에이전시 / 담당자"
 
 #: golf/views.py:136
 msgid "Booking Details"

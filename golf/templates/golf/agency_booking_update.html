@@ -49,14 +49,14 @@
                         <div class="field is-horizontal">
                             <div class="field-label is-normal">
                                 <label class="label" for="id_first_name">
-                                    {% trans 'Agency' %}
+                                    {% trans 'Agency / Agent' %}
                                 </label>
                             </div>
                             <div class="field-body">
                                 <div class="field">
                                     <div class="control has-icons-left">
                                         <input type="text"
-                                               value="{{ booking.agency.title }} - {{ booking.agent.agentprofile.fullname }}"
+                                               value="{{ booking.agency.title }} / {{ booking.agent.agentprofile.fullname }}"
                                                class="input disabled"
                                                id="id_first_name" disabled>
                                         <span class="icon is-small is-left">
