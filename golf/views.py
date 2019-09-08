@@ -119,8 +119,9 @@ class AgencyBookingCreateView(viewmixins.GroupRequiredMixin, generic.CreateView)
         return reverse('golf:agency-booking-list')
 
 
-class AgencyBookingDetailView(viewmixins.GroupRequiredMixin, generic.DetailView):
+class AgencyBookingDetailUpdateView(viewmixins.GroupRequiredMixin, generic.DetailView):
     group_required = ['agency', ]
+    model = models.Booking
     context_object_name = 'booking'
     template_name = 'golf/agency_booking_detail.html'
 
@@ -132,7 +133,7 @@ class AgencyBookingDetailView(viewmixins.GroupRequiredMixin, generic.DetailView)
         return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
 
     def get_context_data(self, **kwargs):
-        context = super(AgencyBookingDetailView, self).get_context_data(**kwargs)
+        context = super(AgencyBookingDetailUpdateView, self).get_context_data(**kwargs)
         context['page_title'] = _('Booking Details')
         return context
 
