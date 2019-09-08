@@ -621,7 +621,7 @@ msgstr "예약발주"
 #: golf/templates/golf/agency_booking_list.html:90
 #: golf/templates/golf/staff_booking_list.html:111
 msgid "Season / Day of week / Slot"
-msgstr "구분"
+msgstr "예약구분"
 
 #: golf/views.py:139
 msgid "Booking Details"
