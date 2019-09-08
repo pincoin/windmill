@@ -124,9 +124,9 @@
             {% for booking in booking_list %}
                 <div class="columns">
                     <div class="column is-1">
-                        <span>
-                        {{ booking.get_status_display }}
-                        </span>
+                        <a href="{% url 'golf:staff-booking-detail' booking.booking_uuid %}">
+                            {{ booking.get_status_display }}
+                        </a>
                     </div>
                     <div class="column is-1">
                         {{ booking.club.title }}

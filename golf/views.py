@@ -121,7 +121,7 @@ class AgencyBookingCreateView(viewmixins.GroupRequiredMixin, generic.CreateView)
         return reverse('golf:agency-booking-list')
 
 
-class AgencyBookingDetailUpdateView(viewmixins.GroupRequiredMixin, generic.DetailView):
+class AgencyBookingDetailView(viewmixins.GroupRequiredMixin, generic.DetailView):
     group_required = ['agency', ]
     model = models.Booking
     context_object_name = 'booking'
@@ -135,7 +135,7 @@ class AgencyBookingDetailUpdateView(viewmixins.GroupRequiredMixin, generic.Detai
         return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
 
     def get_context_data(self, **kwargs):
-        context = super(AgencyBookingDetailUpdateView, self).get_context_data(**kwargs)
+        context = super(AgencyBookingDetailView, self).get_context_data(**kwargs)
         context['page_title'] = _('Booking Details')
         return context
 
@@ -261,6 +261,20 @@ class StaffBookingListView(viewmixins.PageableMixin, viewmixins.GroupRequiredMix
 
 class StaffBookingDetailView(viewmixins.GroupRequiredMixin, generic.DetailView):
     group_required = ['staff', ]
+    model = models.Booking
+    context_object_name = 'booking'
+    template_name = 'golf/staff_booking_detail.html'
+
+    def get_object(self, queryset=None):
+        # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
+        queryset = models.Booking.objects \
+            .select_related('club', 'agency', 'agent__agentprofile')
+        return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
+
+    def get_context_data(self, **kwargs):
+        context = super(StaffBookingDetailView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Booking Details')
+        return context
 
 
 class StaffBookingDeleteView(viewmixins.GroupRequiredMixin, generic.DeleteView):
