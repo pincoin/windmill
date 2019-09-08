@@ -515,6 +515,12 @@ class Booking(model_utils_models.TimeStampedModel):
         verbose_name=_('Round time'),
     )
 
+    tee_off_time = models.TimeField(
+        verbose_name=_('Tee off time'),
+        null=True,
+        blank=True,
+    )
+
     people = models.IntegerField(
         verbose_name=_('No. of people'),
     )
