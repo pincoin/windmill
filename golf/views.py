@@ -195,6 +195,24 @@ class AgencyBookingUpdateView(viewmixins.GroupRequiredMixin, generic.UpdateView)
 
 class AgencyBookingDeleteView(viewmixins.GroupRequiredMixin, generic.DeleteView):
     group_required = ['agency', ]
+    model = models.Booking
+    context_object_name = 'booking'
+    template_name = 'golf/agency_booking_confirm_delete.html'
+
+    def get_object(self, queryset=None):
+        # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
+        queryset = models.Booking.objects \
+            .filter(agent=self.request.user) \
+            .select_related('club', 'agency', 'agent__agentprofile')
+        return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
+
+    def get_context_data(self, **kwargs):
+        context = super(AgencyBookingDeleteView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Delete booking')
+        return context
+
+    def get_success_url(self):
+        return reverse('golf:agency-booking-list')
 
 
 class StaffBookingListView(viewmixins.PageableMixin, viewmixins.GroupRequiredMixin, generic.ListView):
