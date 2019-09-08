@@ -277,8 +277,6 @@ class StaffBookingDetailView(viewmixins.GroupRequiredMixin, generic.DetailView):
         return context
 
 
-class StaffBookingDeleteView(viewmixins.GroupRequiredMixin, generic.DeleteView):
-    group_required = ['staff', ]
 
 
 class APIFeeView(generic.FormView):

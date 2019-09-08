@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-08 16:22+0700\n"
+"POT-Creation-Date: 2019-09-08 17:16+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -102,6 +102,7 @@ msgstr "골프클럽 없음"
 #: golf/templates/golf/agency_booking_detail.html:60
 #: golf/templates/golf/agency_booking_list.html:58
 #: golf/templates/golf/agency_booking_list.html:81
+#: golf/templates/golf/staff_booking_detail.html:60
 #: golf/templates/golf/staff_booking_list.html:79
 #: golf/templates/golf/staff_booking_list.html:102
 msgid "Golf club"
@@ -128,6 +129,7 @@ msgstr "예약자"
 #: golf/models.py:671
 #: golf/templates/golf/agency_booking_confirm_delete.html:201
 #: golf/templates/golf/agency_booking_detail.html:199
+#: golf/templates/golf/staff_booking_detail.html:199
 msgid "Memo"
 msgstr "메모"
 
@@ -138,12 +140,14 @@ msgstr "검색어"
 #: golf/forms.py:137 golf/models.py:161 golf/models.py:572
 #: golf/templates/golf/agency_booking_confirm_delete.html:104
 #: golf/templates/golf/agency_booking_detail.html:102
+#: golf/templates/golf/staff_booking_detail.html:102
 msgid "Time slot"
 msgstr "시간대"
 
 #: golf/forms.py:148 golf/templates/golf/agency_booking_confirm_delete.html:83
 #: golf/templates/golf/agency_booking_detail.html:81
 #: golf/templates/golf/agency_booking_list.html:84
+#: golf/templates/golf/staff_booking_detail.html:81
 #: golf/templates/golf/staff_booking_list.html:105
 msgid "Round date/time"
 msgstr "라운딩 일시"
@@ -152,12 +156,14 @@ msgstr "라운딩 일시"
 #: golf/templates/golf/agency_booking_confirm_delete.html:125
 #: golf/templates/golf/agency_booking_detail.html:123
 #: golf/templates/golf/agency_booking_list.html:87
+#: golf/templates/golf/staff_booking_detail.html:123
 #: golf/templates/golf/staff_booking_list.html:108
 msgid "No. of people"
 msgstr "인원수"
 
 #: golf/forms.py:217 golf/templates/golf/agency_booking_confirm_delete.html:146
 #: golf/templates/golf/agency_booking_detail.html:144
+#: golf/templates/golf/staff_booking_detail.html:144
 msgid "Full name (Passport)"
 msgstr "성명 (여권영문이름)"
 
@@ -173,8 +179,9 @@ msgstr "이름 (GILDONG)"
 msgid "Last name"
 msgstr "성 (HONG)"
 
-#: golf/forms.py:243 golf/templates/golf/agency_booking_confirm_delete.html:209
-#: golf/templates/golf/agency_booking_detail.html:208
+#: golf/forms.py:243 golf/templates/golf/agency_booking_confirm_delete.html:208
+#: golf/templates/golf/agency_booking_detail.html:206
+#: golf/templates/golf/staff_booking_detail.html:206
 msgid "Remarks"
 msgstr "비고"
 
@@ -585,12 +592,14 @@ msgstr "다음"
 #: golf/templates/golf/agency_booking_confirm_delete.html:20
 #: golf/templates/golf/agency_booking_detail.html:18
 #: golf/templates/golf/agency_booking_update.html:32
+#: golf/templates/golf/staff_booking_detail.html:18
 msgid "Status / Created"
 msgstr "예약상태 / 발주일시"
 
 #: golf/templates/golf/agency_booking_confirm_delete.html:41
 #: golf/templates/golf/agency_booking_detail.html:39
 #: golf/templates/golf/agency_booking_update.html:53
+#: golf/templates/golf/staff_booking_detail.html:39
 #: golf/templates/golf/staff_booking_list.html:120
 msgid "Agency / Agent"
 msgstr "에이전시 / 담당자"
@@ -600,19 +609,21 @@ msgstr "에이전시 / 담당자"
 #: golf/templates/golf/agency_booking_detail.html:165
 #: golf/templates/golf/agency_booking_list.html:93
 #: golf/templates/golf/agency_booking_update.html:255
+#: golf/templates/golf/staff_booking_detail.html:165
 #: golf/templates/golf/staff_booking_list.html:114
 msgid "Fee"
 msgstr "요금"
 
-#: golf/templates/golf/agency_booking_confirm_delete.html:225
-#: golf/templates/golf/agency_booking_detail.html:226
+#: golf/templates/golf/agency_booking_confirm_delete.html:224
+#: golf/templates/golf/agency_booking_detail.html:224
 msgid "Delete order"
 msgstr "예약삭제"
 
-#: golf/templates/golf/agency_booking_confirm_delete.html:234
+#: golf/templates/golf/agency_booking_confirm_delete.html:233
 #: golf/templates/golf/agency_booking_create.html:285
-#: golf/templates/golf/agency_booking_detail.html:236
+#: golf/templates/golf/agency_booking_detail.html:234
 #: golf/templates/golf/agency_booking_update.html:328
+#: golf/templates/golf/staff_booking_detail.html:234
 msgid "Order list"
 msgstr "예약목록"
 
@@ -627,7 +638,11 @@ msgstr "예약발주"
 msgid "Season / Day of week / Slot"
 msgstr "예약구분"
 
-#: golf/views.py:139
+#: golf/templates/golf/staff_booking_detail.html:224
+msgid "Accept order"
+msgstr "예약접수"
+
+#: golf/views.py:139 golf/views.py:276
 msgid "Booking Details"
 msgstr "예약현황"
 

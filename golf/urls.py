@@ -29,10 +29,7 @@ urlpatterns = [
          views.StaffBookingDetailView.as_view(), name='staff-booking-detail'),
 
     path('staff/booking/<uuid:uuid>/update/',
-         views.StaffBookingDeleteView.as_view(), name='staff-booking-update'),
-
-    path('staff/booking/<uuid:uuid>/delete/',
-         views.StaffBookingDeleteView.as_view(), name='staff-booking-delete'),
+         views.StaffBookingDetailView.as_view(), name='staff-booking-update'),
 
     # AJAX APIs
     path('api/fee/',
