@@ -101,6 +101,8 @@ class AgencyBookingCreateView(viewmixins.GroupRequiredMixin, generic.CreateView)
                       form.cleaned_data['slot'])
 
         form.instance.fee = fee['fee'] * int(form.cleaned_data['people'])
+        form.instance.season = fee['season_id']
+        form.instance.day_of_week = fee['day_of_week_id']
 
         pattern = re.compile(r'^[가-힣]+$')  # Only Hangul
 
@@ -175,6 +177,8 @@ class AgencyBookingUpdateView(viewmixins.GroupRequiredMixin, generic.UpdateView)
                       form.cleaned_data['slot'])
 
         form.instance.fee = fee['fee'] * int(form.cleaned_data['people'])
+        form.instance.season = fee['season_id']
+        form.instance.day_of_week = fee['day_of_week_id']
 
         pattern = re.compile(r'^[가-힣]+$')  # Only Hangul
 
