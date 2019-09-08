@@ -117,6 +117,29 @@
                             </div>
                         </div>
 
+                        {% if booking.status == booking.STATUS_CHOICES.payment_pending and booking.tee_off_time %}
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label class="label" for="id_slot">
+                                        {% trans 'Tee-off time' %}
+                                    </label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field">
+                                        <div class="control has-icons-left">
+                                            <input type="text"
+                                                   value="{{ booking.tee_off_time|date:'H:i' }}"
+                                                   class="input disabled"
+                                                   id="id_slot" disabled>
+                                            <span class="icon is-small is-left">
+                                           <i class="fas fa-clock fa-fw has-text-grey"></i>
+                                        </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+
                         <div class="field is-horizontal">
                             <div class="field-label is-normal">
                                 <label class="label" for="id_people">
