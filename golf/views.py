@@ -319,6 +319,7 @@ class StaffBookingDetailView(viewmixins.GroupRequiredMixin, generic.DetailView):
     model = models.Booking
     context_object_name = 'booking'
     template_name = 'golf/staff_booking_detail.html'
+    form_class = forms.TeeOffTimeAddForm
 
     def get_object(self, queryset=None):
         # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
@@ -329,6 +330,7 @@ class StaffBookingDetailView(viewmixins.GroupRequiredMixin, generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(StaffBookingDetailView, self).get_context_data(**kwargs)
         context['page_title'] = _('Booking Details')
+        context['form'] = self.form_class(booking=self.object)
         return context
 
 

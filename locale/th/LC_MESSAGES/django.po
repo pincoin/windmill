@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-09 19:18+0700\n"
+"POT-Creation-Date: 2019-09-09 21:10+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -180,6 +180,7 @@ msgstr ""
 
 #: golf/forms.py:285 golf/forms.py:350 golf/models.py:610 golf/models.py:621
 #: golf/models.py:622 golf/templates/golf/_booking_detail.html:139
+#: golf/templates/golf/staff_booking_detail.html:36
 msgid "Tee-off time"
 msgstr ""
 
@@ -625,7 +626,7 @@ msgstr ""
 
 #: golf/templates/golf/agency_booking_change_update.html:30
 #: golf/templates/golf/agency_booking_create.html:30
-#: golf/templates/golf/agency_booking_list.html:137 golf/views.py:83
+#: golf/templates/golf/agency_booking_list.html:139 golf/views.py:83
 msgid "Make an order"
 msgstr ""
 
@@ -668,6 +669,10 @@ msgstr ""
 #: golf/templates/golf/staff_booking_confirm_update.html:37
 #: golf/templates/golf/staff_booking_void_update.html:28 golf/views.py:415
 msgid "Void order"
+msgstr ""
+
+#: golf/templates/golf/staff_booking_detail.html:50
+msgid "Offer tee-off time"
 msgstr ""
 
 #: golf/views.py:144 golf/views.py:331

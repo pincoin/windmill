@@ -266,7 +266,7 @@ class BookingChangeForm(BookingForm):
         elif booking.slot == 1:
             self.fields['round_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(11, 15))
         elif booking.slot == 2:
-            self.fields['round_time_hour'].choices = (('15', '15',),)
+            self.fields['round_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(15, 16))
         elif booking.slot == 3:
             self.fields['round_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(16, 21))
 
@@ -310,7 +310,7 @@ class BookingConfirmForm(forms.ModelForm):
         elif booking.slot == 1:
             self.fields['tee_off_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(11, 15))
         elif booking.slot == 2:
-            self.fields['tee_off_time_hour'].choices = (('15', '15',),)
+            self.fields['tee_off_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(15, 16))
         elif booking.slot == 3:
             self.fields['tee_off_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(16, 21))
 
@@ -364,6 +364,20 @@ class TeeOffTimeAddForm(forms.Form):
                 'required': 'True',
             }),
     )
+
+    def __init__(self, *args, **kwargs):
+        booking = kwargs.pop('booking', None)
+
+        super(TeeOffTimeAddForm, self).__init__(*args, **kwargs)
+
+        if booking.slot == 0:
+            self.fields['tee_off_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(6, 12))
+        elif booking.slot == 1:
+            self.fields['tee_off_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(11, 15))
+        elif booking.slot == 2:
+            self.fields['tee_off_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(15, 16))
+        elif booking.slot == 3:
+            self.fields['tee_off_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(16, 21))
 
 
 class TeeOffTimeDeleteForm(forms.Form):
