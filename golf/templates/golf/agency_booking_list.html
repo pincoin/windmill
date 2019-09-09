@@ -100,8 +100,12 @@
             {% for booking in booking_list %}
                 <div class="columns">
                     <div class="column is-1">
-                        <a href="{% url 'golf:agency-booking-detail' booking.booking_uuid %}">
-                            {{ booking.get_status_display }}
+                        {% if booking.status == booking.STATUS_CHOICES.order_made %}
+                            <a href="{% url 'golf:agency-booking-change' booking.booking_uuid %}">
+                        {% else %}
+                            <a href="{% url 'golf:agency-booking-detail' booking.booking_uuid %}">
+                        {% endif %}
+                        {{ booking.get_status_display }}
                         </a>
                     </div>
                     <div class="column is-1">

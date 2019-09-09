@@ -35,15 +35,6 @@ $(document).ready(function () {
         }
     }
 
-    round_time_hour.empty();
-    round_time_hour.append('<option value="6">06</option>'
-        + '<option value="7">07</option>'
-        + '<option value="8">08</option>'
-        + '<option value="9">09</option>'
-        + '<option value="10">10</option>'
-        + '<option value="11">11</option>');
-
-
     round_date.datepicker({
         showAnim: '', // turn off animation
         dateFormat: 'yy-mm-dd (DD)',

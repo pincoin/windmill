@@ -213,7 +213,7 @@ class BookingForm(forms.ModelForm):
     )
 
     def __init__(self, *args, **kwargs):
-        club = kwargs.pop('club', '1')
+        club = kwargs.pop('club', None)
 
         super(BookingForm, self).__init__(*args, **kwargs)
 
@@ -228,6 +228,8 @@ class BookingForm(forms.ModelForm):
 
         self.fields['club'].queryset = clubs
         self.fields['club'].initial = club
+
+        self.fields['round_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(6, 12))
 
     class Meta:
         model = models.Booking
@@ -251,6 +253,25 @@ class BookingForm(forms.ModelForm):
                 or int(self.cleaned_data['slot']) == models.Booking.SLOT_CHOICES.night \
                 and int(self.cleaned_data['round_time_hour']) not in [16, 17, 18, 19]:
             raise forms.ValidationError(_('Invalid round time'))
+
+
+class BookingChangeForm(BookingForm):
+    def __init__(self, *args, **kwargs):
+        booking = kwargs.pop('booking', None)
+
+        super(BookingChangeForm, self).__init__(*args, **kwargs)
+
+        if booking.slot == 0:
+            self.fields['round_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(6, 12))
+        elif booking.slot == 1:
+            self.fields['round_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(11, 15))
+        elif booking.slot == 2:
+            self.fields['round_time_hour'].choices = (('15', '15',),)
+        elif booking.slot == 3:
+            self.fields['round_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(16, 21))
+
+        self.fields['round_time_hour'].initial = booking.round_time.hour
+        self.fields['round_time_minute'].initial = booking.round_time.minute
 
 
 class BookingDummyForm(forms.ModelForm):

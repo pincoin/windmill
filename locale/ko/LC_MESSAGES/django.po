@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-09 07:42+0700\n"
+"POT-Creation-Date: 2019-09-09 12:49+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,7 @@ msgid "Agency"
 msgstr "에이전시"
 
 #: conf/templates/conf/base.html:94 conf/templates/conf/base.html:106
-#: golf/views.py:54 golf/views.py:261
+#: golf/views.py:54 golf/views.py:314
 msgid "Booking management"
 msgstr "예약관리"
 
@@ -206,7 +206,7 @@ msgstr "성 (HONG)"
 msgid "Remarks"
 msgstr "비고"
 
-#: golf/forms.py:243 golf/forms.py:322
+#: golf/forms.py:243 golf/forms.py:326
 msgid "Invalid round date"
 msgstr "잘못된 라운딩 일자 형식"
 
@@ -214,12 +214,12 @@ msgstr "잘못된 라운딩 일자 형식"
 msgid "Invalid round time"
 msgstr "잘못된 라운딩 시각"
 
-#: golf/forms.py:264 golf/templates/golf/agency_booking_detail.html:124
+#: golf/forms.py:268 golf/templates/golf/agency_booking_detail.html:124
 #: golf/templates/golf/staff_booking_detail.html:124
 msgid "Tee-off time"
 msgstr "티오프 시각"
 
-#: golf/forms.py:311
+#: golf/forms.py:315
 msgid "YYYY-MM-DD"
 msgstr "YYYY-MM-DD"
 
@@ -615,6 +615,7 @@ msgstr "이전"
 msgid "Next"
 msgstr "다음"
 
+#: golf/templates/golf/agency_booking_change_update.html:32
 #: golf/templates/golf/agency_booking_confirm_delete.html:20
 #: golf/templates/golf/agency_booking_detail.html:18
 #: golf/templates/golf/agency_booking_update.html:32
@@ -625,6 +626,7 @@ msgstr "다음"
 msgid "Status / Created"
 msgstr "예약상태 / 발주일시"
 
+#: golf/templates/golf/agency_booking_change_update.html:53
 #: golf/templates/golf/agency_booking_confirm_delete.html:41
 #: golf/templates/golf/agency_booking_detail.html:39
 #: golf/templates/golf/agency_booking_update.html:53
@@ -636,6 +638,7 @@ msgstr "예약상태 / 발주일시"
 msgid "Agency / Agent"
 msgstr "에이전시 / 담당자"
 
+#: golf/templates/golf/agency_booking_change_update.html:255
 #: golf/templates/golf/agency_booking_confirm_delete.html:167
 #: golf/templates/golf/agency_booking_create.html:213
 #: golf/templates/golf/agency_booking_detail.html:188
@@ -649,11 +652,14 @@ msgstr "에이전시 / 담당자"
 msgid "Fee"
 msgstr "요금"
 
-#: golf/templates/golf/agency_booking_confirm_delete.html:224
-#: golf/templates/golf/agency_booking_detail.html:247
-msgid "Delete order"
-msgstr "예약삭제"
+#: golf/templates/golf/agency_booking_change_update.html:319
+#: golf/templates/golf/agency_booking_create.html:276
+#: golf/templates/golf/agency_booking_list.html:137
+#: golf/templates/golf/agency_booking_update.html:319 golf/views.py:83
+msgid "Make an order"
+msgstr "예약발주"
 
+#: golf/templates/golf/agency_booking_change_update.html:328
 #: golf/templates/golf/agency_booking_confirm_delete.html:233
 #: golf/templates/golf/agency_booking_create.html:285
 #: golf/templates/golf/agency_booking_detail.html:257
@@ -665,39 +671,42 @@ msgstr "예약삭제"
 msgid "Order list"
 msgstr "예약목록"
 
-#: golf/templates/golf/agency_booking_create.html:276
-#: golf/templates/golf/agency_booking_list.html:133
-#: golf/templates/golf/agency_booking_update.html:319 golf/views.py:83
-msgid "Make an order"
-msgstr "예약발주"
+#: golf/templates/golf/agency_booking_confirm_delete.html:224
+#: golf/templates/golf/agency_booking_detail.html:247
+msgid "Delete order"
+msgstr "예약삭제"
 
 #: golf/templates/golf/agency_booking_list.html:90
 #: golf/templates/golf/staff_booking_list.html:111
 msgid "Season / Day of week / Slot"
 msgstr "예약구분"
 
-#: golf/templates/golf/staff_booking_accept_update.html:225 golf/views.py:317
+#: golf/templates/golf/staff_booking_accept_update.html:225 golf/views.py:370
 msgid "Accept order"
 msgstr "예약접수"
 
-#: golf/templates/golf/staff_booking_confirm_update.html:267 golf/views.py:344
+#: golf/templates/golf/staff_booking_confirm_update.html:267 golf/views.py:397
 msgid "Confirm order"
 msgstr "예약확정"
 
 #: golf/templates/golf/staff_booking_confirm_update.html:276
-#: golf/templates/golf/staff_booking_void_update.html:225 golf/views.py:381
+#: golf/templates/golf/staff_booking_void_update.html:225 golf/views.py:434
 msgid "Void order"
 msgstr "예약불가"
 
-#: golf/views.py:139 golf/views.py:297
+#: golf/views.py:139 golf/views.py:350
 msgid "Booking Details"
 msgstr "예약현황"
 
 #: golf/views.py:159
+msgid "Order waiting"
+msgstr "접수대기"
+
+#: golf/views.py:212
 msgid "Edit order"
 msgstr "예약변경"
 
-#: golf/views.py:219
+#: golf/views.py:272
 msgid "Delete booking"
 msgstr "예약삭제"
 
@@ -1112,6 +1121,9 @@ msgstr "SNS 로그인 실패"
 #: member/views.py:264
 msgid "Connect with SNS accounts"
 msgstr "SNS 로그인"
+
+#~ msgid "Change order"
+#~ msgstr "예약변경"
 
 #~ msgid "order revoked"
 #~ msgstr "취소완료"
