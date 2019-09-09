@@ -14,7 +14,7 @@
                     <form method="post">
                         {% csrf_token %}
 
-                        {% include './_booking_create_form.html' with form=form %}
+                        {% include './_booking_form.html' with form=form booking=None %}
 
                         <input type="hidden" id="id_agency" name="agency"
                                value="{{ request.user.agentprofile.agency.id }}">
