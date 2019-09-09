@@ -14,7 +14,7 @@
                     <form method="post">
                         {% csrf_token %}
 
-                        {% include './_booking_detail.html' with booking=booking %}
+                        {% include './_booking_detail.html' with booking=booking form=None %}
 
                         <div class="field is-horizontal">
                             <div class="field-label is-normal">
@@ -24,7 +24,7 @@
                                     <div class="field">
                                         <div class="control is-expanded">
                                             <button class="button is-danger is-fullwidth">
-                                                <span class="icon"><i class="far fa-check-square"></i></span>
+                                                <span class="icon"><i class="fas fa-ban"></i></span>
                                                 <span>{% trans 'Void order' %}</span>
                                             </button>
                                         </div>
