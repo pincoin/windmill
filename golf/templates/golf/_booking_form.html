@@ -109,6 +109,7 @@
     </div>
     <div class="field-body">
         <div class="field">
+
             <div class="control has-icons-left">
                 {{ form.slot }}
                 <span class="icon is-small is-left"><i class="fas fa-cloud-sun fa-fw has-text-grey"></i></span>
@@ -122,25 +123,20 @@
             {% endif %}
         </div>
         <div class="field">
-            <div class="control has-icons-left">
-                {{ form.round_time_hour }}
-                <span class="icon is-small is-left"><i class="fas fa-clock fa-fw has-text-grey"></i></span>
+            <div class="field has-addons">
+                <p class="control is-expanded has-icons-left">
+                    {{ form.round_time_hour }}
+                    <span class="icon is-small is-left"><i class="fas fa-clock fa-fw has-text-grey"></i></span>
+                </p>
+                <p class="control is-expanded has-icons-left">
+                    {{ form.round_time_minute }}
+                </p>
             </div>
-            {% if form.round_time_hour.errors %}
+            {% if form.round_time_hour.errors or form.round_time_hour.errors %}
                 <p class="help is-danger">
                     {% for error in form.round_time_hour.errors %}
                         {{ error|escape }}
                     {% endfor %}
-                </p>
-            {% endif %}
-        </div>
-        <div class="field">
-            <div class="control has-icons-left">
-                {{ form.round_time_minute }}
-                <span class="icon is-small is-left"><i class="fas fa-clock fa-fw has-text-grey"></i></span>
-            </div>
-            {% if form.round_time_hour.errors %}
-                <p class="help is-danger">
                     {% for error in form.round_time_minute.errors %}
                         {{ error|escape }}
                     {% endfor %}
@@ -183,31 +179,20 @@
     </div>
     <div class="field-body">
         <div class="field">
-            <div class="control has-icons-left">
-                {{ form.first_name }}
-                <span class="icon is-small is-left"><i class="fas fa-id-card fa-fw has-text-grey"></i></span>
+            <div class="field has-addons">
+                <p class="control is-expanded has-icons-left">
+                    {{ form.first_name }}
+                    <span class="icon is-small is-left"><i class="fas fa-id-card fa-fw has-text-grey"></i></span>
+                </p>
+                <p class="control is-expanded has-icons-left">
+                    {{ form.last_name }}
+                </p>
             </div>
-            <p class="help is-dark">
-                {{ form.first_name.help_text }}
-            </p>
-            {% if form.first_name.errors %}
+            {% if form.first_name.errors or form.last_name.errors %}
                 <p class="help is-danger">
                     {% for error in form.first_name.errors %}
                         {{ error|escape }}
                     {% endfor %}
-                </p>
-            {% endif %}
-        </div>
-        <div class="field">
-            <div class="control has-icons-left">
-                {{ form.last_name }}
-                <span class="icon is-small is-left"><i class="fas fa-id-card fa-fw has-text-grey"></i></span>
-            </div>
-            <p class="help is-dark">
-                {{ form.last_name.help_text }}
-            </p>
-            {% if form.last_name.errors %}
-                <p class="help is-danger">
                     {% for error in form.last_name.errors %}
                         {{ error|escape }}
                     {% endfor %}
@@ -224,21 +209,20 @@
         </label>
     </div>
     <div class="field-body">
-        <div class="field">
-            <div class="control has-icons-left">
+        <div class="field has-addons">
+            <div class="control is-expanded has-icons-left">
                 <input type="text"
                        class="input has-text-dark has-background-warning"
                        id="id_fee"
-                       value="0"
+                       value="{{ booking.fee }}"
                        disabled>
                 <span class="icon is-small is-left"><i class="fas fa-credit-card fa-fw has-text-grey"></i></span>
             </div>
-        </div>
-        <div class="field">
-            <div class="control has-icons-left">
+            <div class="control is-expanded has-icons-left">
                 <input type="text"
                        class="input has-text-dark has-background-warning"
                        id="id_round_date_info"
+                       value="{{ booking.get_season_display }} / {{ booking.get_day_of_week_display }}"
                        disabled>
                 <span class="icon is-small is-left"><i class="fas fa-tasks fa-fw has-text-grey"></i></span>
             </div>
