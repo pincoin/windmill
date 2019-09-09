@@ -590,6 +590,40 @@ class Booking(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
         return '{}-{} {}-{}'.format(self.booking_uuid, self.first_name, self.last_name, self.agency.title)
 
 
+class BookingTeeOffTime(model_utils_models.TimeStampedModel):
+    STATUS_CHOICES = Choices(
+        (0, 'offered', _('Time offered')),
+        (1, 'accepted', _('Time accepted')),
+        (2, 'rejected', _('Time rejected')),
+        (3, 'revoked', _('Time revoked')),
+    )
+
+    booking = models.ForeignKey(
+        'golf.Booking',
+        verbose_name=_('Booking'),
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    tee_off_time = models.TimeField(
+        verbose_name=_('Tee-off time'),
+    )
+
+    status = models.IntegerField(
+        verbose_name=_('Tee-off time status'),
+        choices=STATUS_CHOICES,
+        default=STATUS_CHOICES.offered,
+        db_index=True,
+    )
+
+    class Meta:
+        verbose_name = _('Tee-off time')
+        verbose_name_plural = _('Tee-off time')
+
+    def __str__(self):
+        return '{}-{}'.format(self.booking.booking_uuid, self.tee_off_time)
+
+
 class BookingPayment(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
     ACCOUNT_CHOICES = Choices(
         (0, 'kasikorn', _('Kasikorn Bank')),

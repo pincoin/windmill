@@ -341,3 +341,30 @@ class FeeForm(forms.Form):
                 < timezone.make_aware(timezone.datetime.strptime(self.cleaned_data['round_date'], '%Y-%m-%d'))
                 < timezone.make_aware(timezone.localtime().now()) + timezone.timedelta(days=365)):
             raise forms.ValidationError(_('Invalid round date'))
+
+
+class TeeOffTimeAddForm(forms.Form):
+    booking_pk = forms.IntegerField()
+
+    tee_off_time_hour = forms.ChoiceField(
+        label=_('Tee-off time'),
+        choices=((str(x), str(x).zfill(2)) for x in range(6, 21)),
+        widget=forms.Select(
+            attrs={
+                'class': 'input',
+                'required': 'True',
+            }),
+    )
+
+    tee_off_time_minute = forms.ChoiceField(
+        choices=((str(x), str(x).zfill(2)) for x in range(0, 60)),
+        widget=forms.Select(
+            attrs={
+                'class': 'input',
+                'required': 'True',
+            }),
+    )
+
+
+class TeeOffTimeDeleteForm(forms.Form):
+    tee_off_time_pk = forms.IntegerField()

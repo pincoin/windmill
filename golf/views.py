@@ -468,3 +468,33 @@ class APIFeeView(generic.FormView):
 
     def form_invalid(self, form):
         return HttpResponse(form.errors.as_json(), status=400, content_type='application/json')
+
+
+class APITeeOffTimeAddView(viewmixins.GroupRequiredMixin, generic.FormView):
+    group_required = ['staff', ]
+    form_class = forms.TeeOffTimeAddForm
+
+    def form_valid(self, form):
+        data = form.cleaned_data
+
+        data.update({})
+
+        return JsonResponse(data)
+
+    def form_invalid(self, form):
+        return HttpResponse(form.errors.as_json(), status=400, content_type='application/json')
+
+
+class APITeeOffTimeDeleteView(viewmixins.GroupRequiredMixin, generic.FormView):
+    group_required = ['staff', ]
+    form_class = forms.TeeOffTimeDeleteForm
+
+    def form_valid(self, form):
+        data = form.cleaned_data
+
+        data.update({})
+
+        return JsonResponse(data)
+
+    def form_invalid(self, form):
+        return HttpResponse(form.errors.as_json(), status=400, content_type='application/json')

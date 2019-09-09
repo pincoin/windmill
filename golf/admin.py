@@ -23,6 +23,13 @@ class DepositInline(admin.TabularInline):
     ordering = ('-created',)
 
 
+class TeeOffTimeInline(admin.TabularInline):
+    model = models.BookingTeeOffTime
+    extra = 1
+    fields = ('tee_off_time', 'status')
+    ordering = ('-created',)
+
+
 class ProfileSetInline(admin.TabularInline):
     model = models.AgentProfile
     extra = 1
@@ -113,6 +120,7 @@ class BookingAdmin(admin.ModelAdmin):
     search_fields = ('agency__email', 'memo', 'first_name')
     list_select_related = ('club', 'agency', 'agent')
     raw_id_fields = ('club', 'agency', 'agent')
+    inlines = (TeeOffTimeInline,)
     ordering = ('-created',)
 
     date_hierarchy = 'round_date'
@@ -134,6 +142,10 @@ class BookingAdmin(admin.ModelAdmin):
 
     agency_title.short_description = _('Agency')
     agency_title.admin_order_field = 'agency__title'
+
+
+class BookingTeeOffTimeAdmin(admin.ModelAdmin):
+    raw_id_fields = ('booking',)
 
 
 class BookingChangeLogAdmin(admin.ModelAdmin):
@@ -159,6 +171,7 @@ admin.site.register(models.ClubProduct, ClubProductAdmin)
 admin.site.register(models.AgentProfile, AgentProfileAdmin)
 admin.site.register(models.AgencyClubProductListMembership, AgencyClubProductListMembershipAdmin)
 admin.site.register(models.Booking, BookingAdmin)
+admin.site.register(models.BookingTeeOffTime, BookingTeeOffTimeAdmin)
 admin.site.register(models.BookingChangeLog, BookingChangeLogAdmin)
 admin.site.register(models.BookingPayment, BookingPaymentAdmin)
 admin.site.register(models.BookingAccountReceivable, BookingAccountReceivableAdmin)
