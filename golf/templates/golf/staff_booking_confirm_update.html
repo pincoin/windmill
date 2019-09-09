@@ -85,42 +85,36 @@
                             </div>
                             <div class="field-body">
                                 <div class="field">
-                                    <div class="control has-icons-left">
-                                        {{ form.tee_off_time_hour }}
-                                        <span class="icon is-small is-left">
-                                            <i class="fas fa-clock fa-fw has-text-grey"></i>
-                                        </span>
+                                    <div class="field has-addons">
+                                        <div class="control is-expanded has-icons-left">
+                                            {{ form.tee_off_time_hour }}
+                                            <span class="icon is-small is-left">
+                                                <i class="fas fa-clock fa-fw has-text-grey"></i>
+                                            </span>
+                                        </div>
+                                        <div class="control is-expanded has-icons-left">
+                                            {{ form.tee_off_time_minute }}
+                                            <span class="icon is-small is-left">
+                                                <i class="fas fa-clock fa-fw has-text-grey"></i>
+                                            </span>
+                                        </div>
+                                        <div class="control is-expanded has-icons-left">
+                                            <a class="button is-success is-fullwidth">{% trans 'Add' %}</a>
+                                            <span class="icon is-small is-left has-text-white">
+                                                <i class="far fa-plus-square"></i>
+                                            </span>
+                                        </div>
                                     </div>
-                                    {% if form.tee_off_time_hour.errors %}
+                                    {% if form.tee_off_time_hour.errors or form.tee_off_time_minute.errors %}
                                         <p class="help is-danger">
                                             {% for error in form.tee_off_time_hour.errors %}
                                                 {{ error|escape }}
                                             {% endfor %}
-                                        </p>
-                                    {% endif %}
-                                </div>
-                                <div class="field">
-                                    <div class="control has-icons-left">
-                                        {{ form.tee_off_time_minute }}
-                                        <span class="icon is-small is-left">
-                                            <i class="fas fa-clock fa-fw has-text-grey"></i>
-                                        </span>
-                                    </div>
-                                    {% if form.tee_off_time_minute.errors %}
-                                        <p class="help is-danger">
                                             {% for error in form.tee_off_time_minute.errors %}
                                                 {{ error|escape }}
                                             {% endfor %}
                                         </p>
                                     {% endif %}
-                                </div>
-                                <div class="field">
-                                    <div class="control has-icons-left">
-                                        <a class="button is-success is-fullwidth">{% trans 'Add' %}</a>
-                                        <span class="icon is-small is-left has-text-white">
-                                            <i class="far fa-plus-square"></i>
-                                        </span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
