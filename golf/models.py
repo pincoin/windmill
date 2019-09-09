@@ -596,6 +596,7 @@ class BookingTeeOffTime(model_utils_models.TimeStampedModel):
         (1, 'accepted', _('Time accepted')),
         (2, 'rejected', _('Time rejected')),
         (3, 'revoked', _('Time revoked')),
+        (4, 'voided', _('Time voided')),
     )
 
     booking = models.ForeignKey(
