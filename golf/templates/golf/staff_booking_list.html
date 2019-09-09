@@ -125,11 +125,14 @@
                 <div class="columns">
                     <div class="column is-1">
                         {% if booking.status == booking.STATUS_CHOICES.order_made %}
-                            <a href="{% url 'golf:staff-booking-accept' booking.booking_uuid %}">
+                            <a href="{% url 'golf:staff-booking-accept' booking.booking_uuid %}"
+                               class="tag is-warning has-text-dark">
                         {% elif booking.status == booking.STATUS_CHOICES.order_pending %}
-                            <a href="{% url 'golf:staff-booking-confirm' booking.booking_uuid %}">
+                            <a href="{% url 'golf:staff-booking-confirm' booking.booking_uuid %}"
+                               class="tag is-danger">
                         {% else %}
-                            <a href="{% url 'golf:staff-booking-detail' booking.booking_uuid %}">
+                            <a href="{% url 'golf:staff-booking-detail' booking.booking_uuid %}"
+                               class="tag is-primary has-text-dark">
                         {% endif %}
                         {{ booking.get_status_display }}
                         </a>

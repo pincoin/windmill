@@ -471,11 +471,11 @@ msgstr "환불대기"
 
 #: golf/models.py:474
 msgid "order refunded(original)"
-msgstr "환불완료(원주문)"
+msgstr "환불완료O"
 
 #: golf/models.py:475
 msgid "order refunded(reverse)"
-msgstr "환불완료(역주문)"
+msgstr "환불완료R"
 
 #: golf/models.py:479
 msgid "UUID"
