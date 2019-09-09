@@ -11,9 +11,11 @@
 
             <div class="columns is-centered">
                 <div class="column is-four-fifths">
-                    <form>
-                        {% include './_booking_detail.html' with booking=booking %}
+                    <form method="post">
+                        {% csrf_token %}
 
+                        {% include './_booking_detail.html' with booking=booking %}
+                    
                         <div class="field is-horizontal">
                             <div class="field-label is-normal">
                             </div>
@@ -21,27 +23,16 @@
                                 {% if booking.status == booking.STATUS_CHOICES.payment_pending or booking.status == booking.STATUS_CHOICES.offered %}
                                     <div class="field">
                                         <div class="control is-expanded">
-                                            <a href="{% url 'golf:agency-booking-revoke' booking.booking_uuid %}"
-                                               class="button is-danger is-fullwidth">
-                                                <span class="icon"><i class="far fa-edit"></i></span>
+                                            <button class="button is-danger is-fullwidth">
+                                                 <span class="icon"><i class="far fa-edit"></i></span>
                                                 <span>{% trans 'Change order' %}</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                {% elif booking.status == booking.STATUS_CHOICES.order_made or booking.status == booking.STATUS_CHOICES.voided %}
-                                    <div class="field">
-                                        <div class="control is-expanded">
-                                            <a href="{% url 'golf:agency-booking-delete' booking.booking_uuid %}"
-                                               class="button is-danger is-fullwidth">
-                                                <span class="icon"><i class="fas fa-trash-alt"></i></span>
-                                                <span>{% trans 'Delete order' %}</span>
-                                            </a>
+                                            </button>
                                         </div>
                                     </div>
                                 {% endif %}
                                 <div class="field">
                                     <div class="control is-expanded">
-                                        <a href="{% url 'golf:agency-booking-list' %}"
+                                        <a href="{% url 'golf:staff-booking-list' %}"
                                            class="button is-dark is-fullwidth">
                                             <span class="icon"><i class="far fa-list-alt"></i></span>
                                             <span>{% trans 'Order list' %}</span>

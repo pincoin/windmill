@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-09 16:06+0700\n"
+"POT-Creation-Date: 2019-09-09 19:06+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,7 @@ msgid "Agency"
 msgstr ""
 
 #: conf/templates/conf/base.html:94 conf/templates/conf/base.html:106
-#: golf/views.py:54 golf/views.py:325
+#: golf/views.py:54 golf/views.py:295
 msgid "Booking management"
 msgstr ""
 
@@ -98,24 +98,19 @@ msgid "No golf club"
 msgstr ""
 
 #: golf/admin.py:134 golf/forms.py:123 golf/models.py:267 golf/models.py:277
-#: golf/models.py:487 golf/templates/golf/agency_booking_confirm_delete.html:62
-#: golf/templates/golf/agency_booking_detail.html:60
+#: golf/models.py:487 golf/templates/golf/_booking_detail.html:44
 #: golf/templates/golf/agency_booking_list.html:58
 #: golf/templates/golf/agency_booking_list.html:81
-#: golf/templates/golf/staff_booking_accept_update.html:62
-#: golf/templates/golf/staff_booking_confirm_update.html:62
-#: golf/templates/golf/staff_booking_detail.html:60
 #: golf/templates/golf/staff_booking_list.html:79
 #: golf/templates/golf/staff_booking_list.html:102
-#: golf/templates/golf/staff_booking_void_update.html:62
 msgid "Golf club"
 msgstr ""
 
-#: golf/admin.py:163 golf/admin.py:164
+#: golf/admin.py:159 golf/admin.py:160
 msgid "NAONE admin"
 msgstr ""
 
-#: golf/admin.py:165
+#: golf/admin.py:161
 msgid "NAONE administration"
 msgstr ""
 
@@ -129,13 +124,7 @@ msgid "Booking person"
 msgstr ""
 
 #: golf/forms.py:17 golf/forms.py:205 golf/models.py:109 golf/models.py:552
-#: golf/models.py:705
-#: golf/templates/golf/agency_booking_confirm_delete.html:201
-#: golf/templates/golf/agency_booking_detail.html:222
-#: golf/templates/golf/staff_booking_accept_update.html:201
-#: golf/templates/golf/staff_booking_confirm_update.html:243
-#: golf/templates/golf/staff_booking_detail.html:222
-#: golf/templates/golf/staff_booking_void_update.html:201
+#: golf/models.py:705 golf/templates/golf/_booking_detail.html:227
 msgid "Memo"
 msgstr ""
 
@@ -144,44 +133,24 @@ msgid "Search word"
 msgstr ""
 
 #: golf/forms.py:133 golf/models.py:161 golf/models.py:572
-#: golf/templates/golf/agency_booking_confirm_delete.html:104
-#: golf/templates/golf/agency_booking_detail.html:102
-#: golf/templates/golf/staff_booking_accept_update.html:104
-#: golf/templates/golf/staff_booking_confirm_update.html:104
-#: golf/templates/golf/staff_booking_detail.html:102
-#: golf/templates/golf/staff_booking_void_update.html:104
+#: golf/templates/golf/_booking_detail.html:82
 msgid "Time slot"
 msgstr ""
 
-#: golf/forms.py:144 golf/templates/golf/agency_booking_confirm_delete.html:83
-#: golf/templates/golf/agency_booking_detail.html:81
+#: golf/forms.py:144 golf/templates/golf/_booking_detail.html:63
 #: golf/templates/golf/agency_booking_list.html:84
-#: golf/templates/golf/staff_booking_accept_update.html:83
-#: golf/templates/golf/staff_booking_confirm_update.html:83
-#: golf/templates/golf/staff_booking_detail.html:81
 #: golf/templates/golf/staff_booking_list.html:105
-#: golf/templates/golf/staff_booking_void_update.html:83
 msgid "Round date/time"
 msgstr ""
 
 #: golf/forms.py:173 golf/models.py:526
-#: golf/templates/golf/agency_booking_confirm_delete.html:125
-#: golf/templates/golf/agency_booking_detail.html:146
+#: golf/templates/golf/_booking_detail.html:159
 #: golf/templates/golf/agency_booking_list.html:87
-#: golf/templates/golf/staff_booking_accept_update.html:125
-#: golf/templates/golf/staff_booking_confirm_update.html:167
-#: golf/templates/golf/staff_booking_detail.html:146
 #: golf/templates/golf/staff_booking_list.html:108
-#: golf/templates/golf/staff_booking_void_update.html:125
 msgid "No. of people"
 msgstr ""
 
-#: golf/forms.py:184 golf/templates/golf/agency_booking_confirm_delete.html:146
-#: golf/templates/golf/agency_booking_detail.html:167
-#: golf/templates/golf/staff_booking_accept_update.html:146
-#: golf/templates/golf/staff_booking_confirm_update.html:188
-#: golf/templates/golf/staff_booking_detail.html:167
-#: golf/templates/golf/staff_booking_void_update.html:146
+#: golf/forms.py:184 golf/templates/golf/_booking_detail.html:178
 msgid "Full name (Passport)"
 msgstr ""
 
@@ -197,12 +166,7 @@ msgstr ""
 msgid "Last name"
 msgstr ""
 
-#: golf/forms.py:210 golf/templates/golf/agency_booking_confirm_delete.html:208
-#: golf/templates/golf/agency_booking_detail.html:229
-#: golf/templates/golf/staff_booking_accept_update.html:208
-#: golf/templates/golf/staff_booking_confirm_update.html:250
-#: golf/templates/golf/staff_booking_detail.html:229
-#: golf/templates/golf/staff_booking_void_update.html:208
+#: golf/forms.py:210 golf/templates/golf/_booking_detail.html:234
 msgid "Remarks"
 msgstr ""
 
@@ -215,8 +179,7 @@ msgid "Invalid round time"
 msgstr ""
 
 #: golf/forms.py:285 golf/forms.py:350 golf/models.py:609 golf/models.py:620
-#: golf/models.py:621 golf/templates/golf/agency_booking_detail.html:124
-#: golf/templates/golf/staff_booking_detail.html:124
+#: golf/models.py:621 golf/templates/golf/_booking_detail.html:139
 msgid "Tee-off time"
 msgstr ""
 
@@ -626,6 +589,24 @@ msgstr ""
 msgid "Booking change logs"
 msgstr ""
 
+#: golf/templates/golf/_booking_detail.html:6
+#: golf/templates/golf/_booking_form.html:19
+msgid "Status / Created"
+msgstr ""
+
+#: golf/templates/golf/_booking_detail.html:25
+#: golf/templates/golf/_booking_form.html:38
+#: golf/templates/golf/staff_booking_list.html:120
+msgid "Agency / Agent"
+msgstr ""
+
+#: golf/templates/golf/_booking_detail.html:197
+#: golf/templates/golf/_booking_form.html:223
+#: golf/templates/golf/agency_booking_list.html:93
+#: golf/templates/golf/staff_booking_list.html:114
+msgid "Fee"
+msgstr ""
+
 #: golf/templates/golf/_pagination_booking_list.html:9
 #: golf/templates/golf/_pagination_booking_list.html:15
 msgid "Previous"
@@ -636,65 +617,32 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: golf/templates/golf/agency_booking_change_update.html:32
-#: golf/templates/golf/agency_booking_confirm_delete.html:20
-#: golf/templates/golf/agency_booking_detail.html:18
-#: golf/templates/golf/agency_booking_update.html:32
-#: golf/templates/golf/staff_booking_accept_update.html:20
-#: golf/templates/golf/staff_booking_confirm_update.html:20
-#: golf/templates/golf/staff_booking_detail.html:18
-#: golf/templates/golf/staff_booking_void_update.html:20
-msgid "Status / Created"
-msgstr ""
-
-#: golf/templates/golf/agency_booking_change_update.html:53
-#: golf/templates/golf/agency_booking_confirm_delete.html:41
-#: golf/templates/golf/agency_booking_detail.html:39
-#: golf/templates/golf/agency_booking_update.html:53
-#: golf/templates/golf/staff_booking_accept_update.html:41
-#: golf/templates/golf/staff_booking_confirm_update.html:41
-#: golf/templates/golf/staff_booking_detail.html:39
-#: golf/templates/golf/staff_booking_list.html:120
-#: golf/templates/golf/staff_booking_void_update.html:41
-msgid "Agency / Agent"
-msgstr ""
-
-#: golf/templates/golf/agency_booking_change_update.html:255
-#: golf/templates/golf/agency_booking_confirm_delete.html:167
-#: golf/templates/golf/agency_booking_create.html:213
-#: golf/templates/golf/agency_booking_detail.html:188
-#: golf/templates/golf/agency_booking_list.html:93
-#: golf/templates/golf/agency_booking_update.html:255
-#: golf/templates/golf/staff_booking_accept_update.html:167
-#: golf/templates/golf/staff_booking_confirm_update.html:209
-#: golf/templates/golf/staff_booking_detail.html:188
-#: golf/templates/golf/staff_booking_list.html:114
-#: golf/templates/golf/staff_booking_void_update.html:167
-msgid "Fee"
-msgstr ""
-
-#: golf/templates/golf/agency_booking_change_update.html:319
-#: golf/templates/golf/agency_booking_create.html:276
-#: golf/templates/golf/agency_booking_list.html:137
-#: golf/templates/golf/agency_booking_update.html:319 golf/views.py:83
+#: golf/templates/golf/agency_booking_change_update.html:30
+#: golf/templates/golf/agency_booking_create.html:30
+#: golf/templates/golf/agency_booking_list.html:137 golf/views.py:83
 msgid "Make an order"
 msgstr ""
 
-#: golf/templates/golf/agency_booking_change_update.html:328
-#: golf/templates/golf/agency_booking_confirm_delete.html:233
-#: golf/templates/golf/agency_booking_create.html:285
-#: golf/templates/golf/agency_booking_detail.html:257
-#: golf/templates/golf/agency_booking_update.html:328
-#: golf/templates/golf/staff_booking_accept_update.html:235
-#: golf/templates/golf/staff_booking_confirm_update.html:286
-#: golf/templates/golf/staff_booking_detail.html:246
-#: golf/templates/golf/staff_booking_void_update.html:235
+#: golf/templates/golf/agency_booking_change_update.html:40
+#: golf/templates/golf/agency_booking_confirm_delete.html:27
+#: golf/templates/golf/agency_booking_detail.html:37
+msgid "Delete order"
+msgstr ""
+
+#: golf/templates/golf/agency_booking_change_update.html:50
+#: golf/templates/golf/agency_booking_confirm_delete.html:36
+#: golf/templates/golf/agency_booking_create.html:39
+#: golf/templates/golf/agency_booking_detail.html:47
+#: golf/templates/golf/agency_booking_revoke_update.html:38
+#: golf/templates/golf/staff_booking_accept_update.html:38
+#: golf/templates/golf/staff_booking_confirm_update.html:47
+#: golf/templates/golf/staff_booking_detail.html:26
+#: golf/templates/golf/staff_booking_void_update.html:38
 msgid "Order list"
 msgstr ""
 
-#: golf/templates/golf/agency_booking_confirm_delete.html:224
-#: golf/templates/golf/agency_booking_detail.html:247
-msgid "Delete order"
+#: golf/templates/golf/agency_booking_detail.html:27 golf/views.py:223
+msgid "Change order"
 msgstr ""
 
 #: golf/templates/golf/agency_booking_list.html:90
@@ -702,20 +650,21 @@ msgstr ""
 msgid "Season / Day of week / Slot"
 msgstr ""
 
-#: golf/templates/golf/staff_booking_accept_update.html:225 golf/views.py:381
+#: golf/templates/golf/agency_booking_revoke_update.html:28
+#: golf/templates/golf/staff_booking_accept_update.html:28 golf/views.py:351
 msgid "Accept order"
 msgstr ""
 
-#: golf/templates/golf/staff_booking_confirm_update.html:267 golf/views.py:408
+#: golf/templates/golf/staff_booking_confirm_update.html:28 golf/views.py:378
 msgid "Confirm order"
 msgstr ""
 
-#: golf/templates/golf/staff_booking_confirm_update.html:276
-#: golf/templates/golf/staff_booking_void_update.html:225 golf/views.py:445
+#: golf/templates/golf/staff_booking_confirm_update.html:37
+#: golf/templates/golf/staff_booking_void_update.html:28 golf/views.py:415
 msgid "Void order"
 msgstr ""
 
-#: golf/views.py:144 golf/views.py:361
+#: golf/views.py:144 golf/views.py:331
 msgid "Booking Details"
 msgstr ""
 
@@ -723,11 +672,7 @@ msgstr ""
 msgid "Order waiting"
 msgstr ""
 
-#: golf/views.py:223
-msgid "Edit order"
-msgstr ""
-
-#: golf/views.py:283
+#: golf/views.py:253
 msgid "Delete booking"
 msgstr ""
 

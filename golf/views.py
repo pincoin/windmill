@@ -204,6 +204,33 @@ class AgencyBookingChangeUpdateView(viewmixins.GroupRequiredMixin, generic.Updat
         return reverse('golf:agency-booking-change', args=(self.object.booking_uuid,))
 
 
+class AgencyBookingRevokeUpdateView(viewmixins.GroupRequiredMixin, generic.UpdateView):
+    group_required = ['agency', ]
+    model = models.Booking
+    context_object_name = 'booking'
+    template_name = 'golf/agency_booking_revoke_update.html'
+    form_class = forms.BookingDummyForm
+
+    def get_object(self, queryset=None):
+        # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
+        queryset = models.Booking.objects \
+            .filter(status__in=[models.Booking.STATUS_CHOICES.payment_pending, models.Booking.STATUS_CHOICES.offered]) \
+            .select_related('club', 'agency', 'agent__agentprofile')
+        return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
+
+    def get_context_data(self, **kwargs):
+        context = super(AgencyBookingRevokeUpdateView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Change order')
+        return context
+
+    def form_valid(self, form):
+        form.instance.status = models.Booking.STATUS_CHOICES.order_made
+        return super(AgencyBookingRevokeUpdateView, self).form_valid(form)
+
+    def get_success_url(self):
+        return reverse('golf:agency-booking-change', args=(self.object.booking_uuid,))
+
+
 class AgencyBookingDeleteView(viewmixins.GroupRequiredMixin, generic.DeleteView):
     group_required = ['agency', ]
     model = models.Booking
