@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-08 23:24+0700\n"
+"POT-Creation-Date: 2019-09-09 07:42+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,7 @@ msgid "Agency"
 msgstr "에이전시"
 
 #: conf/templates/conf/base.html:94 conf/templates/conf/base.html:106
-#: golf/views.py:54 golf/views.py:257
+#: golf/views.py:54 golf/views.py:261
 msgid "Booking management"
 msgstr "예약관리"
 
@@ -490,28 +490,28 @@ msgid "voucher issued"
 msgstr "발권완료"
 
 #: golf/models.py:470
-msgid "order revoked"
-msgstr "취소완료"
+msgid "order offered"
+msgstr "예약제안"
 
 #: golf/models.py:471
+msgid "order voided"
+msgstr "예약불가"
+
+#: golf/models.py:472
 msgid "refund requested"
 msgstr "환불요청"
 
-#: golf/models.py:472
+#: golf/models.py:473
 msgid "refund pending"
 msgstr "환불대기"
 
-#: golf/models.py:473
+#: golf/models.py:474
 msgid "order refunded(original)"
 msgstr "환불완료(원주문)"
 
-#: golf/models.py:474
+#: golf/models.py:475
 msgid "order refunded(reverse)"
 msgstr "환불완료(역주문)"
-
-#: golf/models.py:475
-msgid "order voided"
-msgstr "예약불가"
 
 #: golf/models.py:479
 msgid "UUID"
@@ -676,20 +676,20 @@ msgstr "예약발주"
 msgid "Season / Day of week / Slot"
 msgstr "예약구분"
 
-#: golf/templates/golf/staff_booking_accept_update.html:225 golf/views.py:313
+#: golf/templates/golf/staff_booking_accept_update.html:225 golf/views.py:317
 msgid "Accept order"
 msgstr "예약접수"
 
-#: golf/templates/golf/staff_booking_confirm_update.html:267 golf/views.py:340
+#: golf/templates/golf/staff_booking_confirm_update.html:267 golf/views.py:344
 msgid "Confirm order"
 msgstr "예약확정"
 
 #: golf/templates/golf/staff_booking_confirm_update.html:276
-#: golf/templates/golf/staff_booking_void_update.html:225 golf/views.py:377
+#: golf/templates/golf/staff_booking_void_update.html:225 golf/views.py:381
 msgid "Void order"
 msgstr "예약불가"
 
-#: golf/views.py:139 golf/views.py:293
+#: golf/views.py:139 golf/views.py:297
 msgid "Booking Details"
 msgstr "예약현황"
 
@@ -697,7 +697,7 @@ msgstr "예약현황"
 msgid "Edit order"
 msgstr "예약변경"
 
-#: golf/views.py:215
+#: golf/views.py:219
 msgid "Delete booking"
 msgstr "예약삭제"
 
@@ -1112,3 +1112,6 @@ msgstr "SNS 로그인 실패"
 #: member/views.py:264
 msgid "Connect with SNS accounts"
 msgstr "SNS 로그인"
+
+#~ msgid "order revoked"
+#~ msgstr "취소완료"

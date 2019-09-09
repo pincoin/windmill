@@ -467,12 +467,12 @@ class Booking(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
         (1, 'order_pending', _('order pending')),
         (2, 'payment_pending', _('payment_pending')),
         (3, 'issued', _('voucher issued')),
-        (4, 'revoked', _('order revoked')),
-        (5, 'refund_requested', _('refund requested')),
-        (6, 'refund_pending', _('refund pending')),
-        (7, 'refunded1', _('order refunded(original)')),  # original order
-        (8, 'refunded2', _('order refunded(reverse)')),  # refund order
-        (9, 'voided', _('order voided')),
+        (4, 'offered', _('order offered')),
+        (5, 'voided', _('order voided')),
+        (6, 'refund_requested', _('refund requested')),
+        (7, 'refund_pending', _('refund pending')),
+        (8, 'refunded1', _('order refunded(original)')),  # original order
+        (9, 'refunded2', _('order refunded(reverse)')),  # refund order
     )
 
     booking_uuid = models.UUIDField(

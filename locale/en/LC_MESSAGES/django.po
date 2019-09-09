@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-08 23:24+0700\n"
+"POT-Creation-Date: 2019-09-09 07:42+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,7 @@ msgid "Agency"
 msgstr ""
 
 #: conf/templates/conf/base.html:94 conf/templates/conf/base.html:106
-#: golf/views.py:54 golf/views.py:257
+#: golf/views.py:54 golf/views.py:261
 msgid "Booking management"
 msgstr ""
 
@@ -490,27 +490,27 @@ msgid "voucher issued"
 msgstr ""
 
 #: golf/models.py:470
-msgid "order revoked"
+msgid "order offered"
 msgstr ""
 
 #: golf/models.py:471
-msgid "refund requested"
+msgid "order voided"
 msgstr ""
 
 #: golf/models.py:472
-msgid "refund pending"
+msgid "refund requested"
 msgstr ""
 
 #: golf/models.py:473
-msgid "order refunded(original)"
+msgid "refund pending"
 msgstr ""
 
 #: golf/models.py:474
-msgid "order refunded(reverse)"
+msgid "order refunded(original)"
 msgstr ""
 
 #: golf/models.py:475
-msgid "order voided"
+msgid "order refunded(reverse)"
 msgstr ""
 
 #: golf/models.py:479
@@ -676,20 +676,20 @@ msgstr ""
 msgid "Season / Day of week / Slot"
 msgstr ""
 
-#: golf/templates/golf/staff_booking_accept_update.html:225 golf/views.py:313
+#: golf/templates/golf/staff_booking_accept_update.html:225 golf/views.py:317
 msgid "Accept order"
 msgstr ""
 
-#: golf/templates/golf/staff_booking_confirm_update.html:267 golf/views.py:340
+#: golf/templates/golf/staff_booking_confirm_update.html:267 golf/views.py:344
 msgid "Confirm order"
 msgstr ""
 
 #: golf/templates/golf/staff_booking_confirm_update.html:276
-#: golf/templates/golf/staff_booking_void_update.html:225 golf/views.py:377
+#: golf/templates/golf/staff_booking_void_update.html:225 golf/views.py:381
 msgid "Void order"
 msgstr ""
 
-#: golf/views.py:139 golf/views.py:293
+#: golf/views.py:139 golf/views.py:297
 msgid "Booking Details"
 msgstr ""
 
@@ -697,7 +697,7 @@ msgstr ""
 msgid "Edit order"
 msgstr ""
 
-#: golf/views.py:215
+#: golf/views.py:219
 msgid "Delete booking"
 msgstr ""
 
