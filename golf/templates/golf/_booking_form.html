@@ -20,13 +20,20 @@
             </label>
         </div>
         <div class="field-body">
-            <div class="field">
-                <div class="control has-icons-left">
+            <div class="field has-addons">
+                <div class="control is-expanded has-icons-left">
                     <input type="text"
-                           value="{{ booking.get_status_display }} / {{ booking.created|date:'Y-m-d H:i' }}"
+                           value="{{ booking.get_status_display }}"
                            class="input disabled"
-                           id="id_first_name" disabled>
+                           disabled>
                     <span class="icon is-small is-left"><i class="fas fa-splotch fa-fw has-text-grey"></i></span>
+                </div>
+                <div class="control is-expanded has-icons-left">
+                    <input type="text"
+                           value="{{ booking.created|date:'Y-m-d H:i' }}"
+                           class="input disabled"
+                           disabled>
+                    <span class="icon is-small is-left"><i class="fas fa-map-pin fa-fw has-text-grey"></i></span>
                 </div>
             </div>
         </div>
@@ -39,13 +46,20 @@
             </label>
         </div>
         <div class="field-body">
-            <div class="field">
-                <div class="control has-icons-left">
+            <div class="field has-addons">
+                <div class="control is-expanded has-icons-left">
                     <input type="text"
-                           value="{{ booking.agency.title }} / {{ booking.agent.agentprofile.fullname }}"
+                           value="{{ booking.agency.title }}"
                            class="input disabled"
-                           id="id_first_name" disabled>
+                           disabled>
                     <span class="icon is-small is-left"><i class="fas fa-building fa-fw has-text-grey"></i></span>
+                </div>
+                <div class="control is-expanded has-icons-left">
+                    <input type="text"
+                           value="{{ booking.agent.agentprofile.fullname }}"
+                           class="input disabled"
+                           disabled>
+                    <span class="icon is-small is-left"><i class="fas fa-address-card fa-fw has-text-grey"></i></span>
                 </div>
             </div>
         </div>
