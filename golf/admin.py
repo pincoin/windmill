@@ -27,7 +27,7 @@ class TeeOffTimeInline(admin.TabularInline):
     model = models.BookingTeeOffTime
     extra = 1
     fields = ('tee_off_time', 'status')
-    ordering = ('-created',)
+    ordering = ('-tee_off_time',)
 
 
 class ProfileSetInline(admin.TabularInline):

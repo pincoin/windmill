@@ -621,6 +621,8 @@ class BookingTeeOffTime(model_utils_models.TimeStampedModel):
         verbose_name = _('Tee-off time')
         verbose_name_plural = _('Tee-off time')
 
+        ordering = ('-tee_off_time',)
+
         unique_together = ('booking', 'tee_off_time')
 
     def __str__(self):
