@@ -456,18 +456,21 @@ class APITeeOffTimeAddView(viewmixins.GroupRequiredMixin, generic.FormView):
             form.cleaned_data['offer_tee_off_time_hour'],
             form.cleaned_data['offer_tee_off_time_minute']), '%H:%M:%S').time()
 
-        booking = models.Booking.objects.get(booking_uuid=form.cleaned_data['booking_uuid'])
+        try:
+            booking = models.Booking.objects.get(booking_uuid=form.cleaned_data['booking_uuid'])
 
-        t = models.BookingTeeOffTime()
-        t.booking = booking
-        t.tee_off_time = tee_off_time
-        t.status = models.BookingTeeOffTime.STATUS_CHOICES.offered
-        t.save()
+            t = models.BookingTeeOffTime()
+            t.booking = booking
+            t.tee_off_time = tee_off_time
+            t.status = models.BookingTeeOffTime.STATUS_CHOICES.offered
+            t.save()
 
-        data.update({
-            'tee_off_time': tee_off_time,
-            'tee_off_time_str': _date(tee_off_time, 'H:i'),
-        })
+            data.update({
+                'tee_off_time': tee_off_time,
+                'tee_off_time_str': _date(tee_off_time, 'H:i'),
+            })
+        except:
+            pass
 
         return JsonResponse(data)
 
@@ -482,7 +485,14 @@ class APITeeOffTimeDeleteView(viewmixins.GroupRequiredMixin, generic.FormView):
     def form_valid(self, form):
         data = form.cleaned_data
 
-        data.update({})
+        try:
+            t = models.BookingTeeOffTime.objects \
+                .exclude(status__in=[models.BookingTeeOffTime.STATUS_CHOICES.accepted]) \
+                .get(pk=form.cleaned_data['tee_off_time_pk'])
+
+            t.delete()
+        except models.BookingTeeOffTime.DoesNotExist:
+            pass
 
         return JsonResponse(data)
 

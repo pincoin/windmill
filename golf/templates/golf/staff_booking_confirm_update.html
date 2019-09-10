@@ -75,11 +75,18 @@
                                             </a>
                                         </p>
                                         <p class="control">
-                                            <a class="button is-danger tee_off_time_remove"
-                                               data-id="{{ tee_off_time.pk }}">
-                                                <span class="icon"><i class="far fa-minus-square"></i></span>
-                                                <span>{% trans 'Remove' %}</span>
-                                            </a>
+                                            {% if tee_off_time.status == tee_off_time.STATUS_CHOICES.accepted %}
+                                                <a class="button is-primary">
+                                                    <span class="icon"><i class="far fa-check-square"></i></span>
+                                                    <span>{% trans 'Confirm tee-off time' %}</span>
+                                                </a>
+                                            {% else %}
+                                                <a class="button is-danger tee_off_time_remove"
+                                                   data-id="{{ tee_off_time.pk }}">
+                                                    <span class="icon"><i class="far fa-minus-square"></i></span>
+                                                    <span>{% trans 'Remove' %}</span>
+                                                </a>
+                                            {% endif %}
                                         </p>
                                     </div>
                                 </div>

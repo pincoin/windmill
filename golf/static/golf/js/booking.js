@@ -116,35 +116,54 @@ $(document).ready(function () {
                 }
             }
         }).done(function (data, textStatus, jqXHR) {
-            tee_off_time_form.prepend("" +
-                "<div class=\"field is-horizontal\">\n" +
-                "   <div class=\"field-label is-normal\"></div>\n" +
-                "   <div class=\"field-body\">\n" +
-                "      <div class=\"field has-addons\">\n" +
-                "         <p class=\"control is-expanded\">\n" +
-                "            <input type=\"text\" value=\"" + data.tee_off_time_str + "\" class=\"input disabled tee_off_time\" disabled=\"\">\n" +
-                "         </p>\n" +
-                "         <p class=\"control\">\n" +
-                "            <a class=\"button is-warning\">\n" +
-                "               <span>" + status_text +"</span>\n" +
-                "            </a>\n" +
-                "         </p>\n" +
-                "         <p class=\"control\">\n" +
-                "            <a class=\"button is-danger tee_off_time_remove\" data-id=\"1\">\n" +
-                "               <span class=\"icon\"><i class=\"far fa-minus-square\"></i></span>\n" +
-                "               <span>" + remove_text + "</span>\n" +
-                "            </a>\n" +
-                "         </p>\n" +
-                "      </div>\n" +
-                "   </div>\n" +
-                "</div>");
+            if ('tee_off_time_str' in data) {
+                tee_off_time_form.prepend("" +
+                    "<div class=\"field is-horizontal\">\n" +
+                    "   <div class=\"field-label is-normal\"></div>\n" +
+                    "   <div class=\"field-body\">\n" +
+                    "      <div class=\"field has-addons\">\n" +
+                    "         <p class=\"control is-expanded\">\n" +
+                    "            <input type=\"text\" value=\"" + data.tee_off_time_str + "\" class=\"input disabled tee_off_time\" disabled=\"\">\n" +
+                    "         </p>\n" +
+                    "         <p class=\"control\">\n" +
+                    "            <a class=\"button is-warning\">\n" +
+                    "               <span>" + status_text + "</span>\n" +
+                    "            </a>\n" +
+                    "         </p>\n" +
+                    "         <p class=\"control\">\n" +
+                    "            <a class=\"button is-danger tee_off_time_remove\" data-id=\"1\">\n" +
+                    "               <span class=\"icon\"><i class=\"far fa-minus-square\"></i></span>\n" +
+                    "               <span>" + remove_text + "</span>\n" +
+                    "            </a>\n" +
+                    "         </p>\n" +
+                    "      </div>\n" +
+                    "   </div>\n" +
+                    "</div>");
+            }
         }).fail(function (data, textStatus, errorThrown) {
             console.log(data);
         });
     });
 
     $(document).on('click', '.tee_off_time_remove', function (e) {
-        console.log($(this).data('id'));
-        $(this).closest('.is-horizontal').remove();
+        let tee_off_time_block = $(this).closest('.is-horizontal');
+
+        $.ajax({
+            url: '/golf/api/tee-off-time/delete/',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                'tee_off_time_pk': $(this).data('id')
+            },
+            beforeSend: function (xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader('X-CSRFToken', csrftoken);
+                }
+            }
+        }).done(function (data, textStatus, jqXHR) {
+            tee_off_time_block.remove();
+        }).fail(function (data, textStatus, errorThrown) {
+            console.log(data);
+        });
     });
 });
