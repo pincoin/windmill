@@ -37,6 +37,9 @@ urlpatterns = [
     path('staff/booking/<uuid:uuid>/confirm',
          views.StaffBookingConfirmUpdateView.as_view(), name='staff-booking-confirm'),
 
+    path('staff/booking/<uuid:uuid>/offer',
+         views.StaffBookingOfferUpdateView.as_view(), name='staff-booking-offer'),
+
     path('staff/booking/<uuid:uuid>/void',
          views.StaffBookingVoidUpdateView.as_view(), name='staff-booking-void'),
 

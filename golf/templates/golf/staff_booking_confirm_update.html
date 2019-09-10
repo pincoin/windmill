@@ -58,7 +58,10 @@
 
             <div class="columns is-centered">
                 <div class="column is-four-fifths">
-                    <form id="id_tee_off_time_form">
+                    <form id="id_tee_off_time_form"
+                          action="{% url 'golf:staff-booking-offer' booking.booking_uuid %}"
+                          method="post">
+                        {% csrf_token %}
                         {% for tee_off_time in booking.bookingteeofftime_set.all %}
                             <div class="field is-horizontal">
                                 <div class="field-label is-normal"></div>
@@ -148,10 +151,10 @@
                             <div class="field-body">
                                 <div class="field">
                                     <div class="control is-expanded">
-                                        <a class="button is-primary is-fullwidth">
+                                        <button class="button is-primary is-fullwidth">
                                             <span class="icon"><i class="fas fa-clock"></i></span>
                                             <span>{% trans 'Offer tee-off time' %}</span>
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
