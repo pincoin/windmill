@@ -22,13 +22,14 @@
                                     <div class="field">
                                         <div class="control is-expanded">
                                             <a href="{% url 'golf:agency-booking-revoke' booking.booking_uuid %}"
-                                               class="button is-danger is-fullwidth">
+                                               class="button is-primary is-fullwidth">
                                                 <span class="icon"><i class="far fa-edit"></i></span>
                                                 <span>{% trans 'Change order' %}</span>
                                             </a>
                                         </div>
                                     </div>
-                                {% elif booking.status == booking.STATUS_CHOICES.order_made or booking.status == booking.STATUS_CHOICES.voided %}
+                                {% endif %}
+                                {% if booking.status == booking.STATUS_CHOICES.order_made or booking.status == booking.STATUS_CHOICES.voided or booking.status == booking.STATUS_CHOICES.offered %}
                                     <div class="field">
                                         <div class="control is-expanded">
                                             <a href="{% url 'golf:agency-booking-delete' booking.booking_uuid %}"

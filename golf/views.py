@@ -244,6 +244,7 @@ class AgencyBookingDeleteView(viewmixins.GroupRequiredMixin, generic.DeleteView)
                     status__in=[
                         models.Booking.STATUS_CHOICES.order_made,
                         models.Booking.STATUS_CHOICES.voided,
+                        models.Booking.STATUS_CHOICES.offered,
                     ]) \
             .select_related('club', 'agency', 'agent__agentprofile')
         return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
