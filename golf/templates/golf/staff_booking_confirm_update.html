@@ -59,23 +59,32 @@
             <div class="columns is-centered">
                 <div class="column is-four-fifths">
                     <form id="tee_off_form">
-                        <div class="field is-horizontal">
-                            <div class="field-label is-normal"></div>
-                            <div class="field-body">
-                                <div class="field has-addons">
-                                    <p class="control is-expanded">
-                                        <input type="text" value="16:20" class="input disabled tee_off_time"
-                                               disabled="">
-                                    </p>
-                                    <p class="control">
-                                        <a class="button is-danger">
-                                            <span class="icon"><i class="far fa-minus-square"></i></span>
-                                            <span>{% trans 'Remove' %}</span>
-                                        </a>
-                                    </p>
+                        {% for tee_off_time in booking.bookingteeofftime_set.all %}
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal"></div>
+                                <div class="field-body">
+                                    <div class="field has-addons">
+                                        <p class="control is-expanded">
+                                            <input type="text" value="{{ tee_off_time.tee_off_time }}"
+                                                   class="input disabled tee_off_time"
+                                                   disabled="" id="tee_off_time_{{ tee_of_time.pk }}">
+                                        </p>
+                                        <p class="control">
+                                            <a class="button is-warning">
+                                                <span>{{ tee_off_time.get_status_display }}</span>
+                                            </a>
+                                        </p>
+                                        <p class="control">
+                                            <a class="button is-danger">
+                                                <span class="icon"><i class="far fa-minus-square"></i></span>
+                                                <span>{% trans 'Remove' %}</span>
+                                            </a>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endfor %}
+
                         <div class="field is-horizontal">
                             <div class="field-label is-normal">
                                 <label class="label" for="{{ form.tee_off_time_hour.id_for_label }}">
