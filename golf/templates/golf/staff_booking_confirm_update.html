@@ -58,16 +58,16 @@
 
             <div class="columns is-centered">
                 <div class="column is-four-fifths">
-                    <form id="tee_off_form">
+                    <form id="id_tee_off_time_form">
                         {% for tee_off_time in booking.bookingteeofftime_set.all %}
                             <div class="field is-horizontal">
                                 <div class="field-label is-normal"></div>
                                 <div class="field-body">
                                     <div class="field has-addons">
                                         <p class="control is-expanded">
-                                            <input type="text" value="{{ tee_off_time.tee_off_time }}"
+                                            <input type="text" value="{{ tee_off_time.tee_off_time|date:'H:i' }}"
                                                    class="input disabled tee_off_time"
-                                                   disabled="" id="tee_off_time_{{ tee_of_time.pk }}">
+                                                   disabled="">
                                         </p>
                                         <p class="control">
                                             <a class="button is-warning">
@@ -75,7 +75,8 @@
                                             </a>
                                         </p>
                                         <p class="control">
-                                            <a class="button is-danger">
+                                            <a class="button is-danger tee_off_time_remove"
+                                               data-id="{{ tee_off_time.pk }}">
                                                 <span class="icon"><i class="far fa-minus-square"></i></span>
                                                 <span>{% trans 'Remove' %}</span>
                                             </a>
@@ -87,8 +88,9 @@
 
                         <div class="field is-horizontal">
                             <div class="field-label is-normal">
-                                <label class="label" for="{{ form.tee_off_time_hour.id_for_label }}">
-                                    {{ form.tee_off_time_hour.label }}
+                                <label class="label"
+                                       for="{{ tee_off_time_add_form.offer_tee_off_time_hour.id_for_label }}">
+                                    {{ tee_off_time_add_form.offer_tee_off_time_hour.label }}
                                     <span class="has-text-danger">*</span>
                                 </label>
                             </div>
@@ -96,30 +98,36 @@
                                 <div class="field">
                                     <div class="field has-addons">
                                         <div class="control is-expanded has-icons-left">
-                                            {{ form.tee_off_time_hour }}
+                                            {{ tee_off_time_add_form.offer_tee_off_time_hour }}
                                             <span class="icon is-small is-left">
                                                 <i class="fas fa-clock fa-fw has-text-grey"></i>
                                             </span>
                                         </div>
                                         <div class="control is-expanded has-icons-left">
-                                            {{ form.tee_off_time_minute }}
+                                            {{ tee_off_time_add_form.offer_tee_off_time_minute }}
                                             <span class="icon is-small is-left">
                                                 <i class="fas fa-clock fa-fw has-text-grey"></i>
                                             </span>
                                         </div>
                                         <div class="control is-expanded has-icons-left">
-                                            <a class="button is-success is-fullwidth">{% trans 'Add' %}</a>
+                                            <a class="button is-success is-fullwidth"
+                                               id="id_tee_off_time_add"
+                                               data-booking_uuid="{{ booking.booking_uuid }}"
+                                               data-remove_text="{% trans 'Remove' %}"
+                                               data-status_text="{% trans 'Time offered' %}">
+                                                {% trans 'Add' %}
+                                            </a>
                                             <span class="icon is-small is-left has-text-white">
                                                 <i class="far fa-plus-square"></i>
                                             </span>
                                         </div>
                                     </div>
-                                    {% if form.tee_off_time_hour.errors or form.tee_off_time_minute.errors %}
+                                    {% if tee_off_time_add_form.offer_tee_off_time_hour.errors or tee_off_time_add_form.offer_tee_off_time_minute.errors %}
                                         <p class="help is-danger">
-                                            {% for error in form.tee_off_time_hour.errors %}
+                                            {% for error in tee_off_time_add_form.offer_tee_off_time_hour.errors %}
                                                 {{ error|escape }}
                                             {% endfor %}
-                                            {% for error in form.tee_off_time_minute.errors %}
+                                            {% for error in tee_off_time_add_form.offer_tee_off_time_minute.errors %}
                                                 {{ error|escape }}
                                             {% endfor %}
                                         </p>

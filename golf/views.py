@@ -4,6 +4,7 @@ from django.http import (
     JsonResponse, HttpResponse
 )
 from django.shortcuts import get_object_or_404
+from django.template.defaultfilters import date as _date
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
@@ -320,7 +321,6 @@ class StaffBookingDetailView(viewmixins.GroupRequiredMixin, generic.DetailView):
     model = models.Booking
     context_object_name = 'booking'
     template_name = 'golf/staff_booking_detail.html'
-    form_class = forms.TeeOffTimeAddForm
 
     def get_object(self, queryset=None):
         # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
@@ -331,7 +331,6 @@ class StaffBookingDetailView(viewmixins.GroupRequiredMixin, generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(StaffBookingDetailView, self).get_context_data(**kwargs)
         context['page_title'] = _('Booking Details')
-        context['form'] = self.form_class(booking=self.object)
         return context
 
 
@@ -368,6 +367,7 @@ class StaffBookingConfirmUpdateView(viewmixins.GroupRequiredMixin, generic.Updat
     context_object_name = 'booking'
     template_name = 'golf/staff_booking_confirm_update.html'
     form_class = forms.BookingConfirmForm
+    tee_off_time_add_form_class = forms.TeeOffTimeAddForm
 
     def get_object(self, queryset=None):
         # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
@@ -380,6 +380,7 @@ class StaffBookingConfirmUpdateView(viewmixins.GroupRequiredMixin, generic.Updat
     def get_context_data(self, **kwargs):
         context = super(StaffBookingConfirmUpdateView, self).get_context_data(**kwargs)
         context['page_title'] = _('Confirm order')
+        context['tee_off_time_add_form'] = self.tee_off_time_add_form_class(booking=self.object)
         return context
 
     def get_form_kwargs(self):
@@ -446,12 +447,27 @@ class APIFeeView(generic.FormView):
 
 class APITeeOffTimeAddView(viewmixins.GroupRequiredMixin, generic.FormView):
     group_required = ['staff', ]
-    form_class = forms.TeeOffTimeAddForm
+    form_class = forms.TeeOffTimeAPIAddForm
 
     def form_valid(self, form):
         data = form.cleaned_data
 
-        data.update({})
+        tee_off_time = timezone.datetime.strptime('{}:{}:00'.format(
+            form.cleaned_data['offer_tee_off_time_hour'],
+            form.cleaned_data['offer_tee_off_time_minute']), '%H:%M:%S').time()
+
+        booking = models.Booking.objects.get(booking_uuid=form.cleaned_data['booking_uuid'])
+
+        t = models.BookingTeeOffTime()
+        t.booking = booking
+        t.tee_off_time = tee_off_time
+        t.status = models.BookingTeeOffTime.STATUS_CHOICES.offered
+        t.save()
+
+        data.update({
+            'tee_off_time': tee_off_time,
+            'tee_off_time_str': _date(tee_off_time, 'H:i'),
+        })
 
         return JsonResponse(data)
 

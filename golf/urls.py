@@ -40,10 +40,11 @@ urlpatterns = [
     path('staff/booking/<uuid:uuid>/void',
          views.StaffBookingVoidUpdateView.as_view(), name='staff-booking-void'),
 
-    path('staff/booking/<uuid:uuid>/update/',
-         views.StaffBookingDetailView.as_view(), name='staff-booking-update'),
-
     # AJAX APIs
     path('api/fee/',
          views.APIFeeView.as_view(), name='api-fee'),
+    path('api/tee-off-time/add/',
+         views.APITeeOffTimeAddView.as_view(), name='api-tee-off-time-add'),
+    path('api/tee-off-time/delete/',
+         views.APITeeOffTimeDeleteView.as_view(), name='api-tee-off-time-delete'),
 ]

@@ -1,13 +1,15 @@
 $(document).ready(function () {
-    var club = $('#id_club');
-    var agency = $('#id_agency');
-    var slot = $('#id_slot');
-    var round_date = $('#id_round_date');
-    var round_time_hour = $('#id_round_time_hour');
-    var people = $('#id_people');
-    var round_date_info = $('#id_round_date_info');
+    let club = $('#id_club');
+    let agency = $('#id_agency');
+    let slot = $('#id_slot');
+    let round_date = $('#id_round_date');
+    let round_time_hour = $('#id_round_time_hour');
+    let people = $('#id_people');
+    let round_date_info = $('#id_round_date_info');
 
-    var fee = $('#id_fee');
+    let tee_off_time_form = $('#id_tee_off_time_form');
+
+    let fee = $('#id_fee');
 
     function get_fee() {
         if (club.val() && round_date.val() && round_time_hour.val()) {
@@ -90,5 +92,59 @@ $(document).ready(function () {
 
     people.on('change', function (e) {
         get_fee();
+    });
+
+    $(document).on('click', '#id_tee_off_time_add', function (e) {
+        console.log($(this).data('booking_uuid'));
+
+        let status_text = $(this).data('status_text');
+        let remove_text = $(this).data('remove_text');
+
+
+        $.ajax({
+            url: '/golf/api/tee-off-time/add/',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                'booking_uuid': $(this).data('booking_uuid'),
+                'offer_tee_off_time_hour': $('#id_offer_tee_off_time_hour').val(),
+                'offer_tee_off_time_minute': $('#id_offer_tee_off_time_minute').val(),
+            },
+            beforeSend: function (xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader('X-CSRFToken', csrftoken);
+                }
+            }
+        }).done(function (data, textStatus, jqXHR) {
+            tee_off_time_form.prepend("" +
+                "<div class=\"field is-horizontal\">\n" +
+                "   <div class=\"field-label is-normal\"></div>\n" +
+                "   <div class=\"field-body\">\n" +
+                "      <div class=\"field has-addons\">\n" +
+                "         <p class=\"control is-expanded\">\n" +
+                "            <input type=\"text\" value=\"" + data.tee_off_time_str + "\" class=\"input disabled tee_off_time\" disabled=\"\">\n" +
+                "         </p>\n" +
+                "         <p class=\"control\">\n" +
+                "            <a class=\"button is-warning\">\n" +
+                "               <span>" + status_text +"</span>\n" +
+                "            </a>\n" +
+                "         </p>\n" +
+                "         <p class=\"control\">\n" +
+                "            <a class=\"button is-danger tee_off_time_remove\" data-id=\"1\">\n" +
+                "               <span class=\"icon\"><i class=\"far fa-minus-square\"></i></span>\n" +
+                "               <span>" + remove_text + "</span>\n" +
+                "            </a>\n" +
+                "         </p>\n" +
+                "      </div>\n" +
+                "   </div>\n" +
+                "</div>");
+        }).fail(function (data, textStatus, errorThrown) {
+            console.log(data);
+        });
+    });
+
+    $(document).on('click', '.tee_off_time_remove', function (e) {
+        console.log($(this).data('id'));
+        $(this).closest('.is-horizontal').remove();
     });
 });

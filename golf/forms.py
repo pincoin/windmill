@@ -343,10 +343,10 @@ class FeeForm(forms.Form):
             raise forms.ValidationError(_('Invalid round date'))
 
 
-class TeeOffTimeAddForm(forms.Form):
-    booking_pk = forms.IntegerField()
+class TeeOffTimeAPIAddForm(forms.Form):
+    booking_uuid = forms.UUIDField()
 
-    tee_off_time_hour = forms.ChoiceField(
+    offer_tee_off_time_hour = forms.ChoiceField(
         label=_('Tee-off time'),
         choices=((str(x), str(x).zfill(2)) for x in range(6, 21)),
         widget=forms.Select(
@@ -356,7 +356,7 @@ class TeeOffTimeAddForm(forms.Form):
             }),
     )
 
-    tee_off_time_minute = forms.ChoiceField(
+    offer_tee_off_time_minute = forms.ChoiceField(
         choices=((str(x), str(x).zfill(2)) for x in range(0, 60)),
         widget=forms.Select(
             attrs={
@@ -365,19 +365,21 @@ class TeeOffTimeAddForm(forms.Form):
             }),
     )
 
+
+class TeeOffTimeAddForm(TeeOffTimeAPIAddForm):
     def __init__(self, *args, **kwargs):
         booking = kwargs.pop('booking', None)
 
         super(TeeOffTimeAddForm, self).__init__(*args, **kwargs)
 
         if booking.slot == 0:
-            self.fields['tee_off_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(6, 12))
+            self.fields['offer_tee_off_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(6, 12))
         elif booking.slot == 1:
-            self.fields['tee_off_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(11, 15))
+            self.fields['offer_tee_off_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(11, 15))
         elif booking.slot == 2:
-            self.fields['tee_off_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(15, 16))
+            self.fields['offer_tee_off_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(15, 16))
         elif booking.slot == 3:
-            self.fields['tee_off_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(16, 21))
+            self.fields['offer_tee_off_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(16, 21))
 
 
 class TeeOffTimeDeleteForm(forms.Form):
