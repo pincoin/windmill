@@ -450,8 +450,6 @@ msgid "order pending"
 msgstr "예약대기"
 
 #: golf/models.py:468
-#, fuzzy
-#| msgid "payment_pending"
 msgid "payment pending"
 msgstr "입금대기"
 
