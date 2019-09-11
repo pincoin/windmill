@@ -138,7 +138,7 @@ $(document).ready(function () {
                     "            </a>\n" +
                     "         </p>\n" +
                     "         <p class=\"control\">\n" +
-                    "            <a class=\"button is-danger tee_off_time_remove\" data-id=\"1\">\n" +
+                    "            <a class=\"button is-danger tee_off_time_remove\" data-id=\"" + data.tee_off_time_pk + "\">\n" +
                     "               <span class=\"icon\"><i class=\"far fa-minus-square\"></i></span>\n" +
                     "               <span>" + remove_text + "</span>\n" +
                     "            </a>\n" +
@@ -168,7 +168,9 @@ $(document).ready(function () {
                 }
             }
         }).done(function (data, textStatus, jqXHR) {
-            tee_off_time_block.remove();
+            if ('deleted' in data) {
+                tee_off_time_block.remove();
+            }
         }).fail(function (data, textStatus, errorThrown) {
             console.log(data);
         });

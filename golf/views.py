@@ -553,6 +553,7 @@ class APITeeOffTimeAddView(viewmixins.GroupRequiredMixin, generic.FormView):
             t.save()
 
             data.update({
+                'tee_off_time_pk': t.pk,
                 'tee_off_time': tee_off_time,
                 'tee_off_time_str': _date(tee_off_time, 'H:i'),
             })
@@ -578,6 +579,10 @@ class APITeeOffTimeDeleteView(viewmixins.GroupRequiredMixin, generic.FormView):
                 .get(pk=form.cleaned_data['tee_off_time_pk'])
 
             t.delete()
+
+            data.update({
+                'deleted': True,
+            })
         except models.BookingTeeOffTime.DoesNotExist:
             pass
 
