@@ -4,6 +4,7 @@ function get_fee() {
     let slot = $('#id_slot');
     let round_date = $('#id_round_date');
     let round_date_info = $('#id_round_date_info');
+    let round_time_hour = $('#id_round_time_hour');
     let fee = $('#id_fee');
     let people = $('#id_people');
 
