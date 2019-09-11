@@ -152,7 +152,7 @@ msgstr "인원수"
 
 #: golf/forms.py:184 golf/templates/golf/_booking_detail.html:200
 msgid "Full name (Passport)"
-msgstr "성명 (여권영문이름)"
+msgstr "고객 (여권영문이름)"
 
 #: golf/forms.py:186 golf/forms.py:196
 msgid "Only alphabets are allowed."
