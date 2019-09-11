@@ -121,7 +121,7 @@ msgstr "골프"
 #: golf/forms.py:16 golf/templates/golf/agency_booking_list.html:96
 #: golf/templates/golf/staff_booking_list.html:117
 msgid "Booking person"
-msgstr "예약자"
+msgstr "예약자명"
 
 #: golf/forms.py:17 golf/forms.py:205 golf/models.py:109 golf/models.py:552
 #: golf/models.py:710 golf/templates/golf/_booking_detail.html:245
@@ -141,7 +141,7 @@ msgstr "시간대"
 #: golf/templates/golf/agency_booking_list.html:84
 #: golf/templates/golf/staff_booking_list.html:105
 msgid "Round date/time"
-msgstr "라운딩 일시"
+msgstr "희망일시"
 
 #: golf/forms.py:173 golf/models.py:526
 #: golf/templates/golf/_booking_detail.html:179

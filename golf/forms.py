@@ -229,21 +229,21 @@ class BookingForm(forms.ModelForm):
         self.fields['club'].queryset = clubs
         self.fields['club'].initial = club
 
-        self.fields['round_time_hour'].choices = ((str(x), str(x).zfill(2)) for x in range(6, 12))
-
     class Meta:
         model = models.Booking
         fields = ('club', 'slot', 'round_date', 'people', 'first_name', 'last_name', 'memo')
 
     def clean_round_date(self):
-        return self.cleaned_data['round_date'][0:10]
+        round_date = self.cleaned_data['round_date'][0:10]
 
-    def clean(self):
         if not (timezone.make_aware(timezone.localtime().now())
-                < timezone.make_aware(timezone.datetime.strptime(self.cleaned_data['round_date'], '%Y-%m-%d'))
+                < timezone.make_aware(timezone.datetime.strptime(round_date, '%Y-%m-%d'))
                 < timezone.make_aware(timezone.localtime().now()) + timezone.timedelta(days=365)):
             raise forms.ValidationError(_('Invalid round date'))
 
+        return round_date
+
+    def clean_round_time_hour(self):
         if int(self.cleaned_data['slot']) == models.Booking.SLOT_CHOICES.morning \
                 and int(self.cleaned_data['round_time_hour']) not in [6, 7, 8, 9, 10, 11] \
                 or int(self.cleaned_data['slot']) == models.Booking.SLOT_CHOICES.daytime \
@@ -253,6 +253,8 @@ class BookingForm(forms.ModelForm):
                 or int(self.cleaned_data['slot']) == models.Booking.SLOT_CHOICES.night \
                 and int(self.cleaned_data['round_time_hour']) not in [16, 17, 18, 19]:
             raise forms.ValidationError(_('Invalid round time'))
+
+        return self.cleaned_data['round_time_hour']
 
 
 class BookingChangeForm(BookingForm):

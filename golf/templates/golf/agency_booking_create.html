@@ -70,4 +70,14 @@
             src="{% static "conf/js/csrf-cookie.js" %}"></script>
     <script type="text/javascript"
             src="{% static "golf/js/booking.js" %}"></script>
+    <script>
+        let round_time_hour = $('#id_round_time_hour');
+        round_time_hour.empty();
+        round_time_hour.append('<option value="6">06</option>'
+            + '<option value="7">07</option>'
+            + '<option value="8">08</option>'
+            + '<option value="9">09</option>'
+            + '<option value="10">10</option>'
+            + '<option value="11">11</option>');
+    </script>
 {% endblock %}
