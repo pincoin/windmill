@@ -32,6 +32,16 @@
                     </form>
                 </div>
             </div>
+
+            <h1 class="title has-text-centered">{% trans 'Tee-off time' %}</h1>
+
+            <div class="columns is-centered">
+                <div class="column is-four-fifths">
+                    <form>
+                        {% include './_booking_tee_off_time_list.html' with booking=booking %}
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 {% endblock %}
