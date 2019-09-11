@@ -11,21 +11,21 @@
                            disabled="">
                 </p>
                 <p class="control">
-                    <a class="button is-warning">
-                        <span>{{ tee_off_time.get_status_display }}</span>
-                    </a>
-                </p>
-                <p class="control">
                     {% if tee_off_time.status == tee_off_time.STATUS_CHOICES.accepted %}
-                        <a class="button is-primary">
+                        <a class="button is-primary tee_off_time_accept"
+                           data-id="{{ tee_off_time.pk }}"
+                           data-accept_text="{% trans 'Accept' %}"
+                           data-confirmed_text="{% trans 'Confirmed' %}">
                             <span class="icon"><i class="far fa-check-square"></i></span>
                             <span>{% trans 'Confirmed' %}</span>
                         </a>
                     {% else %}
-                        <a class="button is-danger tee_off_time_remove"
-                           data-id="{{ tee_off_time.pk }}">
-                            <span class="icon"><i class="far fa-minus-square"></i></span>
-                            <span>{% trans 'Remove' %}</span>
+                        <a class="button is-warning tee_off_time_accept"
+                           data-id="{{ tee_off_time.pk }}"
+                           data-accept_text="{% trans 'Accept' %}"
+                           data-confirmed_text="{% trans 'Confirmed' %}">
+                            <span class="icon"><i class="far fa-check-square"></i></span>
+                            <span>{% trans 'Accept' %}</span>
                         </a>
                     {% endif %}
                 </p>

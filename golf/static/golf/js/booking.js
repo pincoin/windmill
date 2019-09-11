@@ -173,4 +173,41 @@ $(document).ready(function () {
             console.log(data);
         });
     });
+
+    $(document).on('click', '.tee_off_time_accept', function (e) {
+        let accept_text = $(this).data('accept_text');
+        let confirmed_text = $(this).data('confirmed_text');
+
+        let tee_off_time_accept = $('.tee_off_time_accept');
+
+        let confirmed = $(this);
+
+        $.ajax({
+            url: '/golf/api/tee-off-time/accept/',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                'tee_off_time_pk': $(this).data('id')
+            },
+            beforeSend: function (xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader('X-CSRFToken', csrftoken);
+                }
+            }
+        }).done(function (data, textStatus, jqXHR) {
+            if ('tee_off_time_pk' in data) {
+                // reset all
+                tee_off_time_accept.removeClass('is-primary');
+                tee_off_time_accept.addClass('is-warning');
+                tee_off_time_accept.children('span:nth-child(2)').text(accept_text);
+
+                // make it confirmed
+                confirmed.removeClass('is-warning');
+                confirmed.addClass('is-primary');
+                confirmed.children('span:nth-child(2)').text(confirmed_text);
+            }
+        }).fail(function (data, textStatus, errorThrown) {
+            console.log(data);
+        });
+    });
 });

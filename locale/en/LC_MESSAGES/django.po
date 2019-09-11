@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-11 00:16+0700\n"
+"POT-Creation-Date: 2019-09-11 20:42+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,7 @@ msgid "Agency"
 msgstr ""
 
 #: conf/templates/conf/base.html:94 conf/templates/conf/base.html:106
-#: golf/views.py:55 golf/views.py:297
+#: golf/views.py:55 golf/views.py:357
 msgid "Booking management"
 msgstr ""
 
@@ -170,7 +170,7 @@ msgstr ""
 msgid "Remarks"
 msgstr ""
 
-#: golf/forms.py:245 golf/forms.py:343
+#: golf/forms.py:242 golf/forms.py:345
 msgid "Invalid round date"
 msgstr ""
 
@@ -178,13 +178,16 @@ msgstr ""
 msgid "Invalid round time"
 msgstr ""
 
-#: golf/forms.py:285 golf/forms.py:350 golf/models.py:610 golf/models.py:621
+#: golf/forms.py:287 golf/forms.py:352 golf/models.py:610 golf/models.py:621
 #: golf/models.py:622 golf/templates/golf/_booking_detail.html:159
+#: golf/templates/golf/agency_booking_accept_update.html:60
+#: golf/templates/golf/agency_booking_detail.html:60
 #: golf/templates/golf/staff_booking_confirm_update.html:57
+#: golf/templates/golf/staff_booking_detail.html:38
 msgid "Tee-off time"
 msgstr ""
 
-#: golf/forms.py:332
+#: golf/forms.py:334
 msgid "YYYY-MM-DD"
 msgstr ""
 
@@ -514,7 +517,7 @@ msgstr ""
 msgid "Booking"
 msgstr ""
 
-#: golf/models.py:595 golf/templates/golf/staff_booking_confirm_update.html:123
+#: golf/models.py:595 golf/templates/golf/staff_booking_confirm_update.html:96
 msgid "Time offered"
 msgstr ""
 
@@ -612,6 +615,22 @@ msgstr ""
 msgid "Fee"
 msgstr ""
 
+#: golf/templates/golf/_booking_tee_off_time_agency_form.html:17
+#: golf/templates/golf/_booking_tee_off_time_staff_form.html:22
+msgid "Confirmed"
+msgstr ""
+
+#: golf/templates/golf/_booking_tee_off_time_agency_form.html:23
+msgid "Accept"
+msgstr ""
+
+#: golf/templates/golf/_booking_tee_off_time_staff_form.html:28
+#: golf/templates/golf/staff_booking_confirm_update.html:95
+#: member/templates/member/account/email.html:84
+#: member/templates/member/socialaccount/connections.html:61
+msgid "Remove"
+msgstr ""
+
 #: golf/templates/golf/_pagination_booking_list.html:9
 #: golf/templates/golf/_pagination_booking_list.html:15
 msgid "Previous"
@@ -622,18 +641,20 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: golf/templates/golf/agency_booking_change_update.html:30
-#: golf/templates/golf/agency_booking_create.html:30
-#: golf/templates/golf/agency_booking_list.html:139 golf/views.py:84
-msgid "Make an order"
+#: golf/templates/golf/agency_booking_accept_update.html:27
+#: golf/templates/golf/agency_booking_detail.html:27
+#: golf/templates/golf/agency_booking_revoke_update.html:28 golf/views.py:284
+msgid "Change order"
 msgstr ""
 
+#: golf/templates/golf/agency_booking_accept_update.html:38
 #: golf/templates/golf/agency_booking_change_update.html:40
 #: golf/templates/golf/agency_booking_confirm_delete.html:27
 #: golf/templates/golf/agency_booking_detail.html:38
 msgid "Delete order"
 msgstr ""
 
+#: golf/templates/golf/agency_booking_accept_update.html:48
 #: golf/templates/golf/agency_booking_change_update.html:50
 #: golf/templates/golf/agency_booking_confirm_delete.html:36
 #: golf/templates/golf/agency_booking_create.html:39
@@ -646,9 +667,10 @@ msgstr ""
 msgid "Order list"
 msgstr ""
 
-#: golf/templates/golf/agency_booking_detail.html:27
-#: golf/templates/golf/agency_booking_revoke_update.html:28 golf/views.py:224
-msgid "Change order"
+#: golf/templates/golf/agency_booking_change_update.html:30
+#: golf/templates/golf/agency_booking_create.html:30
+#: golf/templates/golf/agency_booking_list.html:142 golf/views.py:84
+msgid "Make an order"
 msgstr ""
 
 #: golf/templates/golf/agency_booking_list.html:90
@@ -656,39 +678,28 @@ msgstr ""
 msgid "Season / Day of week / Slot"
 msgstr ""
 
-#: golf/templates/golf/staff_booking_accept_update.html:28 golf/views.py:353
+#: golf/templates/golf/staff_booking_accept_update.html:28 golf/views.py:413
 msgid "Accept order"
 msgstr ""
 
-#: golf/templates/golf/staff_booking_confirm_update.html:28 golf/views.py:382
+#: golf/templates/golf/staff_booking_confirm_update.html:28 golf/views.py:442
 msgid "Confirm order"
 msgstr ""
 
 #: golf/templates/golf/staff_booking_confirm_update.html:37
-#: golf/templates/golf/staff_booking_void_update.html:28 golf/views.py:420
+#: golf/templates/golf/staff_booking_void_update.html:28 golf/views.py:507
 msgid "Void order"
 msgstr ""
 
-#: golf/templates/golf/staff_booking_confirm_update.html:80
-msgid "Confirm tee-off time"
-msgstr ""
-
-#: golf/templates/golf/staff_booking_confirm_update.html:86
-#: golf/templates/golf/staff_booking_confirm_update.html:122
-#: member/templates/member/account/email.html:84
-#: member/templates/member/socialaccount/connections.html:61
-msgid "Remove"
-msgstr ""
-
-#: golf/templates/golf/staff_booking_confirm_update.html:124
+#: golf/templates/golf/staff_booking_confirm_update.html:97
 msgid "Add"
 msgstr ""
 
-#: golf/templates/golf/staff_booking_confirm_update.html:152
+#: golf/templates/golf/staff_booking_confirm_update.html:125 golf/views.py:480
 msgid "Offer tee-off time"
 msgstr ""
 
-#: golf/views.py:145 golf/views.py:333
+#: golf/views.py:145 golf/views.py:393
 msgid "Booking Details"
 msgstr ""
 
@@ -696,7 +707,11 @@ msgstr ""
 msgid "Order waiting"
 msgstr ""
 
-#: golf/views.py:255
+#: golf/views.py:225
+msgid "Accept/Reject tee-off time offer"
+msgstr ""
+
+#: golf/views.py:315
 msgid "Delete booking"
 msgstr ""
 

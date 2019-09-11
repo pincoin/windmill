@@ -386,3 +386,7 @@ class TeeOffTimeAddForm(TeeOffTimeAPIAddForm):
 
 class TeeOffTimeDeleteForm(forms.Form):
     tee_off_time_pk = forms.IntegerField()
+
+
+class TeeOffTimeAcceptForm(forms.Form):
+    tee_off_time_pk = forms.IntegerField()

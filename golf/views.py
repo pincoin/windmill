@@ -205,6 +205,66 @@ class AgencyBookingChangeUpdateView(viewmixins.GroupRequiredMixin, generic.Updat
         return reverse('golf:agency-booking-change', args=(self.object.booking_uuid,))
 
 
+class AgencyBookingAcceptUpdateView(viewmixins.GroupRequiredMixin, generic.UpdateView):
+    group_required = ['agency', ]
+    model = models.Booking
+    context_object_name = 'booking'
+    template_name = 'golf/agency_booking_accept_update.html'
+    form_class = forms.BookingChangeForm
+
+    def get_object(self, queryset=None):
+        # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
+        queryset = models.Booking.objects \
+            .filter(agent=self.request.user) \
+            .select_related('club', 'agency', 'agent__agentprofile') \
+            .prefetch_related('bookingteeofftime_set')
+        return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
+
+    def get_context_data(self, **kwargs):
+        context = super(AgencyBookingAcceptUpdateView, self).get_context_data(**kwargs)
+        context['page_title'] = _('Accept/Reject tee-off time offer')
+        return context
+
+    def get_form_kwargs(self):
+        kwargs = super(AgencyBookingAcceptUpdateView, self).get_form_kwargs()
+        kwargs['booking'] = self.object
+        kwargs['club'] = self.object.club.id
+        return kwargs
+
+    def form_valid(self, form):
+        form.instance.agency = models.AgentProfile.objects \
+            .select_related('agency') \
+            .get(user__id=self.request.user.id) \
+            .agency
+
+        form.instance.agent = self.request.user
+
+        form.instance.round_time = timezone.datetime.strptime('{}:{}:00'.format(
+            form.cleaned_data['round_time_hour'],
+            form.cleaned_data['round_time_minute']), '%H:%M:%S').time()
+
+        fee = get_fee(form.cleaned_data['club'].id,
+                      form.instance.agency.id,
+                      form.cleaned_data['round_date'],
+                      form.cleaned_data['slot'])
+
+        form.instance.fee = fee['fee'] * int(form.cleaned_data['people'])
+        form.instance.season = fee['season_id']
+        form.instance.day_of_week = fee['day_of_week_id']
+
+        pattern = re.compile(r'^[가-힣]+$')  # Only Hangul
+
+        if pattern.match(form.cleaned_data['last_name']) and pattern.match(form.cleaned_data['first_name']):
+            form.instance.fullname = '{}{}'.format(form.cleaned_data['last_name'], form.cleaned_data['first_name'])
+        else:
+            form.instance.fullname = '{} {}'.format(form.cleaned_data['first_name'], form.cleaned_data['last_name'])
+
+        return super(AgencyBookingAcceptUpdateView, self).form_valid(form)
+
+    def get_success_url(self):
+        return reverse('golf:agency-booking-change', args=(self.object.booking_uuid,))
+
+
 class AgencyBookingRevokeUpdateView(viewmixins.GroupRequiredMixin, generic.UpdateView):
     group_required = ['agency', ]
     model = models.Booking
@@ -518,6 +578,35 @@ class APITeeOffTimeDeleteView(viewmixins.GroupRequiredMixin, generic.FormView):
                 .get(pk=form.cleaned_data['tee_off_time_pk'])
 
             t.delete()
+        except models.BookingTeeOffTime.DoesNotExist:
+            pass
+
+        return JsonResponse(data)
+
+    def form_invalid(self, form):
+        return HttpResponse(form.errors.as_json(), status=400, content_type='application/json')
+
+
+class APITeeOffTimeAcceptView(viewmixins.GroupRequiredMixin, generic.FormView):
+    group_required = ['agency', ]
+    form_class = forms.TeeOffTimeAcceptForm
+
+    def form_valid(self, form):
+        data = form.cleaned_data
+
+        try:
+            t = models.BookingTeeOffTime.objects \
+                .filter(status=models.BookingTeeOffTime.STATUS_CHOICES.offered) \
+                .get(pk=form.cleaned_data['tee_off_time_pk'])
+
+            t.booking.bookingteeofftime_set.all().update(status=models.BookingTeeOffTime.STATUS_CHOICES.offered)
+
+            t.status = models.BookingTeeOffTime.STATUS_CHOICES.accepted
+            t.save()
+
+            data.update({
+                'tee_off_time_pk': t.pk,
+            })
         except models.BookingTeeOffTime.DoesNotExist:
             pass
 

@@ -56,7 +56,7 @@
             </div>
 
             {% if booking.status == booking.STATUS_CHOICES.order_pending or booking.status == booking.STATUS_CHOICES.offered %}
-                {% if booking.booking.bookingteeofftime_set.all %}
+                {% if booking.bookingteeofftime_set.all %}
                     <h1 class="title has-text-centered">{% trans 'Tee-off time' %}</h1>
 
                     <div class="columns is-centered">
