@@ -54,6 +54,18 @@
                     </form>
                 </div>
             </div>
+
+            {% if booking.status == booking.STATUS_CHOICES.order_pending or booking.status == booking.STATUS_CHOICES.offered %}
+                <h1 class="title has-text-centered">{% trans 'Tee-off time' %}</h1>
+
+                <div class="columns is-centered">
+                    <div class="column is-four-fifths">
+                        <form>
+                            {% include './_booking_tee_off_time_list.html' with booking=booking %}
+                        </form>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </section>
 {% endblock %}
