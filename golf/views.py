@@ -432,7 +432,10 @@ class StaffBookingConfirmUpdateView(viewmixins.GroupRequiredMixin, generic.Updat
     def get_object(self, queryset=None):
         # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
         queryset = models.Booking.objects \
-            .filter(status=models.Booking.STATUS_CHOICES.order_pending) \
+            .filter(status__in=[
+                models.Booking.STATUS_CHOICES.order_pending,
+                models.Booking.STATUS_CHOICES.offered,
+            ]) \
             .select_related('club', 'agency', 'agent__agentprofile') \
             .prefetch_related('bookingteeofftime_set')
         return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
