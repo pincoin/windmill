@@ -144,6 +144,10 @@ class BookingAdmin(admin.ModelAdmin):
     agency_title.admin_order_field = 'agency__title'
 
 
+class BookingCounterAdmin(admin.ModelAdmin):
+    pass
+
+
 class BookingChangeLogAdmin(admin.ModelAdmin):
     pass
 
@@ -167,6 +171,7 @@ admin.site.register(models.ClubProduct, ClubProductAdmin)
 admin.site.register(models.AgentProfile, AgentProfileAdmin)
 admin.site.register(models.AgencyClubProductListMembership, AgencyClubProductListMembershipAdmin)
 admin.site.register(models.Booking, BookingAdmin)
+admin.site.register(models.BookingCounter, BookingCounterAdmin)
 admin.site.register(models.BookingChangeLog, BookingChangeLogAdmin)
 admin.site.register(models.BookingPayment, BookingPaymentAdmin)
 admin.site.register(models.BookingAccountReceivable, BookingAccountReceivableAdmin)

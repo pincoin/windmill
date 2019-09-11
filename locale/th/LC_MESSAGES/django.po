@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-11 23:40+0700\n"
+"POT-Creation-Date: 2019-09-12 00:04+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -124,7 +124,7 @@ msgid "Customer"
 msgstr ""
 
 #: golf/forms.py:17 golf/forms.py:205 golf/models.py:109 golf/models.py:552
-#: golf/models.py:710 golf/templates/golf/_booking_detail.html:247
+#: golf/models.py:746 golf/templates/golf/_booking_detail.html:247
 msgid "Memo"
 msgstr ""
 
@@ -170,7 +170,7 @@ msgstr ""
 msgid "Remarks"
 msgstr ""
 
-#: golf/forms.py:242 golf/forms.py:345
+#: golf/forms.py:242 golf/forms.py:346
 msgid "Invalid round date"
 msgstr ""
 
@@ -178,7 +178,7 @@ msgstr ""
 msgid "Invalid round time"
 msgstr ""
 
-#: golf/forms.py:287 golf/forms.py:352 golf/models.py:610 golf/models.py:621
+#: golf/forms.py:287 golf/forms.py:353 golf/models.py:610 golf/models.py:621
 #: golf/models.py:622 golf/templates/golf/_booking_detail.html:161
 #: golf/templates/golf/agency_booking_accept_update.html:60
 #: golf/templates/golf/agency_booking_detail.html:60
@@ -187,7 +187,7 @@ msgstr ""
 msgid "Tee-off time"
 msgstr ""
 
-#: golf/forms.py:334
+#: golf/forms.py:335
 msgid "YYYY-MM-DD"
 msgstr ""
 
@@ -249,7 +249,7 @@ msgstr ""
 msgid "Agency type"
 msgstr ""
 
-#: golf/models.py:67 golf/models.py:649
+#: golf/models.py:67 golf/models.py:685
 msgid "Bank account"
 msgstr ""
 
@@ -294,11 +294,11 @@ msgstr ""
 msgid "High season"
 msgstr ""
 
-#: golf/models.py:135 golf/models.py:454
+#: golf/models.py:135 golf/models.py:454 golf/models.py:634
 msgid "Weekday"
 msgstr ""
 
-#: golf/models.py:136 golf/models.py:455
+#: golf/models.py:136 golf/models.py:455 golf/models.py:635
 msgid "Weekend"
 msgstr ""
 
@@ -322,7 +322,7 @@ msgstr ""
 msgid "High/Low Season"
 msgstr ""
 
-#: golf/models.py:154 golf/models.py:565
+#: golf/models.py:154 golf/models.py:565 golf/models.py:650
 msgid "Day of week"
 msgstr ""
 
@@ -431,7 +431,7 @@ msgstr ""
 msgid "Amount"
 msgstr ""
 
-#: golf/models.py:434 golf/models.py:662
+#: golf/models.py:434 golf/models.py:698
 msgid "Received date"
 msgstr ""
 
@@ -514,8 +514,8 @@ msgstr ""
 msgid "Booking status"
 msgstr ""
 
-#: golf/models.py:586 golf/models.py:587 golf/models.py:604 golf/models.py:643
-#: golf/models.py:678 golf/models.py:700
+#: golf/models.py:586 golf/models.py:587 golf/models.py:604 golf/models.py:679
+#: golf/models.py:714 golf/models.py:736
 msgid "Booking"
 msgstr ""
 
@@ -543,59 +543,71 @@ msgstr ""
 msgid "Tee-off time status"
 msgstr ""
 
-#: golf/models.py:634
+#: golf/models.py:639
+msgid "Booking date"
+msgstr ""
+
+#: golf/models.py:644 golf/models.py:657
+msgid "Booking counter"
+msgstr ""
+
+#: golf/models.py:658
+msgid "Booking counters"
+msgstr ""
+
+#: golf/models.py:670
 msgid "Kasikorn Bank"
 msgstr ""
 
-#: golf/models.py:635
+#: golf/models.py:671
 msgid "Bangkok Bank"
 msgstr ""
 
-#: golf/models.py:636
+#: golf/models.py:672
 msgid "Siam Commercial Bank"
 msgstr ""
 
-#: golf/models.py:637
+#: golf/models.py:673
 msgid "Ayudhya Bank"
 msgstr ""
 
-#: golf/models.py:638
+#: golf/models.py:674
 msgid "Krungthai Bank"
 msgstr ""
 
-#: golf/models.py:656
+#: golf/models.py:692
 msgid "Paid amount"
 msgstr ""
 
-#: golf/models.py:666
+#: golf/models.py:702
 msgid "Booking payment"
 msgstr ""
 
-#: golf/models.py:667
+#: golf/models.py:703
 msgid "Booking payments"
 msgstr ""
 
-#: golf/models.py:684
+#: golf/models.py:720
 msgid "Unpaid mount"
 msgstr ""
 
-#: golf/models.py:690
+#: golf/models.py:726
 msgid "Booking account receivable"
 msgstr ""
 
-#: golf/models.py:691
+#: golf/models.py:727
 msgid "Booking accounts receivable"
 msgstr ""
 
-#: golf/models.py:706
+#: golf/models.py:742
 msgid "Changelog"
 msgstr ""
 
-#: golf/models.py:716
+#: golf/models.py:752
 msgid "Booking change log"
 msgstr ""
 
-#: golf/models.py:717
+#: golf/models.py:753
 msgid "Booking change logs"
 msgstr ""
 

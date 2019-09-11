@@ -629,6 +629,49 @@ class BookingTeeOffTime(model_utils_models.TimeStampedModel):
         return '{}-{}'.format(self.booking.booking_uuid, self.tee_off_time)
 
 
+class BookingCounter(model_utils_models.TimeStampedModel):
+    DAY_CHOICES = Choices(
+        (0, 'weekday', _('Weekday')),
+        (1, 'weekend', _('Weekend')),
+    )
+
+    club = models.ForeignKey(
+        'golf.Club',
+        verbose_name=_('Golf club'),
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    booking_date = models.DateField(
+        verbose_name=_('Booking date'),
+        db_index=True,
+    )
+
+    counter = models.PositiveIntegerField(
+        verbose_name=_('Booking counter'),
+        default=0,
+        db_index=True,
+    )
+
+    day_of_week = models.IntegerField(
+        verbose_name=_('Day of week'),
+        choices=DAY_CHOICES,
+        default=DAY_CHOICES.weekday,
+        db_index=True,
+    )
+
+    class Meta:
+        verbose_name = _('Booking counter')
+        verbose_name_plural = _('Booking counters')
+
+        ordering = ('-booking_date',)
+
+        unique_together = ('club', 'booking_date')
+
+    def __str__(self):
+        return '{} {} {}'.format(self.club.title, self.booking_date, self.counter)
+
+
 class BookingPayment(model_utils_models.SoftDeletableModel, model_utils_models.TimeStampedModel):
     ACCOUNT_CHOICES = Choices(
         (0, 'kasikorn', _('Kasikorn Bank')),

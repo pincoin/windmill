@@ -321,6 +321,7 @@ class BookingConfirmForm(forms.ModelForm):
         fields = ()
 
     def clean(self):
+        # TODO: weekdays 28 / weekend 20 count (add golf club property)
         print(self.cleaned_data)
 
 
