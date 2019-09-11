@@ -121,7 +121,7 @@
 </div>
 
 {% if booking.status == booking.STATUS_CHOICES.order_pending or booking.status == booking.STATUS_CHOICES.offered %}
-    {% if form %}
+    {% if form.tee_off_time_hour and form.tee_off_time_minute %}
         <div class="field is-horizontal">
             <div class="field-label is-normal">
                 <label class="label" for="{{ form.tee_off_time_hour.id_for_label }}">
