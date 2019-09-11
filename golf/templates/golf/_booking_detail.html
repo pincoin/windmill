@@ -120,38 +120,40 @@
     </div>
 </div>
 
-{% if booking.status == booking.STATUS_CHOICES.order_pending or booking.status == booking.STATUS_CHOICES.offered and form %}
-    <div class="field is-horizontal">
-        <div class="field-label is-normal">
-            <label class="label" for="{{ form.tee_off_time_hour.id_for_label }}">
-                {{ form.tee_off_time_hour.label }}
-                <span class="has-text-danger">*</span>
-            </label>
-        </div>
-        <div class="field-body">
-            <div class="field">
-                <div class="field has-addons">
-                    <div class="control is-expanded has-icons-left">
-                        {{ form.tee_off_time_hour }}
-                        <span class="icon is-small is-left"><i class="fas fa-clock fa-fw has-text-grey"></i></span>
+{% if booking.status == booking.STATUS_CHOICES.order_pending or booking.status == booking.STATUS_CHOICES.offered %}
+    {% if form %}
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label" for="{{ form.tee_off_time_hour.id_for_label }}">
+                    {{ form.tee_off_time_hour.label }}
+                    <span class="has-text-danger">*</span>
+                </label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="field has-addons">
+                        <div class="control is-expanded has-icons-left">
+                            {{ form.tee_off_time_hour }}
+                            <span class="icon is-small is-left"><i class="fas fa-clock fa-fw has-text-grey"></i></span>
+                        </div>
+                        <div class="control is-expanded has-icons-left">
+                            {{ form.tee_off_time_minute }}
+                        </div>
                     </div>
-                    <div class="control is-expanded has-icons-left">
-                        {{ form.tee_off_time_minute }}
-                    </div>
+                    {% if form.tee_off_time_hour.errors or form.tee_off_time_minute.errors %}
+                        <p class="help is-danger">
+                            {% for error in form.tee_off_time_hour.errors %}
+                                {{ error|escape }}
+                            {% endfor %}
+                            {% for error in form.tee_off_time_minute.errors %}
+                                {{ error|escape }}
+                            {% endfor %}
+                        </p>
+                    {% endif %}
                 </div>
-                {% if form.tee_off_time_hour.errors or form.tee_off_time_minute.errors %}
-                    <p class="help is-danger">
-                        {% for error in form.tee_off_time_hour.errors %}
-                            {{ error|escape }}
-                        {% endfor %}
-                        {% for error in form.tee_off_time_minute.errors %}
-                            {{ error|escape }}
-                        {% endfor %}
-                    </p>
-                {% endif %}
             </div>
         </div>
-    </div>
+    {% endif %}
 {% elif booking.status == booking.STATUS_CHOICES.payment_pending and booking.tee_off_time %}
     <div class="field is-horizontal">
         <div class="field-label is-normal">

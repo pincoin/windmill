@@ -61,8 +61,26 @@
 
                     <div class="columns is-centered">
                         <div class="column is-four-fifths">
-                            <form>
+                            <form action="{% url 'golf:agency-booking-accept' booking.booking_uuid %}"
+                                  method="post">
+                                {% csrf_token %}
+
                                 {% include './_booking_tee_off_time_agency_form.html' with booking=booking %}
+
+                                <div class="field is-horizontal">
+                                    <div class="field-label is-normal">
+                                    </div>
+                                    <div class="field-body">
+                                        <div class="field">
+                                            <div class="control is-expanded">
+                                                <button class="button is-primary is-fullwidth">
+                                                    <span class="icon"><i class="fas fa-clock"></i></span>
+                                                    <span>{% trans 'Answer tee-off time' %}</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>

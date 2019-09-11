@@ -232,33 +232,7 @@ class AgencyBookingAcceptUpdateView(viewmixins.GroupRequiredMixin, generic.Updat
         return kwargs
 
     def form_valid(self, form):
-        form.instance.agency = models.AgentProfile.objects \
-            .select_related('agency') \
-            .get(user__id=self.request.user.id) \
-            .agency
-
-        form.instance.agent = self.request.user
-
-        form.instance.round_time = timezone.datetime.strptime('{}:{}:00'.format(
-            form.cleaned_data['round_time_hour'],
-            form.cleaned_data['round_time_minute']), '%H:%M:%S').time()
-
-        fee = get_fee(form.cleaned_data['club'].id,
-                      form.instance.agency.id,
-                      form.cleaned_data['round_date'],
-                      form.cleaned_data['slot'])
-
-        form.instance.fee = fee['fee'] * int(form.cleaned_data['people'])
-        form.instance.season = fee['season_id']
-        form.instance.day_of_week = fee['day_of_week_id']
-
-        pattern = re.compile(r'^[가-힣]+$')  # Only Hangul
-
-        if pattern.match(form.cleaned_data['last_name']) and pattern.match(form.cleaned_data['first_name']):
-            form.instance.fullname = '{}{}'.format(form.cleaned_data['last_name'], form.cleaned_data['first_name'])
-        else:
-            form.instance.fullname = '{} {}'.format(form.cleaned_data['first_name'], form.cleaned_data['last_name'])
-
+        form.instance.status = models.Booking.STATUS_CHOICES.order_pending
         return super(AgencyBookingAcceptUpdateView, self).form_valid(form)
 
     def get_success_url(self):

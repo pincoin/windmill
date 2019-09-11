@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-11 20:42+0700\n"
+"POT-Creation-Date: 2019-09-11 21:54+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -616,13 +616,17 @@ msgid "Fee"
 msgstr "요금"
 
 #: golf/templates/golf/_booking_tee_off_time_agency_form.html:17
+#: golf/templates/golf/_booking_tee_off_time_agency_form.html:25
+#: golf/templates/golf/_booking_tee_off_time_agency_form.html:28
+msgid "Accept"
+msgstr "수락"
+
+#: golf/templates/golf/_booking_tee_off_time_agency_form.html:18
+#: golf/templates/golf/_booking_tee_off_time_agency_form.html:20
+#: golf/templates/golf/_booking_tee_off_time_agency_form.html:26
 #: golf/templates/golf/_booking_tee_off_time_staff_form.html:22
 msgid "Confirmed"
 msgstr "확정"
-
-#: golf/templates/golf/_booking_tee_off_time_agency_form.html:23
-msgid "Accept"
-msgstr "수락"
 
 #: golf/templates/golf/_booking_tee_off_time_staff_form.html:28
 #: golf/templates/golf/staff_booking_confirm_update.html:95
@@ -667,6 +671,10 @@ msgstr "예약삭제"
 msgid "Order list"
 msgstr "예약목록"
 
+#: golf/templates/golf/agency_booking_accept_update.html:75
+msgid "Answer tee-off time"
+msgstr "티오프 회신"
+
 #: golf/templates/golf/agency_booking_change_update.html:30
 #: golf/templates/golf/agency_booking_create.html:30
 #: golf/templates/golf/agency_booking_list.html:142 golf/views.py:84
@@ -682,12 +690,12 @@ msgstr "예약구분"
 msgid "Accept order"
 msgstr "예약접수"
 
-#: golf/templates/golf/staff_booking_confirm_update.html:28 golf/views.py:442
+#: golf/templates/golf/staff_booking_confirm_update.html:28 golf/views.py:445
 msgid "Confirm order"
 msgstr "예약확정"
 
 #: golf/templates/golf/staff_booking_confirm_update.html:37
-#: golf/templates/golf/staff_booking_void_update.html:28 golf/views.py:507
+#: golf/templates/golf/staff_booking_void_update.html:28 golf/views.py:510
 msgid "Void order"
 msgstr "예약불가"
 
@@ -695,7 +703,7 @@ msgstr "예약불가"
 msgid "Add"
 msgstr "추가"
 
-#: golf/templates/golf/staff_booking_confirm_update.html:125 golf/views.py:480
+#: golf/templates/golf/staff_booking_confirm_update.html:125 golf/views.py:483
 msgid "Offer tee-off time"
 msgstr "티오프 제안"
 
