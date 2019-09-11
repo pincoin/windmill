@@ -93,14 +93,14 @@
                     {% trans 'Fee' %}
                 </div>
                 <div class="column is-2">
-                    {% trans 'Booking person' %}
+                    {% trans 'Customer' %}
                 </div>
             </div>
 
             {% for booking in booking_list %}
                 <div class="columns">
                     <div class="column is-1">
-                        {% if booking.status == booking.STATUS_CHOICES.order_made %}
+                        {% if booking.status == booking.STATUS_CHOICES.order_opened %}
                             <a href="{% url 'golf:agency-booking-change' booking.booking_uuid %}"
                                class="tag is-warning has-text-dark">
                         {% elif booking.status == booking.STATUS_CHOICES.offered %}
@@ -139,7 +139,7 @@
                 <div class="column">
                     <a href="{% url 'golf:agency-booking-create' %}" class="button is-link is-fullwidth">
                         <span class="icon"><i class="fas fa-clipboard-list"></i></span>
-                        <span>{% trans 'Make an order' %}</span>
+                        <span>{% trans 'Make order' %}</span>
                     </a>
                 </div>
             </div>

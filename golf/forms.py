@@ -13,7 +13,7 @@ from . import models
 class BookingSearchForm(forms.Form):
     category = forms.ChoiceField(
         choices=(
-            ('1', _('Booking person'),),
+            ('1', _('Customer'),),
             ('2', _('Memo'),),
         ),
         widget=forms.Select(

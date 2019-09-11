@@ -81,7 +81,7 @@ class AgencyBookingCreateView(viewmixins.GroupRequiredMixin, generic.CreateView)
 
     def get_context_data(self, **kwargs):
         context = super(AgencyBookingCreateView, self).get_context_data(**kwargs)
-        context['page_title'] = _('Make an order')
+        context['page_title'] = _('Make order')
         return context
 
     def get_form_kwargs(self):
@@ -259,7 +259,7 @@ class AgencyBookingRevokeUpdateView(viewmixins.GroupRequiredMixin, generic.Updat
         return context
 
     def form_valid(self, form):
-        form.instance.status = models.Booking.STATUS_CHOICES.order_made
+        form.instance.status = models.Booking.STATUS_CHOICES.order_opened
         return super(AgencyBookingRevokeUpdateView, self).form_valid(form)
 
     def get_success_url(self):
@@ -277,7 +277,7 @@ class AgencyBookingDeleteView(viewmixins.GroupRequiredMixin, generic.DeleteView)
         queryset = models.Booking.objects \
             .filter(agent=self.request.user,
                     status__in=[
-                        models.Booking.STATUS_CHOICES.order_made,
+                        models.Booking.STATUS_CHOICES.order_opened,
                         models.Booking.STATUS_CHOICES.voided,
                         models.Booking.STATUS_CHOICES.offered,
                     ]) \
@@ -378,7 +378,7 @@ class StaffBookingAcceptUpdateView(viewmixins.GroupRequiredMixin, generic.Update
     def get_object(self, queryset=None):
         # NOTE: This method is overridden because DetailView must be called with either an object pk or a slug.
         queryset = models.Booking.objects \
-            .filter(status=models.Booking.STATUS_CHOICES.order_made) \
+            .filter(status=models.Booking.STATUS_CHOICES.order_opened) \
             .select_related('club', 'agency', 'agent__agentprofile')
         return get_object_or_404(queryset, booking_uuid=self.kwargs['uuid'])
 

@@ -463,10 +463,10 @@ class Booking(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
     )
 
     STATUS_CHOICES = Choices(
-        (0, 'order_made', _('order made')),
+        (0, 'order_opened', _('order opened')),
         (1, 'order_pending', _('order pending')),
-        (2, 'payment_pending', _('payment_pending')),
-        (3, 'issued', _('voucher issued')),
+        (2, 'payment_pending', _('payment pending')),
+        (3, 'completed', _('order complete')),
         (4, 'offered', _('order offered')),
         (5, 'voided', _('order voided')),
         (6, 'refund_requested', _('refund requested')),
@@ -578,7 +578,7 @@ class Booking(model_utils_models.SoftDeletableModel, model_utils_models.TimeStam
     status = models.IntegerField(
         verbose_name=_('Booking status'),
         choices=STATUS_CHOICES,
-        default=STATUS_CHOICES.order_made,
+        default=STATUS_CHOICES.order_opened,
         db_index=True,
     )
 

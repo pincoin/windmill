@@ -27,11 +27,11 @@
                                     <div class="control is-expanded">
                                         <button class="button is-link is-fullwidth" type="submit">
                                             <span class="icon"><i class="fas fa-clipboard-list"></i></span>
-                                            <span>{% trans 'Make an order' %}</span>
+                                            <span>{% trans 'Make order' %}</span>
                                         </button>
                                     </div>
                                 </div>
-                                {% if booking.status == booking.STATUS_CHOICES.order_made or booking.status == booking.STATUS_CHOICES.voided %}
+                                {% if booking.status == booking.STATUS_CHOICES.order_opened or booking.status == booking.STATUS_CHOICES.voided %}
                                     <div class="field">
                                         <div class="control is-expanded">
                                             <a href="{% url 'golf:agency-booking-delete' booking.booking_uuid %}"

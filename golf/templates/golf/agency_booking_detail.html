@@ -29,7 +29,7 @@
                                         </div>
                                     </div>
                                 {% endif %}
-                                {% if booking.status == booking.STATUS_CHOICES.order_made or booking.status == booking.STATUS_CHOICES.voided or booking.status == booking.STATUS_CHOICES.offered %}
+                                {% if booking.status == booking.STATUS_CHOICES.order_opened or booking.status == booking.STATUS_CHOICES.voided or booking.status == booking.STATUS_CHOICES.offered %}
                                     <div class="field">
                                         <div class="control is-expanded">
                                             <a href="{% url 'golf:agency-booking-delete' booking.booking_uuid %}"

@@ -15,12 +15,12 @@
                         {% csrf_token %}
 
                         {% include './_booking_detail.html' with booking=booking %}
-                    
+
                         <div class="field is-horizontal">
                             <div class="field-label is-normal">
                             </div>
                             <div class="field-body">
-                                {% if booking.status == booking.STATUS_CHOICES.order_made %}
+                                {% if booking.status == booking.STATUS_CHOICES.order_opened %}
                                     <div class="field">
                                         <div class="control is-expanded">
                                             <button class="button is-link is-fullwidth">
