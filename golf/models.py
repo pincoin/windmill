@@ -251,6 +251,26 @@ class Club(model_utils_models.TimeStampedModel):
         default=0x0C03,  # b'110000000011'
     )
 
+    max_high_weekday = models.PositiveIntegerField(
+        verbose_name=_('Max # of High/Weekday'),
+        default=0,
+    )
+
+    max_high_weekend = models.PositiveIntegerField(
+        verbose_name=_('Max # of High/Weekend'),
+        default=0,
+    )
+
+    max_low_weekday = models.PositiveIntegerField(
+        verbose_name=_('Max # of Low/Weekday'),
+        default=0,
+    )
+
+    max_low_weekend = models.PositiveIntegerField(
+        verbose_name=_('Max # of Low/Weekday'),
+        default=0,
+    )
+
     country = models.IntegerField(
         verbose_name=_('Country code'),
         choices=COUNTRY_CHOICES,
@@ -631,8 +651,10 @@ class BookingTeeOffTime(model_utils_models.TimeStampedModel):
 
 class BookingCounter(model_utils_models.TimeStampedModel):
     DAY_CHOICES = Choices(
-        (0, 'weekday', _('Weekday')),
-        (1, 'weekend', _('Weekend')),
+        (0, 'high_weekday', _('High/Weekday')),
+        (1, 'high_weekend', _('High/Weekend')),
+        (2, 'low_weekday', _('Low/Weekday')),
+        (3, 'low_weekend', _('Low/Weekend')),
     )
 
     club = models.ForeignKey(
@@ -654,9 +676,9 @@ class BookingCounter(model_utils_models.TimeStampedModel):
     )
 
     day_of_week = models.IntegerField(
-        verbose_name=_('Day of week'),
+        verbose_name=_('Season / Day of week'),
         choices=DAY_CHOICES,
-        default=DAY_CHOICES.weekday,
+        default=DAY_CHOICES.high_weekday,
         db_index=True,
     )
 
