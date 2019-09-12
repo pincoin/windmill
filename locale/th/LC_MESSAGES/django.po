@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 11:58+0700\n"
+"POT-Creation-Date: 2019-09-12 12:42+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -105,7 +105,7 @@ msgstr ""
 #: golf/templates/golf/staff_booking_list.html:79
 #: golf/templates/golf/staff_booking_list.html:102
 msgid "Golf club"
-msgstr ""
+msgstr "สนามกอล์ฟ"
 
 #: golf/admin.py:163 golf/admin.py:164
 msgid "NAONE admin"
@@ -122,38 +122,38 @@ msgstr ""
 #: golf/forms.py:16 golf/templates/golf/agency_booking_list.html:96
 #: golf/templates/golf/staff_booking_list.html:117
 msgid "Customer"
-msgstr ""
+msgstr "ลูกค้า"
 
 #: golf/forms.py:17 golf/forms.py:205 golf/models.py:109 golf/models.py:572
 #: golf/models.py:775 golf/templates/golf/_booking_detail.html:247
 msgid "Memo"
-msgstr ""
+msgstr "บันทึกข้อความ"
 
 #: golf/forms.py:28 golf/forms.py:32
 msgid "Search word"
-msgstr ""
+msgstr "Keyword"
 
 #: golf/forms.py:133 golf/models.py:161 golf/models.py:592
 #: golf/templates/golf/_booking_detail.html:100
 msgid "Time slot"
-msgstr ""
+msgstr "ช่วงเวลา"
 
 #: golf/forms.py:144 golf/templates/golf/_booking_detail.html:81
 #: golf/templates/golf/agency_booking_list.html:84
 #: golf/templates/golf/staff_booking_list.html:105
 msgid "Round date/time"
-msgstr ""
+msgstr "วัน เวลา ที่ต้องการจอง"
 
 #: golf/forms.py:173 golf/models.py:546
 #: golf/templates/golf/_booking_detail.html:181
 #: golf/templates/golf/agency_booking_list.html:87
 #: golf/templates/golf/staff_booking_list.html:108
 msgid "No. of people"
-msgstr ""
+msgstr "จำนวนคน"
 
 #: golf/forms.py:184 golf/templates/golf/_booking_detail.html:200
 msgid "Full name (Passport)"
-msgstr ""
+msgstr "ชื่อ-นามสกุล ตามหนังสือเดินทาง"
 
 #: golf/forms.py:186 golf/forms.py:196
 msgid "Only alphabets are allowed."
@@ -289,35 +289,35 @@ msgstr ""
 
 #: golf/models.py:130 golf/models.py:469
 msgid "Low season"
-msgstr ""
+msgstr "Low"
 
 #: golf/models.py:131 golf/models.py:250 golf/models.py:470
 msgid "High season"
-msgstr ""
+msgstr "High"
 
 #: golf/models.py:135 golf/models.py:474
 msgid "Weekday"
-msgstr ""
+msgstr "วันธรรมดา"
 
 #: golf/models.py:136 golf/models.py:475
 msgid "Weekend"
-msgstr ""
+msgstr "วันหยุด"
 
 #: golf/models.py:140 golf/models.py:479
 msgid "Morning"
-msgstr ""
+msgstr "Morning"
 
 #: golf/models.py:141 golf/models.py:480
 msgid "Daytime"
-msgstr ""
+msgstr "Daytime"
 
 #: golf/models.py:142 golf/models.py:481
 msgid "Twilight"
-msgstr ""
+msgstr "Twilight"
 
 #: golf/models.py:143 golf/models.py:482
 msgid "Night"
-msgstr ""
+msgstr "Night"
 
 #: golf/models.py:147 golf/models.py:578
 msgid "High/Low Season"
@@ -529,7 +529,7 @@ msgstr ""
 #: golf/templates/golf/staff_booking_list.html:37
 #: golf/templates/golf/staff_booking_list.html:99
 msgid "Booking status"
-msgstr ""
+msgstr "สถานะปัจจุบัน"
 
 #: golf/models.py:606 golf/models.py:607 golf/models.py:624 golf/models.py:708
 #: golf/models.py:743 golf/models.py:765
@@ -594,23 +594,23 @@ msgstr ""
 
 #: golf/models.py:699
 msgid "Kasikorn Bank"
-msgstr ""
+msgstr "ธนาคารกสิกร"
 
 #: golf/models.py:700
 msgid "Bangkok Bank"
-msgstr ""
+msgstr "ธนาคารกรุงเทพ"
 
 #: golf/models.py:701
 msgid "Siam Commercial Bank"
-msgstr ""
+msgstr "ธนาคารไทยพาณิชย์"
 
 #: golf/models.py:702
 msgid "Ayudhya Bank"
-msgstr ""
+msgstr "ธนาคารกรุงศรีอยุธยา"
 
 #: golf/models.py:703
 msgid "Krungthai Bank"
-msgstr ""
+msgstr "ธนาคารกรุงไทย"
 
 #: golf/models.py:721
 msgid "Paid amount"
@@ -651,7 +651,7 @@ msgstr ""
 #: golf/templates/golf/_booking_detail.html:6
 #: golf/templates/golf/_booking_form.html:19
 msgid "Status / Created"
-msgstr ""
+msgstr "สถานะ / วัน เวลา สั่ง"
 
 #: golf/templates/golf/_booking_detail.html:34
 #: golf/templates/golf/_booking_form.html:45
@@ -664,7 +664,7 @@ msgstr ""
 #: golf/templates/golf/agency_booking_list.html:93
 #: golf/templates/golf/staff_booking_list.html:114
 msgid "Fee"
-msgstr ""
+msgstr "ราคา"
 
 #: golf/templates/golf/_booking_tee_off_time_agency_form.html:17
 #: golf/templates/golf/_booking_tee_off_time_agency_form.html:25
@@ -735,7 +735,7 @@ msgstr ""
 #: golf/templates/golf/agency_booking_list.html:90
 #: golf/templates/golf/staff_booking_list.html:111
 msgid "Season / Day of week / Slot"
-msgstr ""
+msgstr "ช่วงเวลา"
 
 #: golf/templates/golf/staff_booking_accept_update.html:28 golf/views.py:387
 msgid "Accept order"
