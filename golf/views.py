@@ -162,7 +162,7 @@ class AgencyBookingChangeUpdateView(viewmixins.GroupRequiredMixin, generic.Updat
 
     def get_context_data(self, **kwargs):
         context = super(AgencyBookingChangeUpdateView, self).get_context_data(**kwargs)
-        context['page_title'] = _('Order waiting')
+        context['page_title'] = _('Order Waiting')
         return context
 
     def get_form_kwargs(self):
@@ -222,7 +222,7 @@ class AgencyBookingAcceptUpdateView(viewmixins.GroupRequiredMixin, generic.Updat
 
     def get_context_data(self, **kwargs):
         context = super(AgencyBookingAcceptUpdateView, self).get_context_data(**kwargs)
-        context['page_title'] = _('Accept/Reject tee-off time offer')
+        context['page_title'] = _('Accept/Reject Tee-off Time Offer')
         return context
 
     def get_form_kwargs(self):
@@ -286,7 +286,7 @@ class AgencyBookingDeleteView(viewmixins.GroupRequiredMixin, generic.DeleteView)
 
     def get_context_data(self, **kwargs):
         context = super(AgencyBookingDeleteView, self).get_context_data(**kwargs)
-        context['page_title'] = _('Delete booking')
+        context['page_title'] = _('Delete Booking')
         return context
 
     def get_success_url(self):

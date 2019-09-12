@@ -220,7 +220,7 @@ class Club(model_utils_models.TimeStampedModel):
     )
 
     hole = models.IntegerField(
-        verbose_name=_('No. of Holes'),
+        verbose_name=_('No. of holes'),
         choices=HOLE_CHOICES,
         default=HOLE_CHOICES.eighteen,
         db_index=True,
@@ -267,7 +267,7 @@ class Club(model_utils_models.TimeStampedModel):
     )
 
     max_low_weekend = models.PositiveIntegerField(
-        verbose_name=_('Max # of Low/Weekday'),
+        verbose_name=_('Max # of Low/Weekend'),
         default=0,
     )
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 09:16+0700\n"
+"POT-Creation-Date: 2019-09-12 11:58+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -354,7 +354,7 @@ msgid "Golf club name"
 msgstr "골프클럽 이름"
 
 #: golf/models.py:223
-msgid "No. of Holes"
+msgid "No. of holes"
 msgstr "홀수"
 
 #: golf/models.py:230
@@ -376,15 +376,19 @@ msgstr "캐디 요금"
 
 #: golf/models.py:255
 msgid "Max # of High/Weekday"
-msgstr ""
+msgstr "성수기/평일 예약가능수"
 
 #: golf/models.py:260
 msgid "Max # of High/Weekend"
-msgstr ""
+msgstr "성수기/휴일 예약가능수"
 
-#: golf/models.py:265 golf/models.py:270
+#: golf/models.py:265
 msgid "Max # of Low/Weekday"
-msgstr ""
+msgstr "비수기/평일 예약가능수"
+
+#: golf/models.py:270
+msgid "Max # of Low/Weekend"
+msgstr "비수기/휴일 예약가능수"
 
 #: golf/models.py:288
 msgid "Golf clubs"
@@ -757,15 +761,15 @@ msgid "Booking Details"
 msgstr "예약현황"
 
 #: golf/views.py:165
-msgid "Order waiting"
+msgid "Order Waiting"
 msgstr "접수대기"
 
 #: golf/views.py:225
-msgid "Accept/Reject tee-off time offer"
+msgid "Accept/Reject Tee-off Time Offer"
 msgstr "예약 티오프 수락/거절 "
 
 #: golf/views.py:289
-msgid "Delete booking"
+msgid "Delete Booking"
 msgstr "예약삭제"
 
 #: member/adapters.py:30

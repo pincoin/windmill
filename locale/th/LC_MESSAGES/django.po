@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 09:16+0700\n"
+"POT-Creation-Date: 2019-09-12 11:58+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -356,7 +356,7 @@ msgid "Golf club name"
 msgstr ""
 
 #: golf/models.py:223
-msgid "No. of Holes"
+msgid "No. of holes"
 msgstr ""
 
 #: golf/models.py:230
@@ -384,8 +384,12 @@ msgstr ""
 msgid "Max # of High/Weekend"
 msgstr ""
 
-#: golf/models.py:265 golf/models.py:270
+#: golf/models.py:265
 msgid "Max # of Low/Weekday"
+msgstr ""
+
+#: golf/models.py:270
+msgid "Max # of Low/Weekend"
 msgstr ""
 
 #: golf/models.py:288
@@ -759,15 +763,15 @@ msgid "Booking Details"
 msgstr ""
 
 #: golf/views.py:165
-msgid "Order waiting"
+msgid "Order Waiting"
 msgstr ""
 
 #: golf/views.py:225
-msgid "Accept/Reject tee-off time offer"
+msgid "Accept/Reject Tee-off Time Offer"
 msgstr ""
 
 #: golf/views.py:289
-msgid "Delete booking"
+msgid "Delete Booking"
 msgstr ""
 
 #: member/adapters.py:30

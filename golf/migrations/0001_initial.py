@@ -78,7 +78,7 @@ class Migration(migrations.Migration):
                 ('phone', models.CharField(blank=True, max_length=16, null=True, verbose_name='Phone number')),
                 ('email', models.EmailField(blank=True, max_length=255, null=True, verbose_name='Email address')),
                 ('website', models.URLField(blank=True, max_length=255, null=True, verbose_name='Website')),
-                ('hole', models.IntegerField(choices=[(0, '18 Holes'), (1, '9 Holes'), (2, '27 Holes'), (3, '36 Holes')], db_index=True, default=0, verbose_name='No. of Holes')),
+                ('hole', models.IntegerField(choices=[(0, '18 Holes'), (1, '9 Holes'), (2, '27 Holes'), (3, '36 Holes')], db_index=True, default=0, verbose_name='No. of holes')),
                 ('cart_rental_required', models.BooleanField(db_index=True, default=False, verbose_name='Cart rental required')),
                 ('cart_fee', models.DecimalField(decimal_places=2, help_text='THB', max_digits=11, verbose_name='Cart fee')),
                 ('caddie_fee', models.DecimalField(decimal_places=2, help_text='THB', max_digits=11, verbose_name='Caddie fee')),
