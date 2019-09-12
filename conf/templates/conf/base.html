@@ -180,7 +180,7 @@
 
 {% block javascript %}
     <script type="text/javascript"
-            src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+            src="{% static "conf/js/vendor/jquery-3.4.1.min.js" %}"></script>
     <script type="text/javascript"
             src="{% static "conf/js/base.js" %}"></script>
     {{ form.media.js }}

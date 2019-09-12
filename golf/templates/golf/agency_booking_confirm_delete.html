@@ -15,7 +15,7 @@
                         {% csrf_token %}
 
                         {% include './_booking_detail.html' with booking=booking %}
-                        
+
                         <div class="field is-horizontal">
                             <div class="field-label is-normal">
                             </div>
@@ -49,13 +49,13 @@
 {% block stylesheet %}
     {{ block.super }}
     <link rel="stylesheet"
-          href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+          href="{% static "conf/css/vendor/jquery-ui.css" %}">
 {% endblock %}
 
 {% block javascript %}
     {{ block.super }}
     <script type="text/javascript"
-            src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+            src="{% static "conf/js/vendor/jquery-ui.min.js" %}"></script>
     {% if LANGUAGE_CODE == 'th' %}
         <script type="text/javascript"
                 src="{% static "golf/js/datepicker-th.js" %}"></script>
