@@ -44,3 +44,7 @@ main {
     border-color: #bdbdbd !important;
     background-color: whitesmoke !important;
 }
+
+#ui-datepicker-div > table > thead > tr > th {
+    text-align: center !important;
+}
