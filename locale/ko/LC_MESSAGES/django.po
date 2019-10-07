@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 12:42+0700\n"
+"POT-Creation-Date: 2019-09-17 15:15+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,7 +59,8 @@ msgstr "에이전시"
 msgid "Booking management"
 msgstr "예약관리"
 
-#: conf/templates/conf/base.html:101
+#: conf/templates/conf/base.html:101 timesheet/models.py:10
+#: timesheet/templates/timesheet/timesheet_list.html:14
 msgid "Staff"
 msgstr "관리자"
 
@@ -104,6 +105,7 @@ msgstr "골프클럽 없음"
 #: golf/templates/golf/agency_booking_list.html:81
 #: golf/templates/golf/staff_booking_list.html:79
 #: golf/templates/golf/staff_booking_list.html:102
+#: timesheet/templates/timesheet/timesheet_list.html:17
 msgid "Golf club"
 msgstr "골프클럽"
 
@@ -121,11 +123,13 @@ msgstr "골프"
 
 #: golf/forms.py:16 golf/templates/golf/agency_booking_list.html:96
 #: golf/templates/golf/staff_booking_list.html:117
+#: timesheet/templates/timesheet/timesheet_list.html:32
 msgid "Customer"
 msgstr "고객명"
 
 #: golf/forms.py:17 golf/forms.py:205 golf/models.py:109 golf/models.py:572
 #: golf/models.py:775 golf/templates/golf/_booking_detail.html:247
+#: timesheet/models.py:57
 msgid "Memo"
 msgstr "메모"
 
@@ -141,6 +145,7 @@ msgstr "시간대"
 #: golf/forms.py:144 golf/templates/golf/_booking_detail.html:81
 #: golf/templates/golf/agency_booking_list.html:84
 #: golf/templates/golf/staff_booking_list.html:105
+#: timesheet/templates/timesheet/timesheet_list.html:20
 msgid "Round date/time"
 msgstr "희망일시"
 
@@ -148,6 +153,7 @@ msgstr "희망일시"
 #: golf/templates/golf/_booking_detail.html:181
 #: golf/templates/golf/agency_booking_list.html:87
 #: golf/templates/golf/staff_booking_list.html:108
+#: timesheet/templates/timesheet/timesheet_list.html:23
 msgid "No. of people"
 msgstr "인원수"
 
@@ -654,6 +660,7 @@ msgstr "예약상태 / 발주일시"
 #: golf/templates/golf/_booking_detail.html:34
 #: golf/templates/golf/_booking_form.html:45
 #: golf/templates/golf/staff_booking_list.html:120
+#: timesheet/templates/timesheet/timesheet_list.html:35
 msgid "Agency / Agent"
 msgstr "에이전시 / 담당자"
 
@@ -661,6 +668,7 @@ msgstr "에이전시 / 담당자"
 #: golf/templates/golf/_booking_form.html:222
 #: golf/templates/golf/agency_booking_list.html:93
 #: golf/templates/golf/staff_booking_list.html:114
+#: timesheet/templates/timesheet/timesheet_list.html:29
 msgid "Fee"
 msgstr "요금"
 
@@ -732,6 +740,7 @@ msgstr "예약발주"
 
 #: golf/templates/golf/agency_booking_list.html:90
 #: golf/templates/golf/staff_booking_list.html:111
+#: timesheet/templates/timesheet/timesheet_list.html:26
 msgid "Season / Day of week / Slot"
 msgstr "예약구분"
 
@@ -1178,3 +1187,35 @@ msgstr "SNS 로그인 실패"
 #: member/views.py:264
 msgid "Connect with SNS accounts"
 msgstr "SNS 로그인"
+
+#: timesheet/models.py:18
+msgid "Punch-in time"
+msgstr "시작시각"
+
+#: timesheet/models.py:23
+msgid "Punch-out time"
+msgstr "종료시각"
+
+#: timesheet/models.py:29
+msgid "Punch-in latitude"
+msgstr "시작위도"
+
+#: timesheet/models.py:35
+msgid "Punch-in longitude"
+msgstr "시작경도"
+
+#: timesheet/models.py:41
+msgid "Punch-out latitude"
+msgstr "종료위도"
+
+#: timesheet/models.py:49
+msgid "Punch-out longitude"
+msgstr "종료경도"
+
+#: timesheet/models.py:63
+msgid "Time sheet"
+msgstr "근무시간표"
+
+#: timesheet/models.py:64
+msgid "Time sheets"
+msgstr "근무시간표"

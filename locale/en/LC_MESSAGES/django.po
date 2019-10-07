@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 12:42+0700\n"
+"POT-Creation-Date: 2019-09-17 15:15+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,7 +59,8 @@ msgstr "Agency"
 msgid "Booking management"
 msgstr "Booking"
 
-#: conf/templates/conf/base.html:101
+#: conf/templates/conf/base.html:101 timesheet/models.py:10
+#: timesheet/templates/timesheet/timesheet_list.html:14
 msgid "Staff"
 msgstr "Staff"
 
@@ -104,6 +105,7 @@ msgstr "No golf club"
 #: golf/templates/golf/agency_booking_list.html:81
 #: golf/templates/golf/staff_booking_list.html:79
 #: golf/templates/golf/staff_booking_list.html:102
+#: timesheet/templates/timesheet/timesheet_list.html:17
 msgid "Golf club"
 msgstr "Golf club"
 
@@ -121,11 +123,13 @@ msgstr "Golf"
 
 #: golf/forms.py:16 golf/templates/golf/agency_booking_list.html:96
 #: golf/templates/golf/staff_booking_list.html:117
+#: timesheet/templates/timesheet/timesheet_list.html:32
 msgid "Customer"
 msgstr "Customer"
 
 #: golf/forms.py:17 golf/forms.py:205 golf/models.py:109 golf/models.py:572
 #: golf/models.py:775 golf/templates/golf/_booking_detail.html:247
+#: timesheet/models.py:57
 msgid "Memo"
 msgstr "Memo"
 
@@ -141,6 +145,7 @@ msgstr "Time slot"
 #: golf/forms.py:144 golf/templates/golf/_booking_detail.html:81
 #: golf/templates/golf/agency_booking_list.html:84
 #: golf/templates/golf/staff_booking_list.html:105
+#: timesheet/templates/timesheet/timesheet_list.html:20
 msgid "Round date/time"
 msgstr "Round date/time"
 
@@ -148,6 +153,7 @@ msgstr "Round date/time"
 #: golf/templates/golf/_booking_detail.html:181
 #: golf/templates/golf/agency_booking_list.html:87
 #: golf/templates/golf/staff_booking_list.html:108
+#: timesheet/templates/timesheet/timesheet_list.html:23
 msgid "No. of people"
 msgstr "No. of people"
 
@@ -654,6 +660,7 @@ msgstr "Status/Created"
 #: golf/templates/golf/_booking_detail.html:34
 #: golf/templates/golf/_booking_form.html:45
 #: golf/templates/golf/staff_booking_list.html:120
+#: timesheet/templates/timesheet/timesheet_list.html:35
 msgid "Agency / Agent"
 msgstr "Agency/Agent"
 
@@ -661,6 +668,7 @@ msgstr "Agency/Agent"
 #: golf/templates/golf/_booking_form.html:222
 #: golf/templates/golf/agency_booking_list.html:93
 #: golf/templates/golf/staff_booking_list.html:114
+#: timesheet/templates/timesheet/timesheet_list.html:29
 msgid "Fee"
 msgstr "Fee"
 
@@ -732,6 +740,7 @@ msgstr "Make order"
 
 #: golf/templates/golf/agency_booking_list.html:90
 #: golf/templates/golf/staff_booking_list.html:111
+#: timesheet/templates/timesheet/timesheet_list.html:26
 msgid "Season / Day of week / Slot"
 msgstr "Season / Day of week / Slot"
 
@@ -1220,3 +1229,41 @@ msgstr "Social Network Login Failure"
 #: member/views.py:264
 msgid "Connect with SNS accounts"
 msgstr "Connect with SNS accounts"
+
+#: timesheet/models.py:18
+#, fuzzy
+#| msgid "Round time"
+msgid "Punch-in time"
+msgstr "Round time"
+
+#: timesheet/models.py:23
+msgid "Punch-out time"
+msgstr ""
+
+#: timesheet/models.py:29
+msgid "Punch-in latitude"
+msgstr ""
+
+#: timesheet/models.py:35
+msgid "Punch-in longitude"
+msgstr ""
+
+#: timesheet/models.py:41
+msgid "Punch-out latitude"
+msgstr ""
+
+#: timesheet/models.py:49
+msgid "Punch-out longitude"
+msgstr ""
+
+#: timesheet/models.py:63
+#, fuzzy
+#| msgid "Time slot"
+msgid "Time sheet"
+msgstr "Time slot"
+
+#: timesheet/models.py:64
+#, fuzzy
+#| msgid "Time slot"
+msgid "Time sheets"
+msgstr "Time slot"

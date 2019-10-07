@@ -1,0 +1,69 @@
+{% extends 'conf/base.html' %}
+
+{% load i18n static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <h1 class="title has-text-centered">{{ page_title }}</h1>
+
+            <div class="columns is-centered">
+                <div class="column is-four-fifths">
+                    <form action="{% url 'timesheet:timesheet-punch-in' %}" method="post" id="punch_form">
+                        {% csrf_token %}
+
+                        {% if form.non_field_errors %}
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                </div>
+                                <ul class="field-body notification is-danger">
+                                    {% for error in form.non_field_errors %}
+                                        <li>{{ error|escape }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+
+                        {{ form.longitude }}
+
+                        {{ form.latitude }}
+
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control is-expanded">
+                                        <button class="button is-link is-fullwidth">
+                                            <span class="icon"><i class="fas fa-clipboard-list"></i></span>
+                                            <span>{% trans 'Punch-in now' %}</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="control is-expanded">
+                                        <a href="{% url 'timesheet:timesheet-list' %}"
+                                           class="button is-dark is-fullwidth">
+                                            <span class="icon"><i class="far fa-list-alt"></i></span>
+                                            <span>{% trans 'Time sheet' %}</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script type="text/javascript"
+            src="{% static "conf/js/csrf-cookie.js" %}"></script>
+    <script type="text/javascript"
+            src="{% static "timesheet/js/punch.js" %}"></script>
+{% endblock %}

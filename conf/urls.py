@@ -22,6 +22,9 @@ urlpatterns = [
 
     path('golf/',
          include('golf.urls', namespace='golf')),
+
+    path('timesheet/',
+         include('timesheet.urls', namespace='timesheet')),
 ]
 
 if settings.DEBUG:

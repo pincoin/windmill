@@ -45,6 +45,7 @@ INSTALLED_APPS += [
 INSTALLED_APPS += [
     'member',
     'golf',
+    'timesheet',
 ]
 
 MIDDLEWARE = [
